@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – DMIT | Digital Marketing IT Institute Sri Lanka</title>
+  <meta name="description" content="Get in touch with DMIT. Ask about our courses, enrolment, or career support. We'd love to hear from you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="mainNav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">DM</div>
+        <span class="nav-logo-text">DM<span>IT</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="courses.html" class="btn btn-primary btn-sm">Explore Courses</a>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <nav class="nav-mobile">
+    <a href="index.html">Home</a>
+    <a href="about.html">About DMIT</a>
+    <a href="courses.html">Courses</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="courses.html" class="btn btn-primary">Explore Courses</a>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container page-hero-content">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep"><i class="fa-solid fa-chevron-right" style="font-size:.65rem"></i></span>
+        <span style="color:rgba(255,255,255,.8)">Contact Us</span>
+      </nav>
+      <h1>Get in <span class="grad-text">Touch</span></h1>
+      <p>Whether you have a question about our courses, pricing, or just want to say hello — we're here and happy to help.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Contact info cards -->
+      <div class="contact-cards">
+        <div class="contact-card animate-on-scroll">
+          <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <h4>Visit Us</h4>
+          <p>No. 42, Dharmapala Mawatha,<br />Colombo 03, Sri Lanka</p>
+          <p style="margin-top:.625rem;"><a href="#map">View on Map &rarr;</a></p>
+        </div>
+        <div class="contact-card animate-on-scroll" data-delay="100">
+          <div class="contact-card-icon"><i class="fa-solid fa-phone"></i></div>
+          <h4>Call or WhatsApp</h4>
+          <p>
+            <a href="tel:+94112345678">+94 11 234 5678</a><br />
+            <a href="tel:+94771234567">+94 77 123 4567</a>
+          </p>
+          <p style="margin-top:.625rem; font-size:.875rem; color:var(--text-muted);">Mon–Fri, 8:30am – 5:30pm</p>
+        </div>
+        <div class="contact-card animate-on-scroll" data-delay="200">
+          <div class="contact-card-icon"><i class="fa-solid fa-envelope"></i></div>
+          <h4>Email Us</h4>
+          <p>
+            <a href="mailto:info@dmit.lk">info@dmit.lk</a><br />
+            <a href="mailto:admissions@dmit.lk">admissions@dmit.lk</a>
+          </p>
+          <p style="margin-top:.625rem; font-size:.875rem; color:var(--text-muted);">We reply within 24 hours</p>
+        </div>
+      </div>
+
+      <!-- Form + Info layout -->
+      <div class="contact-layout">
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrap animate-on-scroll">
+          <h3>Send Us a Message</h3>
+          <p>Fill in the form and our team will get back to you within one business day.</p>
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" placeholder="Amali" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" placeholder="Silva" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="amali@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp</label>
+              <input type="tel" id="phone" placeholder="+94 77 000 0000" />
+            </div>
+            <div class="form-group">
+              <label for="subject">I'm interested in…</label>
+              <select id="subject">
+                <option value="">Select a topic</option>
+                <option>Complete Digital Marketing Bootcamp</option>
+                <option>Social Media Marketing</option>
+                <option>SEO &amp; Content Marketing</option>
+                <option>Google Ads &amp; PPC</option>
+                <option>Web Development</option>
+                <option>Graphic Design</option>
+                <option>Other / General Enquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Tell us a bit about yourself and what you're hoping to achieve…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+          <div class="form-success">
+            <i class="fa-solid fa-circle-check"></i>
+            <h4>Message Sent!</h4>
+            <p>Thank you for reaching out. Our team will get back to you within one business day.</p>
+          </div>
+        </div>
+
+        <!-- Info side -->
+        <div class="animate-on-scroll" data-delay="150">
+          <h3>We'd Love to Hear From You</h3>
+          <p>Whether you're a complete beginner wondering where to start, a professional looking to upskill, or a business that wants to train its team — DMIT's advisors are ready to help you find the perfect path.</p>
+
+          <div class="contact-detail-list">
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-detail-text">
+                <h5>Our Location</h5>
+                <p>No. 42, Dharmapala Mawatha, Colombo 03, Sri Lanka</p>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="contact-detail-text">
+                <h5>Office Hours</h5>
+                <p>Monday – Friday: 8:30am – 5:30pm<br />Saturday: 9:00am – 1:00pm<br />Sunday &amp; Holidays: Closed</p>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div class="contact-detail-text">
+                <h5>WhatsApp Support</h5>
+                <a href="tel:+94771234567">+94 77 123 4567</a>
+                <p style="margin-top:.25rem; font-size:.85rem; color:var(--text-muted);">Quick replies during office hours</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <h5 style="font-size:.875rem; font-weight:700; margin-bottom:.875rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted);">Follow Us</h5>
+          <div class="contact-social">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fa-brands fa-youtube"></i> YouTube</a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="contact-map" id="map">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <p style="font-weight:600; color:var(--text-2);">No. 42, Dharmapala Mawatha, Colombo 03</p>
+            <p style="font-size:.8125rem;">Embed Google Map here</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section" style="background:var(--bg-light);">
+    <div class="container">
+      <div class="section-head animate-on-scroll">
+        <div class="label"><i class="fa-solid fa-circle-question"></i> FAQ</div>
+        <h2>Common <span class="grad-text">Questions</span></h2>
+        <p>Quick answers to the questions we get asked most often.</p>
+      </div>
+      <div style="max-width:720px; margin-inline:auto; display:flex; flex-direction:column; gap:1rem;">
+
+        <div class="content-box animate-on-scroll" style="padding:1.5rem; margin-bottom:0;">
+          <h4 style="font-size:1rem; font-weight:700; margin-bottom:.5rem; display:flex; gap:.75rem; align-items:center;">
+            <span style="color:var(--primary); font-size:1.125rem;">Q.</span> Are the courses available online or only in Colombo?
+          </h4>
+          <p style="color:var(--text-2); font-size:.9375rem; line-height:1.7; padding-left:2rem;">All our courses are available fully online, so you can learn from anywhere in Sri Lanka or abroad. We also offer in-person sessions in Colombo for students who prefer a classroom environment.</p>
+        </div>
+
+        <div class="content-box animate-on-scroll" style="padding:1.5rem; margin-bottom:0;" data-delay="80">
+          <h4 style="font-size:1rem; font-weight:700; margin-bottom:.5rem; display:flex; gap:.75rem; align-items:center;">
+            <span style="color:var(--primary); font-size:1.125rem;">Q.</span> Do I need prior experience to enrol?
+          </h4>
+          <p style="color:var(--text-2); font-size:.9375rem; line-height:1.7; padding-left:2rem;">Most of our courses are designed for complete beginners. We do offer intermediate and advanced tracks for those with existing knowledge — each course page clearly states the level required.</p>
+        </div>
+
+        <div class="content-box animate-on-scroll" style="padding:1.5rem; margin-bottom:0;" data-delay="160">
+          <h4 style="font-size:1rem; font-weight:700; margin-bottom:.5rem; display:flex; gap:.75rem; align-items:center;">
+            <span style="color:var(--primary); font-size:1.125rem;">Q.</span> Are DMIT certificates recognised by employers?
+          </h4>
+          <p style="color:var(--text-2); font-size:.9375rem; line-height:1.7; padding-left:2rem;">Yes. DMIT certificates are widely recognised across Sri Lanka and are verifiable digitally. We are also an authorised Google and Meta training partner, so qualifying courses come with internationally recognised credentials.</p>
+        </div>
+
+        <div class="content-box animate-on-scroll" style="padding:1.5rem; margin-bottom:0;" data-delay="240">
+          <h4 style="font-size:1rem; font-weight:700; margin-bottom:.5rem; display:flex; gap:.75rem; align-items:center;">
+            <span style="color:var(--primary); font-size:1.125rem;">Q.</span> Can I pay in instalments?
+          </h4>
+          <p style="color:var(--text-2); font-size:.9375rem; line-height:1.7; padding-left:2rem;">Absolutely. We offer flexible payment plans for all our courses. Get in touch with our team and we'll set up a plan that works for you.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner animate-on-scroll">
+        <h2>Ready to Start Your <span>Digital Journey?</span></h2>
+        <p>Explore our courses and take the first step towards a future-proof career in digital marketing.</p>
+        <div class="cta-actions">
+          <a href="courses.html" class="btn btn-white btn-lg">
+            <i class="fa-solid fa-rocket"></i> Browse All Courses
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">DM</div>
+            <span class="nav-logo-text">DM<span>IT</span></span>
+          </a>
+          <p>Sri Lanka's premier Digital Marketing IT Institute. Empowering professionals with industry-ready skills since 2015.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i> Home</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i> About DMIT</a></li>
+            <li><a href="courses.html"><i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i> All Courses</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i> Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Courses</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html"><i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i> Digital Marketing</a></li>
+            <li><a href="courses.html"><i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i> SEO & Content</a></li>
+            <li><a href="courses.html"><i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i> Social Media</a></li>
+            <li><a href="courses.html"><i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i> Google Ads & PPC</a></li>
+            <li><a href="courses.html"><i class="fa-solid fa-chevron-right" style="font-size:.6rem"></i> Web Development</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Get the latest course launches, tips, and digital marketing news delivered to your inbox.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email address" />
+            <button type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 DMIT – Digital Marketing IT Institute. All rights reserved.</span>
+        <span>
+          <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+          <a href="#">Terms of Service</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
