@@ -1,159 +1,152 @@
-/* ===================================================================
+/* ===========================
    DMIT – Main JavaScript
-   =================================================================== */
+   =========================== */
 
-/* ---------- Navigation ---------- */
-const nav       = document.querySelector('.nav');
-const hamburger = document.querySelector('.nav-hamburger');
-const mobileNav = document.querySelector('.nav-mobile');
+/* ---- Nav scroll shadow ---- */
+(function () {
+  var nav = document.getElementById('mainNav');
+  if (!nav) return;
+  function onScroll() {
+    if (window.scrollY > 20) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
 
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
-});
-
-if (hamburger) {
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
+/* ---- Mobile menu toggle ---- */
+(function () {
+  var hamburger = document.querySelector('.nav-hamburger');
+  var mobileNav = document.querySelector('.nav-mobile');
+  if (!hamburger || !mobileNav) return;
+  hamburger.addEventListener('click', function () {
     mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('active');
   });
-  document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && !mobileNav.contains(e.target)) {
-      hamburger.classList.remove('open');
+  // Close on link click
+  mobileNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
       mobileNav.classList.remove('open');
-    }
-  });
-}
-
-// Close mobile nav on link click
-document.querySelectorAll('.nav-mobile a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger?.classList.remove('open');
-    mobileNav?.classList.remove('open');
-  });
-});
-
-// Active nav link
-const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPath || (currentPath === '' && href === 'index.html')) {
-    link.classList.add('active');
-  }
-});
-
-/* ---------- Scroll Animations ---------- */
-const animatedEls = document.querySelectorAll('.animate-on-scroll');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      const delay = entry.target.dataset.delay || 0;
-      setTimeout(() => entry.target.classList.add('visible'), delay);
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-animatedEls.forEach(el => observer.observe(el));
-
-/* ---------- Stats Counter ---------- */
-function animateCounter(el) {
-  const target = parseFloat(el.dataset.target);
-  const suffix = el.dataset.suffix || '';
-  const prefix = el.dataset.prefix || '';
-  const duration = 1800;
-  const start = performance.now();
-
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = eased * target;
-    el.textContent = prefix + (Number.isInteger(target) ? Math.round(current) : current.toFixed(1)) + suffix;
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-
-const statEls = document.querySelectorAll('[data-target]');
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      statObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-statEls.forEach(el => statObserver.observe(el));
-
-/* ---------- Curriculum Accordion ---------- */
-document.querySelectorAll('.curr-header').forEach(header => {
-  header.addEventListener('click', () => {
-    const lessons = header.nextElementSibling;
-    const isOpen = header.classList.contains('open');
-    document.querySelectorAll('.curr-header.open').forEach(h => {
-      h.classList.remove('open');
-      h.nextElementSibling.classList.remove('open');
-    });
-    if (!isOpen) {
-      header.classList.add('open');
-      lessons.classList.add('open');
-    }
-  });
-});
-
-/* ---------- Course Filter Pills ---------- */
-document.querySelectorAll('.filter-pill').forEach(pill => {
-  pill.addEventListener('click', () => {
-    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
-    filterCourses(pill.dataset.filter);
-  });
-});
-
-function filterCourses(filter) {
-  document.querySelectorAll('.course-card').forEach(card => {
-    const match = filter === 'all' || card.dataset.category === filter;
-    card.style.display = match ? '' : 'none';
-  });
-}
-
-// Course search
-const searchInput = document.querySelector('.filter-search input');
-if (searchInput) {
-  searchInput.addEventListener('input', () => {
-    const q = searchInput.value.toLowerCase();
-    document.querySelectorAll('.course-card').forEach(card => {
-      const title = card.querySelector('.course-card-title')?.textContent.toLowerCase() || '';
-      card.style.display = title.includes(q) ? '' : 'none';
+      hamburger.classList.remove('active');
     });
   });
-}
+})();
 
-/* ---------- Contact Form ---------- */
-const contactForm = document.querySelector('#contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = contactForm.querySelector('button[type="submit"]');
-    const success = document.querySelector('.form-success');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-    setTimeout(() => {
-      contactForm.style.display = 'none';
-      if (success) success.style.display = 'block';
-    }, 1200);
+/* ---- FAQ Accordion ---- */
+(function () {
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function (item) {
+    var question = item.querySelector('.faq-question');
+    var toggle = item.querySelector('.faq-toggle');
+    if (!question) return;
+    question.addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
+      // Close all
+      items.forEach(function (i) {
+        i.classList.remove('open');
+        var t = i.querySelector('.faq-toggle');
+        if (t) t.textContent = '+';
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        if (toggle) toggle.textContent = '×';
+      }
+    });
   });
-}
+})();
 
-/* ---------- Smooth scroll for anchor links ---------- */
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset - 16;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+/* ---- Curriculum Accordion (course detail) ---- */
+(function () {
+  var headers = document.querySelectorAll('.curriculum-header');
+  headers.forEach(function (header) {
+    header.addEventListener('click', function () {
+      var body = header.nextElementSibling;
+      if (!body) return;
+      body.classList.toggle('open');
+      var arrow = header.querySelector('.curr-arrow');
+      if (arrow) arrow.textContent = body.classList.contains('open') ? '▲' : '▼';
+    });
   });
-});
+})();
+
+/* ---- Scroll Animations (IntersectionObserver) ---- */
+(function () {
+  var els = document.querySelectorAll('.fade-in');
+  if (!els.length) return;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function (el) { observer.observe(el); });
+})();
+
+/* ---- Stats Counter Animation ---- */
+(function () {
+  var counters = document.querySelectorAll('[data-count]');
+  if (!counters.length) return;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var duration = 1800;
+      var start = performance.now();
+      function update(now) {
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.3 });
+  counters.forEach(function (el) { observer.observe(el); });
+})();
+
+/* ---- Category horizontal scroll ---- */
+(function () {
+  var scroll = document.querySelector('.categories-scroll');
+  var btnPrev = document.querySelector('.cat-scroll-btn[data-dir="prev"]');
+  var btnNext = document.querySelector('.cat-scroll-btn[data-dir="next"]');
+  if (!scroll) return;
+  var step = 180;
+  if (btnPrev) {
+    btnPrev.addEventListener('click', function () {
+      scroll.scrollBy({ left: -step, behavior: 'smooth' });
+    });
+  }
+  if (btnNext) {
+    btnNext.addEventListener('click', function () {
+      scroll.scrollBy({ left: step, behavior: 'smooth' });
+    });
+  }
+})();
+
+/* ---- Filter pills (courses page) ---- */
+(function () {
+  var pills = document.querySelectorAll('.filter-pill');
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      pills.forEach(function (p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+    });
+  });
+})();
+
+/* ---- Testimonials prev/next (no-op cosmetic) ---- */
+(function () {
+  var btnPrev = document.querySelector('.testi-btn[data-dir="prev"]');
+  var btnNext = document.querySelector('.testi-btn[data-dir="next"]');
+  // Future enhancement: carousel logic
+})();
