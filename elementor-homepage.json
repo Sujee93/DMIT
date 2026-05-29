@@ -1,0 +1,989 @@
+{
+  "version": "0.4",
+  "title": "DMIT Homepage – Modern BrightMind Style",
+  "type": "page",
+  "content": [
+
+    {
+      "id": "aa11bb22",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false },
+        "min_height": "100vh",
+        "height": "min-height",
+        "stretch_section": "section-stretched",
+        "gap": "no",
+        "layout": "full_width",
+        "structure": "20"
+      },
+      "elements": [
+        {
+          "id": "cc33dd44",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 55,
+            "padding": { "unit": "px", "top": "140", "right": "60", "bottom": "80", "left": "80", "isLinked": false },
+            "vertical_alignment": "middle"
+          },
+          "elements": [
+            {
+              "id": "ee55ff66",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:inline-flex;align-items:center;gap:8px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:50px;padding:8px 18px;font-size:14px;font-weight:600;color:#EA580C;font-family:Outfit,sans-serif;margin-bottom:24px;\">🏆 Best Digital Marketing Institute in Sri Lanka</div>"
+              }
+            },
+            {
+              "id": "aa77bb88",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Learn Digital Marketing With <span style=\"background:linear-gradient(135deg,#2563EB 0%,#7C3AED 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline;\">Top DMIT Courses</span>",
+                "header_size": "h1",
+                "title_color": "#1A1A2E",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 54, "sizes": [] },
+                "typography_font_size_mobile": { "unit": "px", "size": 34, "sizes": [] },
+                "typography_font_weight": "900",
+                "typography_line_height": { "unit": "em", "size": 1.1, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "20", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "cc99dd00",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Join thousands of professionals who have transformed their careers with DMIT’s industry-certified digital marketing programmes — SEO, Google Ads, Social Media, and more.</p>",
+                "text_color": "#6B7280",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 17, "sizes": [] },
+                "typography_line_height": { "unit": "em", "size": 1.7, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "32", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "ee11ff22",
+              "elType": "section",
+              "isInner": true,
+              "settings": {
+                "layout": "full_width",
+                "gap": "no",
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "40", "left": "0", "isLinked": false }
+              },
+              "elements": [
+                {
+                  "id": "aa33bb44",
+                  "elType": "column",
+                  "settings": { "_inline_size": null },
+                  "elements": [
+                    {
+                      "id": "cc55dd66",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Explore Courses →",
+                        "link": { "url": "courses/", "is_external": false, "nofollow": false },
+                        "align": "left",
+                        "background_color": "#0F172A",
+                        "hover_background_color": "#1E293B",
+                        "button_text_color": "#ffffff",
+                        "hover_color": "#ffffff",
+                        "border_radius": { "unit": "px", "top": 50, "right": 50, "bottom": 50, "left": 50, "isLinked": true },
+                        "text_padding": { "unit": "px", "top": "14", "right": "28", "bottom": "14", "left": "28", "isLinked": false },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Outfit",
+                        "typography_font_weight": "600",
+                        "typography_font_size": { "unit": "px", "size": 15, "sizes": [] }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "ee77ff88",
+                  "elType": "column",
+                  "settings": { "_inline_size": null },
+                  "elements": [
+                    {
+                      "id": "aa99bb00",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Learn More",
+                        "link": { "url": "about/", "is_external": false, "nofollow": false },
+                        "align": "left",
+                        "background_color": "rgba(0,0,0,0)",
+                        "button_text_color": "#1A1A2E",
+                        "hover_color": "#2563EB",
+                        "border_border": "solid",
+                        "border_width": { "unit": "px", "top": "2", "right": "2", "bottom": "2", "left": "2", "isLinked": true },
+                        "border_color": "#E5E7EB",
+                        "hover_border_color": "#2563EB",
+                        "border_radius": { "unit": "px", "top": 50, "right": 50, "bottom": 50, "left": 50, "isLinked": true },
+                        "text_padding": { "unit": "px", "top": "14", "right": "28", "bottom": "14", "left": "28", "isLinked": false },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Outfit",
+                        "typography_font_weight": "600",
+                        "typography_font_size": { "unit": "px", "size": 15, "sizes": [] }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "cc11dd22",
+                  "elType": "column",
+                  "settings": { "_inline_size": null },
+                  "elements": []
+                }
+              ]
+            },
+            {
+              "id": "ee33ff44",
+              "elType": "section",
+              "isInner": true,
+              "settings": { "layout": "full_width", "gap": "no" },
+              "elements": [
+                {
+                  "id": "aa55bb66_c1",
+                  "elType": "column",
+                  "settings": { "_inline_size": null },
+                  "elements": [
+                    {
+                      "id": "cc77dd88",
+                      "elType": "widget",
+                      "widgetType": "counter",
+                      "settings": {
+                        "starting_number": 0,
+                        "ending_number": 5000,
+                        "suffix": "+",
+                        "title": "Students Enrolled",
+                        "number_color": "#1A1A2E",
+                        "title_color": "#6B7280",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Outfit",
+                        "typography_font_weight": "900",
+                        "typography_font_size": { "unit": "px", "size": 30, "sizes": [] },
+                        "title_typography_typography": "custom",
+                        "title_typography_font_family": "Outfit",
+                        "title_typography_font_size": { "unit": "px", "size": 13, "sizes": [] }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "aa55bb66_c2",
+                  "elType": "column",
+                  "settings": { "_inline_size": null },
+                  "elements": [
+                    {
+                      "id": "ee99ff00",
+                      "elType": "widget",
+                      "widgetType": "counter",
+                      "settings": {
+                        "starting_number": 0,
+                        "ending_number": 40,
+                        "suffix": "+",
+                        "title": "Expert Courses",
+                        "number_color": "#1A1A2E",
+                        "title_color": "#6B7280",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Outfit",
+                        "typography_font_weight": "900",
+                        "typography_font_size": { "unit": "px", "size": 30, "sizes": [] },
+                        "title_typography_typography": "custom",
+                        "title_typography_font_family": "Outfit",
+                        "title_typography_font_size": { "unit": "px", "size": 13, "sizes": [] }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "aa55bb66_c3",
+                  "elType": "column",
+                  "settings": { "_inline_size": null },
+                  "elements": [
+                    {
+                      "id": "aa11cc22",
+                      "elType": "widget",
+                      "widgetType": "counter",
+                      "settings": {
+                        "starting_number": 0,
+                        "ending_number": 93,
+                        "suffix": "%",
+                        "title": "Success Rate",
+                        "number_color": "#1A1A2E",
+                        "title_color": "#6B7280",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Outfit",
+                        "typography_font_weight": "900",
+                        "typography_font_size": { "unit": "px", "size": 30, "sizes": [] },
+                        "title_typography_typography": "custom",
+                        "title_typography_font_family": "Outfit",
+                        "title_typography_font_size": { "unit": "px", "size": 13, "sizes": [] }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bb33cc44",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 45,
+            "vertical_alignment": "middle",
+            "padding": { "unit": "px", "top": "60", "right": "80", "bottom": "60", "left": "20", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "dd55ee66",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"position:relative;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;\"><div style=\"border-radius:20px;overflow:hidden;\"><img src=\"https://picsum.photos/seed/dmit-hero1/280/380\" style=\"width:100%;height:380px;object-fit:cover;border-radius:20px;display:block;\" alt=\"DMIT Student\" /></div><div style=\"background:linear-gradient(135deg,#FF6B6B,#FF8E53);border-radius:20px;padding:24px 20px;text-align:center;min-width:160px;\"><div style=\"display:flex;justify-content:center;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/av1/40/40\" style=\"width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.6);margin-left:-8px;\" /><img src=\"https://picsum.photos/seed/av2/40/40\" style=\"width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.6);margin-left:-10px;\" /><img src=\"https://picsum.photos/seed/av3/40/40\" style=\"width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.6);margin-left:-10px;\" /></div><div style=\"font-size:28px;font-weight:900;color:#fff;font-family:Outfit,sans-serif;line-height:1;\">5,000+</div><div style=\"font-size:12px;color:rgba(255,255,255,.85);font-family:Outfit,sans-serif;margin:6px 0 14px;\">Happy Students</div><div style=\"font-size:13px;color:rgba(255,255,255,.9);font-family:Outfit,sans-serif;font-style:italic;line-height:1.5;\">&ldquo;DMIT transformed my career in digital marketing!&rdquo;</div></div><div style=\"border-radius:20px;overflow:hidden;\"><img src=\"https://picsum.photos/seed/dmit-hero2/260/340\" style=\"width:100%;height:340px;object-fit:cover;border-radius:20px;display:block;\" alt=\"DMIT Class\" /></div></div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "pp11qq22",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9FAFB",
+        "padding": { "unit": "px", "top": "40", "right": "0", "bottom": "40", "left": "0", "isLinked": false },
+        "border_border": "solid",
+        "border_width": { "unit": "px", "top": "1", "right": "0", "bottom": "1", "left": "0", "isLinked": false },
+        "border_color": "#E5E7EB"
+      },
+      "elements": [
+        {
+          "id": "rr33ss44",
+          "elType": "column",
+          "settings": { "_inline_size": null },
+          "elements": [
+            {
+              "id": "tt55uu66",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;\"><p style=\"font-size:13px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.1em;font-family:Outfit,sans-serif;margin-bottom:28px;\">Trusted by professionals working at</p><div style=\"display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;\"><span style=\"font-size:18px;font-weight:800;color:#D1D5DB;font-family:Outfit,sans-serif;letter-spacing:-.02em;\">GOOGLE</span><span style=\"font-size:18px;font-weight:800;color:#D1D5DB;font-family:Outfit,sans-serif;letter-spacing:-.02em;\">META</span><span style=\"font-size:18px;font-weight:800;color:#D1D5DB;font-family:Outfit,sans-serif;letter-spacing:-.02em;\">HUBSPOT</span><span style=\"font-size:18px;font-weight:800;color:#D1D5DB;font-family:Outfit,sans-serif;letter-spacing:-.02em;\">SEMRUSH</span><span style=\"font-size:18px;font-weight:800;color:#D1D5DB;font-family:Outfit,sans-serif;letter-spacing:-.02em;\">CANVA</span><span style=\"font-size:18px;font-weight:800;color:#D1D5DB;font-family:Outfit,sans-serif;letter-spacing:-.02em;\">SHOPIFY</span></div></div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "cc11dd22_cat",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "90", "right": "0", "bottom": "90", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "ee33ff44_c1",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 38,
+            "padding": { "unit": "px", "top": "0", "right": "60", "bottom": "0", "left": "0", "isLinked": false },
+            "vertical_alignment": "middle"
+          },
+          "elements": [
+            {
+              "id": "aa55bb66_lbl",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#2563EB;background:rgba(37,99,235,.08);padding:6px 14px;border-radius:50px;margin-bottom:16px;font-family:Outfit,sans-serif;\">📚 Browse Categories</div>"
+              }
+            },
+            {
+              "id": "cc77dd88_h",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Explore Course <span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">Categories</span>",
+                "header_size": "h2",
+                "title_color": "#1A1A2E",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 42, "sizes": [] },
+                "typography_font_weight": "800",
+                "typography_line_height": { "unit": "em", "size": 1.15, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "ee99ff00_t",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>From digital marketing to web development — explore all our professional course categories and find your perfect path.</p>",
+                "text_color": "#6B7280",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 16, "sizes": [] },
+                "typography_line_height": { "unit": "em", "size": 1.7, "sizes": [] }
+              }
+            }
+          ]
+        },
+        {
+          "id": "aa11bb22_c2",
+          "elType": "column",
+          "settings": { "_inline_size": 62 },
+          "elements": [
+            {
+              "id": "cc33dd44_grid",
+              "elType": "section",
+              "isInner": true,
+              "settings": {
+                "layout": "full_width",
+                "gap": "default",
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+              },
+              "elements": [
+                { "id": "cat_col_1", "elType": "column", "settings": { "_inline_size": null }, "elements": [ { "id": "cat_w_1", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#FFF0F3;border-radius:16px;padding:24px 20px;text-align:center;transition:box-shadow .2s;\"><div style=\"font-size:32px;margin-bottom:12px;\">🎯</div><div style=\"font-size:14px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:4px;\">Digital Marketing</div><div style=\"font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;\">12 Courses</div></div>" } } ] },
+                { "id": "cat_col_2", "elType": "column", "settings": { "_inline_size": null }, "elements": [ { "id": "cat_w_2", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#F0F4FF;border-radius:16px;padding:24px 20px;text-align:center;\"><div style=\"font-size:32px;margin-bottom:12px;\">📱</div><div style=\"font-size:14px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:4px;\">Social Media</div><div style=\"font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;\">8 Courses</div></div>" } } ] },
+                { "id": "cat_col_3", "elType": "column", "settings": { "_inline_size": null }, "elements": [ { "id": "cat_w_3", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#F0FFF4;border-radius:16px;padding:24px 20px;text-align:center;\"><div style=\"font-size:32px;margin-bottom:12px;\">🔍</div><div style=\"font-size:14px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:4px;\">SEO &amp; Content</div><div style=\"font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;\">10 Courses</div></div>" } } ] },
+                { "id": "cat_col_4", "elType": "column", "settings": { "_inline_size": null }, "elements": [ { "id": "cat_w_4", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#FFFBF0;border-radius:16px;padding:24px 20px;text-align:center;\"><div style=\"font-size:32px;margin-bottom:12px;\">📈</div><div style=\"font-size:14px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:4px;\">Google Ads</div><div style=\"font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;\">6 Courses</div></div>" } } ] }
+              ]
+            },
+            {
+              "id": "cc33dd44_grid2",
+              "elType": "section",
+              "isInner": true,
+              "settings": { "layout": "full_width", "gap": "default" },
+              "elements": [
+                { "id": "cat_col_5", "elType": "column", "settings": { "_inline_size": null }, "elements": [ { "id": "cat_w_5", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#F0FFFE;border-radius:16px;padding:24px 20px;text-align:center;\"><div style=\"font-size:32px;margin-bottom:12px;\">💻</div><div style=\"font-size:14px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:4px;\">Web Dev</div><div style=\"font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;\">9 Courses</div></div>" } } ] },
+                { "id": "cat_col_6", "elType": "column", "settings": { "_inline_size": null }, "elements": [ { "id": "cat_w_6", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#FDF0FF;border-radius:16px;padding:24px 20px;text-align:center;\"><div style=\"font-size:32px;margin-bottom:12px;\">🎨</div><div style=\"font-size:14px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:4px;\">Design</div><div style=\"font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;\">7 Courses</div></div>" } } ] },
+                { "id": "cat_col_7", "elType": "column", "settings": { "_inline_size": null }, "elements": [ { "id": "cat_w_7", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#F0F8FF;border-radius:16px;padding:24px 20px;text-align:center;\"><div style=\"font-size:32px;margin-bottom:12px;\">📊</div><div style=\"font-size:14px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:4px;\">Analytics</div><div style=\"font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;\">5 Courses</div></div>" } } ] },
+                { "id": "cat_col_8", "elType": "column", "settings": { "_inline_size": null }, "elements": [ { "id": "cat_w_8", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#FFF5F0;border-radius:16px;padding:24px 20px;text-align:center;\"><div style=\"font-size:32px;margin-bottom:12px;\">📧</div><div style=\"font-size:14px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:4px;\">Email Marketing</div><div style=\"font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;\">4 Courses</div></div>" } } ] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "crs_head_sec",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9FAFB",
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "48", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "crs_head_col",
+          "elType": "column",
+          "settings": { "_inline_size": null },
+          "elements": [
+            {
+              "id": "crs_head_inner",
+              "elType": "section",
+              "isInner": true,
+              "settings": { "layout": "full_width", "gap": "no" },
+              "elements": [
+                {
+                  "id": "crs_h_c1",
+                  "elType": "column",
+                  "settings": { "_inline_size": null, "vertical_alignment": "bottom" },
+                  "elements": [
+                    {
+                      "id": "crs_heading_w",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Most Popular <span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">Courses</span>",
+                        "header_size": "h2",
+                        "title_color": "#1A1A2E",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Outfit",
+                        "typography_font_size": { "unit": "px", "size": 42, "sizes": [] },
+                        "typography_font_weight": "800",
+                        "typography_line_height": { "unit": "em", "size": 1.15, "sizes": [] }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "crs_h_c2",
+                  "elType": "column",
+                  "settings": { "_inline_size": null, "vertical_alignment": "bottom" },
+                  "elements": [
+                    {
+                      "id": "crs_viewall_w",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "View All Courses →",
+                        "link": { "url": "courses/", "is_external": false, "nofollow": false },
+                        "align": "right",
+                        "background_color": "rgba(0,0,0,0)",
+                        "button_text_color": "#2563EB",
+                        "hover_color": "#7C3AED",
+                        "border_border": "none",
+                        "text_padding": { "unit": "px", "top": "10", "right": "0", "bottom": "10", "left": "0", "isLinked": false },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Outfit",
+                        "typography_font_weight": "600",
+                        "typography_font_size": { "unit": "px", "size": 15, "sizes": [] }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "crs_grid_sec",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9FAFB",
+        "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false },
+        "gap": "default"
+      },
+      "elements": [
+        {
+          "id": "crs_c1",
+          "elType": "column",
+          "settings": {
+            "_inline_size": null,
+            "padding": { "unit": "px", "top": "0", "right": "12", "bottom": "0", "left": "0", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "crs_w1",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"background:#fff;border-radius:16px;overflow:hidden;border:1px solid #E5E7EB;transition:box-shadow .2s;\" onmouseover=\"this.style.boxShadow='0 12px 40px rgba(0,0,0,.12)'\" onmouseout=\"this.style.boxShadow='none'\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course1/400/220\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" alt=\"Course\" /><span style=\"position:absolute;top:12px;left:12px;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:50px;font-family:Outfit,sans-serif;\">Bestseller</span></div><div style=\"padding:20px;\"><div style=\"font-size:12px;font-weight:600;color:#2563EB;text-transform:uppercase;letter-spacing:.06em;font-family:Outfit,sans-serif;margin-bottom:8px;\">Digital Marketing</div><h3 style=\"font-size:16px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:12px;line-height:1.4;\">Complete Digital Marketing Masterclass 2025</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst1/50/50\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:13px;color:#6B7280;font-family:Outfit,sans-serif;\">Kamal Perera</span></div><div style=\"display:flex;gap:12px;font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;margin-bottom:16px;\"><span>⏱ 24 Hours</span><span>📶 Beginner</span><span>👥 1,240</span></div><div style=\"border-top:1px solid #F3F4F6;padding-top:16px;display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:18px;font-weight:800;color:#1A1A2E;font-family:Outfit,sans-serif;\">LKR 14,990</div><a href=\"course-details/\" style=\"background:#0F172A;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:50px;text-decoration:none;font-family:Outfit,sans-serif;\">Enroll →</a></div></div></div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "crs_c2",
+          "elType": "column",
+          "settings": {
+            "_inline_size": null,
+            "padding": { "unit": "px", "top": "0", "right": "6", "bottom": "0", "left": "6", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "crs_w2",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"background:#fff;border-radius:16px;overflow:hidden;border:1px solid #E5E7EB;transition:box-shadow .2s;\" onmouseover=\"this.style.boxShadow='0 12px 40px rgba(0,0,0,.12)'\" onmouseout=\"this.style.boxShadow='none'\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course2/400/220\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" alt=\"Course\" /><span style=\"position:absolute;top:12px;left:12px;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:50px;font-family:Outfit,sans-serif;\">Top Rated</span></div><div style=\"padding:20px;\"><div style=\"font-size:12px;font-weight:600;color:#2563EB;text-transform:uppercase;letter-spacing:.06em;font-family:Outfit,sans-serif;margin-bottom:8px;\">SEO &amp; Content</div><h3 style=\"font-size:16px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:12px;line-height:1.4;\">Advanced SEO &amp; Content Marketing Strategy</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst2/50/50\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:13px;color:#6B7280;font-family:Outfit,sans-serif;\">Nimasha Silva</span></div><div style=\"display:flex;gap:12px;font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;margin-bottom:16px;\"><span>⏱ 18 Hours</span><span>📶 Intermediate</span><span>👥 980</span></div><div style=\"border-top:1px solid #F3F4F6;padding-top:16px;display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:18px;font-weight:800;color:#1A1A2E;font-family:Outfit,sans-serif;\">LKR 11,990</div><a href=\"course-details/\" style=\"background:#0F172A;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:50px;text-decoration:none;font-family:Outfit,sans-serif;\">Enroll →</a></div></div></div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "crs_c3",
+          "elType": "column",
+          "settings": {
+            "_inline_size": null,
+            "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "12", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "crs_w3",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"background:#fff;border-radius:16px;overflow:hidden;border:1px solid #E5E7EB;transition:box-shadow .2s;\" onmouseover=\"this.style.boxShadow='0 12px 40px rgba(0,0,0,.12)'\" onmouseout=\"this.style.boxShadow='none'\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course3/400/220\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" alt=\"Course\" /><span style=\"position:absolute;top:12px;left:12px;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:50px;font-family:Outfit,sans-serif;\">New</span></div><div style=\"padding:20px;\"><div style=\"font-size:12px;font-weight:600;color:#2563EB;text-transform:uppercase;letter-spacing:.06em;font-family:Outfit,sans-serif;margin-bottom:8px;\">Google Ads</div><h3 style=\"font-size:16px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:12px;line-height:1.4;\">Google Ads &amp; PPC Advertising Bootcamp</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst3/50/50\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:13px;color:#6B7280;font-family:Outfit,sans-serif;\">Ruwan Fernando</span></div><div style=\"display:flex;gap:12px;font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;margin-bottom:16px;\"><span>⏱ 14 Hours</span><span>📶 Beginner</span><span>👥 760</span></div><div style=\"border-top:1px solid #F3F4F6;padding-top:16px;display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:18px;font-weight:800;color:#1A1A2E;font-family:Outfit,sans-serif;\">LKR 13,990</div><a href=\"course-details/\" style=\"background:#0F172A;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:50px;text-decoration:none;font-family:Outfit,sans-serif;\">Enroll →</a></div></div></div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "crs_grid_sec2",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9FAFB",
+        "padding": { "unit": "px", "top": "16", "right": "0", "bottom": "80", "left": "0", "isLinked": false },
+        "gap": "default"
+      },
+      "elements": [
+        {
+          "id": "crs2_c1",
+          "elType": "column",
+          "settings": { "_inline_size": null, "padding": { "unit": "px", "top": "0", "right": "12", "bottom": "0", "left": "0", "isLinked": false } },
+          "elements": [ { "id": "crs_w4", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#fff;border-radius:16px;overflow:hidden;border:1px solid #E5E7EB;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course4/400/220\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><span style=\"position:absolute;top:12px;left:12px;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:50px;font-family:Outfit,sans-serif;\">Popular</span></div><div style=\"padding:20px;\"><div style=\"font-size:12px;font-weight:600;color:#2563EB;text-transform:uppercase;letter-spacing:.06em;font-family:Outfit,sans-serif;margin-bottom:8px;\">Social Media</div><h3 style=\"font-size:16px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:12px;line-height:1.4;\">Social Media Marketing &amp; Brand Building</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst4/50/50\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:13px;color:#6B7280;font-family:Outfit,sans-serif;\">Sithara Jayawardena</span></div><div style=\"display:flex;gap:12px;font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;margin-bottom:16px;\"><span>⏱ 16 Hours</span><span>📶 Beginner</span><span>👥 1,100</span></div><div style=\"border-top:1px solid #F3F4F6;padding-top:16px;display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:18px;font-weight:800;color:#1A1A2E;font-family:Outfit,sans-serif;\">LKR 12,990</div><a href=\"course-details/\" style=\"background:#0F172A;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:50px;text-decoration:none;font-family:Outfit,sans-serif;\">Enroll →</a></div></div></div>" } } ]
+        },
+        {
+          "id": "crs2_c2",
+          "elType": "column",
+          "settings": { "_inline_size": null, "padding": { "unit": "px", "top": "0", "right": "6", "bottom": "0", "left": "6", "isLinked": false } },
+          "elements": [ { "id": "crs_w5", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#fff;border-radius:16px;overflow:hidden;border:1px solid #E5E7EB;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course5/400/220\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /></div><div style=\"padding:20px;\"><div style=\"font-size:12px;font-weight:600;color:#2563EB;text-transform:uppercase;letter-spacing:.06em;font-family:Outfit,sans-serif;margin-bottom:8px;\">Web Development</div><h3 style=\"font-size:16px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:12px;line-height:1.4;\">Web Development for Marketers</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst5/50/50\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:13px;color:#6B7280;font-family:Outfit,sans-serif;\">Dinesh Weerasekara</span></div><div style=\"display:flex;gap:12px;font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;margin-bottom:16px;\"><span>⏱ 20 Hours</span><span>📶 Beginner</span><span>👥 630</span></div><div style=\"border-top:1px solid #F3F4F6;padding-top:16px;display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:18px;font-weight:800;color:#1A1A2E;font-family:Outfit,sans-serif;\">LKR 17,990</div><a href=\"course-details/\" style=\"background:#0F172A;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:50px;text-decoration:none;font-family:Outfit,sans-serif;\">Enroll →</a></div></div></div>" } } ]
+        },
+        {
+          "id": "crs2_c3",
+          "elType": "column",
+          "settings": { "_inline_size": null, "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "12", "isLinked": false } },
+          "elements": [ { "id": "crs_w6", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#fff;border-radius:16px;overflow:hidden;border:1px solid #E5E7EB;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course6/400/220\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><span style=\"position:absolute;top:12px;left:12px;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:50px;font-family:Outfit,sans-serif;\">New</span></div><div style=\"padding:20px;\"><div style=\"font-size:12px;font-weight:600;color:#2563EB;text-transform:uppercase;letter-spacing:.06em;font-family:Outfit,sans-serif;margin-bottom:8px;\">Design</div><h3 style=\"font-size:16px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;margin-bottom:12px;line-height:1.4;\">Graphic Design for Marketers</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst6/50/50\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:13px;color:#6B7280;font-family:Outfit,sans-serif;\">Aisha Mansoor</span></div><div style=\"display:flex;gap:12px;font-size:12px;color:#9CA3AF;font-family:Outfit,sans-serif;margin-bottom:16px;\"><span>⏱ 12 Hours</span><span>📶 Beginner</span><span>👥 890</span></div><div style=\"border-top:1px solid #F3F4F6;padding-top:16px;display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:18px;font-weight:800;color:#1A1A2E;font-family:Outfit,sans-serif;\">LKR 9,990</div><a href=\"course-details/\" style=\"background:#0F172A;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:50px;text-decoration:none;font-family:Outfit,sans-serif;\">Enroll →</a></div></div></div>" } } ]
+        }
+      ]
+    },
+
+    {
+      "id": "about_sec",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "90", "right": "0", "bottom": "90", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "about_c1",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 50,
+            "padding": { "unit": "px", "top": "0", "right": "40", "bottom": "0", "left": "0", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "about_img_w",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/dmit-about/580/480\" style=\"width:100%;border-radius:24px;object-fit:cover;display:block;\" alt=\"DMIT students\" /><div style=\"position:absolute;bottom:24px;left:24px;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:0 8px 40px rgba(0,0,0,.14);\"><div style=\"font-size:13px;font-weight:600;color:#9CA3AF;font-family:Outfit,sans-serif;margin-bottom:4px;\">Average course completion rate</div><div style=\"font-size:36px;font-weight:900;background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:Outfit,sans-serif;\">93%</div></div></div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "about_c2",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 50,
+            "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "40", "isLinked": false },
+            "vertical_alignment": "middle"
+          },
+          "elements": [
+            {
+              "id": "about_lbl_w",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#2563EB;background:rgba(37,99,235,.08);padding:6px 14px;border-radius:50px;margin-bottom:16px;font-family:Outfit,sans-serif;\">🎓 About DMIT</div>"
+              }
+            },
+            {
+              "id": "about_h_w",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Unlocking Knowledge With <span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">DMIT</span>",
+                "header_size": "h2",
+                "title_color": "#1A1A2E",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_weight": "800",
+                "typography_line_height": { "unit": "em", "size": 1.2, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "about_txt_w",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>DMIT offers cutting-edge digital marketing education designed to enhance knowledge and skills. With innovative teaching methods and personalised learning, we turn beginners into industry-ready professionals.</p>",
+                "text_color": "#6B7280",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 16, "sizes": [] },
+                "typography_line_height": { "unit": "em", "size": 1.75, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "32", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "about_stats_inner",
+              "elType": "section",
+              "isInner": true,
+              "settings": {
+                "layout": "full_width",
+                "gap": "default",
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "32", "left": "0", "isLinked": false }
+              },
+              "elements": [
+                {
+                  "id": "about_stat_c1",
+                  "elType": "column",
+                  "settings": { "_inline_size": null },
+                  "elements": [
+                    {
+                      "id": "about_ctr_1",
+                      "elType": "widget",
+                      "widgetType": "counter",
+                      "settings": {
+                        "starting_number": 0,
+                        "ending_number": 500,
+                        "suffix": "+",
+                        "title": "Hours of Expert Content",
+                        "number_color": "#1A1A2E",
+                        "title_color": "#6B7280",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Outfit",
+                        "typography_font_weight": "900",
+                        "typography_font_size": { "unit": "px", "size": 36, "sizes": [] },
+                        "title_typography_typography": "custom",
+                        "title_typography_font_family": "Outfit",
+                        "title_typography_font_size": { "unit": "px", "size": 13, "sizes": [] }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "about_stat_c2",
+                  "elType": "column",
+                  "settings": { "_inline_size": null },
+                  "elements": [
+                    {
+                      "id": "about_ctr_2",
+                      "elType": "widget",
+                      "widgetType": "counter",
+                      "settings": {
+                        "starting_number": 0,
+                        "ending_number": 5000,
+                        "suffix": "+",
+                        "title": "Students Trained",
+                        "number_color": "#1A1A2E",
+                        "title_color": "#6B7280",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Outfit",
+                        "typography_font_weight": "900",
+                        "typography_font_size": { "unit": "px", "size": 36, "sizes": [] },
+                        "title_typography_typography": "custom",
+                        "title_typography_font_family": "Outfit",
+                        "title_typography_font_size": { "unit": "px", "size": 13, "sizes": [] }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "about_btn_w",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Explore Courses →",
+                "link": { "url": "courses/", "is_external": false, "nofollow": false },
+                "align": "left",
+                "background_color": "#0F172A",
+                "hover_background_color": "#1E293B",
+                "button_text_color": "#ffffff",
+                "border_radius": { "unit": "px", "top": 50, "right": 50, "bottom": 50, "left": 50, "isLinked": true },
+                "text_padding": { "unit": "px", "top": "14", "right": "28", "bottom": "14", "left": "28", "isLinked": false },
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_weight": "600",
+                "typography_font_size": { "unit": "px", "size": 15, "sizes": [] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "testi_sec",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9FAFB",
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "80", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "testi_head_col",
+          "elType": "column",
+          "settings": { "_inline_size": null },
+          "elements": [
+            {
+              "id": "testi_head_w",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What Learners Saying About <span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">DMIT</span>",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#1A1A2E",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 42, "sizes": [] },
+                "typography_font_weight": "800",
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "48", "left": "0", "isLinked": false }
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "testi_cards_sec",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9FAFB",
+        "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "80", "left": "0", "isLinked": false },
+        "gap": "default"
+      },
+      "elements": [
+        {
+          "id": "tst_c1",
+          "elType": "column",
+          "settings": { "_inline_size": null, "padding": { "unit": "px", "top": "0", "right": "12", "bottom": "0", "left": "0", "isLinked": false } },
+          "elements": [ { "id": "tst_w1", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:32px;\"><div style=\"display:flex;gap:4px;margin-bottom:12px;\"><span style=\"color:#F59E0B;font-size:16px;\">★★★★★</span></div><p style=\"font-size:15px;color:#6B7280;line-height:1.75;font-style:italic;font-family:Outfit,sans-serif;margin-bottom:24px;\">&ldquo;DMIT completely changed my career trajectory. Within 3 months of completing the Digital Marketing Bootcamp I landed a role at a top Colombo agency. Absolutely the best decision I&rsquo;ve ever made.&rdquo;</p><div style=\"display:flex;align-items:center;gap:12px;\"><img src=\"https://picsum.photos/seed/testi1/80/80\" style=\"width:44px;height:44px;border-radius:50%;object-fit:cover;\" /><div><div style=\"font-size:15px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;\">Nethmi Karunaratne</div><div style=\"font-size:13px;color:#9CA3AF;font-family:Outfit,sans-serif;\">Digital Marketing Executive, Colombo</div></div></div></div>" } } ]
+        },
+        {
+          "id": "tst_c2",
+          "elType": "column",
+          "settings": { "_inline_size": null, "padding": { "unit": "px", "top": "0", "right": "6", "bottom": "0", "left": "6", "isLinked": false } },
+          "elements": [ { "id": "tst_w2", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:32px;\"><div style=\"display:flex;gap:4px;margin-bottom:12px;\"><span style=\"color:#F59E0B;font-size:16px;\">★★★★★</span></div><p style=\"font-size:15px;color:#6B7280;line-height:1.75;font-style:italic;font-family:Outfit,sans-serif;margin-bottom:24px;\">&ldquo;The SEO course helped me grow my e-commerce store&rsquo;s organic traffic by 300% in just 4 months. The instructors genuinely know their stuff and the community support is incredible.&rdquo;</p><div style=\"display:flex;align-items:center;gap:12px;\"><img src=\"https://picsum.photos/seed/testi2/80/80\" style=\"width:44px;height:44px;border-radius:50%;object-fit:cover;\" /><div><div style=\"font-size:15px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;\">Ruwan Perera</div><div style=\"font-size:13px;color:#9CA3AF;font-family:Outfit,sans-serif;\">E-Commerce Entrepreneur, Kandy</div></div></div></div>" } } ]
+        },
+        {
+          "id": "tst_c3",
+          "elType": "column",
+          "settings": { "_inline_size": null, "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "12", "isLinked": false } },
+          "elements": [ { "id": "tst_w3", "elType": "widget", "widgetType": "html", "settings": { "html": "<div style=\"background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:32px;\"><div style=\"display:flex;gap:4px;margin-bottom:12px;\"><span style=\"color:#F59E0B;font-size:16px;\">★★★★★</span></div><p style=\"font-size:15px;color:#6B7280;line-height:1.75;font-style:italic;font-family:Outfit,sans-serif;margin-bottom:24px;\">&ldquo;As a small business owner I never thought I could handle digital marketing myself. DMIT&rsquo;s course was so practical. Now I manage all my own ads and the results speak for themselves!&rdquo;</p><div style=\"display:flex;align-items:center;gap:12px;\"><img src=\"https://picsum.photos/seed/testi3/80/80\" style=\"width:44px;height:44px;border-radius:50%;object-fit:cover;\" /><div><div style=\"font-size:15px;font-weight:700;color:#1A1A2E;font-family:Outfit,sans-serif;\">Amali Silva</div><div style=\"font-size:13px;color:#9CA3AF;font-family:Outfit,sans-serif;\">Small Business Owner, Galle</div></div></div></div>" } } ]
+        }
+      ]
+    },
+
+    {
+      "id": "faq_sec",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "90", "right": "0", "bottom": "90", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "faq_c1",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 40,
+            "padding": { "unit": "px", "top": "0", "right": "60", "bottom": "0", "left": "0", "isLinked": false },
+            "vertical_alignment": "top"
+          },
+          "elements": [
+            {
+              "id": "faq_lbl",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#2563EB;background:rgba(37,99,235,.08);padding:6px 14px;border-radius:50px;margin-bottom:16px;font-family:Outfit,sans-serif;\">❓ FAQ</div>"
+              }
+            },
+            {
+              "id": "faq_h",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Frequently Asked Questions",
+                "header_size": "h2",
+                "title_color": "#1A1A2E",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 38, "sizes": [] },
+                "typography_font_weight": "800",
+                "typography_line_height": { "unit": "em", "size": 1.2, "sizes": [] }
+              }
+            }
+          ]
+        },
+        {
+          "id": "faq_c2",
+          "elType": "column",
+          "settings": { "_inline_size": 60 },
+          "elements": [
+            {
+              "id": "faq_accordion",
+              "elType": "widget",
+              "widgetType": "accordion",
+              "settings": {
+                "tabs": [
+                  {
+                    "_id": "faq1",
+                    "tab_title": "Are the courses available online or only in Colombo?",
+                    "tab_content": "All DMIT courses are fully available online — you can learn from anywhere in Sri Lanka or abroad. We also offer in-person sessions at our Colombo 03 campus for students who prefer a classroom environment."
+                  },
+                  {
+                    "_id": "faq2",
+                    "tab_title": "Do I need any prior experience to enroll?",
+                    "tab_content": "Most courses are designed for complete beginners. We also offer intermediate and advanced tracks. Each course page clearly states the level required, so there’s always a path for every learner."
+                  },
+                  {
+                    "_id": "faq3",
+                    "tab_title": "Are DMIT certificates recognised by employers?",
+                    "tab_content": "Yes. DMIT certificates are widely recognised across Sri Lanka and are verifiable digitally. We are also an authorised Google and Meta training partner, so qualifying courses come with internationally recognised credentials."
+                  },
+                  {
+                    "_id": "faq4",
+                    "tab_title": "Can I pay in instalments?",
+                    "tab_content": "Absolutely. We offer flexible instalment plans on all courses. Contact our admissions team and we’ll set up a payment schedule that works for your budget."
+                  },
+                  {
+                    "_id": "faq5",
+                    "tab_title": "Is BrightMind suitable for working professionals?",
+                    "tab_content": "Our courses are self-paced with lifetime access, so you can learn at your own schedule. Most students complete courses while working full-time, typically dedicating 5–8 hours per week."
+                  }
+                ],
+                "selected_icon": { "value": "fas fa-plus", "library": "fa-solid" },
+                "active_icon": { "value": "fas fa-minus", "library": "fa-solid" },
+                "title_html_tag": "div",
+                "border_width": { "unit": "px", "top": "1", "right": "0", "bottom": "0", "left": "0", "isLinked": false },
+                "border_color": "#E5E7EB",
+                "title_background": "#FFFFFF",
+                "title_color": "#1A1A2E",
+                "title_color_active": "#2563EB",
+                "content_color": "#6B7280",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_weight": "600",
+                "typography_font_size": { "unit": "px", "size": 16, "sizes": [] },
+                "content_typography_typography": "custom",
+                "content_typography_font_family": "Outfit",
+                "content_typography_font_size": { "unit": "px", "size": 15, "sizes": [] },
+                "content_typography_line_height": { "unit": "em", "size": 1.7, "sizes": [] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "cta_sec",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "gradient",
+        "background_color": "#2563EB",
+        "background_color_b": "#7C3AED",
+        "background_gradient_type": "linear",
+        "background_gradient_angle": { "unit": "deg", "size": 135 },
+        "padding": { "unit": "px", "top": "90", "right": "0", "bottom": "90", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "cta_col",
+          "elType": "column",
+          "settings": { "_inline_size": null },
+          "elements": [
+            {
+              "id": "cta_decos",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;position:relative;\"><span style=\"font-size:40px;position:absolute;top:-20px;left:15%;opacity:.7;\">🎓</span><span style=\"font-size:32px;position:absolute;top:10px;right:18%;opacity:.6;\">📚</span><span style=\"font-size:28px;position:absolute;bottom:-10px;left:22%;opacity:.5;\">⭐</span><span style=\"font-size:36px;position:absolute;bottom:0;right:12%;opacity:.65;\">🏆</span></div>"
+              }
+            },
+            {
+              "id": "cta_h",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Take The First Step –<br>Start Learning Today!",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 48, "sizes": [] },
+                "typography_font_size_mobile": { "unit": "px", "size": 30, "sizes": [] },
+                "typography_font_weight": "900",
+                "typography_line_height": { "unit": "em", "size": 1.15, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "cta_sub",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"text-align:center;\">Join over 5,000 Sri Lankan professionals who have already transformed their careers with DMIT’s industry-leading courses.</p>",
+                "text_color": "rgba(255,255,255,0.75)",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 17, "sizes": [] },
+                "typography_line_height": { "unit": "em", "size": 1.7, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "36", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "cta_btn",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Contact Us",
+                "link": { "url": "contact/", "is_external": false, "nofollow": false },
+                "align": "center",
+                "background_color": "#FFFFFF",
+                "hover_background_color": "#F1F5F9",
+                "button_text_color": "#0F172A",
+                "hover_color": "#2563EB",
+                "border_radius": { "unit": "px", "top": 50, "right": 50, "bottom": 50, "left": 50, "isLinked": true },
+                "text_padding": { "unit": "px", "top": "14", "right": "36", "bottom": "14", "left": "36", "isLinked": false },
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_weight": "700",
+                "typography_font_size": { "unit": "px", "size": 16, "sizes": [] }
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+  ],
+  "page_settings": {
+    "hide_title": "yes",
+    "background_background": "classic",
+    "background_color": "#FFFFFF"
+  }
+}
