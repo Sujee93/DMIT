@@ -1,0 +1,550 @@
+{
+  "version": "0.4",
+  "title": "DMIT About Page",
+  "type": "page",
+  "content": [
+
+    {
+      "id": "abt_hero",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "80", "left": "0", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no"
+      },
+      "elements": [
+        {
+          "id": "abt_h_c1",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 100,
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "abt_h_lb",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;\"><div style=\"display:inline-block;background:#EDE9FE;color:#7C3AED;padding:6px 16px;border-radius:50px;font-size:13px;font-weight:600;font-family:Outfit,sans-serif;margin-bottom:16px;\">🏫 About Us</div></div>"
+              }
+            },
+            {
+              "id": "abt_h_h1",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "About <span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">DMIT</span>",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#0F172A",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 56, "sizes": [] },
+                "typography_font_size_tablet": { "unit": "px", "size": 42, "sizes": [] },
+                "typography_font_size_mobile": { "unit": "px", "size": 34, "sizes": [] },
+                "typography_font_weight": "800",
+                "typography_line_height": { "unit": "em", "size": 1.1, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "20", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "abt_h_st",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"font-family:Outfit,sans-serif;font-size:18px;color:#6B7280;text-align:center;line-height:1.7;max-width:620px;margin:0 auto;\">Sri Lanka's leading Digital Marketing IT Institute — empowering professionals with world-class skills since 2018.</p>",
+                "align": "center"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "abt_story",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "80", "left": "0", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "20"
+      },
+      "elements": [
+        {
+          "id": "abt_st_cl",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 50,
+            "padding": { "unit": "px", "top": "0", "right": "24", "bottom": "0", "left": "80", "isLinked": false },
+            "vertical_alignment": "middle"
+          },
+          "elements": [
+            {
+              "id": "abt_st_im",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"border-radius:24px;overflow:hidden;\"><img src=\"https://picsum.photos/seed/dmit-story/600/440\" alt=\"DMIT Campus\" style=\"width:100%;height:440px;object-fit:cover;display:block;\" /></div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "abt_st_cr",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 50,
+            "padding": { "unit": "px", "top": "0", "right": "80", "bottom": "0", "left": "24", "isLinked": false },
+            "vertical_alignment": "middle"
+          },
+          "elements": [
+            {
+              "id": "abt_st_tx",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"padding-left:48px;font-family:Outfit,sans-serif;\"><div style=\"display:inline-block;background:#EDE9FE;color:#7C3AED;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:16px;\">📖 Our Story</div><h2 style=\"font-size:40px;font-weight:800;color:#0F172A;line-height:1.2;margin:0 0 24px;\">Built to Transform<br><span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">Careers</span></h2><p style=\"color:#6B7280;font-size:15px;line-height:1.8;margin-bottom:16px;\">DMIT was founded in 2018 with a simple mission: make world-class digital marketing education accessible to every Sri Lankan professional. What started as a small classroom in Colombo has grown into the country's most trusted digital marketing institute.</p><p style=\"color:#6B7280;font-size:15px;line-height:1.8;margin-bottom:16px;\">Our founder, a veteran digital marketing strategist with over 15 years of international experience, recognized a gap between industry needs and what was being taught in traditional academic settings.</p><p style=\"color:#6B7280;font-size:15px;line-height:1.8;margin-bottom:28px;\">Today, we have trained over 5,000 students who now work at Google, Meta, HubSpot, and leading agencies across Asia. Our curriculum is continuously updated to stay ahead of industry trends.</p><a href=\"/courses\" style=\"display:inline-block;background:#0F172A;color:#fff;padding:14px 28px;border-radius:50px;font-weight:600;font-size:14px;text-decoration:none;font-family:Outfit,sans-serif;\">Explore Courses →</a></div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "abt_stats",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9FAFB",
+        "padding": { "unit": "px", "top": "60", "right": "0", "bottom": "60", "left": "0", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "40"
+      },
+      "elements": [
+        {
+          "id": "abt_st_s1",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 25,
+            "vertical_alignment": "middle"
+          },
+          "elements": [
+            {
+              "id": "abt_stw1",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;font-family:Outfit,sans-serif;padding:20px;\"><div style=\"font-size:48px;font-weight:900;background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:8px;\">5,000+</div><div style=\"font-size:14px;color:#6B7280;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;\">Students Trained</div></div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "abt_st_s2",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 25,
+            "vertical_alignment": "middle"
+          },
+          "elements": [
+            {
+              "id": "abt_stw2",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;font-family:Outfit,sans-serif;padding:20px;\"><div style=\"font-size:48px;font-weight:900;background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:8px;\">40+</div><div style=\"font-size:14px;color:#6B7280;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;\">Professional Courses</div></div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "abt_st_s3",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 25,
+            "vertical_alignment": "middle"
+          },
+          "elements": [
+            {
+              "id": "abt_stw3",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;font-family:Outfit,sans-serif;padding:20px;\"><div style=\"font-size:48px;font-weight:900;background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:8px;\">93%</div><div style=\"font-size:14px;color:#6B7280;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;\">Completion Rate</div></div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "abt_st_s4",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 25,
+            "vertical_alignment": "middle"
+          },
+          "elements": [
+            {
+              "id": "abt_stw4",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;font-family:Outfit,sans-serif;padding:20px;\"><div style=\"font-size:48px;font-weight:900;background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:8px;\">6</div><div style=\"font-size:14px;color:#6B7280;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;\">Years of Excellence</div></div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "abt_team",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "80", "left": "0", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no"
+      },
+      "elements": [
+        {
+          "id": "abt_tm_hc",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 100,
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "abt_tm_lb",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;\"><div style=\"display:inline-block;background:#EDE9FE;color:#7C3AED;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;font-family:Outfit,sans-serif;margin-bottom:12px;\">👥 Our Experts</div></div>"
+              }
+            },
+            {
+              "id": "abt_tm_h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Meet The <span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">Team</span>",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0F172A",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_size_tablet": { "unit": "px", "size": 32, "sizes": [] },
+                "typography_font_size_mobile": { "unit": "px", "size": 26, "sizes": [] },
+                "typography_font_weight": "800",
+                "typography_line_height": { "unit": "em", "size": 1.2, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "abt_tm_st",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"font-family:Outfit,sans-serif;font-size:16px;color:#6B7280;text-align:center;line-height:1.7;max-width:580px;margin:0 auto 56px;\">Learn from Sri Lanka's top digital marketing professionals with years of industry experience.</p>",
+                "align": "center"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "abt_team2",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "0", "right": "40", "bottom": "80", "left": "40", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "40"
+      },
+      "elements": [
+        {
+          "id": "abt_tm_c1",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 25,
+            "padding": { "unit": "px", "top": "0", "right": "12", "bottom": "0", "left": "12", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "abt_tm_w1",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;text-align:center;font-family:Outfit,sans-serif;\"><img src=\"https://picsum.photos/seed/team1/300/280\" alt=\"Kamal Perera\" style=\"width:100%;height:220px;object-fit:cover;display:block;\" /><div style=\"padding:20px;\"><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:4px;\">Kamal Perera</div><div style=\"font-size:13px;color:#7C3AED;font-weight:600;margin-bottom:12px;\">Founder &amp; CEO</div><div style=\"display:flex;justify-content:center;gap:8px;\"><a href=\"#\" style=\"width:32px;height:32px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#6B7280;text-decoration:none;\">in</a><a href=\"#\" style=\"width:32px;height:32px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#6B7280;text-decoration:none;\">tw</a></div></div></div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "abt_tm_c2",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 25,
+            "padding": { "unit": "px", "top": "0", "right": "12", "bottom": "0", "left": "12", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "abt_tm_w2",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;text-align:center;font-family:Outfit,sans-serif;\"><img src=\"https://picsum.photos/seed/team2/300/280\" alt=\"Nimasha Silva\" style=\"width:100%;height:220px;object-fit:cover;display:block;\" /><div style=\"padding:20px;\"><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:4px;\">Nimasha Silva</div><div style=\"font-size:13px;color:#7C3AED;font-weight:600;margin-bottom:12px;\">Head of SEO</div><div style=\"display:flex;justify-content:center;gap:8px;\"><a href=\"#\" style=\"width:32px;height:32px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#6B7280;text-decoration:none;\">in</a><a href=\"#\" style=\"width:32px;height:32px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#6B7280;text-decoration:none;\">tw</a></div></div></div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "abt_tm_c3",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 25,
+            "padding": { "unit": "px", "top": "0", "right": "12", "bottom": "0", "left": "12", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "abt_tm_w3",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;text-align:center;font-family:Outfit,sans-serif;\"><img src=\"https://picsum.photos/seed/team3/300/280\" alt=\"Ruwan Fernando\" style=\"width:100%;height:220px;object-fit:cover;display:block;\" /><div style=\"padding:20px;\"><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:4px;\">Ruwan Fernando</div><div style=\"font-size:13px;color:#7C3AED;font-weight:600;margin-bottom:12px;\">Google Ads Trainer</div><div style=\"display:flex;justify-content:center;gap:8px;\"><a href=\"#\" style=\"width:32px;height:32px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#6B7280;text-decoration:none;\">in</a><a href=\"#\" style=\"width:32px;height:32px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#6B7280;text-decoration:none;\">tw</a></div></div></div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "abt_tm_c4",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 25,
+            "padding": { "unit": "px", "top": "0", "right": "12", "bottom": "0", "left": "12", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "abt_tm_w4",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;text-align:center;font-family:Outfit,sans-serif;\"><img src=\"https://picsum.photos/seed/team4/300/280\" alt=\"Dilini Rathnayake\" style=\"width:100%;height:220px;object-fit:cover;display:block;\" /><div style=\"padding:20px;\"><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:4px;\">Dilini Rathnayake</div><div style=\"font-size:13px;color:#7C3AED;font-weight:600;margin-bottom:12px;\">Social Media Director</div><div style=\"display:flex;justify-content:center;gap:8px;\"><a href=\"#\" style=\"width:32px;height:32px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#6B7280;text-decoration:none;\">in</a><a href=\"#\" style=\"width:32px;height:32px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#6B7280;text-decoration:none;\">tw</a></div></div></div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "abt_values",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9FAFB",
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "80", "left": "0", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no"
+      },
+      "elements": [
+        {
+          "id": "abt_vl_hc",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 100,
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "abt_vl_lb",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;\"><div style=\"display:inline-block;background:#EDE9FE;color:#7C3AED;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;font-family:Outfit,sans-serif;margin-bottom:12px;\">💎 Our Values</div></div>"
+              }
+            },
+            {
+              "id": "abt_vl_h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What We <span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">Believe In</span>",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0F172A",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_size_tablet": { "unit": "px", "size": 32, "sizes": [] },
+                "typography_font_size_mobile": { "unit": "px", "size": 26, "sizes": [] },
+                "typography_font_weight": "800",
+                "typography_line_height": { "unit": "em", "size": 1.2, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "48", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "abt_vl_gr",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;font-family:Outfit,sans-serif;max-width:1100px;margin:0 auto;padding:0 40px;\"><div style=\"background:#fff;border:1.5px solid #E5E7EB;border-radius:20px;padding:28px;\"><div style=\"font-size:32px;margin-bottom:12px;\">🎯</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:10px;\">Practical Learning</div><p style=\"color:#6B7280;font-size:14px;line-height:1.7;margin:0;\">Every course includes real-world projects, live campaigns, and portfolio-building exercises.</p></div><div style=\"background:#fff;border:1.5px solid #E5E7EB;border-radius:20px;padding:28px;\"><div style=\"font-size:32px;margin-bottom:12px;\">🌐</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:10px;\">Industry-Relevant</div><p style=\"color:#6B7280;font-size:14px;line-height:1.7;margin:0;\">Curriculum co-designed with industry leaders and updated quarterly to reflect the latest trends.</p></div><div style=\"background:#fff;border:1.5px solid #E5E7EB;border-radius:20px;padding:28px;\"><div style=\"font-size:32px;margin-bottom:12px;\">🤝</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:10px;\">Student Success</div><p style=\"color:#6B7280;font-size:14px;line-height:1.7;margin:0;\">From enrollment to career placement, we support students every step with mentorship and job placement.</p></div><div style=\"background:#fff;border:1.5px solid #E5E7EB;border-radius:20px;padding:28px;\"><div style=\"font-size:32px;margin-bottom:12px;\">🔓</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:10px;\">Accessible Education</div><p style=\"color:#6B7280;font-size:14px;line-height:1.7;margin:0;\">Flexible payment plans, scholarships, and online learning options for everyone.</p></div><div style=\"background:#fff;border:1.5px solid #E5E7EB;border-radius:20px;padding:28px;\"><div style=\"font-size:32px;margin-bottom:12px;\">📊</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:10px;\">Data-Driven</div><p style=\"color:#6B7280;font-size:14px;line-height:1.7;margin:0;\">We track student outcomes, completion rates, and job placement stats to continuously improve.</p></div><div style=\"background:#fff;border:1.5px solid #E5E7EB;border-radius:20px;padding:28px;\"><div style=\"font-size:32px;margin-bottom:12px;\">🚀</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:10px;\">Innovation First</div><p style=\"color:#6B7280;font-size:14px;line-height:1.7;margin:0;\">We embrace new platforms, AI tools, and emerging technologies in every course we deliver.</p></div></div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "abt_timeline",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "80", "left": "0", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no"
+      },
+      "elements": [
+        {
+          "id": "abt_tl_hc",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 100,
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "abt_tl_lb",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;\"><div style=\"display:inline-block;background:#EDE9FE;color:#7C3AED;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;font-family:Outfit,sans-serif;margin-bottom:12px;\">🗓️ Our Journey</div></div>"
+              }
+            },
+            {
+              "id": "abt_tl_h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "DMIT <span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">Milestones</span>",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0F172A",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_size_tablet": { "unit": "px", "size": 32, "sizes": [] },
+                "typography_font_size_mobile": { "unit": "px", "size": 26, "sizes": [] },
+                "typography_font_weight": "800",
+                "typography_line_height": { "unit": "em", "size": 1.2, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "abt_tl_wg",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"font-family:Outfit,sans-serif;max-width:700px;margin:48px auto 0;position:relative;\"><div style=\"position:absolute;left:50%;top:0;bottom:0;width:2px;background:#E5E7EB;transform:translateX(-50%);\"></div><div style=\"display:flex;margin-bottom:48px;align-items:center;\"><div style=\"width:50%;padding-right:40px;text-align:right;\"><div style=\"font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:4px;\">2018</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:6px;\">DMIT Founded</div><p style=\"color:#6B7280;font-size:13px;margin:0;\">Started with 3 courses and 50 students in a small Colombo classroom.</p></div><div style=\"width:16px;height:16px;background:linear-gradient(135deg,#2563EB,#7C3AED);border-radius:50%;flex-shrink:0;position:relative;z-index:1;margin:0 -8px;\"></div><div style=\"width:50%;\"></div></div><div style=\"display:flex;margin-bottom:48px;align-items:center;\"><div style=\"width:50%;\"></div><div style=\"width:16px;height:16px;background:linear-gradient(135deg,#2563EB,#7C3AED);border-radius:50%;flex-shrink:0;position:relative;z-index:1;margin:0 -8px;\"></div><div style=\"width:50%;padding-left:40px;\"><div style=\"font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:4px;\">2019</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:6px;\">First 500 Graduates</div><p style=\"color:#6B7280;font-size:13px;margin:0;\">Celebrated 500 successful graduates with a 92% job placement rate.</p></div></div><div style=\"display:flex;margin-bottom:48px;align-items:center;\"><div style=\"width:50%;padding-right:40px;text-align:right;\"><div style=\"font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:4px;\">2021</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:6px;\">Online Platform Launch</div><p style=\"color:#6B7280;font-size:13px;margin:0;\">Launched our online learning platform serving students across Sri Lanka and internationally.</p></div><div style=\"width:16px;height:16px;background:linear-gradient(135deg,#2563EB,#7C3AED);border-radius:50%;flex-shrink:0;position:relative;z-index:1;margin:0 -8px;\"></div><div style=\"width:50%;\"></div></div><div style=\"display:flex;margin-bottom:48px;align-items:center;\"><div style=\"width:50%;\"></div><div style=\"width:16px;height:16px;background:linear-gradient(135deg,#2563EB,#7C3AED);border-radius:50%;flex-shrink:0;position:relative;z-index:1;margin:0 -8px;\"></div><div style=\"width:50%;padding-left:40px;\"><div style=\"font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:4px;\">2023</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:6px;\">5,000 Students Milestone</div><p style=\"color:#6B7280;font-size:13px;margin:0;\">Reached 5,000 students trained with 40+ professional courses.</p></div></div><div style=\"display:flex;align-items:center;\"><div style=\"width:50%;padding-right:40px;text-align:right;\"><div style=\"font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:4px;\">2024</div><div style=\"font-size:17px;font-weight:700;color:#0F172A;margin-bottom:6px;\">AI Marketing Program</div><p style=\"color:#6B7280;font-size:13px;margin:0;\">Launched Sri Lanka's first AI-powered digital marketing certification program.</p></div><div style=\"width:16px;height:16px;background:linear-gradient(135deg,#2563EB,#7C3AED);border-radius:50%;flex-shrink:0;position:relative;z-index:1;margin:0 -8px;\"></div><div style=\"width:50%;\"></div></div></div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "abt_cta",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "gradient",
+        "background_color": "#2563EB",
+        "background_color_b": "#7C3AED",
+        "background_gradient_type": "linear",
+        "background_gradient_angle": { "unit": "deg", "size": 135 },
+        "border_radius": { "unit": "px", "top": "24", "right": "24", "bottom": "24", "left": "24", "isLinked": true },
+        "padding": { "unit": "px", "top": "80", "right": "60", "bottom": "80", "left": "60", "isLinked": false },
+        "margin": { "unit": "px", "top": "0", "right": "40", "bottom": "80", "left": "40", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no"
+      },
+      "elements": [
+        {
+          "id": "abt_ct_cc",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 100,
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "abt_ct_h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Take The First Step –<br>Start Learning Today!",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 42, "sizes": [] },
+                "typography_font_size_tablet": { "unit": "px", "size": 34, "sizes": [] },
+                "typography_font_size_mobile": { "unit": "px", "size": 28, "sizes": [] },
+                "typography_font_weight": "800",
+                "typography_line_height": { "unit": "em", "size": 1.2, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "20", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "abt_ct_tx",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"font-family:Outfit,sans-serif;font-size:17px;color:#FFFFFF;text-align:center;line-height:1.7;max-width:580px;margin:0 auto;\">Join DMIT's thriving community of digital marketing professionals. Your career transformation starts here.</p>",
+                "align": "center"
+              }
+            },
+            {
+              "id": "abt_ct_bt",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;margin-top:28px;\"><a href=\"/contact\" style=\"display:inline-block;background:#fff;color:#0F172A;padding:14px 36px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;font-family:Outfit,sans-serif;\">Contact Us →</a></div>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+  ],
+  "page_settings": {
+    "hide_title": "yes",
+    "background_color": "#FFFFFF"
+  }
+}

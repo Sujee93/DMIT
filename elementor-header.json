@@ -1,0 +1,129 @@
+{
+  "version": "0.4",
+  "title": "DMIT Header",
+  "type": "header",
+  "content": [
+    {
+      "id": "hdr_sec1",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "_padding": {
+          "unit": "px",
+          "top": "16",
+          "right": "40",
+          "bottom": "16",
+          "left": "40",
+          "isLinked": false
+        },
+        "layout": "boxed",
+        "position": "fixed",
+        "sticky": "top",
+        "sticky_effects_offset": 0,
+        "z_index": 999,
+        "box_shadow_box_shadow_type": "yes",
+        "box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.07)"
+        }
+      },
+      "elements": [
+        {
+          "id": "hdr_row1",
+          "elType": "column",
+          "settings": {
+            "width": "100",
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "hdr_inner1",
+              "elType": "section",
+              "isInner": true,
+              "settings": {
+                "layout": "boxed",
+                "_padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": true
+                }
+              },
+              "elements": [
+                {
+                  "id": "hdr_col1",
+                  "elType": "column",
+                  "settings": {
+                    "width": "20",
+                    "_inline_size": null,
+                    "vertical_alignment": "middle"
+                  },
+                  "elements": [
+                    {
+                      "id": "hdr_w_logo",
+                      "elType": "widget",
+                      "widgetType": "html",
+                      "settings": {
+                        "html": "<a href=\"/\" style=\"display:flex;align-items:center;gap:10px;text-decoration:none;\">\n  <div style=\"width:40px;height:40px;background:linear-gradient(135deg,#2563EB,#7C3AED);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:14px;font-family:Outfit,sans-serif;\">DM</div>\n  <span style=\"font-size:22px;font-weight:800;color:#0F172A;font-family:Outfit,sans-serif;\">DM<span style=\"color:#7C3AED;\">IT</span></span>\n</a>"
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "hdr_col2",
+                  "elType": "column",
+                  "settings": {
+                    "width": "60",
+                    "_inline_size": null,
+                    "vertical_alignment": "middle",
+                    "align": "center"
+                  },
+                  "elements": [
+                    {
+                      "id": "hdr_w_nav",
+                      "elType": "widget",
+                      "widgetType": "html",
+                      "settings": {
+                        "html": "<div style=\"display:flex;align-items:center;justify-content:center;gap:32px;font-family:Outfit,sans-serif;\">\n  <a href=\"/\" style=\"color:#1A1A2E;font-weight:500;text-decoration:none;font-size:15px;\">Home</a>\n  <a href=\"/about\" style=\"color:#1A1A2E;font-weight:500;text-decoration:none;font-size:15px;\">About</a>\n  <a href=\"/courses\" style=\"color:#1A1A2E;font-weight:500;text-decoration:none;font-size:15px;\">Courses</a>\n  <a href=\"/contact\" style=\"color:#1A1A2E;font-weight:500;text-decoration:none;font-size:15px;\">Contact</a>\n</div>"
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "hdr_col3",
+                  "elType": "column",
+                  "settings": {
+                    "width": "20",
+                    "_inline_size": null,
+                    "vertical_alignment": "middle",
+                    "align": "right"
+                  },
+                  "elements": [
+                    {
+                      "id": "hdr_w_cta",
+                      "elType": "widget",
+                      "widgetType": "html",
+                      "settings": {
+                        "html": "<div style=\"display:flex;justify-content:flex-end;\">\n  <a href=\"/contact\" style=\"background:#0F172A;color:#fff;padding:12px 24px;border-radius:50px;font-family:Outfit,sans-serif;font-weight:600;font-size:14px;text-decoration:none;\">Contact Us</a>\n</div>"
+                      },
+                      "elements": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": {}
+}

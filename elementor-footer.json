@@ -1,0 +1,184 @@
+{
+  "version": "0.4",
+  "title": "DMIT Footer",
+  "type": "footer",
+  "content": [
+    {
+      "id": "ftr_sec1",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "_padding": {
+          "unit": "px",
+          "top": "64",
+          "right": "40",
+          "bottom": "64",
+          "left": "40",
+          "isLinked": false
+        },
+        "layout": "boxed"
+      },
+      "elements": [
+        {
+          "id": "ftr_row1",
+          "elType": "column",
+          "settings": {
+            "width": "100",
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "ftr_inner1",
+              "elType": "section",
+              "isInner": true,
+              "settings": {
+                "layout": "boxed",
+                "_padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": true
+                }
+              },
+              "elements": [
+                {
+                  "id": "ftr_col1",
+                  "elType": "column",
+                  "settings": {
+                    "width": "30",
+                    "_inline_size": null,
+                    "vertical_alignment": "top"
+                  },
+                  "elements": [
+                    {
+                      "id": "ftr_w_brand",
+                      "elType": "widget",
+                      "widgetType": "html",
+                      "settings": {
+                        "html": "<div style=\"font-family:Outfit,sans-serif;\">\n  <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:16px;\">\n    <div style=\"width:40px;height:40px;background:linear-gradient(135deg,#2563EB,#7C3AED);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:14px;\">DM</div>\n    <span style=\"font-size:22px;font-weight:800;color:#0F172A;\">DM<span style=\"color:#7C3AED;\">IT</span></span>\n  </div>\n  <p style=\"color:#6B7280;font-size:14px;line-height:1.7;margin-bottom:20px;\">Sri Lanka's premier Digital Marketing IT Institute. Empowering professionals with world-class digital marketing education since 2018.</p>\n  <div style=\"display:flex;gap:12px;margin-bottom:24px;\">\n    <a href=\"#\" style=\"width:38px;height:38px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#6B7280;text-decoration:none;font-size:13px;font-weight:600;\">f</a>\n    <a href=\"#\" style=\"width:38px;height:38px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#6B7280;text-decoration:none;font-size:13px;font-weight:600;\">ig</a>\n    <a href=\"#\" style=\"width:38px;height:38px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#6B7280;text-decoration:none;font-size:13px;font-weight:600;\">tw</a>\n    <a href=\"#\" style=\"width:38px;height:38px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#6B7280;text-decoration:none;font-size:13px;font-weight:600;\">in</a>\n    <a href=\"#\" style=\"width:38px;height:38px;border:1.5px solid #E5E7EB;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#6B7280;text-decoration:none;font-size:13px;font-weight:600;\">yt</a>\n  </div>\n  <a href=\"/contact\" style=\"display:inline-block;background:#0F172A;color:#fff;padding:12px 28px;border-radius:50px;font-weight:600;font-size:14px;text-decoration:none;\">Contact Us</a>\n</div>"
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "ftr_col2",
+                  "elType": "column",
+                  "settings": {
+                    "width": "20",
+                    "_inline_size": null,
+                    "vertical_alignment": "top"
+                  },
+                  "elements": [
+                    {
+                      "id": "ftr_w_company",
+                      "elType": "widget",
+                      "widgetType": "html",
+                      "settings": {
+                        "html": "<div style=\"font-family:Outfit,sans-serif;\">\n  <h4 style=\"font-size:15px;font-weight:700;color:#0F172A;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.05em;\">Company</h4>\n  <ul style=\"list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;\">\n    <li><a href=\"/\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">Home</a></li>\n    <li><a href=\"/about\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">About DMIT</a></li>\n    <li><a href=\"/courses\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">Our Courses</a></li>\n    <li><a href=\"#\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">Instructors</a></li>\n    <li><a href=\"#\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">Blog</a></li>\n    <li><a href=\"/contact\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">Contact Us</a></li>\n  </ul>\n</div>"
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "ftr_col3",
+                  "elType": "column",
+                  "settings": {
+                    "width": "25",
+                    "_inline_size": null,
+                    "vertical_alignment": "top"
+                  },
+                  "elements": [
+                    {
+                      "id": "ftr_w_courses",
+                      "elType": "widget",
+                      "widgetType": "html",
+                      "settings": {
+                        "html": "<div style=\"font-family:Outfit,sans-serif;\">\n  <h4 style=\"font-size:15px;font-weight:700;color:#0F172A;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.05em;\">Popular Courses</h4>\n  <ul style=\"list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;\">\n    <li><a href=\"/courses\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">Digital Marketing</a></li>\n    <li><a href=\"/courses\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">SEO &amp; Content</a></li>\n    <li><a href=\"/courses\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">Google Ads</a></li>\n    <li><a href=\"/courses\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">Social Media</a></li>\n    <li><a href=\"/courses\" style=\"color:#6B7280;text-decoration:none;font-size:14px;\">Web Development</a></li>\n  </ul>\n</div>"
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "ftr_col4",
+                  "elType": "column",
+                  "settings": {
+                    "width": "25",
+                    "_inline_size": null,
+                    "vertical_alignment": "top"
+                  },
+                  "elements": [
+                    {
+                      "id": "ftr_w_contact",
+                      "elType": "widget",
+                      "widgetType": "html",
+                      "settings": {
+                        "html": "<div style=\"font-family:Outfit,sans-serif;\">\n  <h4 style=\"font-size:15px;font-weight:700;color:#0F172A;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.05em;\">Contact</h4>\n  <div style=\"display:flex;flex-direction:column;gap:12px;\">\n    <div style=\"display:flex;gap:10px;align-items:flex-start;\"><span style=\"font-size:16px;\">📍</span><span style=\"color:#6B7280;font-size:14px;line-height:1.5;\">No. 45, Galle Road,<br>Colombo 03, Sri Lanka</span></div>\n    <div style=\"display:flex;gap:10px;align-items:center;\"><span style=\"font-size:16px;\">📞</span><span style=\"color:#6B7280;font-size:14px;\">+94 11 234 5678</span></div>\n    <div style=\"display:flex;gap:10px;align-items:center;\"><span style=\"font-size:16px;\">✉️</span><span style=\"color:#6B7280;font-size:14px;\">info@dmit.lk</span></div>\n  </div>\n</div>"
+                      },
+                      "elements": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ftr_sec2",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "_padding": {
+          "unit": "px",
+          "top": "20",
+          "right": "40",
+          "bottom": "20",
+          "left": "40",
+          "isLinked": false
+        },
+        "layout": "boxed",
+        "border_border": "solid",
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "border_color": "#E5E7EB"
+      },
+      "elements": [
+        {
+          "id": "ftr_row2",
+          "elType": "column",
+          "settings": {
+            "width": "100",
+            "_inline_size": null,
+            "vertical_alignment": "middle"
+          },
+          "elements": [
+            {
+              "id": "ftr_w_copy",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:flex;justify-content:space-between;align-items:center;font-family:Outfit,sans-serif;font-size:13px;color:#9CA3AF;\">\n  <span>© 2024 DMIT – Digital Marketing IT Institute. All rights reserved.</span>\n  <span><a href=\"#\" style=\"color:#9CA3AF;text-decoration:none;\">Privacy Policy</a> &nbsp;·&nbsp; <a href=\"#\" style=\"color:#9CA3AF;text-decoration:none;\">Terms of Service</a></span>\n</div>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": {}
+}

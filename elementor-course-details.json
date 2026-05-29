@@ -1,0 +1,222 @@
+{
+  "version": "0.4",
+  "title": "DMIT Course Details",
+  "type": "page",
+  "content": [
+    {
+      "id": "cd_hero_sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9FAFB",
+        "_padding": {
+          "unit": "px",
+          "top": "60",
+          "right": "0",
+          "bottom": "60",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "cd_hero_col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "width": "100"
+          },
+          "elements": [
+            {
+              "id": "cd_hero_w",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"font-family:Outfit,sans-serif;max-width:900px;\">\n  <div style=\"font-size:13px;color:#6B7280;margin-bottom:20px;\"><a href=\"/\" style=\"color:#6B7280;text-decoration:none;\">Home</a> / <a href=\"/courses\" style=\"color:#6B7280;text-decoration:none;\">Courses</a> / <span style=\"color:#0F172A;\">Digital Marketing Masterclass</span></div>\n  <div style=\"display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px;\">\n    <span style=\"background:#EDE9FE;color:#7C3AED;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:700;\">Digital Marketing</span>\n    <span style=\"background:#FEF3C7;color:#D97706;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:700;\">&#11088; Bestseller</span>\n  </div>\n  <h1 style=\"font-size:42px;font-weight:800;color:#0F172A;margin:0 0 16px;line-height:1.2;\">Digital Marketing Masterclass</h1>\n  <p style=\"color:#6B7280;font-size:16px;line-height:1.7;max-width:700px;margin:0 0 24px;\">Master every aspect of digital marketing from SEO and PPC to social media and analytics. The most comprehensive digital marketing course in Sri Lanka.</p>\n  <div style=\"display:flex;gap:24px;flex-wrap:wrap;font-size:14px;color:#6B7280;\">\n    <span>&#11088; <strong style=\"color:#0F172A;\">4.9</strong> (328 reviews)</span>\n    <span>&#128101; <strong style=\"color:#0F172A;\">1,240 students</strong></span>\n    <span>&#9201; <strong style=\"color:#0F172A;\">12 Weeks</strong></span>\n    <span>&#128202; <strong style=\"color:#0F172A;\">Beginner &ndash; Advanced</strong></span>\n    <span>&#127942; <strong style=\"color:#0F172A;\">Certificate Included</strong></span>\n  </div>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd_main_sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "_padding": {
+          "unit": "px",
+          "top": "60",
+          "right": "0",
+          "bottom": "60",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "cd_left_col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 62,
+            "width": "62"
+          },
+          "elements": [
+            {
+              "id": "cd_content_w",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"font-family:Outfit,sans-serif;\">\n  <!-- What you'll learn -->\n  <div style=\"margin-bottom:40px;padding:28px;background:#F0F4FF;border-radius:20px;\">\n    <h2 style=\"font-size:22px;font-weight:800;color:#0F172A;margin:0 0 20px;\">What You'll Learn</h2>\n    <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:12px;\">\n      <div style=\"display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#374151;\"><span style=\"color:#2563EB;font-weight:700;flex-shrink:0;margin-top:1px;\">&#10003;</span>Complete digital marketing strategy</div>\n      <div style=\"display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#374151;\"><span style=\"color:#2563EB;font-weight:700;flex-shrink:0;margin-top:1px;\">&#10003;</span>SEO &amp; content marketing mastery</div>\n      <div style=\"display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#374151;\"><span style=\"color:#2563EB;font-weight:700;flex-shrink:0;margin-top:1px;\">&#10003;</span>Google Ads &amp; Facebook Ads</div>\n      <div style=\"display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#374151;\"><span style=\"color:#2563EB;font-weight:700;flex-shrink:0;margin-top:1px;\">&#10003;</span>Social media management</div>\n      <div style=\"display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#374151;\"><span style=\"color:#2563EB;font-weight:700;flex-shrink:0;margin-top:1px;\">&#10003;</span>Email marketing automation</div>\n      <div style=\"display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#374151;\"><span style=\"color:#2563EB;font-weight:700;flex-shrink:0;margin-top:1px;\">&#10003;</span>Analytics &amp; reporting</div>\n    </div>\n  </div>\n\n  <!-- Curriculum -->\n  <div style=\"margin-bottom:40px;\">\n    <h2 style=\"font-size:22px;font-weight:800;color:#0F172A;margin:0 0 20px;\">Course Curriculum</h2>\n    <div style=\"border:1.5px solid #E5E7EB;border-radius:16px;overflow:hidden;\">\n      <div style=\"border-bottom:1px solid #E5E7EB;\">\n        <div style=\"padding:18px 20px;display:flex;justify-content:space-between;align-items:center;background:#F9FAFB;\">\n          <div><span style=\"font-weight:700;color:#0F172A;font-size:15px;\">Module 1: Digital Marketing Fundamentals</span><span style=\"margin-left:12px;font-size:12px;color:#6B7280;\">5 lessons &middot; 3 hours</span></div>\n          <span style=\"font-size:18px;color:#6B7280;font-weight:700;\">+</span>\n        </div>\n        <div style=\"padding:16px 20px;background:#fff;border-top:1px solid #F3F4F6;\">\n          <div style=\"display:flex;flex-direction:column;gap:8px;font-size:13px;color:#6B7280;\">\n            <div>&#128249; Introduction to Digital Marketing</div>\n            <div>&#128249; The Digital Marketing Ecosystem</div>\n            <div>&#128249; Setting Marketing Goals &amp; KPIs</div>\n            <div>&#128196; Customer Journey Mapping</div>\n            <div>&#9989; Module 1 Quiz</div>\n          </div>\n        </div>\n      </div>\n      <div style=\"border-bottom:1px solid #E5E7EB;\">\n        <div style=\"padding:18px 20px;display:flex;justify-content:space-between;align-items:center;\">\n          <div><span style=\"font-weight:700;color:#0F172A;font-size:15px;\">Module 2: SEO Mastery</span><span style=\"margin-left:12px;font-size:12px;color:#6B7280;\">6 lessons &middot; 4 hours</span></div>\n          <span style=\"font-size:18px;color:#6B7280;font-weight:700;\">+</span>\n        </div>\n      </div>\n      <div style=\"border-bottom:1px solid #E5E7EB;\">\n        <div style=\"padding:18px 20px;display:flex;justify-content:space-between;align-items:center;\">\n          <div><span style=\"font-weight:700;color:#0F172A;font-size:15px;\">Module 3: Google Ads &amp; Paid Search</span><span style=\"margin-left:12px;font-size:12px;color:#6B7280;\">5 lessons &middot; 3.5 hours</span></div>\n          <span style=\"font-size:18px;color:#6B7280;font-weight:700;\">+</span>\n        </div>\n      </div>\n      <div style=\"border-bottom:1px solid #E5E7EB;\">\n        <div style=\"padding:18px 20px;display:flex;justify-content:space-between;align-items:center;\">\n          <div><span style=\"font-weight:700;color:#0F172A;font-size:15px;\">Module 4: Social Media Strategy</span><span style=\"margin-left:12px;font-size:12px;color:#6B7280;\">6 lessons &middot; 4 hours</span></div>\n          <span style=\"font-size:18px;color:#6B7280;font-weight:700;\">+</span>\n        </div>\n      </div>\n      <div>\n        <div style=\"padding:18px 20px;display:flex;justify-content:space-between;align-items:center;\">\n          <div><span style=\"font-weight:700;color:#0F172A;font-size:15px;\">Module 5: Analytics &amp; Reporting</span><span style=\"margin-left:12px;font-size:12px;color:#6B7280;\">4 lessons &middot; 2.5 hours</span></div>\n          <span style=\"font-size:18px;color:#6B7280;font-weight:700;\">+</span>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- Requirements -->\n  <div style=\"margin-bottom:40px;\">\n    <h2 style=\"font-size:22px;font-weight:800;color:#0F172A;margin:0 0 16px;\">Requirements</h2>\n    <ul style=\"padding-left:20px;color:#6B7280;font-size:14px;line-height:1.9;margin:0;\">\n      <li>Basic computer literacy</li>\n      <li>Access to a computer or laptop</li>\n      <li>No prior marketing experience needed</li>\n      <li>Willingness to practice on real projects</li>\n    </ul>\n  </div>\n\n  <!-- Instructor -->\n  <div>\n    <h2 style=\"font-size:22px;font-weight:800;color:#0F172A;margin:0 0 16px;\">Your Instructor</h2>\n    <div style=\"display:flex;gap:20px;align-items:flex-start;padding:24px;border:1.5px solid #E5E7EB;border-radius:16px;\">\n      <img src=\"https://picsum.photos/seed/team1/100/100\" style=\"width:72px;height:72px;border-radius:50%;object-fit:cover;flex-shrink:0;\" />\n      <div>\n        <div style=\"font-size:18px;font-weight:700;color:#0F172A;margin-bottom:4px;\">Kamal Perera</div>\n        <div style=\"font-size:13px;color:#7C3AED;font-weight:600;margin-bottom:10px;\">Founder &amp; CEO &middot; Digital Marketing Expert</div>\n        <p style=\"color:#6B7280;font-size:14px;line-height:1.7;margin:0;\">15+ years of international digital marketing experience. Formerly at Google and Meta. Has personally trained over 2,000 students and led campaigns for Fortune 500 brands.</p>\n      </div>\n    </div>\n  </div>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "cd_right_col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 38,
+            "width": "38"
+          },
+          "elements": [
+            {
+              "id": "cd_enroll_w",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"position:sticky;top:100px;font-family:Outfit,sans-serif;\">\n  <div style=\"border:1.5px solid #E5E7EB;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 8px 40px rgba(0,0,0,0.1);\">\n    <img src=\"https://picsum.photos/seed/course1/400/220\" alt=\"Course Preview\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" />\n    <div style=\"padding:28px;\">\n      <div style=\"font-size:34px;font-weight:900;color:#0F172A;margin-bottom:2px;\">LKR 14,990</div>\n      <div style=\"font-size:13px;color:#6B7280;margin-bottom:20px;\">One-time payment &middot; Lifetime access</div>\n      <a href=\"/contact\" style=\"display:block;width:100%;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#fff;padding:15px;border-radius:50px;text-align:center;font-weight:700;font-size:15px;text-decoration:none;box-sizing:border-box;margin-bottom:12px;font-family:Outfit,sans-serif;\">Enroll Now &rarr;</a>\n      <a href=\"/contact\" style=\"display:block;width:100%;border:1.5px solid #E5E7EB;color:#0F172A;padding:13px;border-radius:50px;text-align:center;font-weight:600;font-size:14px;text-decoration:none;box-sizing:border-box;margin-bottom:24px;font-family:Outfit,sans-serif;\">Book Free Demo Class</a>\n      <div style=\"font-size:12px;font-weight:700;color:#0F172A;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.05em;\">This Course Includes:</div>\n      <ul style=\"list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;font-size:13px;color:#6B7280;\">\n        <li style=\"display:flex;gap:8px;align-items:center;\"><span style=\"color:#2563EB;\">&#128249;</span> 48 hours of HD video content</li>\n        <li style=\"display:flex;gap:8px;align-items:center;\"><span>&#128196;</span> 30 downloadable resources</li>\n        <li style=\"display:flex;gap:8px;align-items:center;\"><span>&#127919;</span> 8 real-world projects</li>\n        <li style=\"display:flex;gap:8px;align-items:center;\"><span>&#128172;</span> Live Q&amp;A sessions weekly</li>\n        <li style=\"display:flex;gap:8px;align-items:center;\"><span>&#9854;</span> Lifetime course access</li>\n        <li style=\"display:flex;gap:8px;align-items:center;\"><span>&#128241;</span> Mobile &amp; desktop access</li>\n        <li style=\"display:flex;gap:8px;align-items:center;\"><span>&#127942;</span> Certificate of completion</li>\n        <li style=\"display:flex;gap:8px;align-items:center;\"><span>&#128188;</span> Job placement assistance</li>\n      </ul>\n    </div>\n  </div>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd_related_sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9FAFB",
+        "_padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "cd_related_col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "width": "100"
+          },
+          "elements": [
+            {
+              "id": "cd_related_hdg_w",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;font-family:Outfit,sans-serif;margin-bottom:40px;\">\n  <div style=\"display:inline-block;background:#EDE9FE;color:#7C3AED;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:12px;\">&#127891; Keep Learning</div>\n  <h2 style=\"font-size:36px;font-weight:800;color:#0F172A;margin:0;\">Related <span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">Courses</span></h2>\n</div>"
+              }
+            },
+            {
+              "id": "cd_related_grid_w",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;font-family:Outfit,sans-serif;\">\n  <div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\">\n    <div style=\"position:relative;\">\n      <img src=\"https://picsum.photos/seed/course2/400/220\" alt=\"SEO Course\" style=\"width:100%;height:180px;object-fit:cover;display:block;\" />\n      <div style=\"position:absolute;top:12px;left:12px;background:#EDE9FE;color:#7C3AED;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">SEO</div>\n    </div>\n    <div style=\"padding:20px;\">\n      <h3 style=\"font-size:16px;font-weight:700;color:#0F172A;margin:0 0 12px;line-height:1.3;\">SEO &amp; Content Marketing Pro</h3>\n      <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <div style=\"font-size:18px;font-weight:800;color:#0F172A;\">LKR 9,990</div>\n        <a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll</a>\n      </div>\n    </div>\n  </div>\n  <div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\">\n    <div style=\"position:relative;\">\n      <img src=\"https://picsum.photos/seed/course3/400/220\" alt=\"Google Ads Course\" style=\"width:100%;height:180px;object-fit:cover;display:block;\" />\n      <div style=\"position:absolute;top:12px;left:12px;background:#DBEAFE;color:#2563EB;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">Google Ads</div>\n    </div>\n    <div style=\"padding:20px;\">\n      <h3 style=\"font-size:16px;font-weight:700;color:#0F172A;margin:0 0 12px;line-height:1.3;\">Google Ads &amp; PPC Mastery</h3>\n      <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <div style=\"font-size:18px;font-weight:800;color:#0F172A;\">LKR 11,990</div>\n        <a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll</a>\n      </div>\n    </div>\n  </div>\n  <div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\">\n    <div style=\"position:relative;\">\n      <img src=\"https://picsum.photos/seed/course4/400/220\" alt=\"Social Media Course\" style=\"width:100%;height:180px;object-fit:cover;display:block;\" />\n      <div style=\"position:absolute;top:12px;left:12px;background:#FCE7F3;color:#DB2777;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">Social Media</div>\n    </div>\n    <div style=\"padding:20px;\">\n      <h3 style=\"font-size:16px;font-weight:700;color:#0F172A;margin:0 0 12px;line-height:1.3;\">Social Media Marketing</h3>\n      <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <div style=\"font-size:18px;font-weight:800;color:#0F172A;\">LKR 8,990</div>\n        <a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll</a>\n      </div>\n    </div>\n  </div>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd_cta_sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "gradient",
+        "background_color": "#2563EB",
+        "background_color_b": "#7C3AED",
+        "background_gradient_type": "linear",
+        "background_gradient_angle": {
+          "unit": "deg",
+          "size": 135
+        },
+        "border_radius": {
+          "unit": "px",
+          "top": "24",
+          "right": "24",
+          "bottom": "24",
+          "left": "24",
+          "isLinked": true
+        },
+        "_padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "cd_cta_col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "width": "100"
+          },
+          "elements": [
+            {
+              "id": "cd_cta_hdg_w",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Ready To Transform Your Career?",
+                "header_size": "h2",
+                "align": "center",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 42
+                },
+                "typography_font_weight": "800",
+                "title_color": "#FFFFFF"
+              }
+            },
+            {
+              "id": "cd_cta_txt_w",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"text-align:center;color:#FFFFFF;font-size:16px;font-family:Outfit,sans-serif;margin:0;\">Join 1,240 students already enrolled in this course and building their digital marketing careers.</p>",
+                "align": "center"
+              }
+            },
+            {
+              "id": "cd_cta_btn_w",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;margin-top:24px;\"><a href=\"/contact\" style=\"display:inline-block;background:#fff;color:#0F172A;padding:14px 36px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;font-family:Outfit,sans-serif;\">Enroll Now &rarr;</a></div>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": {
+    "hide_title": "yes",
+    "background_color": "#FFFFFF"
+  }
+}

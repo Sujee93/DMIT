@@ -1,0 +1,212 @@
+{
+  "version": "0.4",
+  "title": "DMIT Courses Page",
+  "type": "page",
+  "content": [
+
+    {
+      "id": "crs_hero_sec",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "80", "left": "0", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "10"
+      },
+      "elements": [
+        {
+          "id": "crs_h_col1",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 100,
+            "column_padding": { "unit": "px", "top": "0", "right": "15", "bottom": "0", "left": "15", "isLinked": false },
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "crs_h_label",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;\"><div style=\"display:inline-block;background:#EDE9FE;color:#7C3AED;padding:6px 16px;border-radius:50px;font-size:13px;font-weight:600;font-family:Outfit,sans-serif;margin-bottom:16px;\">📚 Our Courses</div></div>"
+              }
+            },
+            {
+              "id": "crs_h_head1",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Browse Our <span style=\"background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;\">Courses</span>",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#0F172A",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 56, "sizes": [] },
+                "typography_font_size_tablet": { "unit": "px", "size": 44, "sizes": [] },
+                "typography_font_size_mobile": { "unit": "px", "size": 36, "sizes": [] },
+                "typography_font_weight": "800",
+                "typography_line_height": { "unit": "em", "size": 1.15, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "crs_h_sub01",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"text-align:center;color:#6B7280;font-size:18px;max-width:600px;margin:0 auto;\">Choose from 40+ professional digital marketing courses designed by industry experts.</p>",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 18, "sizes": [] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "crs_filter_sec",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "40", "left": "0", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "10"
+      },
+      "elements": [
+        {
+          "id": "crs_f_col1",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 100,
+            "column_padding": { "unit": "px", "top": "0", "right": "15", "bottom": "0", "left": "15", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "crs_f_html1",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:flex;flex-wrap:wrap;gap:10px;justify-content:center;font-family:Outfit,sans-serif;\"><button style=\"padding:10px 20px;border-radius:50px;border:none;background:#0F172A;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:Outfit,sans-serif;\">All Courses</button><button style=\"padding:10px 20px;border-radius:50px;border:1.5px solid #E5E7EB;background:#fff;color:#6B7280;font-size:13px;font-weight:500;cursor:pointer;font-family:Outfit,sans-serif;\">Digital Marketing</button><button style=\"padding:10px 20px;border-radius:50px;border:1.5px solid #E5E7EB;background:#fff;color:#6B7280;font-size:13px;font-weight:500;cursor:pointer;font-family:Outfit,sans-serif;\">SEO</button><button style=\"padding:10px 20px;border-radius:50px;border:1.5px solid #E5E7EB;background:#fff;color:#6B7280;font-size:13px;font-weight:500;cursor:pointer;font-family:Outfit,sans-serif;\">Google Ads</button><button style=\"padding:10px 20px;border-radius:50px;border:1.5px solid #E5E7EB;background:#fff;color:#6B7280;font-size:13px;font-weight:500;cursor:pointer;font-family:Outfit,sans-serif;\">Social Media</button><button style=\"padding:10px 20px;border-radius:50px;border:1.5px solid #E5E7EB;background:#fff;color:#6B7280;font-size:13px;font-weight:500;cursor:pointer;font-family:Outfit,sans-serif;\">Web Development</button><button style=\"padding:10px 20px;border-radius:50px;border:1.5px solid #E5E7EB;background:#fff;color:#6B7280;font-size:13px;font-weight:500;cursor:pointer;font-family:Outfit,sans-serif;\">Analytics</button><button style=\"padding:10px 20px;border-radius:50px;border:1.5px solid #E5E7EB;background:#fff;color:#6B7280;font-size:13px;font-weight:500;cursor:pointer;font-family:Outfit,sans-serif;\">Email Marketing</button></div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "crs_grid_sec",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "60", "left": "0", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "10"
+      },
+      "elements": [
+        {
+          "id": "crs_g_col1",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 100,
+            "column_padding": { "unit": "px", "top": "0", "right": "15", "bottom": "0", "left": "15", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "crs_g_html1",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;font-family:Outfit,sans-serif;\"><div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course1/400/220\" alt=\"Digital Marketing Masterclass\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><div style=\"position:absolute;top:12px;left:12px;background:#EDE9FE;color:#7C3AED;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">Digital Marketing</div></div><div style=\"padding:20px;\"><h3 style=\"font-size:17px;font-weight:700;color:#0F172A;margin:0 0 8px;line-height:1.3;\">Digital Marketing Masterclass</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst1/32/32\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:12px;color:#6B7280;font-weight:500;\">Kamal Perera</span></div><div style=\"display:flex;gap:16px;font-size:12px;color:#6B7280;margin-bottom:16px;\"><span>⏱ 12 Weeks</span><span>👥 1,240</span><span>⭐ 4.9 ★</span></div><div style=\"display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:20px;font-weight:800;color:#0F172A;\">LKR 14,990</div><a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll Now</a></div></div></div><div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course2/400/220\" alt=\"SEO &amp; Content Marketing Pro\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><div style=\"position:absolute;top:12px;left:12px;background:#EDE9FE;color:#7C3AED;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">SEO</div></div><div style=\"padding:20px;\"><h3 style=\"font-size:17px;font-weight:700;color:#0F172A;margin:0 0 8px;line-height:1.3;\">SEO &amp; Content Marketing Pro</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst2/32/32\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:12px;color:#6B7280;font-weight:500;\">Nimasha Silva</span></div><div style=\"display:flex;gap:16px;font-size:12px;color:#6B7280;margin-bottom:16px;\"><span>⏱ 8 Weeks</span><span>👥 890</span><span>⭐ 4.8 ★</span></div><div style=\"display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:20px;font-weight:800;color:#0F172A;\">LKR 9,990</div><a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll Now</a></div></div></div><div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course3/400/220\" alt=\"Google Ads &amp; PPC Mastery\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><div style=\"position:absolute;top:12px;left:12px;background:#EDE9FE;color:#7C3AED;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">Google Ads</div></div><div style=\"padding:20px;\"><h3 style=\"font-size:17px;font-weight:700;color:#0F172A;margin:0 0 8px;line-height:1.3;\">Google Ads &amp; PPC Mastery</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst3/32/32\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:12px;color:#6B7280;font-weight:500;\">Ruwan Fernando</span></div><div style=\"display:flex;gap:16px;font-size:12px;color:#6B7280;margin-bottom:16px;\"><span>⏱ 6 Weeks</span><span>👥 760</span><span>⭐ 4.9 ★</span></div><div style=\"display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:20px;font-weight:800;color:#0F172A;\">LKR 11,990</div><a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll Now</a></div></div></div><div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course4/400/220\" alt=\"Social Media Marketing\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><div style=\"position:absolute;top:12px;left:12px;background:#EDE9FE;color:#7C3AED;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">Social Media</div></div><div style=\"padding:20px;\"><h3 style=\"font-size:17px;font-weight:700;color:#0F172A;margin:0 0 8px;line-height:1.3;\">Social Media Marketing</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst4/32/32\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:12px;color:#6B7280;font-weight:500;\">Dilini Rathnayake</span></div><div style=\"display:flex;gap:16px;font-size:12px;color:#6B7280;margin-bottom:16px;\"><span>⏱ 8 Weeks</span><span>👥 1,100</span><span>⭐ 4.7 ★</span></div><div style=\"display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:20px;font-weight:800;color:#0F172A;\">LKR 8,990</div><a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll Now</a></div></div></div><div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course5/400/220\" alt=\"Web Development for Marketers\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><div style=\"position:absolute;top:12px;left:12px;background:#EDE9FE;color:#7C3AED;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">Web Dev</div></div><div style=\"padding:20px;\"><h3 style=\"font-size:17px;font-weight:700;color:#0F172A;margin:0 0 8px;line-height:1.3;\">Web Development for Marketers</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst1/32/32\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:12px;color:#6B7280;font-weight:500;\">Kamal Perera</span></div><div style=\"display:flex;gap:16px;font-size:12px;color:#6B7280;margin-bottom:16px;\"><span>⏱ 10 Weeks</span><span>👥 540</span><span>⭐ 4.8 ★</span></div><div style=\"display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:20px;font-weight:800;color:#0F172A;\">LKR 12,990</div><a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll Now</a></div></div></div><div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course6/400/220\" alt=\"Google Analytics &amp; Data\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><div style=\"position:absolute;top:12px;left:12px;background:#EDE9FE;color:#7C3AED;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">Analytics</div></div><div style=\"padding:20px;\"><h3 style=\"font-size:17px;font-weight:700;color:#0F172A;margin:0 0 8px;line-height:1.3;\">Google Analytics &amp; Data</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst2/32/32\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:12px;color:#6B7280;font-weight:500;\">Nimasha Silva</span></div><div style=\"display:flex;gap:16px;font-size:12px;color:#6B7280;margin-bottom:16px;\"><span>⏱ 4 Weeks</span><span>👥 680</span><span>⭐ 4.9 ★</span></div><div style=\"display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:20px;font-weight:800;color:#0F172A;\">LKR 6,990</div><a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll Now</a></div></div></div><div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course7/400/220\" alt=\"Email Marketing Automation\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><div style=\"position:absolute;top:12px;left:12px;background:#EDE9FE;color:#7C3AED;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">Email</div></div><div style=\"padding:20px;\"><h3 style=\"font-size:17px;font-weight:700;color:#0F172A;margin:0 0 8px;line-height:1.3;\">Email Marketing Automation</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst3/32/32\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:12px;color:#6B7280;font-weight:500;\">Ruwan Fernando</span></div><div style=\"display:flex;gap:16px;font-size:12px;color:#6B7280;margin-bottom:16px;\"><span>⏱ 4 Weeks</span><span>👥 430</span><span>⭐ 4.7 ★</span></div><div style=\"display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:20px;font-weight:800;color:#0F172A;\">LKR 5,990</div><a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll Now</a></div></div></div><div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course8/400/220\" alt=\"Graphic Design for Marketing\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><div style=\"position:absolute;top:12px;left:12px;background:#EDE9FE;color:#7C3AED;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">Design</div></div><div style=\"padding:20px;\"><h3 style=\"font-size:17px;font-weight:700;color:#0F172A;margin:0 0 8px;line-height:1.3;\">Graphic Design for Marketing</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst4/32/32\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:12px;color:#6B7280;font-weight:500;\">Dilini Rathnayake</span></div><div style=\"display:flex;gap:16px;font-size:12px;color:#6B7280;margin-bottom:16px;\"><span>⏱ 6 Weeks</span><span>👥 390</span><span>⭐ 4.8 ★</span></div><div style=\"display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:20px;font-weight:800;color:#0F172A;\">LKR 7,990</div><a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll Now</a></div></div></div><div style=\"border:1.5px solid #E5E7EB;border-radius:20px;overflow:hidden;background:#fff;\"><div style=\"position:relative;\"><img src=\"https://picsum.photos/seed/course9/400/220\" alt=\"AI-Powered Digital Marketing\" style=\"width:100%;height:200px;object-fit:cover;display:block;\" /><div style=\"position:absolute;top:12px;left:12px;background:#EDE9FE;color:#7C3AED;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;\">Digital Marketing</div></div><div style=\"padding:20px;\"><h3 style=\"font-size:17px;font-weight:700;color:#0F172A;margin:0 0 8px;line-height:1.3;\">AI-Powered Digital Marketing</h3><div style=\"display:flex;align-items:center;gap:8px;margin-bottom:12px;\"><img src=\"https://picsum.photos/seed/inst1/32/32\" style=\"width:28px;height:28px;border-radius:50%;object-fit:cover;\" /><span style=\"font-size:12px;color:#6B7280;font-weight:500;\">Kamal Perera</span></div><div style=\"display:flex;gap:16px;font-size:12px;color:#6B7280;margin-bottom:16px;\"><span>⏱ 8 Weeks</span><span>👥 210</span><span>⭐ 5.0 ★</span></div><div style=\"display:flex;align-items:center;justify-content:space-between;\"><div style=\"font-size:20px;font-weight:800;color:#0F172A;\">LKR 16,990</div><a href=\"/course-details\" style=\"background:#0F172A;color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;\">Enroll Now</a></div></div></div></div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "crs_cta",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "gradient",
+        "background_gradient_type": "linear",
+        "background_gradient_angle": { "unit": "deg", "size": 135 },
+        "background_gradient_stops": [
+          { "color": "#2563EB", "virtual_position": 0 },
+          { "color": "#7C3AED", "virtual_position": 100 }
+        ],
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "80", "left": "0", "isLinked": false },
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "10"
+      },
+      "elements": [
+        {
+          "id": "crs_cta_col",
+          "elType": "column",
+          "settings": {
+            "_inline_size": 100,
+            "column_padding": { "unit": "px", "top": "0", "right": "15", "bottom": "0", "left": "15", "isLinked": false },
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "crs_cta_h2x",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Can't Find Your Course?<br>We Can Help You Choose",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_size_tablet": { "unit": "px", "size": 32, "sizes": [] },
+                "typography_font_size_mobile": { "unit": "px", "size": 28, "sizes": [] },
+                "typography_font_weight": "800",
+                "typography_line_height": { "unit": "em", "size": 1.2, "sizes": [] },
+                "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+              }
+            },
+            {
+              "id": "crs_cta_txt",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"text-align:center;color:#ffffff;font-size:16px;max-width:560px;margin:0 auto;opacity:0.9;\">Our advisors are ready to help you pick the perfect course for your goals and experience level.</p>",
+                "typography_typography": "custom",
+                "typography_font_family": "Outfit",
+                "typography_font_size": { "unit": "px", "size": 16, "sizes": [] }
+              }
+            },
+            {
+              "id": "crs_cta_btn",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"text-align:center;margin-top:24px;\"><a href=\"/contact\" style=\"display:inline-block;background:#fff;color:#0F172A;padding:14px 36px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;font-family:Outfit,sans-serif;\">Contact An Advisor →</a></div>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+  ],
+  "page_settings": { "hide_title": "yes", "background_color": "#FFFFFF" }
+}
