@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TamilNewsWire — உலகத் தமிழர்களின் நம்பகமான செய்தி வலை</title>
+  <meta name="description" content="புலம்பெயர் தமிழ் சமூகத்திற்கான நம்பகமான செய்திகள், வரலாற்றுக் களஞ்சியம் மற்றும் சமூக நிகழ்வு நாட்காட்டி." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;500;600;700;800&family=Archivo:wght@500;600;700;800;900&family=Noto+Sans+Tamil:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231148C4'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='800' fill='white' text-anchor='middle'>T</text></svg>" />
+</head>
+<body>
+<script>document.body.classList.add('js');</script>
+
+<!-- ░░ Top utility bar ░░ -->
+<div class="topbar">
+  <div class="container topbar__inner">
+    <div class="topbar__date">
+      <span>வியாழன், ஜூன் 11, 2026</span>
+      <span class="dot"></span>
+      <span>ஆனி மாதம் — விசுவாவசு ஆண்டு</span>
+    </div>
+    <nav class="topbar__links" aria-label="Utility">
+      <a href="#">எங்களைப் பற்றி</a>
+      <a href="#">தொடர்பு</a>
+      <a href="#">English</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ░░ Header ░░ -->
+<header class="header">
+  <div class="container header__inner">
+    <a class="brand" href="index.html" aria-label="TamilNewsWire முகப்பு">
+      <span class="brand__mark">T</span>
+      <span class="brand__text">
+        <span class="brand__name">Tamil<span>News</span>Wire</span><br />
+        <span class="brand__tag">உலகத் தமிழர்களின் செய்தி வலை</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" class="is-active">முகப்பு</a>
+      <a href="#news">இலங்கை</a>
+      <a href="#news">உலகம்</a>
+      <a href="#diaspora">புலம்பெயர் வாழ்வு</a>
+      <a href="#history">பண்பாடு</a>
+      <a href="events.html" class="nav__cta">நிகழ்வு நாட்காட்டி</a>
+    </nav>
+    <div class="header__actions">
+      <button class="icon-btn" aria-label="தேடல்">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" aria-label="பட்டியை திற" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ░░ Mobile nav ░░ -->
+<div class="mobile-nav" id="mobileNav">
+  <nav class="mobile-nav__panel" aria-label="Mobile">
+    <a href="index.html" class="is-active">முகப்பு</a>
+    <a href="#news">இலங்கை</a>
+    <a href="#news">உலகம்</a>
+    <a href="#diaspora">புலம்பெயர் வாழ்வு</a>
+    <a href="#history">பண்பாடு</a>
+    <a href="#">விளையாட்டு</a>
+    <a href="events.html" class="nav__cta">நிகழ்வு நாட்காட்டி →</a>
+  </nav>
+</div>
+
+<!-- ░░ Breaking ticker ░░ -->
+<div class="ticker" aria-label="முக்கியச் செய்திகள்">
+  <span class="ticker__label"><span class="pulse"></span> முக்கியம்</span>
+  <div class="ticker__track" id="tickerTrack">
+    <span>யாழ்ப்பாண நூலக மறுசீரமைப்புத் திட்டத்திற்கு சர்வதேச நிதியுதவி உறுதி</span>
+    <span>ரொறன்ரோவில் தமிழ் மரபுத் திங்கள் கொண்டாட்டங்கள் ஆரம்பம்</span>
+    <span>லண்டன் தமிழ்ச் சங்கத்தின் ஆண்டு விழாவிற்கான பதிவுகள் திறக்கப்பட்டன</span>
+    <span>மட்டக்களப்பு மீனவர் கூட்டுறவுத் திட்டத்திற்கு புதிய ஒப்புதல்</span>
+  </div>
+</div>
+
+<main>
+  <!-- ░░ Hero ░░ -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__grid">
+        <!-- Featured story -->
+        <article class="feature-card" id="featureCard">
+          <div class="feature-card__art" aria-hidden="true">
+            <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" role="img">
+              <defs>
+                <linearGradient id="fg1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0D3A94"/><stop offset="1" stop-color="#061B4A"/>
+                </linearGradient>
+                <radialGradient id="fg2" cx="75%" cy="20%" r="70%">
+                  <stop offset="0" stop-color="#3D74FF" stop-opacity=".55"/><stop offset="1" stop-color="#3D74FF" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect width="800" height="520" fill="url(#fg1)"/>
+              <rect width="800" height="520" fill="url(#fg2)"/>
+              <g stroke="#3D74FF" stroke-opacity=".35" stroke-width="1.2" fill="none">
+                <circle cx="640" cy="120" r="170"/><circle cx="640" cy="120" r="120"/><circle cx="640" cy="120" r="70"/>
+              </g>
+              <g fill="#F5B82E">
+                <circle cx="640" cy="120" r="7"/>
+                <circle cx="540" cy="200" r="4" opacity=".8"/>
+                <circle cx="715" cy="55" r="4" opacity=".8"/>
+              </g>
+              <!-- library / archive columns -->
+              <g fill="#BCD0FF" opacity=".28">
+                <rect x="70" y="220" width="34" height="200" rx="4"/>
+                <rect x="120" y="180" width="34" height="240" rx="4"/>
+                <rect x="170" y="250" width="34" height="170" rx="4"/>
+                <rect x="220" y="205" width="34" height="215" rx="4"/>
+                <rect x="270" y="265" width="34" height="155" rx="4"/>
+              </g>
+              <path d="M0 430 Q200 380 420 420 T800 400 V520 H0 Z" fill="#061B4A" opacity=".75"/>
+            </svg>
+          </div>
+          <div class="feature-card__body">
+            <span class="badge">சிறப்புச் செய்தி</span>
+            <h1>யாழ்ப்பாண நூலக மறுசீரமைப்பு: புலம்பெயர் சமூகங்களின் பங்களிப்புடன் புதிய டிஜிட்டல் களஞ்சியம் உருவாகிறது</h1>
+            <p>கனடா, இங்கிலாந்து மற்றும் அவுஸ்திரேலியாவில் உள்ள தமிழ் அமைப்புகளின் ஒருங்கிணைந்த முயற்சியில், அரிய நூல்கள் மற்றும் ஆவணங்கள் எண்ணிம வடிவில் பாதுகாக்கப்படவுள்ளன.</p>
+            <div class="feature-card__meta">
+              <span>✍ செல்வி இராசரத்தினம்</span>
+              <span>• 2 மணி நேரத்திற்கு முன்</span>
+              <span>• 4 நிமிட வாசிப்பு</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Side snippets -->
+        <aside class="side-snips" id="sideSnips">
+          <div class="side-snips__head">
+            <h2>இன்றைய சிறு செய்திகள்</h2>
+            <a class="link-more" href="#news">அனைத்தும் →</a>
+          </div>
+          <article class="snip">
+            <span class="snip__num">01</span>
+            <div>
+              <span class="snip__cat">புலம்பெயர்</span>
+              <h3><a href="#">பாரிஸில் தமிழ் மொழிப் பள்ளிகளுக்கான புதிய ஆசிரியர் பயிற்சித் திட்டம்</a></h3>
+              <time>35 நிமிடங்களுக்கு முன்</time>
+            </div>
+          </article>
+          <article class="snip">
+            <span class="snip__num">02</span>
+            <div>
+              <span class="snip__cat">இலங்கை</span>
+              <h3><a href="#">கிழக்கு மாகாணத்தில் சிறு தொழில் முயற்சியாளர்களுக்கான கடன் உதவி</a></h3>
+              <time>1 மணி நேரத்திற்கு முன்</time>
+            </div>
+          </article>
+          <article class="snip">
+            <span class="snip__num">03</span>
+            <div>
+              <span class="snip__cat">கலை</span>
+              <h3><a href="#">சிட்னியில் இளம் கலைஞர்களின் பரதநாட்டிய அரங்கேற்றங்கள் அதிகரிப்பு</a></h3>
+              <time>3 மணி நேரத்திற்கு முன்</time>
+            </div>
+          </article>
+          <article class="snip">
+            <span class="snip__num">04</span>
+            <div>
+              <span class="snip__cat">விளையாட்டு</span>
+              <h3><a href="#">லண்டன் தமிழ் கிரிக்கெட் லீக்: இறுதிப் போட்டி அட்டவணை வெளியீடு</a></h3>
+              <time>5 மணி நேரத்திற்கு முன்</time>
+            </div>
+          </article>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ News grid ░░ -->
+  <section class="section" id="news">
+    <div class="container">
+      <div class="section__head gs-reveal">
+        <div>
+          <span class="kicker">Snippet Journalism</span>
+          <h2>தலைப்புச் செய்திகள்</h2>
+        </div>
+        <a class="link-more" href="#">மேலும் செய்திகள் →</a>
+      </div>
+      <div class="news-grid">
+        <article class="news-card gs-card">
+          <div class="news-card__art">
+            <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs><linearGradient id="na1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E5BFF"/><stop offset="1" stop-color="#0D3A94"/></linearGradient></defs>
+              <rect width="400" height="180" fill="url(#na1)"/>
+              <g fill="#fff" opacity=".18"><circle cx="330" cy="40" r="60"/><circle cx="60" cy="160" r="80"/></g>
+              <g stroke="#BCD0FF" stroke-width="2" fill="none" opacity=".7"><path d="M40 120 L110 70 L180 100 L260 45 L350 80"/></g>
+              <g fill="#F5B82E"><circle cx="110" cy="70" r="5"/><circle cx="260" cy="45" r="5"/></g>
+            </svg>
+            <span class="badge badge--blue">இலங்கை</span>
+          </div>
+          <div class="news-card__body">
+            <h3><a href="#">வவுனியா பல்கலைக்கழகத்தில் சர்வதேச தமிழ் இலக்கிய மாநாடு அறிவிப்பு</a></h3>
+            <p>பதினைந்து நாடுகளில் இருந்து ஆய்வாளர்கள் கலந்து கொள்ளவுள்ள இம்மாநாடு, ஈழத்து இலக்கிய மரபுகளை மையமாகக் கொண்டது.</p>
+            <div class="news-card__meta"><span>6 மணி நேரத்திற்கு முன்</span><a class="read" href="#">வாசிக்க →</a></div>
+          </div>
+        </article>
+
+        <article class="news-card gs-card">
+          <div class="news-card__art">
+            <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs><linearGradient id="na2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0A2A6B"/><stop offset="1" stop-color="#1148C4"/></linearGradient></defs>
+              <rect width="400" height="180" fill="url(#na2)"/>
+              <!-- maple-ish leaf dots / map feel -->
+              <g fill="#BCD0FF" opacity=".5">
+                <circle cx="70" cy="60" r="4"/><circle cx="120" cy="90" r="6"/><circle cx="180" cy="50" r="4"/>
+                <circle cx="240" cy="95" r="7"/><circle cx="300" cy="60" r="4"/><circle cx="340" cy="110" r="5"/>
+                <circle cx="90" cy="130" r="5"/><circle cx="200" cy="140" r="4"/>
+              </g>
+              <g stroke="#3D74FF" stroke-opacity=".6" fill="none"><path d="M70 60 L120 90 L180 50 L240 95 L300 60 L340 110"/></g>
+              <circle cx="240" cy="95" r="14" fill="none" stroke="#F5B82E" stroke-width="2.5"/>
+            </svg>
+            <span class="badge badge--blue">புலம்பெயர்</span>
+          </div>
+          <div class="news-card__body">
+            <h3><a href="#">கனடாவில் தமிழ் மரபுத் திங்கள்: ஸ்கார்பரோவில் வண்ணமயமான ஆரம்ப விழா</a></h3>
+            <p>நகர மண்டபத்தில் நடைபெற்ற விழாவில் பாரம்பரிய இசை, நடனம் மற்றும் உணவுக் கண்காட்சிகள் இடம்பெற்றன.</p>
+            <div class="news-card__meta"><span>9 மணி நேரத்திற்கு முன்</span><a class="read" href="#">வாசிக்க →</a></div>
+          </div>
+        </article>
+
+        <article class="news-card gs-card">
+          <div class="news-card__art">
+            <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs><linearGradient id="na3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#061B4A"/><stop offset="1" stop-color="#1E5BFF"/></linearGradient></defs>
+              <rect width="400" height="180" fill="url(#na3)"/>
+              <!-- temple gopuram silhouette -->
+              <g fill="#BCD0FF" opacity=".35">
+                <path d="M160 180 L160 100 L175 92 L175 70 L188 62 L188 45 L200 36 L212 45 L212 62 L225 70 L225 92 L240 100 L240 180 Z"/>
+                <rect x="120" y="140" width="30" height="40"/>
+                <rect x="250" y="140" width="30" height="40"/>
+              </g>
+              <circle cx="200" cy="22" r="6" fill="#F5B82E"/>
+              <g stroke="#3D74FF" stroke-opacity=".4" stroke-width="1" fill="none">
+                <circle cx="330" cy="50" r="36"/><circle cx="330" cy="50" r="20"/>
+              </g>
+            </svg>
+            <span class="badge badge--blue">பண்பாடு</span>
+          </div>
+          <div class="news-card__body">
+            <h3><a href="#">நல்லூர் திருவிழாக் காலத்திற்கான ஏற்பாடுகள்: புலம்பெயர் பயணிகளுக்கான வழிகாட்டி</a></h3>
+            <p>விடுதி முன்பதிவு, போக்குவரத்து மற்றும் முக்கிய திருவிழா நாட்கள் குறித்த முழுமையான தொகுப்பு இங்கே.</p>
+            <div class="news-card__meta"><span>12 மணி நேரத்திற்கு முன்</span><a class="read" href="#">வாசிக்க →</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ Today in History ░░ -->
+  <section class="section section--blue" id="history">
+    <div class="container">
+      <div class="history">
+        <div class="history__intro gs-reveal">
+          <span class="kicker" style="color:#F5B82E">Signature Widget</span>
+          <h2>இன்று வரலாற்றில்</h2>
+          <p>ஒவ்வொரு நாளும் தமிழ் வரலாற்றின் முக்கிய தருணங்களை நினைவுகூரும் எங்கள் தனித்துவமான களஞ்சியம் — தினமும் புதுப்பிக்கப்படுகிறது.</p>
+          <div class="history__date">
+            <strong>ஜூன் 11</strong>
+            <span>இன்றைய நினைவுகள் · 4 பதிவுகள்</span>
+          </div>
+        </div>
+        <div class="timeline" id="timeline">
+          <div class="timeline__item">
+            <span class="timeline__year">1954</span>
+            <h3>யாழ்ப்பாணத்தில் முதல் தமிழ் வானொலி நிகழ்ச்சித் தொடர்</h3>
+            <p>வட பகுதியில் தமிழ் ஒலிபரப்பு வரலாற்றில் ஒரு முக்கிய மைல்கல்லாக அமைந்த நிகழ்ச்சி.</p>
+          </div>
+          <div class="timeline__item">
+            <span class="timeline__year">1972</span>
+            <h3>கொழும்பில் தமிழ் எழுத்தாளர் மாநாடு</h3>
+            <p>ஈழத்து இலக்கியத்தின் திசையை வடிவமைத்த படைப்பாளிகள் ஒன்றிணைந்த வரலாற்று நிகழ்வு.</p>
+          </div>
+          <div class="timeline__item">
+            <span class="timeline__year">1998</span>
+            <h3>ரொறன்ரோவில் முதல் பெரும் தமிழ் கலாசார விழா</h3>
+            <p>புலம்பெயர் சமூகத்தின் கலாசார அடையாளத்தை வெளிப்படுத்திய ஆரம்பகால நிகழ்வுகளில் ஒன்று.</p>
+          </div>
+          <div class="timeline__item">
+            <span class="timeline__year">2010</span>
+            <h3>லண்டனில் தமிழ் மொழிப் பாடசாலைகளின் கூட்டமைப்பு உருவாக்கம்</h3>
+            <p>ஐக்கிய இராச்சியத்தில் தமிழ்க் கல்வியை ஒருங்கிணைத்த முக்கிய அமைப்பு ரீதியான முன்னெடுப்பு.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ Stats ░░ -->
+  <section class="section section--paper">
+    <div class="container">
+      <div class="stats" id="stats">
+        <div class="stat gs-card">
+          <div class="stat__num"><span data-count="48">0</span><sup>K+</sup></div>
+          <span>தினசரி வாசகர்கள்</span>
+        </div>
+        <div class="stat gs-card">
+          <div class="stat__num"><span data-count="40">0</span><sup>+</sup></div>
+          <span>நாடுகளில் வாசகர் பரப்பு</span>
+        </div>
+        <div class="stat gs-card">
+          <div class="stat__num"><span data-count="320">0</span><sup>+</sup></div>
+          <span>பதிவு செய்யப்பட்ட அமைப்புகள்</span>
+        </div>
+        <div class="stat gs-card">
+          <div class="stat__num"><span data-count="1200">0</span><sup>+</sup></div>
+          <span>சரிபார்க்கப்பட்ட நிகழ்வுகள்</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ Events teaser ░░ -->
+  <section class="section" id="events">
+    <div class="container">
+      <div class="section__head gs-reveal">
+        <div>
+          <span class="kicker">Community Calendar</span>
+          <h2>வரவிருக்கும் சமூக நிகழ்வுகள்</h2>
+        </div>
+        <a class="link-more" href="events.html">முழு நாட்காட்டி →</a>
+      </div>
+      <div class="events-teaser">
+        <article class="event-card gs-card">
+          <div class="event-card__date"><span class="m">ஜூன்</span><span class="d">13</span></div>
+          <div class="event-card__body">
+            <h3><a href="events.html">முத்தமிழ் விழா 2026 — இசை, நடனம், நாடகம்</a></h3>
+            <div class="event-card__loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              ரொறன்ரோ, கனடா
+            </div>
+            <span class="badge badge--blue">கலாசாரம்</span>
+          </div>
+        </article>
+        <article class="event-card gs-card">
+          <div class="event-card__date"><span class="m">ஜூன்</span><span class="d">14</span></div>
+          <div class="event-card__body">
+            <h3><a href="events.html">பரதநாட்டிய அரங்கேற்றம் — செல்வி அபிராமி</a></h3>
+            <div class="event-card__loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              லண்டன், ஐக்கிய இராச்சியம்
+            </div>
+            <span class="badge badge--blue">நடனம்</span>
+          </div>
+        </article>
+        <article class="event-card gs-card">
+          <div class="event-card__date"><span class="m">ஜூன்</span><span class="d">20</span></div>
+          <div class="event-card__body">
+            <h3><a href="events.html">கர்நாடக இசை மாலை — யுவ கலைஞர்கள் அரங்கம்</a></h3>
+            <div class="event-card__loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              சிட்னி, அவுஸ்திரேலியா
+            </div>
+            <span class="badge badge--blue">இசை</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="cta-banner gs-reveal">
+        <div>
+          <h3>உங்கள் அமைப்பின் நிகழ்வை இலவசமாகப் பதிவு செய்யுங்கள்</h3>
+          <p>சரிபார்க்கப்பட்ட தமிழ் அமைப்புகளுக்கான நம்பகமான பொது அறிவிப்புத் தளம் — மதிப்பாய்வுக்குப் பின் 24 மணி நேரத்தில் வெளியீடு.</p>
+        </div>
+        <a class="btn btn--white" href="events.html#submit">நிகழ்வைச் சமர்ப்பிக்க →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ Diaspora ░░ -->
+  <section class="section section--paper" id="diaspora">
+    <div class="container">
+      <div class="section__head gs-reveal">
+        <div>
+          <span class="kicker">Global Tamil Community</span>
+          <h2>புலம்பெயர் சமூகங்கள்</h2>
+        </div>
+      </div>
+      <div class="diaspora">
+        <a class="region gs-card" href="#">
+          <span class="region__flag">🇨🇦</span>
+          <h3>கனடா</h3>
+          <p>ரொறன்ரோ · மொன்றியால் · வன்கூவர்</p>
+          <span class="region__count">142 செய்திகள் →</span>
+        </a>
+        <a class="region gs-card" href="#">
+          <span class="region__flag">🇬🇧</span>
+          <h3>ஐக்கிய இராச்சியம்</h3>
+          <p>லண்டன் · பர்மிங்காம் · மான்செஸ்டர்</p>
+          <span class="region__count">118 செய்திகள் →</span>
+        </a>
+        <a class="region gs-card" href="#">
+          <span class="region__flag">🇦🇺</span>
+          <h3>அவுஸ்திரேலியா</h3>
+          <p>சிட்னி · மெல்பேர்ண் · பிரிஸ்பேன்</p>
+          <span class="region__count">96 செய்திகள் →</span>
+        </a>
+        <a class="region gs-card" href="#">
+          <span class="region__flag">🇪🇺</span>
+          <h3>ஐரோப்பா</h3>
+          <p>பாரிஸ் · சூரிச் · ஓஸ்லோ</p>
+          <span class="region__count">87 செய்திகள் →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ Newsletter ░░ -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter">
+        <div class="gs-reveal">
+          <span class="kicker">Daily Briefing</span>
+          <h2>காலை செய்திச் சுருக்கம் — நேரடியாக உங்கள் மின்னஞ்சலுக்கு</h2>
+          <p>தினமும் காலை 7 மணிக்கு, அன்றைய முக்கிய செய்திகள், “இன்று வரலாற்றில்” பதிவு மற்றும் உங்கள் பகுதியின் நிகழ்வுகள் — ஒரே மடலில்.</p>
+        </div>
+        <div class="gs-reveal">
+          <form class="newsletter__form" onsubmit="return false;">
+            <input type="email" placeholder="உங்கள் மின்னஞ்சல் முகவரி" aria-label="மின்னஞ்சல் முகவரி" required />
+            <button class="btn btn--blue" type="submit">இணைக →</button>
+          </form>
+          <p class="newsletter__note">வாரம் ஒருமுறை மட்டுமே. எப்போது வேண்டுமானாலும் விலகலாம். உங்கள் தரவு பாதுகாப்பானது.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ░░ Footer ░░ -->
+<footer class="footer">
+  <div class="container footer__main">
+    <div class="footer__brand">
+      <a class="brand" href="index.html">
+        <span class="brand__mark">T</span>
+        <span class="brand__text">
+          <span class="brand__name">Tamil<span>News</span>Wire</span>
+        </span>
+      </a>
+      <p>உலகத் தமிழர்களுக்கான நம்பகமான செய்திகள், வரலாற்றுக் களஞ்சியம் மற்றும் சமூக நிகழ்வு நாட்காட்டி — ஒரே தளத்தில்.</p>
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 9H16l.5-3h-3V4.5c0-.9.3-1.5 1.6-1.5H16.6V.2C16.3.2 15.3 0 14.2 0 11.8 0 10 1.5 10 4.2V6H7v3h3v9h3.5V9Z"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.7 2H21l-7.2 8.3L22.3 22h-6.6l-5.2-6.8L4.6 22H1.3l7.7-8.9L1 2h6.8l4.7 6.2L17.7 2Zm-1.2 18h1.8L6.8 3.9H4.9L16.5 20Z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.6A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.6 8.9.6 8.9.6s7 0 8.9-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.2ZM9.8 15.3V8.7l6 3.3-6 3.3Z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2Zm0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4Zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-10.5a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>செய்திகள்</h4>
+      <ul>
+        <li><a href="#news">இலங்கை</a></li>
+        <li><a href="#news">உலகம்</a></li>
+        <li><a href="#diaspora">புலம்பெயர் வாழ்வு</a></li>
+        <li><a href="#history">பண்பாடு & கலை</a></li>
+        <li><a href="#">விளையாட்டு</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>சமூகம்</h4>
+      <ul>
+        <li><a href="events.html">நிகழ்வு நாட்காட்டி</a></li>
+        <li><a href="events.html#submit">நிகழ்வு சமர்ப்பிப்பு</a></li>
+        <li><a href="#history">இன்று வரலாற்றில்</a></li>
+        <li><a href="#">அமைப்புகள் அடைவு</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>நிறுவனம்</h4>
+      <ul>
+        <li><a href="#">எங்களைப் பற்றி</a></li>
+        <li><a href="#">ஆசிரியர் கொள்கை</a></li>
+        <li><a href="#">தனியுரிமைக் கொள்கை</a></li>
+        <li><a href="#">தொடர்பு கொள்ள</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__wordmark" aria-hidden="true">TamilNewsWire</div>
+  <div class="container footer__bottom">
+    <span>© 2026 TamilNewsWire. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</span>
+    <span>உலகத் தமிழர்களின் நம்பகமான செய்தி வலை</span>
+  </div>
+</footer>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

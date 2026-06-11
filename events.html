@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>நிகழ்வு நாட்காட்டி — TamilNewsWire</title>
+  <meta name="description" content="உலகெங்கிலும் உள்ள தமிழ் சமூக நிகழ்வுகளின் சரிபார்க்கப்பட்ட நாட்காட்டி — TamilNewsWire." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;500;600;700;800&family=Archivo:wght@500;600;700;800;900&family=Noto+Sans+Tamil:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231148C4'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='800' fill='white' text-anchor='middle'>T</text></svg>" />
+</head>
+<body>
+<script>document.body.classList.add('js');</script>
+
+<!-- ░░ Top utility bar ░░ -->
+<div class="topbar">
+  <div class="container topbar__inner">
+    <div class="topbar__date">
+      <span>வியாழன், ஜூன் 11, 2026</span>
+      <span class="dot"></span>
+      <span>ஆனி மாதம் — விசுவாவசு ஆண்டு</span>
+    </div>
+    <nav class="topbar__links" aria-label="Utility">
+      <a href="#">எங்களைப் பற்றி</a>
+      <a href="#">தொடர்பு</a>
+      <a href="#">English</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ░░ Header ░░ -->
+<header class="header">
+  <div class="container header__inner">
+    <a class="brand" href="index.html" aria-label="TamilNewsWire முகப்பு">
+      <span class="brand__mark">T</span>
+      <span class="brand__text">
+        <span class="brand__name">Tamil<span>News</span>Wire</span><br />
+        <span class="brand__tag">உலகத் தமிழர்களின் செய்தி வலை</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">முகப்பு</a>
+      <a href="index.html#news">இலங்கை</a>
+      <a href="index.html#news">உலகம்</a>
+      <a href="index.html#diaspora">புலம்பெயர் வாழ்வு</a>
+      <a href="index.html#history">பண்பாடு</a>
+      <a href="events.html" class="nav__cta is-active">நிகழ்வு நாட்காட்டி</a>
+    </nav>
+    <div class="header__actions">
+      <button class="icon-btn" aria-label="தேடல்">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" aria-label="பட்டியை திற" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ░░ Mobile nav ░░ -->
+<div class="mobile-nav" id="mobileNav">
+  <nav class="mobile-nav__panel" aria-label="Mobile">
+    <a href="index.html">முகப்பு</a>
+    <a href="index.html#news">இலங்கை</a>
+    <a href="index.html#news">உலகம்</a>
+    <a href="index.html#diaspora">புலம்பெயர் வாழ்வு</a>
+    <a href="index.html#history">பண்பாடு</a>
+    <a href="events.html" class="nav__cta">நிகழ்வு நாட்காட்டி →</a>
+  </nav>
+</div>
+
+<main>
+  <!-- ░░ Page hero ░░ -->
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">முகப்பு</a><span>/</span><span>நிகழ்வு நாட்காட்டி</span>
+      </nav>
+      <span class="kicker">Community Event Calendar</span>
+      <h1 id="heroTitle">உலகத் தமிழ் சமூக நிகழ்வுகள் — ஒரே நம்பகமான நாட்காட்டியில்</h1>
+      <p>கனடா முதல் அவுஸ்திரேலியா வரை — சரிபார்க்கப்பட்ட தமிழ் அமைப்புகளின் கலாசார, கலை மற்றும் சமூக நிகழ்வுகள். ஒவ்வொரு பதிவும் எங்கள் ஆசிரியர் குழுவால் மதிப்பாய்வு செய்யப்படுகிறது.</p>
+      <div class="page-hero__actions">
+        <a class="btn btn--white" href="#submit">நிகழ்வைச் சமர்ப்பிக்க →</a>
+        <a class="btn btn--ghost" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)" href="#calendar">நாட்காட்டியைப் பார்க்க</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ Filters ░░ -->
+  <div class="filters">
+    <div class="container filters__inner" id="filterBar">
+      <span class="filters__label">பிராந்தியம்:</span>
+      <button class="chip is-active" data-region="all">அனைத்தும்</button>
+      <button class="chip" data-region="canada">🇨🇦 கனடா</button>
+      <button class="chip" data-region="uk">🇬🇧 ஐக்கிய இராச்சியம்</button>
+      <button class="chip" data-region="australia">🇦🇺 அவுஸ்திரேலியா</button>
+      <button class="chip" data-region="europe">🇪🇺 ஐரோப்பா</button>
+      <button class="chip" data-region="srilanka">🇱🇰 இலங்கை</button>
+    </div>
+  </div>
+
+  <!-- ░░ Calendar ░░ -->
+  <section class="section" id="calendar">
+    <div class="container">
+      <div class="section__head gs-reveal">
+        <div>
+          <span class="kicker">Moderated &amp; Verified</span>
+          <h2>நிகழ்வு நாட்காட்டி</h2>
+        </div>
+        <a class="link-more" href="#upcoming">பட்டியல் பார்வை ↓</a>
+      </div>
+
+      <div class="calendar-wrap">
+        <div class="calendar gs-reveal" id="calendarBox">
+          <div class="calendar__head">
+            <div class="calendar__title">
+              <strong id="calMonthTa">ஜூன் 2026</strong>
+              <span id="calMonthEn">JUNE 2026</span>
+            </div>
+            <div class="calendar__nav">
+              <button id="calPrev" aria-label="முந்தைய மாதம்">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button id="calNext" aria-label="அடுத்த மாதம்">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="calendar__dow">
+            <span>ஞாயி</span><span>திங்</span><span>செவ்</span><span>புத</span><span>வியா</span><span>வெள்</span><span>சனி</span>
+          </div>
+          <div class="calendar__grid" id="calGrid"><!-- JS --></div>
+          <div class="calendar__legend">
+            <span><i style="background:#1148C4"></i> நிகழ்வு உள்ள நாள்</span>
+            <span><i style="background:#F5B82E"></i> இன்று</span>
+            <span><i style="background:#DCE7FF"></i> பல நிகழ்வுகள்</span>
+          </div>
+        </div>
+
+        <aside class="day-panel gs-reveal" id="dayPanel" aria-live="polite">
+          <div class="day-panel__head">
+            <span class="day-panel__date" id="panelDate">11</span>
+            <div>
+              <h3 id="panelTitle">ஜூன் 11, வியாழன்</h3>
+              <span id="panelCount">தேர்ந்தெடுத்த நாளின் நிகழ்வுகள்</span>
+            </div>
+          </div>
+          <div class="day-panel__list" id="panelList"><!-- JS --></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ Upcoming list ░░ -->
+  <section class="section section--paper" id="upcoming">
+    <div class="container">
+      <div class="section__head gs-reveal">
+        <div>
+          <span class="kicker">Next 30 Days</span>
+          <h2>வரவிருக்கும் நிகழ்வுகள்</h2>
+        </div>
+        <span class="filters__label" id="upcomingCount"></span>
+      </div>
+      <div class="upcoming-list" id="upcomingList"><!-- JS --></div>
+    </div>
+  </section>
+
+  <!-- ░░ Submit event ░░ -->
+  <section class="section section--blue" id="submit">
+    <div class="container">
+      <div class="submit-grid">
+        <div class="submit-info gs-reveal">
+          <span class="kicker" style="color:#F5B82E">Free for Community Organizations</span>
+          <h2>உங்கள் நிகழ்வை சமர்ப்பியுங்கள்</h2>
+          <p>தமிழ் கலாசார அமைப்புகள், பாடசாலைகள் மற்றும் சமூகக் குழுக்களுக்கான நம்பகமான பொது அறிவிப்புத் தளம். அனைத்து சமர்ப்பிப்புகளும் மதிப்பாய்வுக்கு உட்பட்டவை.</p>
+          <ol class="submit-steps">
+            <li>
+              <span class="s-num">1</span>
+              <div>
+                <h4>படிவத்தை நிரப்புங்கள்</h4>
+                <p>நிகழ்வு விவரங்கள், இடம், திகதி மற்றும் அமைப்பின் தகவல்களை வழங்குங்கள்.</p>
+              </div>
+            </li>
+            <li>
+              <span class="s-num">2</span>
+              <div>
+                <h4>ஆசிரியர் மதிப்பாய்வு</h4>
+                <p>எங்கள் குழு 24 மணி நேரத்திற்குள் உங்கள் சமர்ப்பிப்பைச் சரிபார்க்கிறது.</p>
+              </div>
+            </li>
+            <li>
+              <span class="s-num">3</span>
+              <div>
+                <h4>பொது வெளியீடு</h4>
+                <p>அங்கீகரிக்கப்பட்ட நிகழ்வு “சரிபார்க்கப்பட்டது” முத்திரையுடன் நாட்காட்டியில் வெளியாகும்.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <form class="submit-form gs-reveal" onsubmit="return false;">
+          <h3>நிகழ்வு சமர்ப்பிப்புப் படிவம்</h3>
+          <p>* குறியிடப்பட்ட புலங்கள் கட்டாயமானவை</p>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-name">நிகழ்வின் பெயர் *</label>
+              <input id="f-name" type="text" placeholder="எ.கா: முத்தமிழ் விழா 2026" required />
+            </div>
+            <div class="form-field">
+              <label for="f-org">அமைப்பின் பெயர் *</label>
+              <input id="f-org" type="text" placeholder="உங்கள் அமைப்பு" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-date">திகதி *</label>
+              <input id="f-date" type="date" required />
+            </div>
+            <div class="form-field">
+              <label for="f-cat">வகை *</label>
+              <select id="f-cat" required>
+                <option>கலாசாரம்</option>
+                <option>இசை</option>
+                <option>நடனம்</option>
+                <option>கல்வி</option>
+                <option>சமயம்</option>
+                <option>விளையாட்டு</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-city">நகரம் *</label>
+              <input id="f-city" type="text" placeholder="எ.கா: ரொறன்ரோ" required />
+            </div>
+            <div class="form-field">
+              <label for="f-country">நாடு *</label>
+              <select id="f-country" required>
+                <option>கனடா</option>
+                <option>ஐக்கிய இராச்சியம்</option>
+                <option>அவுஸ்திரேலியா</option>
+                <option>பிரான்ஸ்</option>
+                <option>சுவிட்சர்லாந்து</option>
+                <option>இலங்கை</option>
+                <option>வேறு</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field form-field--full">
+              <label for="f-desc">நிகழ்வு விவரம் *</label>
+              <textarea id="f-desc" placeholder="நிகழ்வு பற்றிய சுருக்கமான விவரம் (200 சொற்களுக்குள்)…" required></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field form-field--full">
+              <label for="f-email">தொடர்பு மின்னஞ்சல் *</label>
+              <input id="f-email" type="email" placeholder="contact@example.org" required />
+            </div>
+          </div>
+          <button class="btn btn--blue" type="submit">மதிப்பாய்வுக்கு அனுப்பு →</button>
+          <p class="submit-form__note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+            அனைத்து சமர்ப்பிப்புகளும் TamilNewsWire ஆசிரியர் கொள்கைக்கு உட்பட்டு மதிப்பாய்வு செய்யப்படும். வணிக விளம்பரங்கள் ஏற்கப்படமாட்டா.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ░░ Footer ░░ -->
+<footer class="footer">
+  <div class="container footer__main">
+    <div class="footer__brand">
+      <a class="brand" href="index.html">
+        <span class="brand__mark">T</span>
+        <span class="brand__text">
+          <span class="brand__name">Tamil<span>News</span>Wire</span>
+        </span>
+      </a>
+      <p>உலகத் தமிழர்களுக்கான நம்பகமான செய்திகள், வரலாற்றுக் களஞ்சியம் மற்றும் சமூக நிகழ்வு நாட்காட்டி — ஒரே தளத்தில்.</p>
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 9H16l.5-3h-3V4.5c0-.9.3-1.5 1.6-1.5H16.6V.2C16.3.2 15.3 0 14.2 0 11.8 0 10 1.5 10 4.2V6H7v3h3v9h3.5V9Z"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.7 2H21l-7.2 8.3L22.3 22h-6.6l-5.2-6.8L4.6 22H1.3l7.7-8.9L1 2h6.8l4.7 6.2L17.7 2Zm-1.2 18h1.8L6.8 3.9H4.9L16.5 20Z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.6A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.6 8.9.6 8.9.6s7 0 8.9-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.2ZM9.8 15.3V8.7l6 3.3-6 3.3Z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2Zm0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4Zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-10.5a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>செய்திகள்</h4>
+      <ul>
+        <li><a href="index.html#news">இலங்கை</a></li>
+        <li><a href="index.html#news">உலகம்</a></li>
+        <li><a href="index.html#diaspora">புலம்பெயர் வாழ்வு</a></li>
+        <li><a href="index.html#history">பண்பாடு & கலை</a></li>
+        <li><a href="#">விளையாட்டு</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>சமூகம்</h4>
+      <ul>
+        <li><a href="events.html">நிகழ்வு நாட்காட்டி</a></li>
+        <li><a href="#submit">நிகழ்வு சமர்ப்பிப்பு</a></li>
+        <li><a href="index.html#history">இன்று வரலாற்றில்</a></li>
+        <li><a href="#">அமைப்புகள் அடைவு</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>நிறுவனம்</h4>
+      <ul>
+        <li><a href="#">எங்களைப் பற்றி</a></li>
+        <li><a href="#">ஆசிரியர் கொள்கை</a></li>
+        <li><a href="#">தனியுரிமைக் கொள்கை</a></li>
+        <li><a href="#">தொடர்பு கொள்ள</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__wordmark" aria-hidden="true">TamilNewsWire</div>
+  <div class="container footer__bottom">
+    <span>© 2026 TamilNewsWire. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</span>
+    <span>உலகத் தமிழர்களின் நம்பகமான செய்தி வலை</span>
+  </div>
+</footer>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/calendar.js"></script>
+</body>
+</html>
