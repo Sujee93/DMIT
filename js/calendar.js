@@ -138,7 +138,7 @@
     }
     panelList.innerHTML = evts.map(function (e) {
       return '<article class="day-event">' +
-        "<h4>" + esc(e.title) + "</h4>" +
+        '<h4><a href="event-detail.html">' + esc(e.title) + "</a></h4>" +
         '<div class="day-event__meta">' +
         "<span>🕓 " + esc(e.time) + "</span>" +
         "<span>📍 " + esc(e.city) + "</span>" +
@@ -185,7 +185,7 @@
         '<span class="w">' + DAYS_TA_SHORT[d.getDay()] + "</span>" +
         "</div>" +
         '<div class="up-event__body">' +
-        "<h3><a href=\"#calendar\" data-goto=\"" + e.date + '">' + esc(e.title) + "</a></h3>" +
+        "<h3><a href=\"event-detail.html\">" + esc(e.title) + "</a></h3>" +
         '<div class="up-event__meta">' +
         "<span>" + clock + esc(e.time) + "</span>" +
         "<span>" + pin + esc(e.city) + " · " + (REGION_LABEL[e.region] || "") + "</span>" +

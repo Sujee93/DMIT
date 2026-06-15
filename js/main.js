@@ -22,6 +22,20 @@
     });
   }
 
+  /* ---------- Reading progress (article page) ---------- */
+  var progress = document.getElementById("readingProgress");
+  if (progress) {
+    var updateProgress = function () {
+      var h = document.documentElement;
+      var scrolled = h.scrollTop;
+      var max = h.scrollHeight - h.clientHeight;
+      progress.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + "%";
+    };
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
+  }
+
   /* ---------- GSAP ---------- */
   var hasGsap = typeof gsap !== "undefined";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
