@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JC Earthmoving builds and repairs farm dams across Victoria the right way — no shortcuts, no leaks, no costly rework. Get a free on-site consultation and estimate.">
+<title>Professional Dam Construction & Repairs | JC Earthmoving Victoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#ee6a2c;
+    --orange-dark:#d9551a;
+    --ink:#16191d;
+    --ink-soft:#2a2f36;
+    --slate:#5b636e;
+    --line:#e7e9ee;
+    --bg:#ffffff;
+    --bg-soft:#f6f7f9;
+    --green:#1f9d57;
+    --radius:16px;
+    --shadow-sm:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.1);
+    --shadow-md:0 12px 30px rgba(16,24,40,.10);
+    --shadow-lg:0 24px 60px rgba(16,24,40,.18);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.font-display{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.02em;line-height:1.1}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1rem;
+    padding:.95rem 1.5rem;border-radius:12px;cursor:pointer;border:2px solid transparent;
+    transition:transform .15s ease,box-shadow .2s ease,background .2s ease;white-space:nowrap}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--orange);color:#fff;box-shadow:0 8px 20px rgba(238,106,44,.35)}
+  .btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 12px 26px rgba(238,106,44,.42)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:#000;transform:translateY(-2px)}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .btn-lg{padding:1.1rem 1.9rem;font-size:1.08rem}
+  .btn svg{width:18px;height:18px;flex:none}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .2s}
+  header.scrolled{box-shadow:var(--shadow-sm)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:.65rem;font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.2rem}
+  .brand .mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));
+    display:grid;place-items:center;color:#fff;font-weight:800;font-size:.95rem;box-shadow:var(--shadow-sm)}
+  .brand small{display:block;font-size:.6rem;font-weight:600;letter-spacing:.18em;color:var(--slate)}
+  .nav-links{display:flex;align-items:center;gap:1.7rem}
+  .nav-links a{font-size:.92rem;font-weight:500;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--orange)}
+  .nav-cta{display:flex;align-items:center;gap:.8rem}
+  .nav-call{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-family:'Plus Jakarta Sans';color:var(--ink)}
+  .nav-call svg{width:18px;height:18px;color:var(--orange)}
+  .menu-btn{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;transition:.25s}
+
+  /* Hero */
+  .hero{position:relative;color:#fff;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(105deg,rgba(15,18,22,.94) 0%,rgba(20,24,28,.82) 42%,rgba(20,24,28,.45) 100%),
+    url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1600&auto=format&fit=crop') center/cover;
+    z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:70px 0 84px}
+  .rating-pill{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.22);padding:.45rem .9rem;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:1.4rem}
+  .stars{color:#ffc34d;letter-spacing:1px}
+  .hero h1{font-size:clamp(2.2rem,4.6vw,3.5rem);font-weight:800;margin-bottom:1.1rem}
+  .hero h1 .accent{color:var(--orange)}
+  .hero p.lead{font-size:1.12rem;color:#d7dce2;max-width:34rem;margin-bottom:.9rem}
+  .hero p.sub{font-size:1rem;color:#b9c0c9;margin-bottom:1.8rem}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center}
+  .hero-actions .micro{font-size:.85rem;color:#aeb6bf;display:flex;align-items:center;gap:.4rem}
+
+  /* Form card */
+  .lead-card{background:#fff;color:var(--ink);border-radius:20px;padding:28px;box-shadow:var(--shadow-lg);position:relative}
+  .lead-card .tag{position:absolute;top:-14px;left:24px;background:var(--green);color:#fff;font-size:.72rem;font-weight:700;
+    padding:.35rem .8rem;border-radius:50px;letter-spacing:.04em;box-shadow:var(--shadow-sm)}
+  .lead-card h3{font-size:1.35rem;font-weight:800;margin:.4rem 0 .25rem}
+  .lead-card .form-sub{font-size:.88rem;color:var(--slate);margin-bottom:1.1rem}
+  .field{margin-bottom:.7rem}
+  .field label{display:block;font-size:.78rem;font-weight:600;color:var(--ink-soft);margin-bottom:.28rem}
+  .field input,.field textarea{width:100%;padding:.8rem .9rem;border:1.5px solid var(--line);border-radius:10px;
+    font-family:inherit;font-size:.95rem;color:var(--ink);background:var(--bg-soft);transition:border .15s,background .15s}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--orange);background:#fff;box-shadow:0 0 0 3px rgba(238,106,44,.12)}
+  .field textarea{resize:vertical;min-height:70px}
+  .field .req{color:var(--orange)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+  .lead-card .btn{width:100%;margin-top:.4rem}
+  .form-trust{display:flex;align-items:center;justify-content:center;gap:.45rem;font-size:.78rem;color:var(--slate);margin-top:.85rem}
+  .form-trust svg{width:15px;height:15px;color:var(--green)}
+
+  /* Trust bar */
+  .trustbar{background:var(--orange);color:#fff}
+  .trustbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:22px}
+  .trust-item{display:flex;align-items:center;gap:.7rem;font-size:.92rem;font-weight:600}
+  .trust-item svg{width:22px;height:22px;flex:none;opacity:.95}
+  .trust-item + .trust-item{border-left:1px solid rgba(255,255,255,.22);padding-left:18px}
+
+  /* Sections */
+  section{padding:84px 0}
+  .section-head{text-align:center;max-width:46rem;margin:0 auto 52px}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:800;margin:.6rem 0 .8rem}
+  .section-head p{color:var(--slate);font-size:1.05rem}
+
+  /* Services */
+  .services{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .svc-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
+  .svc-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+  .svc-img{height:230px;background-size:cover;background-position:center;position:relative}
+  .svc-img.one{background-image:url('https://images.unsplash.com/photo-1621451537084-482c73073a0f?q=80&w=1200&auto=format&fit=crop')}
+  .svc-img.two{background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop')}
+  .svc-body{padding:28px}
+  .svc-body h3{font-size:1.45rem;font-weight:800;margin-bottom:.7rem}
+  .svc-body p{color:var(--slate);font-size:.98rem;margin-bottom:1.3rem}
+  .svc-actions{display:flex;flex-wrap:wrap;gap:.7rem}
+
+  /* Why choose */
+  .why{background:var(--bg-soft)}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .why-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm);
+    transition:transform .25s,box-shadow .25s}
+  .why-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+  .why-ico{width:52px;height:52px;border-radius:13px;background:linear-gradient(135deg,#fff1e9,#ffe2d2);
+    display:grid;place-items:center;margin-bottom:1.1rem}
+  .why-ico svg{width:26px;height:26px;color:var(--orange)}
+  .why-card h3{font-size:1.18rem;font-weight:700;margin-bottom:.5rem}
+  .why-card p{color:var(--slate);font-size:.94rem}
+
+  /* Process */
+  .process{background:var(--orange);color:#fff}
+  .process .section-head h2{color:#fff}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:28px 24px;position:relative}
+  .step .num{font-family:'Plus Jakarta Sans';font-size:2.6rem;font-weight:800;line-height:1;opacity:.55;margin-bottom:.6rem}
+  .step h3{font-size:1.15rem;font-weight:700;margin-bottom:.6rem}
+  .step p{font-size:.9rem;color:rgba(255,255,255,.85)}
+  .step::after{content:"";position:absolute;top:46px;right:-14px;width:28px;height:2px;background:rgba(255,255,255,.4);z-index:2}
+  .process-grid .step:last-child::after{display:none}
+
+  /* FAQ */
+  .faq-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:start}
+  .faq-intro h2{font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:800;margin:.6rem 0 1rem}
+  .faq-intro p{color:var(--slate);margin-bottom:1.6rem}
+  .faq-item{border:1px solid var(--line);border-radius:12px;margin-bottom:.8rem;overflow:hidden;background:#fff;transition:box-shadow .2s,border .2s}
+  .faq-item[open]{box-shadow:var(--shadow-sm);border-color:#d8dbe2}
+  .faq-item summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;justify-content:space-between;
+    align-items:center;gap:1rem;font-family:'Plus Jakarta Sans';font-weight:700;font-size:1.02rem}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item .ico{width:24px;height:24px;flex:none;position:relative;transition:transform .25s}
+  .faq-item .ico::before,.faq-item .ico::after{content:"";position:absolute;background:var(--orange);border-radius:2px}
+  .faq-item .ico::before{top:11px;left:4px;width:16px;height:2px}
+  .faq-item .ico::after{top:4px;left:11px;width:2px;height:16px;transition:transform .25s}
+  .faq-item[open] .ico::after{transform:rotate(90deg);opacity:0}
+  .faq-item .ans{padding:0 22px 20px;color:var(--slate);font-size:.96rem}
+
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .gallery div{height:360px;background-size:cover;background-position:center}
+  .gallery .g1{background-image:url('https://images.unsplash.com/photo-1558449028-b53a39d100fc?q=80&w=1200&auto=format&fit=crop')}
+  .gallery .g2{background-image:url('https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?q=80&w=1200&auto=format&fit=crop')}
+
+  /* Reviews */
+  .reviews{background:var(--bg-soft)}
+  .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm)}
+  .review-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.4rem}
+  .avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';flex:none}
+  .review-top .name{font-weight:700;font-size:.95rem;font-family:'Plus Jakarta Sans'}
+  .review-top .time{font-size:.78rem;color:var(--slate)}
+  .review-top .g{margin-left:auto;font-weight:700;font-size:1.1rem;
+    background:conic-gradient(from -45deg,#ea4335,#fbbc05,#34a853,#4285f4,#ea4335);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .review-card .stars{font-size:.9rem;margin-bottom:.6rem}
+  .review-card p{font-size:.92rem;color:var(--ink-soft)}
+
+  /* Final CTA */
+  .final{position:relative;color:#fff;text-align:center;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(rgba(15,18,22,.88),rgba(15,18,22,.88)),
+    url('https://images.unsplash.com/photo-1574691250077-03a929faece5?q=80&w=1600&auto=format&fit=crop') center/cover;z-index:0}
+  .final .wrap{position:relative;z-index:1;max-width:42rem}
+  .final h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:1rem}
+  .final p{color:#cfd5dc;font-size:1.08rem;margin-bottom:.4rem}
+  .final .actions{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:1.8rem}
+
+  /* Footer */
+  footer{background:var(--ink);color:#aab1bb;padding:54px 0 30px}
+  .foot-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;
+    padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .foot-top .brand{color:#fff}
+  .foot-links{display:flex;flex-wrap:wrap;gap:1.5rem}
+  .foot-links a{font-size:.9rem;color:#aab1bb}
+  .foot-links a:hover{color:var(--orange)}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;font-size:.83rem;color:#7b828d}
+  .foot-bottom a{color:var(--orange)}
+
+  /* Mobile sticky call bar */
+  .mobile-bar{position:fixed;bottom:0;left:0;right:0;z-index:70;display:none;gap:10px;padding:10px 14px;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(16,24,40,.1)}
+  .mobile-bar .btn{flex:1;padding:.85rem}
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Responsive */
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:36px;padding:54px 0 64px}
+    .trustbar .wrap{grid-template-columns:1fr 1fr;gap:18px}
+    .trust-item+.trust-item{border-left:0;padding-left:0}
+    .why-grid{grid-template-columns:1fr 1fr}
+    .process-grid{grid-template-columns:1fr 1fr}
+    .step::after{display:none}
+    .reviews-grid{grid-template-columns:1fr 1fr}
+    .faq-layout{grid-template-columns:1fr;gap:34px}
+  }
+  @media(max-width:720px){
+    .nav-links,.nav-cta .btn{display:none}
+    .menu-btn{display:block}
+    .nav-cta .nav-call{display:none}
+    section{padding:60px 0}
+    .services{grid-template-columns:1fr}
+    .why-grid,.process-grid,.reviews-grid{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr}
+    .gallery div{height:260px}
+    .row2{grid-template-columns:1fr}
+    body{padding-bottom:74px}
+    .mobile-bar{display:flex}
+    .foot-top,.foot-bottom{flex-direction:column;text-align:center}
+    .foot-top .brand{justify-content:center}
+  }
+  /* Mobile nav drawer */
+  .drawer{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .25s}
+  .drawer.open{opacity:1;pointer-events:auto}
+  .drawer-panel{position:absolute;top:0;right:0;width:78%;max-width:320px;height:100%;background:#fff;
+    transform:translateX(100%);transition:transform .28s ease;padding:26px 22px;display:flex;flex-direction:column;gap:1.1rem}
+  .drawer.open .drawer-panel{transform:none}
+  .drawer-panel a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:1.05rem;padding:.4rem 0;border-bottom:1px solid var(--line)}
+  .drawer-close{align-self:flex-end;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <span class="mark">JC</span>
+      <span>JC Earthmoving<small>DAM SPECIALISTS</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">What We Do</a>
+      <a href="#why">Why Us</a>
+      <a href="#process">How It Works</a>
+      <a href="#faq">FAQs</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:0466315944" class="nav-call">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0466 315 944
+      </a>
+      <a href="#estimate" class="btn btn-primary">Get a Free Estimate</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="drawer">
+  <div class="drawer-panel">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    <a href="#services">What We Do</a>
+    <a href="#why">Why Us</a>
+    <a href="#process">How It Works</a>
+    <a href="#faq">FAQs</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#estimate" class="btn btn-primary">Get a Free Estimate</a>
+    <a href="tel:0466315944" class="btn btn-ghost">Call 0466 315 944</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="rating-pill"><span class="stars">★★★★★</span> 5.0 Rating · 35+ Reviews</div>
+        <h1>For Professional <span class="accent">Dam Construction & Repairs</span> You Can Trust</h1>
+        <p class="lead">At JC Earthmoving, we build and repair your dam the right way. No shortcuts. No leaks. No costly rework.</p>
+        <p class="sub">Get in touch today for a free on-site consultation and estimate.</p>
+        <div class="hero-actions">
+          <a href="#estimate" class="btn btn-primary btn-lg">Get a Free Estimate</a>
+          <a href="tel:0466315944" class="btn btn-ghost btn-lg" style="background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.25)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            0466 315 944
+          </a>
+        </div>
+        <p class="micro" style="margin-top:1.2rem"><span class="stars">★★★★★</span> &nbsp;Trusted by landowners right across Victoria</p>
+      </div>
+
+      <!-- LEAD FORM -->
+      <div class="lead-card" id="estimate">
+        <span class="tag">100% FREE · NO OBLIGATION</span>
+        <h3>Get a Free Estimate</h3>
+        <p class="form-sub">Tell us about your dam — we'll get straight back to you.</p>
+        <form id="leadForm" novalidate>
+          <div class="field">
+            <label>Name <span class="req">*</span></label>
+            <input type="text" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label>Phone <span class="req">*</span></label>
+              <input type="tel" name="phone" placeholder="04XX XXX XXX" required>
+            </div>
+            <div class="field">
+              <label>Suburb <span class="req">*</span></label>
+              <input type="text" name="suburb" placeholder="Your suburb" required>
+            </div>
+          </div>
+          <div class="field">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label>How can we assist you?</label>
+            <textarea name="message" placeholder="Describe your dam project or issue..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark btn-lg">Get a Free Estimate →</button>
+        </form>
+        <div class="form-trust">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Your details are safe — we never share your information.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trustbar">
+  <div class="wrap">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      Dam Construction, Repairs & Cleaning Experts
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      Engineered for No Leaks
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      Transparent Estimates & Honest Advice
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      Specialists in Fixing Leaks & Failures Left by Others
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2>Built Right. Sealed Tight. Made to Last.</h2>
+      <p>From new farm dams to cleaning and repairs, we deliver strong, watertight results the first time.</p>
+    </div>
+    <div class="services">
+      <div class="svc-card reveal">
+        <div class="svc-img one"></div>
+        <div class="svc-body">
+          <h3>Dam Construction & Repairs</h3>
+          <p>We specialise in building and repairing farm dams, stock dams, and rural water storage systems. We pride ourselves on our work, from stripping back the correct soil layers, building solid clay walls, and keying dams into natural ground to prevent leaks. Our approach means no callbacks, no surprises — just strong watertight dams that last.</p>
+          <div class="svc-actions">
+            <a href="#estimate" class="btn btn-dark">Get a FREE Estimate</a>
+            <a href="tel:0466315944" class="btn btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              0466 315 944
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-img two"></div>
+        <div class="svc-body">
+          <h3>Dam Cleaning & Maintenance</h3>
+          <p>We provide thorough dam cleaning to remove silt, sludge, and built-up debris so your dam holds more water and performs at its best. We'll assess your dam, provide an honest overview of its condition, and recommend practical, cost-effective next steps.</p>
+          <div class="svc-actions">
+            <a href="#estimate" class="btn btn-dark">Get a FREE Estimate</a>
+            <a href="tel:0466315944" class="btn btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              0466 315 944
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Us</span>
+      <h2>Why Choose JC Earthmoving</h2>
+      <p>Real expertise, our own machinery, and honest advice — every step of the way.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <h3>Quality Dam Construction</h3>
+        <p>We refuse to cut corners and are passionate about dam building. Every project is done right, the first time.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        <h3>Experience & Expertise</h3>
+        <p>From volcanic red soils to yellow clays, we understand how different ground types impact dam design and longevity. Our technical approach — full soil stripping, proper keyways, and layered compaction — prevents leaks where others fail.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <h3>All Machinery In-House</h3>
+        <p>With our own excavators, track loaders, rollers, trucks, and pumps, we work faster and avoid delays caused by hire companies. Clients are often surprised at the speed and efficiency of our process.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.66 18H7a4 4 0 0 1-4-4 4 4 0 0 1 4-4 5 5 0 0 1 9.9-1A4.5 4.5 0 0 1 17 18h-1"/><path d="M12 12v9"/><path d="M8 17l4 4 4-4"/></svg></div>
+        <h3>Problem-Solving Expertise</h3>
+        <p>From unexpected soil layers to tricky gullies, we've seen it all. Our knowledge and attention to detail mean we can overcome challenges others might miss.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Clear Communication</h3>
+        <p>We explain the process in plain English so you're never left guessing. So you can feel confident and fully informed every step of the way.</p>
+      </div>
+      <div class="why-card reveal" style="background:var(--ink);color:#fff;border-color:var(--ink);display:flex;flex-direction:column;justify-content:center">
+        <h3 style="color:#fff;font-size:1.3rem">Ready to get started?</h3>
+        <p style="color:#c3cad3;margin-bottom:1.2rem">Book your free on-site consultation today.</p>
+        <a href="#estimate" class="btn btn-primary">Get a Free Estimate →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:#ffe0cf">How It Works</span>
+      <h2>Our Process</h2>
+    </div>
+    <div class="process-grid">
+      <div class="step reveal">
+        <div class="num">01</div>
+        <h3>Site Visit & Estimate</h3>
+        <p>We inspect your land, soil type, and existing dam (if any). You'll receive a clear estimate with realistic expectations.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">02</div>
+        <h3>Planning & Preparation</h3>
+        <p>From stripping topsoil to setting keyways, we prepare the site properly to ensure long-term performance.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">03</div>
+        <h3>Build or Repair</h3>
+        <p>Using in-house machinery and strict compaction methods, we construct or repair your dam with speed and precision.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">04</div>
+        <h3>Final Checks & Handover</h3>
+        <p>You're walked through the finished dam, ensuring everything meets your expectations before completion.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px" class="reveal">
+      <a href="#estimate" class="btn btn-dark btn-lg">Get a FREE Estimate</a>
+      <a href="tel:0466315944" class="btn btn-ghost btn-lg" style="margin-left:.6rem">0466 315 944</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap faq-layout">
+    <div class="faq-intro reveal">
+      <span class="eyebrow">FAQs</span>
+      <h2>Frequently Asked Questions</h2>
+      <p>Got a question about your dam? Here are the answers we hear most. Still unsure? Give us a call — we're happy to help.</p>
+      <a href="#estimate" class="btn btn-dark">Get a FREE Estimate</a>
+      <a href="tel:0466315944" class="btn btn-ghost" style="margin-left:.5rem">0466 315 944</a>
+    </div>
+    <div class="reveal">
+      <details class="faq-item" open>
+        <summary>How much does a dam cost to build? <span class="ico"></span></summary>
+        <div class="ans">Prices vary widely depending on the site conditions, size, and soil type. We'll provide a realistic estimate upfront, and often come in under.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you handle everything? <span class="ico"></span></summary>
+        <div class="ans">Yes. With all our machinery in-house — excavators, track loaders, rollers, trucks, and pumps — we manage the full job from site inspection through to final handover, with no reliance on hire companies.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Why do so many dams leak? <span class="ico"></span></summary>
+        <div class="ans">Most leaks come from poor preparation — skipping soil stripping, not keying the dam into natural ground, or inadequate compaction. Our technical approach prevents leaks where others fail.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can you repair an old dam? <span class="ico"></span></summary>
+        <div class="ans">Absolutely. We specialise in fixing leaks and failures left by others. We'll assess your existing dam, give an honest overview of its condition, and recommend practical, cost-effective next steps.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you work with different soil types? <span class="ico"></span></summary>
+        <div class="ans">Yes. From volcanic red soils to yellow clays, we understand how different ground types impact dam design and longevity, and adjust our approach to suit your site.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="g1"></div>
+  <div class="g2"></div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Reviews</span>
+      <h2>Why Customers Choose Us</h2>
+      <p><span class="stars" style="color:#ffc34d">★★★★★</span> 5.0 average rating from 35+ happy landowners</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-top">
+          <span class="avatar" style="background:#e8743b">JN</span>
+          <div><div class="name">Joe Napoleone</div><div class="time">9 months ago</div></div>
+          <span class="g">G</span>
+        </div>
+        <div class="stars" style="color:#ffc34d">★★★★★</div>
+        <p>The team was very easy to work with and do a great job.</p>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-top">
+          <span class="avatar" style="background:#4285f4">FC</span>
+          <div><div class="name">Frank Calteri</div><div class="time">9 months ago</div></div>
+          <span class="g">G</span>
+        </div>
+        <div class="stars" style="color:#ffc34d">★★★★★</div>
+        <p>Great communication and very fair priced.</p>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-top">
+          <span class="avatar" style="background:#34a853">ZP</span>
+          <div><div class="name">Zac Penrod</div><div class="time">9 months ago</div></div>
+          <span class="g">G</span>
+        </div>
+        <div class="stars" style="color:#ffc34d">★★★★★</div>
+        <p>Josh is very upfront & honest, knowledgeable and is well equipped. Will definitely recommend.</p>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-top">
+          <span class="avatar" style="background:#a142f4">DK</span>
+          <div><div class="name">Daniel Kosterman</div><div class="time">9 months ago</div></div>
+          <span class="g">G</span>
+        </div>
+        <div class="stars" style="color:#ffc34d">★★★★★</div>
+        <p>Great experience all round. The guys were easy to deal with and left the site looking spot on. I'll be using them again.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px" class="reveal">
+      <a href="#estimate" class="btn btn-dark btn-lg">Get a FREE Estimate</a>
+      <a href="tel:0466315944" class="btn btn-ghost btn-lg" style="margin-left:.6rem">0466 315 944</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Need Your Dam Built Right the First Time?</h2>
+    <p>We proudly serve landowners across Victoria with quality dam construction and repairs. Don't risk a leaking dam — get it built right.</p>
+    <p>Call JC Earthmoving today for a free consultation.</p>
+    <div class="actions">
+      <a href="#estimate" class="btn btn-primary btn-lg">Get a Free Estimate</a>
+      <a href="tel:0466315944" class="btn btn-ghost btn-lg" style="background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.25)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0466 315 944
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <a href="#top" class="brand"><span class="mark">JC</span><span>JC Earthmoving<small>DAM SPECIALISTS</small></span></a>
+      <nav class="foot-links">
+        <a href="#services">What We Do</a>
+        <a href="#why">Why Us</a>
+        <a href="#process">How It Works</a>
+        <a href="#faq">FAQs</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#estimate">Get a FREE Estimate</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>Copyright © 2026 JC Earthmoving | All Rights Reserved.</span>
+      <span>Landing Page & Digital Marketing by <a href="#">Lyncox Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-bar">
+  <a href="tel:0466315944" class="btn btn-ghost">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call Now
+  </a>
+  <a href="#estimate" class="btn btn-primary">Free Estimate</a>
+</div>
+
+<script>
+  // Header shadow on scroll
+  const header=document.getElementById('top');
+  window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>10)});
+
+  // Mobile drawer
+  const drawer=document.getElementById('drawer');
+  document.getElementById('menuBtn').addEventListener('click',()=>drawer.classList.add('open'));
+  document.getElementById('drawerClose').addEventListener('click',()=>drawer.classList.remove('open'));
+  drawer.addEventListener('click',e=>{if(e.target===drawer||e.target.closest('a'))drawer.classList.remove('open')});
+
+  // Scroll reveal
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Form handling (front-end demo — connect to your CRM/email service)
+  document.getElementById('leadForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    const req=this.querySelectorAll('[required]');let ok=true;
+    req.forEach(f=>{if(!f.value.trim()){f.style.borderColor='#e23b3b';ok=false}else{f.style.borderColor=''}});
+    if(!ok)return;
+    const btn=this.querySelector('button[type=submit]');
+    btn.textContent='Sending...';btn.disabled=true;
+    setTimeout(()=>{
+      btn.textContent='✓ Thanks — we\'ll be in touch!';
+      btn.style.background='var(--green)';
+      this.reset();
+    },800);
+  });
+</script>
+</body>
+</html>
