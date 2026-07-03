@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // Served at https://<user>.github.io/dmit/ via GitHub Pages
-const base = process.env.VITE_BASE_PATH ?? '/dmit/'
+const base = process.env.VITE_BASE_PATH ?? '/DMIT/'
 
 export default defineConfig({
   base,
