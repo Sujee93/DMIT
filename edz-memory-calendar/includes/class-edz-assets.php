@@ -25,21 +25,32 @@ class EDZ_MC_Assets {
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
 	}
 
+	/**
+	 * Uses the file's last-modified time as the query-string version
+	 * instead of the static plugin version, so every edit automatically
+	 * busts browser/caching-plugin caches without needing a manual
+	 * version bump.
+	 */
+	private function ver( $relative_path ) {
+		$path = EDZ_MC_PATH . $relative_path;
+		return file_exists( $path ) ? (string) filemtime( $path ) : EDZ_MC_VERSION;
+	}
+
 	public function register_assets() {
 		// FullCalendar v6's "global" bundle injects its own base CSS at runtime — no separate stylesheet to enqueue.
-		wp_register_script( 'edz-mc-fullcalendar', EDZ_MC_URL . 'assets/lib/fullcalendar/fullcalendar.min.js', array(), EDZ_MC_VERSION, true );
+		wp_register_script( 'edz-mc-fullcalendar', EDZ_MC_URL . 'assets/lib/fullcalendar/fullcalendar.min.js', array(), $this->ver( 'assets/lib/fullcalendar/fullcalendar.min.js' ), true );
 
-		wp_register_style( 'edz-mc-calendar', EDZ_MC_URL . 'assets/css/edz-calendar.css', array(), EDZ_MC_VERSION );
-		wp_register_script( 'edz-mc-calendar', EDZ_MC_URL . 'assets/js/edz-calendar.js', array( 'edz-mc-fullcalendar' ), EDZ_MC_VERSION, true );
+		wp_register_style( 'edz-mc-calendar', EDZ_MC_URL . 'assets/css/edz-calendar.css', array(), $this->ver( 'assets/css/edz-calendar.css' ) );
+		wp_register_script( 'edz-mc-calendar', EDZ_MC_URL . 'assets/js/edz-calendar.js', array( 'edz-mc-fullcalendar' ), $this->ver( 'assets/js/edz-calendar.js' ), true );
 
-		wp_register_style( 'edz-mc-timeline', EDZ_MC_URL . 'assets/css/edz-timeline.css', array(), EDZ_MC_VERSION );
-		wp_register_script( 'edz-mc-timeline', EDZ_MC_URL . 'assets/js/edz-timeline.js', array(), EDZ_MC_VERSION, true );
+		wp_register_style( 'edz-mc-timeline', EDZ_MC_URL . 'assets/css/edz-timeline.css', array(), $this->ver( 'assets/css/edz-timeline.css' ) );
+		wp_register_script( 'edz-mc-timeline', EDZ_MC_URL . 'assets/js/edz-timeline.js', array(), $this->ver( 'assets/js/edz-timeline.js' ), true );
 
-		wp_register_style( 'edz-mc-list', EDZ_MC_URL . 'assets/css/edz-list.css', array(), EDZ_MC_VERSION );
-		wp_register_script( 'edz-mc-list', EDZ_MC_URL . 'assets/js/edz-list.js', array(), EDZ_MC_VERSION, true );
+		wp_register_style( 'edz-mc-list', EDZ_MC_URL . 'assets/css/edz-list.css', array(), $this->ver( 'assets/css/edz-list.css' ) );
+		wp_register_script( 'edz-mc-list', EDZ_MC_URL . 'assets/js/edz-list.js', array(), $this->ver( 'assets/js/edz-list.js' ), true );
 
-		wp_register_style( 'edz-mc-submit-form', EDZ_MC_URL . 'assets/css/edz-submit-form.css', array(), EDZ_MC_VERSION );
-		wp_register_script( 'edz-mc-submit-form', EDZ_MC_URL . 'assets/js/edz-submit-form.js', array(), EDZ_MC_VERSION, true );
+		wp_register_style( 'edz-mc-submit-form', EDZ_MC_URL . 'assets/css/edz-submit-form.css', array(), $this->ver( 'assets/css/edz-submit-form.css' ) );
+		wp_register_script( 'edz-mc-submit-form', EDZ_MC_URL . 'assets/js/edz-submit-form.js', array(), $this->ver( 'assets/js/edz-submit-form.js' ), true );
 
 		if ( EDZ_MC_Settings::get( 'enable_recaptcha' ) && EDZ_MC_Settings::get( 'recaptcha_site_key' ) ) {
 			wp_register_script(

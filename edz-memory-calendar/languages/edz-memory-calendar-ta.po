@@ -10,15 +10,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: edz-memory-calendar\n"
 
-#: includes/class-edz-assets.php:86
+#: includes/class-edz-assets.php:97
 msgid "%d events"
 msgstr "%d நிகழ்வுகள்"
 
-#: includes/class-edz-assets.php:84
+#: includes/class-edz-assets.php:95
 msgid "1 event"
 msgstr "1 நிகழ்வு"
 
-#: elementor/widgets/class-widget-calendar.php:119
+#: elementor/widgets/class-widget-calendar.php:120
 #: elementor/widgets/class-widget-list.php:73
 #: includes/class-edz-render.php:136
 msgid "All categories"
@@ -30,7 +30,7 @@ msgstr "அனைத்து வகைகளும்"
 msgid "Calendar"
 msgstr "நாட்காட்டி"
 
-#: includes/class-edz-assets.php:74
+#: includes/class-edz-assets.php:85
 msgid "Calendar view"
 msgstr "நாட்காட்டி பார்வை"
 
@@ -43,17 +43,13 @@ msgstr "வகை"
 msgid "Choose a category (optional)"
 msgstr "ஒரு வகையைத் தேர்ந்தெடுக்கவும் (விருப்பத்திற்குரியது)"
 
-#: includes/class-edz-assets.php:72
+#: includes/class-edz-assets.php:83
 msgid "Choose another date to explore."
 msgstr "வேறு நாளைத் தேர்ந்தெடுக்கவும்."
 
 #: includes/class-edz-render.php:185
 msgid "Date it happened"
 msgstr "நடந்த தேதி"
-
-#: elementor/widgets/class-widget-calendar.php:42
-msgid "Event Calendar"
-msgstr "நிகழ்வு நாட்காட்டி"
 
 #: includes/class-edz-render.php:180
 msgid "Event title"
@@ -64,11 +60,11 @@ msgstr "நிகழ்வு தலைப்பு"
 msgid "List"
 msgstr "பட்டியல்"
 
-#: includes/class-edz-assets.php:73
+#: includes/class-edz-assets.php:84
 msgid "List view"
 msgstr "பட்டியல் பார்வை"
 
-#: includes/class-edz-assets.php:75
+#: includes/class-edz-assets.php:86
 msgid "Loading…"
 msgstr "ஏற்றுகிறது…"
 
@@ -76,15 +72,15 @@ msgstr "ஏற்றுகிறது…"
 msgid "Log in"
 msgstr "உள்நுழைய"
 
-#: includes/class-edz-assets.php:82
+#: includes/class-edz-assets.php:93
 msgid "Next"
 msgstr "அடுத்து"
 
-#: includes/class-edz-assets.php:80
+#: includes/class-edz-assets.php:91
 msgid "No events found."
 msgstr "நிகழ்வுகள் எதுவும் இல்லை."
 
-#: includes/class-edz-assets.php:71
+#: includes/class-edz-assets.php:82
 msgid "No events on this day."
 msgstr "இந்த நாளில் நிகழ்வுகள் இல்லை."
 
@@ -106,7 +102,7 @@ msgstr "படம் (விருப்பத்திற்குரியத�
 msgid "Please log in to submit a history event."
 msgstr "வரலாற்று நிகழ்வைச் சமர்ப்பிக்க உள்நுழையவும்."
 
-#: includes/class-edz-assets.php:81
+#: includes/class-edz-assets.php:92
 msgid "Previous"
 msgstr "முந்தைய"
 
@@ -127,11 +123,11 @@ msgstr "என்ன நடந்தது என்பதைக் காண �
 msgid "Share a History Event"
 msgstr "ஒரு வரலாற்று நிகழ்வைப் பகிரவும்"
 
-#: includes/class-edz-assets.php:78
+#: includes/class-edz-assets.php:89
 msgid "Something went wrong. Please try again."
 msgstr "ஏதோ தவறு நடந்தது. மீண்டும் முயற்சிக்கவும்."
 
-#: includes/class-edz-assets.php:77
+#: includes/class-edz-assets.php:88
 msgid "Source"
 msgstr "மூலம்"
 
@@ -143,7 +139,7 @@ msgstr "மூலம் / குறிப்பு இணைப்பு"
 msgid "Submit for review"
 msgstr "மதிப்பாய்வுக்கு சமர்ப்பிக்கவும்"
 
-#: includes/class-edz-assets.php:79 includes/class-edz-submission.php:42
+#: includes/class-edz-assets.php:90 includes/class-edz-submission.php:42
 #: includes/class-edz-submission.php:119
 msgid "Thank you! Your event has been submitted and is awaiting review."
 msgstr ""
@@ -153,7 +149,7 @@ msgstr ""
 msgid "This site is protected by reCAPTCHA."
 msgstr "இந்த தளம் reCAPTCHA மூலம் பாதுகாக்கப்படுகிறது."
 
-#: includes/class-edz-assets.php:76
+#: includes/class-edz-assets.php:87
 msgid "Today"
 msgstr "இன்று"
 

@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: edz-memory-calendar gen_pot.py\n"
 
-#: elementor/widgets/class-widget-calendar.php:106
+#: elementor/widgets/class-widget-calendar.php:107
 #: includes/class-edz-settings.php:131
 msgid "\"Today\" highlight"
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 msgid "%1$d visitor-submitted history event(s) are waiting for review. %2$s"
 msgstr ""
 
-#: includes/class-edz-assets.php:86
+#: includes/class-edz-assets.php:97
 msgid "%d events"
 msgstr ""
 
@@ -25,7 +25,7 @@ msgstr ""
 msgid "(not provided)"
 msgstr ""
 
-#: includes/class-edz-assets.php:84
+#: includes/class-edz-assets.php:95
 msgid "1 event"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Accent (day-with-events dot)"
 msgstr ""
 
-#: elementor/widgets/class-widget-calendar.php:94
+#: elementor/widgets/class-widget-calendar.php:95
 #: elementor/widgets/class-widget-submit-form.php:68
 msgid "Accent colour"
 msgstr ""
@@ -78,7 +78,7 @@ msgstr ""
 msgid "All Events"
 msgstr ""
 
-#: elementor/widgets/class-widget-calendar.php:119
+#: elementor/widgets/class-widget-calendar.php:120
 #: elementor/widgets/class-widget-list.php:73
 #: includes/class-edz-render.php:136
 msgid "All categories"
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Calendar colours"
 msgstr ""
 
-#: includes/class-edz-assets.php:74
+#: includes/class-edz-assets.php:85
 msgid "Calendar view"
 msgstr ""
 
@@ -119,11 +119,11 @@ msgstr ""
 msgid "Choose a category (optional)"
 msgstr ""
 
-#: includes/class-edz-assets.php:72
+#: includes/class-edz-assets.php:83
 msgid "Choose another date to explore."
 msgstr ""
 
-#: elementor/widgets/class-widget-calendar.php:86
+#: elementor/widgets/class-widget-calendar.php:87
 #: elementor/widgets/class-widget-onthisday.php:100
 #: elementor/widgets/class-widget-submit-form.php:60
 msgid "Colours"
@@ -157,10 +157,6 @@ msgstr ""
 msgid "Enable reCAPTCHA v3 on the submission form"
 msgstr ""
 
-#: elementor/widgets/class-widget-calendar.php:42
-msgid "Event Calendar"
-msgstr ""
-
 #: includes/class-edz-cpt.php:70
 msgid "Event Categories"
 msgstr ""
@@ -189,7 +185,7 @@ msgstr ""
 msgid "Events per page"
 msgstr ""
 
-#: elementor/widgets/class-widget-calendar.php:74
+#: elementor/widgets/class-widget-calendar.php:75
 msgid "Filter list view by category"
 msgstr ""
 
@@ -247,11 +243,11 @@ msgstr ""
 msgid "List"
 msgstr ""
 
-#: includes/class-edz-assets.php:73
+#: includes/class-edz-assets.php:84
 msgid "List view"
 msgstr ""
 
-#: includes/class-edz-assets.php:75
+#: includes/class-edz-assets.php:86
 msgid "Loading…"
 msgstr ""
 
@@ -290,15 +286,15 @@ msgstr ""
 msgid "New History Event"
 msgstr ""
 
-#: includes/class-edz-assets.php:82
+#: includes/class-edz-assets.php:93
 msgid "Next"
 msgstr ""
 
-#: includes/class-edz-assets.php:80
+#: includes/class-edz-assets.php:91
 msgid "No events found."
 msgstr ""
 
-#: includes/class-edz-assets.php:71
+#: includes/class-edz-assets.php:82
 msgid "No events on this day."
 msgstr ""
 
@@ -317,6 +313,10 @@ msgstr ""
 
 #: includes/class-edz-settings.php:119
 msgid "Notify on new submission"
+msgstr ""
+
+#: elementor/widgets/class-widget-calendar.php:68
+msgid "Off by default for a cleaner calendar-only view. Turn on if you want visitors to switch to a list right here (there is also a separate standalone \"History Event List\" widget)."
 msgstr ""
 
 #: elementor/widgets/class-widget-onthisday.php:22
@@ -346,7 +346,7 @@ msgstr ""
 msgid "Please provide an email address so we can follow up if needed."
 msgstr ""
 
-#: includes/class-edz-assets.php:81
+#: includes/class-edz-assets.php:92
 msgid "Previous"
 msgstr ""
 
@@ -421,11 +421,11 @@ msgstr ""
 msgid "Site key"
 msgstr ""
 
-#: includes/class-edz-assets.php:78
+#: includes/class-edz-assets.php:89
 msgid "Something went wrong. Please try again."
 msgstr ""
 
-#: includes/class-edz-assets.php:77
+#: includes/class-edz-assets.php:88
 msgid "Source"
 msgstr ""
 
@@ -462,7 +462,7 @@ msgstr ""
 msgid "Submitted by a visitor"
 msgstr ""
 
-#: includes/class-edz-assets.php:79
+#: includes/class-edz-assets.php:90
 #: includes/class-edz-submission.php:42
 #: includes/class-edz-submission.php:119
 msgid "Thank you! Your event has been submitted and is awaiting review."
@@ -492,7 +492,7 @@ msgstr ""
 msgid "Title colour"
 msgstr ""
 
-#: includes/class-edz-assets.php:76
+#: includes/class-edz-assets.php:87
 msgid "Today"
 msgstr ""
 

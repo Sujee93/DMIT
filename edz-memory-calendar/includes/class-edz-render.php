@@ -46,14 +46,14 @@ class EDZ_MC_Render {
 				<h2 class="edz-mc-widget-heading"><?php echo esc_html( $args['heading'] ); ?></h2>
 			<?php endif; ?>
 
-			<div class="edz-mc-calendar-toolbar">
-				<?php if ( $args['show_toggle'] ) : ?>
+			<?php if ( $args['show_toggle'] ) : ?>
+				<div class="edz-mc-calendar-toolbar">
 					<div class="edz-mc-view-toggle" role="tablist">
 						<button type="button" class="edz-mc-view-btn is-active" data-view="calendar" role="tab"><?php esc_html_e( 'Calendar', 'edz-memory-calendar' ); ?></button>
 						<button type="button" class="edz-mc-view-btn" data-view="list" role="tab"><?php esc_html_e( 'List', 'edz-memory-calendar' ); ?></button>
 					</div>
-				<?php endif; ?>
-			</div>
+				</div>
+			<?php endif; ?>
 
 			<div class="edz-mc-calendar-layout">
 				<div class="edz-mc-calendar-pane">

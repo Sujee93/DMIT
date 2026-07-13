@@ -39,7 +39,7 @@ class EDZ_MC_Widget_Calendar extends Widget_Base {
 			array(
 				'label'       => __( 'Heading', 'edz-memory-calendar' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => __( 'Event Calendar', 'edz-memory-calendar' ),
+				'default'     => '',
 				'placeholder' => __( 'Leave blank to hide', 'edz-memory-calendar' ),
 			)
 		);
@@ -62,9 +62,10 @@ class EDZ_MC_Widget_Calendar extends Widget_Base {
 			array(
 				'label'        => __( 'Show calendar/list toggle', 'edz-memory-calendar' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'yes',
+				'default'      => '',
 				'label_on'     => __( 'Show', 'edz-memory-calendar' ),
 				'label_off'    => __( 'Hide', 'edz-memory-calendar' ),
+				'description'  => __( 'Off by default for a cleaner calendar-only view. Turn on if you want visitors to switch to a list right here (there is also a separate standalone "History Event List" widget).', 'edz-memory-calendar' ),
 			)
 		);
 

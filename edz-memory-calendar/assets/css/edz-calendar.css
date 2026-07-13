@@ -174,14 +174,6 @@
 	background: rgba(0, 0, 0, 0.035);
 }
 
-.edz-mc-fc-root .fc-daygrid-day.has-events {
-	background: color-mix(in srgb, var(--edz-mc-accent) 10%, transparent);
-}
-
-.edz-mc-fc-root .fc-daygrid-day.has-events:hover {
-	background: color-mix(in srgb, var(--edz-mc-accent) 16%, transparent);
-}
-
 .edz-mc-fc-root .fc-daygrid-day.is-selected {
 	background: color-mix(in srgb, var(--edz-mc-accent) 26%, transparent) !important;
 	box-shadow: inset 0 0 0 2px var(--edz-mc-accent);
@@ -195,26 +187,32 @@
 	font-weight: 600;
 }
 
-.edz-mc-fc-root .fc-daygrid-day.has-events .fc-daygrid-day-number {
-	font-weight: 800;
+/* The "tags": each historical event becomes a solid, coloured,
+   truncated chip — up to dayMaxEvents, then FullCalendar's own
+   "+N more" link for the rest. */
+.edz-mc-fc-root .fc-daygrid-day-events {
+	margin-top: 2px;
 }
 
-/* The "tag": one aggregate FullCalendar event per day ("2 events"),
-   rendered as a compact, clearly coloured list-item. */
+.edz-mc-fc-root .fc-daygrid-event-harness {
+	margin-top: 2px !important;
+}
+
 .edz-mc-fc-root .fc-daygrid-event {
 	cursor: pointer;
-	border-radius: 4px;
-	font-size: 10px;
+	border-radius: 5px;
+	font-size: 10.5px;
 	font-weight: 700;
-	padding: 1px 4px;
+	padding: 2px 6px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.edz-mc-fc-root .fc-list-item-marker,
-.edz-mc-fc-root .fc-daygrid-event-dot {
-	border-color: var(--edz-mc-accent);
+.edz-mc-fc-root .fc-daygrid-more-link {
+	font-size: 10px !important;
+	font-weight: 700 !important;
+	color: var(--edz-mc-accent) !important;
 }
 
 .edz-mc-error {
