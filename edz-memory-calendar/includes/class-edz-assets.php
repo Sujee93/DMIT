@@ -74,13 +74,16 @@ class EDZ_MC_Assets {
 					'calendarView'  => __( 'Calendar view', 'edz-memory-calendar' ),
 					'loading'       => __( 'Loading…', 'edz-memory-calendar' ),
 					'today'         => __( 'Today', 'edz-memory-calendar' ),
-					'readMore'      => __( 'Read more', 'edz-memory-calendar' ),
 					'source'        => __( 'Source', 'edz-memory-calendar' ),
 					'submitError'   => __( 'Something went wrong. Please try again.', 'edz-memory-calendar' ),
 					'submitSuccess' => __( 'Thank you! Your event has been submitted and is awaiting review.', 'edz-memory-calendar' ),
 					'noResults'     => __( 'No events found.', 'edz-memory-calendar' ),
 					'prev'          => __( 'Previous', 'edz-memory-calendar' ),
 					'next'          => __( 'Next', 'edz-memory-calendar' ),
+					/* translators: used as-is when a day has exactly one event */
+					'oneEvent'      => __( '1 event', 'edz-memory-calendar' ),
+					/* translators: %d is replaced client-side with the event count */
+					'manyEvents'    => __( '%d events', 'edz-memory-calendar' ),
 				),
 			)
 		);

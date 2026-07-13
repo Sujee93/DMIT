@@ -16,9 +16,17 @@ msgstr ""
 msgid "%1$d visitor-submitted history event(s) are waiting for review. %2$s"
 msgstr ""
 
+#: includes/class-edz-assets.php:86
+msgid "%d events"
+msgstr ""
+
 #: includes/class-edz-admin.php:87
 #: includes/class-edz-admin.php:88
 msgid "(not provided)"
+msgstr ""
+
+#: includes/class-edz-assets.php:84
+msgid "1 event"
 msgstr ""
 
 #: includes/class-edz-submission.php:73
@@ -282,11 +290,11 @@ msgstr ""
 msgid "New History Event"
 msgstr ""
 
-#: includes/class-edz-assets.php:83
+#: includes/class-edz-assets.php:82
 msgid "Next"
 msgstr ""
 
-#: includes/class-edz-assets.php:81
+#: includes/class-edz-assets.php:80
 msgid "No events found."
 msgstr ""
 
@@ -338,16 +346,12 @@ msgstr ""
 msgid "Please provide an email address so we can follow up if needed."
 msgstr ""
 
-#: includes/class-edz-assets.php:82
+#: includes/class-edz-assets.php:81
 msgid "Previous"
 msgstr ""
 
 #: includes/class-edz-settings.php:91
 msgid "Public submissions"
-msgstr ""
-
-#: includes/class-edz-assets.php:77
-msgid "Read more"
 msgstr ""
 
 #: includes/class-edz-settings.php:95
@@ -417,11 +421,11 @@ msgstr ""
 msgid "Site key"
 msgstr ""
 
-#: includes/class-edz-assets.php:79
+#: includes/class-edz-assets.php:78
 msgid "Something went wrong. Please try again."
 msgstr ""
 
-#: includes/class-edz-assets.php:78
+#: includes/class-edz-assets.php:77
 msgid "Source"
 msgstr ""
 
@@ -458,7 +462,7 @@ msgstr ""
 msgid "Submitted by a visitor"
 msgstr ""
 
-#: includes/class-edz-assets.php:80
+#: includes/class-edz-assets.php:79
 #: includes/class-edz-submission.php:42
 #: includes/class-edz-submission.php:119
 msgid "Thank you! Your event has been submitted and is awaiting review."

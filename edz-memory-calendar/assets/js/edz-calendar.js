@@ -1,11 +1,11 @@
 /**
- * Month calendar widget. Historical events for the displayed month are
- * fed into FullCalendar as real event objects (title = year), so
- * FullCalendar's own renderer places the little "tag" list-items —
- * no custom absolutely-positioned DOM hacks that can get clipped by
- * FullCalendar's internal cell overflow rules. Clicking a day (or one
- * of its tags) fetches that exact date's events fresh from /day, so
- * the side panel is always scoped to the single date clicked.
+ * Month calendar widget. Each day with history events gets ONE
+ * aggregate FullCalendar event ("2 events" / "1 event") so FullCalendar
+ * renders a clear, click-through tag — and the whole day cell gets a
+ * `.has-events` class for a full-cell highlight, so it reads at a
+ * glance instead of relying on a tiny badge. Clicking a day (or its
+ * tag) fetches that exact date's events fresh from /day, so the side
+ * panel is always scoped to the single date clicked.
  */
 ( function () {
 	'use strict';
@@ -26,6 +26,13 @@
 		} else {
 			document.addEventListener( 'DOMContentLoaded', fn );
 		}
+	}
+
+	function eventCountLabel( count ) {
+		if ( count <= 1 ) {
+			return window.edzMC.i18n.oneEvent;
+		}
+		return window.edzMC.i18n.manyEvents.replace( '%d', count );
 	}
 
 	function initCalendarWidget( root ) {
@@ -59,19 +66,31 @@
 				.then( function ( json ) {
 					var days = json.days || {};
 					var fcEvents = [];
+
+					fcRoot.querySelectorAll( '.fc-daygrid-day.has-events' ).forEach( function ( cell ) {
+						cell.classList.remove( 'has-events' );
+					} );
+
 					Object.keys( days ).forEach( function ( dayStr ) {
 						var day = parseInt( dayStr, 10 );
-						days[ dayStr ].forEach( function ( ev ) {
-							fcEvents.push( {
-								id: 'edz-' + ev.id,
-								title: String( ev.year || '' ),
-								start: year + '-' + pad2( month ) + '-' + pad2( day ),
-								allDay: true,
-								color: 'var(--edz-mc-accent)',
-								textColor: '#fff',
-							} );
+						var count = days[ dayStr ].length;
+						var dateStr = year + '-' + pad2( month ) + '-' + pad2( day );
+
+						fcEvents.push( {
+							id: 'edz-day-' + dateStr,
+							title: eventCountLabel( count ),
+							start: dateStr,
+							allDay: true,
+							color: 'var(--edz-mc-accent)',
+							textColor: '#fff',
 						} );
+
+						var cell = fcRoot.querySelector( '.fc-daygrid-day[data-date="' + dateStr + '"]' );
+						if ( cell ) {
+							cell.classList.add( 'has-events' );
+						}
 					} );
+
 					calendar.removeAllEvents();
 					calendar.addEventSource( fcEvents );
 				} )
@@ -120,10 +139,13 @@
 					.sort( function ( a, b ) { return ( a.year || 0 ) - ( b.year || 0 ); } )
 					.forEach( function ( ev ) {
 						html += '<li class="edz-mc-day-event">' +
-							'<span class="edz-mc-event-year">' + escapeHtml( ev.year ) + '</span>' +
-							'<h4 class="edz-mc-event-title">' + escapeHtml( ev.title ) + '</h4>' +
-							( ev.excerpt ? '<p class="edz-mc-event-desc">' + escapeHtml( ev.excerpt ) + '</p>' : '' ) +
-							'</li>';
+							( ev.thumbnail ? '<span class="edz-mc-event-thumb"><img src="' + ev.thumbnail + '" alt="" loading="lazy" /></span>' : '' ) +
+							'<div class="edz-mc-event-body">' +
+								'<span class="edz-mc-event-year">' + escapeHtml( ev.year ) + '</span>' +
+								'<h4 class="edz-mc-event-title">' + escapeHtml( ev.title ) + '</h4>' +
+								( ev.excerpt ? '<p class="edz-mc-event-desc">' + escapeHtml( ev.excerpt ) + '</p>' : '' ) +
+							'</div>' +
+						'</li>';
 					} );
 				html += '</ul>';
 			}
@@ -151,7 +173,7 @@
 			headerToolbar: { left: 'prev', center: 'title', right: 'today,next' },
 			firstDay: 0,
 			height: 'auto',
-			dayMaxEvents: 3,
+			dayMaxEvents: 1,
 			eventDisplay: 'list-item',
 			dateClick: function ( info ) {
 				selectDay( info.dayEl, info.date );

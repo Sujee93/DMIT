@@ -10,6 +10,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: edz-memory-calendar\n"
 
+#: includes/class-edz-assets.php:86
+msgid "%d events"
+msgstr "%d நிகழ்வுகள்"
+
+#: includes/class-edz-assets.php:84
+msgid "1 event"
+msgstr "1 நிகழ்வு"
+
 #: elementor/widgets/class-widget-calendar.php:119
 #: elementor/widgets/class-widget-list.php:73
 #: includes/class-edz-render.php:136
@@ -68,11 +76,11 @@ msgstr "ஏற்றுகிறது…"
 msgid "Log in"
 msgstr "உள்நுழைய"
 
-#: includes/class-edz-assets.php:83
+#: includes/class-edz-assets.php:82
 msgid "Next"
 msgstr "அடுத்து"
 
-#: includes/class-edz-assets.php:81
+#: includes/class-edz-assets.php:80
 msgid "No events found."
 msgstr "நிகழ்வுகள் எதுவும் இல்லை."
 
@@ -98,13 +106,9 @@ msgstr "படம் (விருப்பத்திற்குரியத�
 msgid "Please log in to submit a history event."
 msgstr "வரலாற்று நிகழ்வைச் சமர்ப்பிக்க உள்நுழையவும்."
 
-#: includes/class-edz-assets.php:82
+#: includes/class-edz-assets.php:81
 msgid "Previous"
 msgstr "முந்தைய"
-
-#: includes/class-edz-assets.php:77
-msgid "Read more"
-msgstr "மேலும் படிக்க"
 
 #: includes/class-edz-render.php:133
 msgid "Search by title or year…"
@@ -123,11 +127,11 @@ msgstr "என்ன நடந்தது என்பதைக் காண �
 msgid "Share a History Event"
 msgstr "ஒரு வரலாற்று நிகழ்வைப் பகிரவும்"
 
-#: includes/class-edz-assets.php:79
+#: includes/class-edz-assets.php:78
 msgid "Something went wrong. Please try again."
 msgstr "ஏதோ தவறு நடந்தது. மீண்டும் முயற்சிக்கவும்."
 
-#: includes/class-edz-assets.php:78
+#: includes/class-edz-assets.php:77
 msgid "Source"
 msgstr "மூலம்"
 
@@ -139,7 +143,7 @@ msgstr "மூலம் / குறிப்பு இணைப்பு"
 msgid "Submit for review"
 msgstr "மதிப்பாய்வுக்கு சமர்ப்பிக்கவும்"
 
-#: includes/class-edz-assets.php:80 includes/class-edz-submission.php:42
+#: includes/class-edz-assets.php:79 includes/class-edz-submission.php:42
 #: includes/class-edz-submission.php:119
 msgid "Thank you! Your event has been submitted and is awaiting review."
 msgstr ""
