@@ -188,6 +188,10 @@
 
 		calendar.render();
 
+		// Pre-select today so the side panel opens with today's history
+		// instead of sitting empty until the visitor clicks a date.
+		selectDay( cellForDate( new Date() ), new Date() );
+
 		toggleBtns.forEach( function ( btn ) {
 			btn.addEventListener( 'click', function () {
 				toggleBtns.forEach( function ( b ) { b.classList.remove( 'is-active' ); } );
