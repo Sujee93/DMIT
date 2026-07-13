@@ -65,10 +65,10 @@
 			var html = '<ul class="edz-mc-list-items">';
 			events.forEach( function ( ev ) {
 				html += '<li class="edz-mc-list-item">' +
-					( ev.thumbnail ? '<a class="edz-mc-list-thumb" href="' + ev.permalink + '"><img src="' + ev.thumbnail + '" alt="" loading="lazy" /></a>' : '' ) +
+					( ev.thumbnail ? '<span class="edz-mc-list-thumb"><img src="' + ev.thumbnail + '" alt="" loading="lazy" /></span>' : '' ) +
 					'<div class="edz-mc-list-item-body">' +
 						'<span class="edz-mc-list-item-date">' + escapeHtml( ev.year ) + ( window.edzMC.monthNames && ev.month ? ' · ' + escapeHtml( window.edzMC.monthNames[ ev.month - 1 ] ) + ' ' + escapeHtml( ev.day ) : '' ) + '</span>' +
-						'<h3 class="edz-mc-list-item-title"><a href="' + ev.permalink + '">' + escapeHtml( ev.title ) + '</a></h3>' +
+						'<h3 class="edz-mc-list-item-title">' + escapeHtml( ev.title ) + '</h3>' +
 						( ev.excerpt ? '<p class="edz-mc-list-item-desc">' + escapeHtml( ev.excerpt ) + '</p>' : '' ) +
 					'</div>' +
 				'</li>';

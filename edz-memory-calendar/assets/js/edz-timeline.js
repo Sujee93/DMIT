@@ -22,7 +22,7 @@
 		wrap.innerHTML = items.map( function ( it ) {
 			return '<div class="rl-item">' +
 				'<p class="rl-year">' + escapeHtml( it.year ) + '</p>' +
-				'<h3 class="rl-title">' + ( it.permalink ? '<a href="' + it.permalink + '">' + escapeHtml( it.title ) + '</a>' : escapeHtml( it.title ) ) + '</h3>' +
+				'<h3 class="rl-title">' + escapeHtml( it.title ) + '</h3>' +
 				'<p class="rl-desc">' + escapeHtml( it.excerpt || '' ) + '</p>' +
 			'</div>';
 		} ).join( '' );

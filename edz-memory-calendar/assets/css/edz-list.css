@@ -70,18 +70,9 @@
 
 .edz-mc-list-item-title {
 	margin: 0 0 6px;
-	font-size: 1.02em;
+	font-size: 15px;
 	font-weight: 700;
 	line-height: 1.35;
-}
-
-.edz-mc-list-item-title a {
-	color: inherit;
-	text-decoration: none;
-}
-
-.edz-mc-list-item-title a:hover {
-	text-decoration: underline;
 }
 
 .edz-mc-list-item-desc {
@@ -107,13 +98,19 @@
 	margin-top: 22px;
 }
 
-.edz-mc-page-btn {
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	background: #fff;
-	border-radius: 8px;
-	padding: 7px 16px;
-	font-size: 0.85em;
-	font-weight: 600;
+button.edz-mc-page-btn {
+	-webkit-appearance: none;
+	appearance: none;
+	border: 1px solid rgba(0, 0, 0, 0.15) !important;
+	background: #fff !important;
+	color: #111 !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	text-transform: none !important;
+	border-radius: 8px !important;
+	padding: 7px 16px !important;
+	font-size: 0.85em !important;
+	font-weight: 600 !important;
 	cursor: pointer;
 }
 

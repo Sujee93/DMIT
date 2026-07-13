@@ -1,7 +1,10 @@
 /* Clean, theme-agnostic default skin for the month calendar widget.
    Colours are driven by --edz-mc-accent / --edz-mc-today custom
    properties (set from plugin settings, overridable per Elementor
-   widget instance via its Style tab). */
+   widget instance via its Style tab). Selectors use !important in a
+   few defensive spots because WordPress themes frequently ship global
+   `button` / `div` rules with enough specificity to defeat plain
+   attribute selectors like [hidden]. */
 
 .edz-mc-calendar-widget {
 	--edz-mc-accent: #2563eb;
@@ -24,23 +27,32 @@
 	gap: 2px;
 }
 
-.edz-mc-view-btn {
-	border: none;
-	background: transparent;
-	padding: 6px 16px;
-	border-radius: 999px;
-	font-size: 0.85em;
-	font-weight: 600;
+.edz-mc-calendar-widget button.edz-mc-view-btn {
+	-webkit-appearance: none;
+	appearance: none;
+	border: none !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	margin: 0 !important;
+	padding: 6px 16px !important;
+	border-radius: 999px !important;
+	font-size: 0.85em !important;
+	font-weight: 600 !important;
+	line-height: 1.4 !important;
 	cursor: pointer;
-	color: inherit;
+	color: inherit !important;
 	opacity: 0.65;
 	transition: background 0.2s ease, opacity 0.2s ease;
 }
 
-.edz-mc-view-btn.is-active {
-	background: #fff;
+.edz-mc-calendar-widget button.edz-mc-view-btn.is-active {
+	background: #fff !important;
+	color: #111 !important;
 	opacity: 1;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
 }
 
 .edz-mc-calendar-layout {
@@ -48,6 +60,11 @@
 	grid-template-columns: 2fr 1fr;
 	gap: 24px;
 	align-items: start;
+}
+
+.edz-mc-calendar-layout[hidden],
+.edz-mc-list-pane[hidden] {
+	display: none !important;
 }
 
 .edz-mc-calendar-pane {
@@ -66,7 +83,8 @@
 }
 
 .edz-mc-day-panel-placeholder,
-.edz-mc-day-panel-hint {
+.edz-mc-day-panel-hint,
+.edz-mc-day-panel-loading {
 	color: rgba(0, 0, 0, 0.5);
 	font-size: 0.9em;
 }
@@ -108,7 +126,7 @@
 
 .edz-mc-event-title {
 	margin: 0 0 4px;
-	font-size: 1em;
+	font-size: 15px;
 	font-weight: 700;
 }
 
@@ -119,34 +137,18 @@
 	color: rgba(0, 0, 0, 0.65);
 }
 
-.edz-mc-event-link {
-	font-size: 0.82em;
-	font-weight: 600;
-	color: var(--edz-mc-accent);
-	text-decoration: none;
-}
+/* --- FullCalendar day cells (native classes, not custom overlays) --- */
 
-.edz-mc-event-link:hover {
-	text-decoration: underline;
-}
-
-/* --- FullCalendar day cells --- */
-
-.edz-mc-day-cell {
+.edz-mc-fc-root .fc-daygrid-day {
 	cursor: pointer;
-	position: relative;
 	transition: background 0.15s ease;
 }
 
-.edz-mc-day-cell:hover {
+.edz-mc-fc-root .fc-daygrid-day:hover {
 	background: rgba(0, 0, 0, 0.035);
 }
 
-.edz-mc-day-cell.edz-mc-other-month {
-	cursor: default;
-}
-
-.edz-mc-day-cell.is-selected {
+.edz-mc-fc-root .fc-daygrid-day.is-selected {
 	background: color-mix(in srgb, var(--edz-mc-accent) 12%, transparent);
 	box-shadow: inset 0 0 0 2px var(--edz-mc-accent);
 }
@@ -159,26 +161,19 @@
 	font-weight: 600;
 }
 
-.edz-mc-tag {
-	position: absolute;
-	bottom: 4px;
-	right: 4px;
-	min-width: 16px;
-	height: 16px;
-	padding: 0 4px;
-	border-radius: 999px;
-	background: var(--edz-mc-accent);
-	color: #fff;
+/* The "tags": real FullCalendar events (title = year) rendered as
+   compact list-items, one per historical year on that day. */
+.edz-mc-fc-root .fc-daygrid-event {
+	cursor: pointer;
+	border-radius: 4px;
 	font-size: 10px;
 	font-weight: 700;
-	line-height: 16px;
-	text-align: center;
-	pointer-events: none;
+	padding: 0 3px;
 }
 
-.edz-mc-day-panel-loading {
-	color: rgba(0, 0, 0, 0.5);
-	font-size: 0.9em;
+.edz-mc-fc-root .fc-list-item-marker,
+.edz-mc-fc-root .fc-daygrid-event-dot {
+	border-color: var(--edz-mc-accent);
 }
 
 .edz-mc-error {
@@ -194,20 +189,24 @@
 	font-weight: 700;
 }
 
-.edz-mc-fc-root .fc-button {
-	background: rgba(0, 0, 0, 0.06);
-	border: none;
-	color: inherit;
-	box-shadow: none;
+.edz-mc-fc-root button.fc-button {
+	-webkit-appearance: none;
+	appearance: none;
+	background: rgba(0, 0, 0, 0.06) !important;
+	border: none !important;
+	color: inherit !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	text-transform: none !important;
 }
 
-.edz-mc-fc-root .fc-button:hover {
-	background: rgba(0, 0, 0, 0.12);
+.edz-mc-fc-root button.fc-button:hover {
+	background: rgba(0, 0, 0, 0.12) !important;
 }
 
-.edz-mc-fc-root .fc-button-primary:not(:disabled).fc-button-active {
-	background: var(--edz-mc-accent);
-	color: #fff;
+.edz-mc-fc-root button.fc-button-primary:not(:disabled).fc-button-active {
+	background: var(--edz-mc-accent) !important;
+	color: #fff !important;
 }
 
 @media (max-width: 780px) {

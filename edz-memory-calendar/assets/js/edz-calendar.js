@@ -1,10 +1,11 @@
 /**
- * Month calendar widget. Fetches /month?month=N (matches every year on
- * record for that month) whenever FullCalendar changes month, and draws
- * a visible tag/badge under each day that has at least one event. The
- * side panel is intentionally NOT dependent on that month cache — a
- * click always fetches /day?month=&day= fresh, so the panel works even
- * if the month-level tag fetch is slow, fails, or hasn't run yet.
+ * Month calendar widget. Historical events for the displayed month are
+ * fed into FullCalendar as real event objects (title = year), so
+ * FullCalendar's own renderer places the little "tag" list-items —
+ * no custom absolutely-positioned DOM hacks that can get clipped by
+ * FullCalendar's internal cell overflow rules. Clicking a day (or one
+ * of its tags) fetches that exact date's events fresh from /day, so
+ * the side panel is always scoped to the single date clicked.
  */
 ( function () {
 	'use strict';
@@ -13,6 +14,10 @@
 		var div = document.createElement( 'div' );
 		div.textContent = str == null ? '' : String( str );
 		return div.innerHTML;
+	}
+
+	function pad2( n ) {
+		return n < 10 ? '0' + n : '' + n;
 	}
 
 	function ready( fn ) {
@@ -38,13 +43,12 @@
 		var layout = root.querySelector( '.edz-mc-calendar-layout' );
 		var listPane = root.querySelector( '.edz-mc-list-pane' );
 		var toggleBtns = root.querySelectorAll( '.edz-mc-view-btn' );
-		var dayMap = {};
 		var selectedEl = null;
 
 		root.style.setProperty( '--edz-mc-accent', window.edzMC.accentColor );
 		root.style.setProperty( '--edz-mc-today', window.edzMC.todayColor );
 
-		function fetchMonth( month ) {
+		function fetchMonth( year, month ) {
 			fetch( window.edzMC.restUrl + '/month?month=' + month )
 				.then( function ( r ) {
 					if ( ! r.ok ) {
@@ -53,37 +57,28 @@
 					return r.json();
 				} )
 				.then( function ( json ) {
-					dayMap = json.days || {};
-					applyTags();
+					var days = json.days || {};
+					var fcEvents = [];
+					Object.keys( days ).forEach( function ( dayStr ) {
+						var day = parseInt( dayStr, 10 );
+						days[ dayStr ].forEach( function ( ev ) {
+							fcEvents.push( {
+								id: 'edz-' + ev.id,
+								title: String( ev.year || '' ),
+								start: year + '-' + pad2( month ) + '-' + pad2( day ),
+								allDay: true,
+								color: 'var(--edz-mc-accent)',
+								textColor: '#fff',
+							} );
+						} );
+					} );
+					calendar.removeAllEvents();
+					calendar.addEventSource( fcEvents );
 				} )
 				.catch( function ( err ) {
 					// eslint-disable-next-line no-console
 					console.error( 'Edz Memory Calendar: could not load month data', err );
 				} );
-		}
-
-		function applyTags() {
-			fcRoot.querySelectorAll( '.edz-mc-day-cell' ).forEach( function ( cell ) {
-				var existing = cell.querySelector( '.edz-mc-tag' );
-				if ( existing ) {
-					existing.remove();
-				}
-				if ( cell.classList.contains( 'edz-mc-other-month' ) ) {
-					return;
-				}
-				var day = parseInt( cell.getAttribute( 'data-edz-day' ), 10 );
-				var events = dayMap[ day ];
-				if ( events && events.length ) {
-					cell.classList.add( 'has-events' );
-					var tag = document.createElement( 'span' );
-					tag.className = 'edz-mc-tag';
-					tag.textContent = events.length > 1 ? events.length : '●';
-					tag.setAttribute( 'title', events.length + ( events.length === 1 ? ' event' : ' events' ) );
-					cell.appendChild( tag );
-				} else {
-					cell.classList.remove( 'has-events' );
-				}
-			} );
 		}
 
 		function renderDayPanel( date ) {
@@ -128,7 +123,6 @@
 							'<span class="edz-mc-event-year">' + escapeHtml( ev.year ) + '</span>' +
 							'<h4 class="edz-mc-event-title">' + escapeHtml( ev.title ) + '</h4>' +
 							( ev.excerpt ? '<p class="edz-mc-event-desc">' + escapeHtml( ev.excerpt ) + '</p>' : '' ) +
-							( ev.permalink ? '<a class="edz-mc-event-link" href="' + ev.permalink + '">' + escapeHtml( window.edzMC.i18n.readMore ) + '</a>' : '' ) +
 							'</li>';
 					} );
 				html += '</ul>';
@@ -136,13 +130,20 @@
 			dayPanel.innerHTML = html;
 		}
 
-		function selectDay( cell, date ) {
+		function selectDay( cellEl, date ) {
 			if ( selectedEl ) {
 				selectedEl.classList.remove( 'is-selected' );
 			}
-			cell.classList.add( 'is-selected' );
-			selectedEl = cell;
+			if ( cellEl ) {
+				cellEl.classList.add( 'is-selected' );
+				selectedEl = cellEl;
+			}
 			renderDayPanel( date );
+		}
+
+		function cellForDate( date ) {
+			var iso = date.getFullYear() + '-' + pad2( date.getMonth() + 1 ) + '-' + pad2( date.getDate() );
+			return fcRoot.querySelector( '.fc-daygrid-day[data-date="' + iso + '"]' );
 		}
 
 		var calendar = new FullCalendar.Calendar( fcRoot, {
@@ -150,20 +151,18 @@
 			headerToolbar: { left: 'prev', center: 'title', right: 'today,next' },
 			firstDay: 0,
 			height: 'auto',
-			dayCellDidMount: function ( info ) {
-				info.el.classList.add( 'edz-mc-day-cell' );
-				info.el.setAttribute( 'data-edz-day', info.date.getDate() );
-				if ( info.isOther ) {
-					info.el.classList.add( 'edz-mc-other-month' );
-					return;
-				}
-				info.el.addEventListener( 'click', function () {
-					selectDay( info.el, info.date );
-				} );
+			dayMaxEvents: 3,
+			eventDisplay: 'list-item',
+			dateClick: function ( info ) {
+				selectDay( info.dayEl, info.date );
+			},
+			eventClick: function ( info ) {
+				info.jsEvent.preventDefault();
+				selectDay( cellForDate( info.event.start ), info.event.start );
 			},
 			datesSet: function ( info ) {
 				var visibleMonth = new Date( info.view.currentStart.getFullYear(), info.view.currentStart.getMonth(), 15 );
-				fetchMonth( visibleMonth.getMonth() + 1 );
+				fetchMonth( visibleMonth.getFullYear(), visibleMonth.getMonth() + 1 );
 				if ( selectedEl ) {
 					selectedEl.classList.remove( 'is-selected' );
 					selectedEl = null;

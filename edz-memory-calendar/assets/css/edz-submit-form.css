@@ -69,14 +69,19 @@
 	margin-top: 8px;
 }
 
-.edz-mc-submit-btn {
-	background: var(--edz-mc-accent, #2563eb);
-	color: #fff;
-	border: none;
-	border-radius: 999px;
-	padding: 12px 28px;
-	font-weight: 600;
-	font-size: 0.95em;
+button.edz-mc-submit-btn {
+	-webkit-appearance: none;
+	appearance: none;
+	background: var(--edz-mc-accent, #2563eb) !important;
+	color: #fff !important;
+	border: none !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	text-transform: none !important;
+	border-radius: 999px !important;
+	padding: 12px 28px !important;
+	font-weight: 600 !important;
+	font-size: 0.95em !important;
 	cursor: pointer;
 	transition: opacity 0.2s ease;
 }
