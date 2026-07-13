@@ -1,0 +1,139 @@
+/* Minimal vertical timeline for the "On This Day" widget — dot on a thin
+   line, orange year label, bold title, dim description. Brightens on
+   scroll. Kept close to the original reference design. */
+
+.dmit-mc-timeline-wrap {
+	max-width: 640px;
+	margin: 0 auto;
+}
+
+.dmit-mc-timeline-heading {
+	margin: 0 0 16px;
+	text-align: left;
+}
+
+.rl-timeline {
+	--rl-orange: #f59e0b;
+	--rl-line: rgba(255, 255, 255, 0.18);
+	--rl-dot-border: rgba(255, 255, 255, 0.45);
+	--rl-title: #f8fafc;
+	--rl-desc: rgba(248, 250, 252, 0.62);
+	position: relative;
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 4px 0 4px 44px;
+	font-family: inherit;
+}
+
+.rl-timeline::before {
+	content: "";
+	position: absolute;
+	left: 10px;
+	top: 8px;
+	bottom: 8px;
+	width: 1.5px;
+	background: var(--rl-line);
+}
+
+.rl-item {
+	position: relative;
+	margin-bottom: 44px;
+	opacity: 0.45;
+	transition: opacity 0.5s ease;
+}
+
+.rl-item:last-child {
+	margin-bottom: 0;
+}
+
+.rl-item::before {
+	content: "";
+	position: absolute;
+	left: -39px;
+	top: 7px;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	border: 2px solid var(--rl-dot-border);
+	background: transparent;
+	transition: all 0.5s ease;
+}
+
+.rl-year {
+	color: var(--rl-orange);
+	font-weight: 700;
+	font-size: 17px;
+	letter-spacing: 0.5px;
+	margin: 0 0 6px;
+}
+
+.rl-title {
+	margin: 0 0 6px;
+	font-size: 19px;
+	font-weight: 700;
+	color: var(--rl-title);
+	line-height: 1.35;
+}
+
+.rl-title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.rl-title a:hover {
+	text-decoration: underline;
+}
+
+.rl-desc {
+	margin: 0;
+	font-size: 14.5px;
+	line-height: 1.65;
+	color: var(--rl-desc);
+	max-width: 520px;
+}
+
+.rl-item.is-active {
+	opacity: 1;
+}
+
+.rl-item.is-active::before {
+	border-color: var(--rl-orange);
+	background: var(--rl-orange);
+}
+
+.rl-loading,
+.rl-empty {
+	color: var(--rl-desc);
+	font-size: 14.5px;
+	padding-left: 0;
+}
+
+@media (max-width: 640px) {
+	.rl-timeline {
+		padding-left: 36px;
+	}
+	.rl-timeline::before {
+		left: 7px;
+	}
+	.rl-item::before {
+		left: -31px;
+		width: 9px;
+		height: 9px;
+	}
+	.rl-year {
+		font-size: 15px;
+	}
+	.rl-title {
+		font-size: 17px;
+	}
+	.rl-desc {
+		font-size: 13.5px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rl-item,
+	.rl-item::before {
+		transition: none;
+	}
+}

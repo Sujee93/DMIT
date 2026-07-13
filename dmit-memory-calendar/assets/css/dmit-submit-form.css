@@ -1,0 +1,112 @@
+.dmit-mc-submit-form-wrap {
+	max-width: 640px;
+	font-family: inherit;
+}
+
+.dmit-mc-widget-heading {
+	margin: 0 0 16px;
+	font-size: 1.4em;
+	font-weight: 700;
+}
+
+.dmit-mc-submit-form .dmit-mc-field {
+	margin: 0 0 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.dmit-mc-submit-form label {
+	font-weight: 600;
+	font-size: 0.92em;
+}
+
+.dmit-mc-submit-form .req {
+	color: #dc2626;
+}
+
+.dmit-mc-submit-form input[type="text"],
+.dmit-mc-submit-form input[type="email"],
+.dmit-mc-submit-form input[type="url"],
+.dmit-mc-submit-form input[type="date"],
+.dmit-mc-submit-form input[type="file"],
+.dmit-mc-submit-form select,
+.dmit-mc-submit-form textarea {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px 12px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 8px;
+	font-size: 0.95em;
+	background: #fff;
+	color: #111;
+}
+
+.dmit-mc-submit-form textarea {
+	resize: vertical;
+}
+
+.dmit-mc-submit-form input:focus,
+.dmit-mc-submit-form select:focus,
+.dmit-mc-submit-form textarea:focus {
+	outline: 2px solid var(--dmit-mc-accent, #2563eb);
+	outline-offset: 1px;
+}
+
+/* Honeypot: visually hidden but still reachable by simple bots that ignore CSS */
+.dmit-mc-honeypot {
+	position: absolute !important;
+	left: -9999px !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.dmit-mc-field-submit {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 8px;
+}
+
+.dmit-mc-submit-btn {
+	background: var(--dmit-mc-accent, #2563eb);
+	color: #fff;
+	border: none;
+	border-radius: 999px;
+	padding: 12px 28px;
+	font-weight: 600;
+	font-size: 0.95em;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+}
+
+.dmit-mc-submit-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.dmit-mc-form-status {
+	font-size: 0.9em;
+	font-weight: 600;
+}
+
+.dmit-mc-form-status.is-success {
+	color: #15803d;
+}
+
+.dmit-mc-form-status.is-error {
+	color: #dc2626;
+}
+
+.dmit-mc-recaptcha-notice {
+	font-size: 0.8em;
+	color: rgba(0, 0, 0, 0.5);
+	margin: -8px 0 12px;
+}
+
+.dmit-mc-login-required {
+	padding: 16px;
+	border-radius: 8px;
+	background: rgba(0, 0, 0, 0.04);
+}
