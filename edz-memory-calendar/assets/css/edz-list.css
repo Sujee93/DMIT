@@ -1,0 +1,128 @@
+.edz-mc-list-widget {
+	font-family: inherit;
+}
+
+.edz-mc-list-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 18px;
+}
+
+.edz-mc-list-search,
+.edz-mc-list-category {
+	padding: 9px 12px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 8px;
+	font-size: 0.9em;
+	background: #fff;
+	color: #111;
+}
+
+.edz-mc-list-search {
+	flex: 1 1 220px;
+}
+
+.edz-mc-list-items {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 18px;
+}
+
+.edz-mc-list-item {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 12px;
+	overflow: hidden;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+}
+
+.edz-mc-list-thumb {
+	display: block;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.04);
+}
+
+.edz-mc-list-thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.edz-mc-list-item-body {
+	padding: 14px 16px 16px;
+}
+
+.edz-mc-list-item-date {
+	display: block;
+	font-size: 0.78em;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	color: var(--edz-mc-accent, #2563eb);
+	margin-bottom: 6px;
+}
+
+.edz-mc-list-item-title {
+	margin: 0 0 6px;
+	font-size: 1.02em;
+	font-weight: 700;
+	line-height: 1.35;
+}
+
+.edz-mc-list-item-title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.edz-mc-list-item-title a:hover {
+	text-decoration: underline;
+}
+
+.edz-mc-list-item-desc {
+	margin: 0;
+	font-size: 0.86em;
+	line-height: 1.55;
+	color: rgba(0, 0, 0, 0.62);
+}
+
+.edz-mc-list-empty,
+.edz-mc-list-loading,
+.edz-mc-list-error {
+	padding: 24px 0;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.edz-mc-list-pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	margin-top: 22px;
+}
+
+.edz-mc-page-btn {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: #fff;
+	border-radius: 8px;
+	padding: 7px 16px;
+	font-size: 0.85em;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.edz-mc-page-btn:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+.edz-mc-page-status {
+	font-size: 0.85em;
+	color: rgba(0, 0, 0, 0.6);
+}

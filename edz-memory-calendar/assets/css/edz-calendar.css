@@ -1,0 +1,217 @@
+/* Clean, theme-agnostic default skin for the month calendar widget.
+   Colours are driven by --edz-mc-accent / --edz-mc-today custom
+   properties (set from plugin settings, overridable per Elementor
+   widget instance via its Style tab). */
+
+.edz-mc-calendar-widget {
+	--edz-mc-accent: #2563eb;
+	--edz-mc-today: #f59e0b;
+	font-family: inherit;
+	color: inherit;
+}
+
+.edz-mc-calendar-toolbar {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 12px;
+}
+
+.edz-mc-view-toggle {
+	display: inline-flex;
+	background: rgba(0, 0, 0, 0.06);
+	border-radius: 999px;
+	padding: 4px;
+	gap: 2px;
+}
+
+.edz-mc-view-btn {
+	border: none;
+	background: transparent;
+	padding: 6px 16px;
+	border-radius: 999px;
+	font-size: 0.85em;
+	font-weight: 600;
+	cursor: pointer;
+	color: inherit;
+	opacity: 0.65;
+	transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.edz-mc-view-btn.is-active {
+	background: #fff;
+	opacity: 1;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.edz-mc-calendar-layout {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 24px;
+	align-items: start;
+}
+
+.edz-mc-calendar-pane {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 14px;
+	padding: 16px;
+	background: #fff;
+}
+
+.edz-mc-day-panel {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 14px;
+	padding: 20px;
+	background: #fff;
+	min-height: 180px;
+}
+
+.edz-mc-day-panel-placeholder,
+.edz-mc-day-panel-hint {
+	color: rgba(0, 0, 0, 0.5);
+	font-size: 0.9em;
+}
+
+.edz-mc-day-panel-date {
+	font-weight: 700;
+	font-size: 1.1em;
+	margin-bottom: 12px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.edz-mc-day-events {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.edz-mc-day-event {
+	padding-bottom: 14px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.edz-mc-day-event:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.edz-mc-event-year {
+	display: inline-block;
+	font-weight: 700;
+	font-size: 0.85em;
+	color: var(--edz-mc-accent);
+	margin-bottom: 4px;
+}
+
+.edz-mc-event-title {
+	margin: 0 0 4px;
+	font-size: 1em;
+	font-weight: 700;
+}
+
+.edz-mc-event-desc {
+	margin: 0 0 6px;
+	font-size: 0.88em;
+	line-height: 1.5;
+	color: rgba(0, 0, 0, 0.65);
+}
+
+.edz-mc-event-link {
+	font-size: 0.82em;
+	font-weight: 600;
+	color: var(--edz-mc-accent);
+	text-decoration: none;
+}
+
+.edz-mc-event-link:hover {
+	text-decoration: underline;
+}
+
+/* --- FullCalendar day cells --- */
+
+.edz-mc-day-cell {
+	cursor: pointer;
+	position: relative;
+	transition: background 0.15s ease;
+}
+
+.edz-mc-day-cell:hover {
+	background: rgba(0, 0, 0, 0.035);
+}
+
+.edz-mc-day-cell.edz-mc-other-month {
+	cursor: default;
+}
+
+.edz-mc-day-cell.is-selected {
+	background: color-mix(in srgb, var(--edz-mc-accent) 12%, transparent);
+	box-shadow: inset 0 0 0 2px var(--edz-mc-accent);
+}
+
+.edz-mc-fc-root .fc-day-today {
+	background: color-mix(in srgb, var(--edz-mc-today) 16%, transparent) !important;
+}
+
+.edz-mc-fc-root .fc-daygrid-day-number {
+	font-weight: 600;
+}
+
+.edz-mc-tag {
+	position: absolute;
+	bottom: 4px;
+	right: 4px;
+	min-width: 16px;
+	height: 16px;
+	padding: 0 4px;
+	border-radius: 999px;
+	background: var(--edz-mc-accent);
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 16px;
+	text-align: center;
+	pointer-events: none;
+}
+
+.edz-mc-day-panel-loading {
+	color: rgba(0, 0, 0, 0.5);
+	font-size: 0.9em;
+}
+
+.edz-mc-error {
+	color: #b32d2e;
+	font-size: 0.85em;
+	padding: 16px;
+	background: rgba(179, 45, 46, 0.06);
+	border-radius: 8px;
+}
+
+.edz-mc-fc-root .fc-toolbar-title {
+	font-size: 1.15em;
+	font-weight: 700;
+}
+
+.edz-mc-fc-root .fc-button {
+	background: rgba(0, 0, 0, 0.06);
+	border: none;
+	color: inherit;
+	box-shadow: none;
+}
+
+.edz-mc-fc-root .fc-button:hover {
+	background: rgba(0, 0, 0, 0.12);
+}
+
+.edz-mc-fc-root .fc-button-primary:not(:disabled).fc-button-active {
+	background: var(--edz-mc-accent);
+	color: #fff;
+}
+
+@media (max-width: 780px) {
+	.edz-mc-calendar-layout {
+		grid-template-columns: 1fr;
+	}
+}

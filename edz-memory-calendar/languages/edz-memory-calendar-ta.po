@@ -1,0 +1,170 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Edz Memory Calendar 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language-Team: Tamil\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: edz-memory-calendar\n"
+
+#: elementor/widgets/class-widget-calendar.php:119
+#: elementor/widgets/class-widget-list.php:73
+#: includes/class-edz-render.php:136
+msgid "All categories"
+msgstr "அனைத்து வகைகளும்"
+
+#: elementor/widgets/class-widget-calendar.php:34
+#: elementor/widgets/class-widget-calendar.php:54
+#: includes/class-edz-render.php:52
+msgid "Calendar"
+msgstr "நாட்காட்டி"
+
+#: includes/class-edz-assets.php:74
+msgid "Calendar view"
+msgstr "நாட்காட்டி பார்வை"
+
+#: elementor/widgets/class-widget-list.php:40
+#: includes/class-edz-render.php:191
+msgid "Category"
+msgstr "வகை"
+
+#: includes/class-edz-render.php:193
+msgid "Choose a category (optional)"
+msgstr "ஒரு வகையைத் தேர்ந்தெடுக்கவும் (விருப்பத்திற்குரியது)"
+
+#: includes/class-edz-assets.php:72
+msgid "Choose another date to explore."
+msgstr "வேறு நாளைத் தேர்ந்தெடுக்கவும்."
+
+#: includes/class-edz-render.php:185
+msgid "Date it happened"
+msgstr "நடந்த தேதி"
+
+#: elementor/widgets/class-widget-calendar.php:42
+msgid "Event Calendar"
+msgstr "நிகழ்வு நாட்காட்டி"
+
+#: includes/class-edz-render.php:180
+msgid "Event title"
+msgstr "நிகழ்வு தலைப்பு"
+
+#: elementor/widgets/class-widget-calendar.php:55
+#: elementor/widgets/class-widget-list.php:34 includes/class-edz-render.php:53
+msgid "List"
+msgstr "பட்டியல்"
+
+#: includes/class-edz-assets.php:73
+msgid "List view"
+msgstr "பட்டியல் பார்வை"
+
+#: includes/class-edz-assets.php:75
+msgid "Loading…"
+msgstr "ஏற்றுகிறது…"
+
+#: includes/class-edz-render.php:162
+msgid "Log in"
+msgstr "உள்நுழைய"
+
+#: includes/class-edz-assets.php:83
+msgid "Next"
+msgstr "அடுத்து"
+
+#: includes/class-edz-assets.php:81
+msgid "No events found."
+msgstr "நிகழ்வுகள் எதுவும் இல்லை."
+
+#: includes/class-edz-assets.php:71
+msgid "No events on this day."
+msgstr "இந்த நாளில் நிகழ்வுகள் இல்லை."
+
+#: elementor/widgets/class-widget-onthisday.php:91
+#: includes/class-edz-render.php:80
+msgid "Nothing on record for today — check back another day."
+msgstr "இன்றைக்கு எந்தப் பதிவும் இல்லை — வேறு நாளில் மீண்டும் பாருங்கள்."
+
+#: elementor/widgets/class-widget-onthisday.php:22
+#: includes/class-edz-render.php:79 includes/class-edz-shortcodes.php:55
+msgid "On This Day"
+msgstr "இந்த நாளில்"
+
+#: includes/class-edz-render.php:212
+msgid "Photo (optional)"
+msgstr "படம் (விருப்பத்திற்குரியது)"
+
+#: includes/class-edz-render.php:162 includes/class-edz-submission.php:37
+msgid "Please log in to submit a history event."
+msgstr "வரலாற்று நிகழ்வைச் சமர்ப்பிக்க உள்நுழையவும்."
+
+#: includes/class-edz-assets.php:82
+msgid "Previous"
+msgstr "முந்தைய"
+
+#: includes/class-edz-assets.php:77
+msgid "Read more"
+msgstr "மேலும் படிக்க"
+
+#: includes/class-edz-render.php:133
+msgid "Search by title or year…"
+msgstr "தலைப்பு அல்லது ஆண்டு மூலம் தேடவும்…"
+
+#: includes/class-edz-render.php:132
+msgid "Search events"
+msgstr "நிகழ்வுகளைத் தேடு"
+
+#: includes/class-edz-render.php:64
+msgid "Select a day to see what happened."
+msgstr "என்ன நடந்தது என்பதைக் காண ஒரு நாளைத் தேர்ந்தெடுக்கவும்."
+
+#: elementor/widgets/class-widget-submit-form.php:42
+#: includes/class-edz-render.php:153 includes/class-edz-shortcodes.php:93
+msgid "Share a History Event"
+msgstr "ஒரு வரலாற்று நிகழ்வைப் பகிரவும்"
+
+#: includes/class-edz-assets.php:79
+msgid "Something went wrong. Please try again."
+msgstr "ஏதோ தவறு நடந்தது. மீண்டும் முயற்சிக்கவும்."
+
+#: includes/class-edz-assets.php:78
+msgid "Source"
+msgstr "மூலம்"
+
+#: includes/class-edz-admin.php:70 includes/class-edz-render.php:207
+msgid "Source / reference link"
+msgstr "மூலம் / குறிப்பு இணைப்பு"
+
+#: includes/class-edz-render.php:239
+msgid "Submit for review"
+msgstr "மதிப்பாய்வுக்கு சமர்ப்பிக்கவும்"
+
+#: includes/class-edz-assets.php:80 includes/class-edz-submission.php:42
+#: includes/class-edz-submission.php:119
+msgid "Thank you! Your event has been submitted and is awaiting review."
+msgstr ""
+"நன்றி! உங்கள் நிகழ்வு சமர்ப்பிக்கப்பட்டது, மதிப்பாய்வுக்காக காத்திருக்கிறது."
+
+#: includes/class-edz-render.php:235
+msgid "This site is protected by reCAPTCHA."
+msgstr "இந்த தளம் reCAPTCHA மூலம் பாதுகாக்கப்படுகிறது."
+
+#: includes/class-edz-assets.php:76
+msgid "Today"
+msgstr "இன்று"
+
+#: includes/class-edz-render.php:229
+msgid "Website"
+msgstr "இணையதளம்"
+
+#: includes/class-edz-render.php:202
+msgid "What happened?"
+msgstr "என்ன நடந்தது?"
+
+#: includes/class-edz-render.php:222
+msgid "Your email"
+msgstr "உங்கள் மின்னஞ்சல்"
+
+#: includes/class-edz-render.php:218
+msgid "Your name"
+msgstr "உங்கள் பெயர்"

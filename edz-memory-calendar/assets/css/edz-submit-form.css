@@ -1,0 +1,112 @@
+.edz-mc-submit-form-wrap {
+	max-width: 640px;
+	font-family: inherit;
+}
+
+.edz-mc-widget-heading {
+	margin: 0 0 16px;
+	font-size: 1.4em;
+	font-weight: 700;
+}
+
+.edz-mc-submit-form .edz-mc-field {
+	margin: 0 0 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.edz-mc-submit-form label {
+	font-weight: 600;
+	font-size: 0.92em;
+}
+
+.edz-mc-submit-form .req {
+	color: #dc2626;
+}
+
+.edz-mc-submit-form input[type="text"],
+.edz-mc-submit-form input[type="email"],
+.edz-mc-submit-form input[type="url"],
+.edz-mc-submit-form input[type="date"],
+.edz-mc-submit-form input[type="file"],
+.edz-mc-submit-form select,
+.edz-mc-submit-form textarea {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px 12px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 8px;
+	font-size: 0.95em;
+	background: #fff;
+	color: #111;
+}
+
+.edz-mc-submit-form textarea {
+	resize: vertical;
+}
+
+.edz-mc-submit-form input:focus,
+.edz-mc-submit-form select:focus,
+.edz-mc-submit-form textarea:focus {
+	outline: 2px solid var(--edz-mc-accent, #2563eb);
+	outline-offset: 1px;
+}
+
+/* Honeypot: visually hidden but still reachable by simple bots that ignore CSS */
+.edz-mc-honeypot {
+	position: absolute !important;
+	left: -9999px !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.edz-mc-field-submit {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 8px;
+}
+
+.edz-mc-submit-btn {
+	background: var(--edz-mc-accent, #2563eb);
+	color: #fff;
+	border: none;
+	border-radius: 999px;
+	padding: 12px 28px;
+	font-weight: 600;
+	font-size: 0.95em;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+}
+
+.edz-mc-submit-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.edz-mc-form-status {
+	font-size: 0.9em;
+	font-weight: 600;
+}
+
+.edz-mc-form-status.is-success {
+	color: #15803d;
+}
+
+.edz-mc-form-status.is-error {
+	color: #dc2626;
+}
+
+.edz-mc-recaptcha-notice {
+	font-size: 0.8em;
+	color: rgba(0, 0, 0, 0.5);
+	margin: -8px 0 12px;
+}
+
+.edz-mc-login-required {
+	padding: 16px;
+	border-radius: 8px;
+	background: rgba(0, 0, 0, 0.04);
+}
