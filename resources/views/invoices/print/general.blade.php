@@ -11,8 +11,10 @@
         .toolbar a, .toolbar button { font-family: inherit; font-size: 13px; padding: 6px 14px; border-radius: 6px; border: 1px solid #d1d5db; background: #fff; color: #111827; text-decoration: none; cursor: pointer; }
         .toolbar .primary { background: #059669; color: #fff; border-color: #059669; }
         .sheet { width: 148mm; min-height: 210mm; margin: 10px auto; padding: 8mm; background: #fff; border: 1px solid #000; }
-        .header { text-align: center; margin-bottom: 4px; }
-        .header .company { font-size: 17px; font-weight: 700; letter-spacing: 0.5px; }
+        .header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+        .header .logo-mark { width: 42px; height: auto; flex-shrink: 0; }
+        .header .header-text { flex: 1; text-align: center; }
+        .header .company { font-size: 16px; font-weight: 700; letter-spacing: 0.5px; }
         .header .tagline { font-size: 8.5px; margin-top: 2px; line-height: 1.3; }
         .header .address { font-size: 9px; }
         .title { text-align: center; font-weight: 700; text-decoration: underline; margin: 6px 0; font-size: 12px; }
@@ -46,10 +48,13 @@
 
     <div class="sheet">
         <div class="header">
-            <div class="company">H.F. AMILA DILRUK FONSEKA</div>
-            <div class="tagline">All kind of solid timber / MDF carpentry work / Pantry units /<br>Bedroom Set / Dining Set / Office Furniture / Doors / Windows &amp; Roofing</div>
-            <div class="address">No. 39/1C, Sangabo Mawatha, Keselwatta, Panadura.</div>
-            <div class="address">Mobile: 0777-593515, Fax: 038 2297333</div>
+            <img src="{{ asset('images/logo-mark.png') }}" alt="H.F. Amila Dilruk Fonseka" class="logo-mark">
+            <div class="header-text">
+                <div class="company">H.F. AMILA DILRUK FONSEKA</div>
+                <div class="tagline">All kind of solid timber / MDF carpentry work / Pantry units /<br>Bedroom Set / Dining Set / Office Furniture / Doors / Windows &amp; Roofing</div>
+                <div class="address">No. 39/1C, Sangabo Mawatha, Keselwatta, Panadura.</div>
+                <div class="address">Mobile: 0777-593515, Fax: 038 2297333</div>
+            </div>
         </div>
 
         <div class="title">INVOICE No. {{ $invoice->invoice_number }}</div>
