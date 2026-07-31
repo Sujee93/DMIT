@@ -52,8 +52,8 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="text-2xl font-semibold text-gray-800">&mdash;</div>
-                        <div class="text-sm text-gray-500">Invoices (coming soon)</div>
+                        <div class="text-2xl font-semibold text-gray-800">{{ $invoiceCount }}</div>
+                        <div class="text-sm text-gray-500">Invoices (Rs. {{ number_format($salesToday, 2) }} today)</div>
                     </div>
                 </div>
             </div>
@@ -87,8 +87,14 @@
                         <h3 class="font-medium text-gray-800">Quick actions</h3>
                     </div>
                     <div class="p-5 space-y-3">
-                        <a href="{{ route('products.create') }}" class="block w-full text-center rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 transition">
+                        <a href="{{ route('invoices.create') }}" class="block w-full text-center rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 transition">
+                            New Invoice
+                        </a>
+                        <a href="{{ route('products.create') }}" class="block w-full text-center rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
                             Add Product
+                        </a>
+                        <a href="{{ route('reports.sales') }}" class="block w-full text-center rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
+                            View Sales Report
                         </a>
                         @if (auth()->user()->isAdmin())
                             <a href="{{ route('users.create') }}" class="block w-full text-center rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">

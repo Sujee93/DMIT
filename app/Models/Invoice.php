@@ -56,4 +56,31 @@ class Invoice extends Model
     {
         return $this->invoice_type === 'tax';
     }
+
+    /**
+     * Next zero-padded sequential number for the given invoice type, e.g. "001", "002".
+     */
+    public static function nextInvoiceNumber(string $invoiceType): string
+    {
+        $max = static::where('invoice_type', $invoiceType)
+            ->pluck('invoice_number')
+            ->map(fn ($number) => (int) $number)
+            ->max() ?? 0;
+
+        return str_pad((string) ($max + 1), 3, '0', STR_PAD_LEFT);
+    }
+
+    /**
+     * Reference number printed as "Tax Invoice No." e.g. KATMO-SIN-001 / KATMO-ARP-008.
+     */
+    public static function referenceNumberFor(string $customerKey, string $invoiceNumber): ?string
+    {
+        $codes = ['singer' => 'SIN', 'arpico' => 'ARP'];
+
+        if (! isset($codes[$customerKey])) {
+            return null;
+        }
+
+        return 'KATMO-'.$codes[$customerKey].'-'.$invoiceNumber;
+    }
 }
