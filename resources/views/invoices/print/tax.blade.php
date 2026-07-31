@@ -29,7 +29,7 @@
         table.totals td { border: 1px solid #000; padding: 3px 5px; font-size: 10px; }
         table.totals td.label { font-weight: 600; }
         table.totals td.num { text-align: right; }
-        .signatures { display: flex; justify-content: space-between; margin-top: 26px; }
+        .signatures { display: flex; justify-content: space-between; margin-top: 60px; }
         .signatures div { width: 30%; text-align: center; border-top: 1px solid #000; padding-top: 2px; font-size: 9px; }
 
         @media print {
