@@ -19,6 +19,12 @@
                 </div>
             @endif
 
+            @if (session('error'))
+                <div class="rounded-md bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <div class="bg-white rounded-lg shadow-sm border border-gray-100">
                 <div class="p-4 border-b border-gray-100">
                     <form method="GET" action="{{ route('products.index') }}" class="max-w-sm">

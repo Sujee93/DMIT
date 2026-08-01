@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
+use Throwable;
 
 class ProductController extends Controller
 {
@@ -63,7 +65,13 @@ class ProductController extends Controller
 
     public function destroy(Product $product): RedirectResponse
     {
-        $product->delete();
+        try {
+            $product->delete();
+        } catch (Throwable $e) {
+            Log::error('Failed to delete product', ['product_id' => $product->id, 'error' => $e->getMessage()]);
+
+            return back()->with('error', 'Something went wrong while deleting this product. Please try again.');
+        }
 
         return redirect()->route('products.index')->with('status', 'Product deleted.');
     }

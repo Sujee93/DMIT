@@ -9,9 +9,11 @@ use App\Support\NumberToWords;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use Throwable;
 
 class InvoiceController extends Controller
 {
@@ -45,9 +47,17 @@ class InvoiceController extends Controller
     {
         $data = $this->validateInvoice($request);
 
-        $invoice = DB::transaction(function () use ($data) {
-            return $this->saveInvoice(new Invoice, $data);
-        });
+        try {
+            $invoice = DB::transaction(function () use ($data) {
+                return $this->saveInvoice(new Invoice, $data);
+            });
+        } catch (ValidationException $e) {
+            throw $e;
+        } catch (Throwable $e) {
+            Log::error('Failed to save invoice', ['error' => $e->getMessage()]);
+
+            return back()->withInput()->with('error', 'Something went wrong while saving the invoice. Please check the fields and try again.');
+        }
 
         return redirect()->route('invoices.print', $invoice)->with('status', 'Invoice created.');
     }
@@ -71,16 +81,30 @@ class InvoiceController extends Controller
     {
         $data = $this->validateInvoice($request, $invoice);
 
-        DB::transaction(function () use ($invoice, $data) {
-            $this->saveInvoice($invoice, $data);
-        });
+        try {
+            DB::transaction(function () use ($invoice, $data) {
+                $this->saveInvoice($invoice, $data);
+            });
+        } catch (ValidationException $e) {
+            throw $e;
+        } catch (Throwable $e) {
+            Log::error('Failed to update invoice', ['invoice_id' => $invoice->id, 'error' => $e->getMessage()]);
+
+            return back()->withInput()->with('error', 'Something went wrong while updating the invoice. Please check the fields and try again.');
+        }
 
         return redirect()->route('invoices.print', $invoice)->with('status', 'Invoice updated.');
     }
 
     public function destroy(Invoice $invoice): RedirectResponse
     {
-        $invoice->delete();
+        try {
+            $invoice->delete();
+        } catch (Throwable $e) {
+            Log::error('Failed to delete invoice', ['invoice_id' => $invoice->id, 'error' => $e->getMessage()]);
+
+            return back()->with('error', 'Something went wrong while deleting this invoice. Please try again.');
+        }
 
         return redirect()->route('invoices.index')->with('status', 'Invoice deleted.');
     }
@@ -99,6 +123,18 @@ class InvoiceController extends Controller
      */
     private function validateInvoice(Request $request, ?Invoice $existing = null): array
     {
+        // Type is fixed after creation, so on edit we know for certain which fields
+        // apply. On create the type comes from invoice_choice, submitted alongside
+        // everything else — these booleans decide required-ness *before* validation
+        // runs, so a blank required field is caught here with a friendly message
+        // instead of failing later as a raw database NOT NULL error.
+        $isTax = $existing
+            ? $existing->isTaxInvoice()
+            : str_starts_with((string) $request->input('invoice_choice'), 'tax:');
+        $isGeneral = $existing
+            ? ! $existing->isTaxInvoice()
+            : $request->input('invoice_choice') === 'general';
+
         $rules = [
             'date_of_invoice' => ['required', 'date'],
             'mode_of_payment' => ['nullable', 'string', 'max:255'],
@@ -110,43 +146,25 @@ class InvoiceController extends Controller
             'items.*.description' => ['required', 'string', 'max:255'],
             'items.*.quantity' => ['required', 'numeric', 'min:0.01'],
             'items.*.unit_price' => ['required', 'numeric', 'min:0'],
+
+            'date_of_supply' => [Rule::requiredIf($isTax), 'nullable', 'date'],
+            'place_of_supply' => ['nullable', 'string', 'max:255'],
+            'vat_rate' => [Rule::requiredIf($isTax), 'nullable', 'numeric', 'min:0', 'max:100'],
+
+            'customer_name' => [Rule::requiredIf($isGeneral), 'nullable', 'string', 'max:255'],
+            'customer_address' => ['nullable', 'string', 'max:1000'],
+            'customer_telephone' => ['nullable', 'string', 'max:50'],
+            'advance' => ['nullable', 'numeric', 'min:0'],
         ];
 
-        if ($existing) {
-            // Type is fixed after creation — only the fields relevant to that type are required.
-            $rules += $existing->isTaxInvoice() ? $this->taxRules() : $this->generalRules();
-        } else {
+        if (! $existing) {
             $rules['invoice_choice'] = ['required', Rule::in(['tax:singer', 'tax:arpico', 'general'])];
-            $rules += $this->taxRules(required: false) + $this->generalRules(required: false);
         }
 
         $validated = $request->validate($rules);
         $validated['invoice_choice'] = $request->string('invoice_choice')->toString();
 
         return $validated;
-    }
-
-    private function taxRules(bool $required = true): array
-    {
-        $presence = $required ? 'required' : 'nullable';
-
-        return [
-            'date_of_supply' => [$presence, 'date'],
-            'place_of_supply' => ['nullable', 'string', 'max:255'],
-            'vat_rate' => [$presence, 'numeric', 'min:0', 'max:100'],
-        ];
-    }
-
-    private function generalRules(bool $required = true): array
-    {
-        $presence = $required ? 'required' : 'nullable';
-
-        return [
-            'customer_name' => [$presence, 'string', 'max:255'],
-            'customer_address' => ['nullable', 'string', 'max:1000'],
-            'customer_telephone' => ['nullable', 'string', 'max:50'],
-            'advance' => ['nullable', 'numeric', 'min:0'],
-        ];
     }
 
     private function saveInvoice(Invoice $invoice, array $data): Invoice

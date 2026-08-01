@@ -19,6 +19,12 @@
                 </div>
             @endif
 
+            @if (session('error'))
+                <div class="rounded-md bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             @if ($errors->any())
                 <div class="rounded-md bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
                     @foreach ($errors->all() as $error)

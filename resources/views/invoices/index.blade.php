@@ -19,6 +19,12 @@
                 </div>
             @endif
 
+            @if (session('error'))
+                <div class="rounded-md bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <div class="bg-white rounded-lg shadow-sm border border-gray-100">
                 <div class="p-4 border-b border-gray-100 flex items-center gap-2">
                     <a href="{{ route('invoices.index') }}" class="px-3 py-1.5 rounded-md text-sm {{ $type === '' ? 'bg-primary-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' }}">All</a>

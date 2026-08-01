@@ -6,8 +6,10 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
+use Throwable;
 
 class UserController extends Controller
 {
@@ -89,7 +91,13 @@ class UserController extends Controller
             return back()->withErrors(['user' => 'You cannot delete the last remaining admin.']);
         }
 
-        $user->delete();
+        try {
+            $user->delete();
+        } catch (Throwable $e) {
+            Log::error('Failed to delete user', ['user_id' => $user->id, 'error' => $e->getMessage()]);
+
+            return back()->with('error', 'Something went wrong while deleting this user. Please try again.');
+        }
 
         return redirect()->route('users.index')->with('status', 'User deleted.');
     }
