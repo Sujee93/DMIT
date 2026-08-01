@@ -28,14 +28,4 @@
             <x-text-input id="customer_telephone" name="customer_telephone" type="text" class="mt-1 block w-full" value="{{ old('customer_telephone', $invoice->customer_telephone ?? '') }}" />
         </div>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-            <x-input-label for="vehicle_no" value="Vehicle No" />
-            <x-text-input id="vehicle_no" name="vehicle_no" type="text" class="mt-1 block w-full" value="{{ old('vehicle_no', $invoice->vehicle_no ?? '') }}" />
-        </div>
-        <div>
-            <x-input-label for="sup_no" value="Sup. No" />
-            <x-text-input id="sup_no" name="sup_no" type="text" class="mt-1 block w-full" value="{{ old('sup_no', $invoice->sup_no ?? '') }}" />
-        </div>
-    </div>
 </div>

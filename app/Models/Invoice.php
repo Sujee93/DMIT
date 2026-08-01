@@ -55,11 +55,14 @@ class Invoice extends Model
     }
 
     /**
-     * Next zero-padded sequential number for the given invoice type, e.g. "001", "002".
+     * Next zero-padded sequential number, e.g. "001", "002". Tax invoices are numbered
+     * per customer (Singer and Arpico each have their own 1, 2, 3… sequence); general
+     * invoices share one sequence (customerId is null).
      */
-    public static function nextInvoiceNumber(string $invoiceType): string
+    public static function nextInvoiceNumber(string $invoiceType, ?int $customerId = null): string
     {
         $max = static::where('invoice_type', $invoiceType)
+            ->where('customer_id', $customerId)
             ->pluck('invoice_number')
             ->map(fn ($number) => (int) $number)
             ->max() ?? 0;

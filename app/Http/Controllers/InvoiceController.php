@@ -102,6 +102,8 @@ class InvoiceController extends Controller
         $rules = [
             'date_of_invoice' => ['required', 'date'],
             'mode_of_payment' => ['nullable', 'string', 'max:255'],
+            'vehicle_no' => ['nullable', 'string', 'max:50'],
+            'sup_no' => ['nullable', 'string', 'max:50'],
             'items' => ['required', 'array', 'min:1'],
             'items.*.product_id' => ['nullable', 'exists:products,id'],
             'items.*.reference' => ['nullable', 'string', 'max:50'],
@@ -143,8 +145,6 @@ class InvoiceController extends Controller
             'customer_name' => [$presence, 'string', 'max:255'],
             'customer_address' => ['nullable', 'string', 'max:1000'],
             'customer_telephone' => ['nullable', 'string', 'max:50'],
-            'vehicle_no' => ['nullable', 'string', 'max:50'],
-            'sup_no' => ['nullable', 'string', 'max:50'],
             'advance' => ['nullable', 'numeric', 'min:0'],
         ];
     }
@@ -164,8 +164,6 @@ class InvoiceController extends Controller
         $isTax = $invoice->invoice_type === 'tax';
 
         if ($isNew) {
-            $invoice->invoice_number = Invoice::nextInvoiceNumber($invoice->invoice_type);
-
             if ($isTax) {
                 if (! in_array($customerKey, self::CUSTOMER_KEYS, true)) {
                     throw ValidationException::withMessages(['invoice_choice' => 'Invalid customer selection for a Tax Invoice.']);
@@ -177,12 +175,18 @@ class InvoiceController extends Controller
                 $invoice->customer_address = $customer->address;
                 $invoice->customer_tin = $customer->tin_number;
                 $invoice->customer_telephone = $customer->telephone;
+                // Each fixed customer (Singer, Arpico) gets its own 1, 2, 3… sequence.
+                $invoice->invoice_number = Invoice::nextInvoiceNumber('tax', $customer->id);
                 $invoice->reference_number = Invoice::referenceNumberFor($customerKey, $invoice->invoice_number);
+            } else {
+                $invoice->invoice_number = Invoice::nextInvoiceNumber('general');
             }
         }
 
         $invoice->date_of_invoice = $data['date_of_invoice'];
         $invoice->mode_of_payment = $data['mode_of_payment'] ?? null;
+        $invoice->vehicle_no = $data['vehicle_no'] ?? null;
+        $invoice->sup_no = $data['sup_no'] ?? null;
         $invoice->prepared_by = $invoice->prepared_by ?? request()->user()->id;
         $invoice->status = 'finalized';
 
@@ -194,8 +198,6 @@ class InvoiceController extends Controller
             $invoice->customer_name = $data['customer_name'];
             $invoice->customer_address = $data['customer_address'] ?? null;
             $invoice->customer_telephone = $data['customer_telephone'] ?? null;
-            $invoice->vehicle_no = $data['vehicle_no'] ?? null;
-            $invoice->sup_no = $data['sup_no'] ?? null;
             $invoice->advance = $data['advance'] ?? 0;
         }
 

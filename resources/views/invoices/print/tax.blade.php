@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <title>Tax Invoice {{ $invoice->reference_number ?? $invoice->invoice_number }}</title>
     <style>
-        @page { size: A5; margin: 8mm; }
+        @page { size: A5 landscape; margin: 8mm; }
         * { box-sizing: border-box; }
         body { font-family: Arial, Helvetica, sans-serif; color: #000; font-size: 10.5px; margin: 0; padding: 0; background: #e5e7eb; }
         .toolbar { background: #f3f4f6; padding: 10px 16px; display: flex; justify-content: flex-end; gap: 8px; }
         .toolbar a, .toolbar button { font-family: inherit; font-size: 13px; padding: 6px 14px; border-radius: 6px; border: 1px solid #d1d5db; background: #fff; color: #111827; text-decoration: none; cursor: pointer; }
         .toolbar .primary { background: #059669; color: #fff; border-color: #059669; }
-        .sheet { width: 148mm; min-height: 210mm; margin: 10px auto; padding: 8mm; background: #fff; border: 1px solid #000; }
+        .sheet { width: 210mm; min-height: 148mm; margin: 10px auto; padding: 8mm; background: #fff; border: 1px solid #000; }
         .header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
         .header .logo-mark { width: 46px; height: auto; flex-shrink: 0; }
         .header .header-text { flex: 1; text-align: center; }
@@ -95,6 +95,12 @@
                 <td>{{ optional($invoice->date_of_supply)->format('Y/m/d') }}</td>
                 <td class="label">Place of Supply:</td>
                 <td>{{ $invoice->place_of_supply }}</td>
+            </tr>
+            <tr>
+                <td class="label">Vehicle No:</td>
+                <td>{{ $invoice->vehicle_no }}</td>
+                <td class="label">Sup. No:</td>
+                <td>{{ $invoice->sup_no }}</td>
             </tr>
         </table>
 
