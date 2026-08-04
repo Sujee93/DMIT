@@ -42,8 +42,23 @@
         </div>
 
         <div data-mode="tax" class="flex justify-between items-center">
-            <span class="text-gray-500">VAT (<input type="number" id="vat_rate" name="vat_rate" step="0.01" min="0" max="100" value="{{ old('vat_rate', $invoice->vat_rate ?? 18) }}" class="w-14 text-sm border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 py-0.5">%)</span>
+            <span class="text-gray-500">VAT (<input type="number" id="vat_rate" name="vat_rate" step="0.01" min="0" max="100" value="{{ old('vat_rate', optional($invoice)->vat_rate ?? 18) }}" class="w-14 text-sm border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 py-0.5">%)</span>
             <span>Rs. <span id="vat-display">0.00</span></span>
+        </div>
+
+        <div data-mode="general" class="flex justify-between items-center">
+            <label class="text-gray-500 flex items-center gap-1.5">
+                <input type="checkbox" id="vat_enabled" name="vat_enabled" value="1" class="rounded border-gray-300 text-primary-600 focus:ring-primary-500" {{ old('vat_enabled', optional($invoice)->vat_rate !== null) ? 'checked' : '' }}>
+                Add VAT
+            </label>
+            <span class="flex items-center gap-1 text-gray-500">
+                <input type="number" id="general_vat_rate" name="general_vat_rate" step="0.01" min="0" max="100" value="{{ old('general_vat_rate', optional($invoice)->vat_rate ?? 18) }}" class="w-14 text-sm border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 py-0.5">%
+            </span>
+        </div>
+
+        <div data-mode="general" id="general-vat-amount-row" class="flex justify-between hidden">
+            <span class="text-gray-500">VAT Amount</span>
+            <span>Rs. <span id="general-vat-display">0.00</span></span>
         </div>
 
         <div class="flex justify-between font-semibold text-gray-800 border-t pt-2">
@@ -85,6 +100,10 @@
         const totalDisplay = document.getElementById('total-display');
         const advanceInput = document.getElementById('advance');
         const balanceDisplay = document.getElementById('balance-display');
+        const vatEnabledCheckbox = document.getElementById('vat_enabled');
+        const generalVatRateInput = document.getElementById('general_vat_rate');
+        const generalVatRow = document.getElementById('general-vat-amount-row');
+        const generalVatDisplay = document.getElementById('general-vat-display');
 
         let total = subtotal;
 
@@ -93,6 +112,19 @@
             const vat = subtotal * rate / 100;
             vatDisplay.textContent = vat.toFixed(2);
             total = subtotal + vat;
+        } else if (window.katmoInvoiceMode === 'general' && vatEnabledCheckbox) {
+            const enabled = vatEnabledCheckbox.checked;
+            if (generalVatRateInput) generalVatRateInput.disabled = ! enabled;
+
+            if (enabled) {
+                const rate = parseFloat(generalVatRateInput.value) || 0;
+                const vat = subtotal * rate / 100;
+                if (generalVatDisplay) generalVatDisplay.textContent = vat.toFixed(2);
+                if (generalVatRow) generalVatRow.classList.remove('hidden');
+                total = subtotal + vat;
+            } else if (generalVatRow) {
+                generalVatRow.classList.add('hidden');
+            }
         }
 
         totalDisplay.textContent = total.toFixed(2);
@@ -149,6 +181,12 @@
 
     const advanceInput = document.getElementById('advance');
     if (advanceInput) advanceInput.addEventListener('input', recalcTotals);
+
+    const vatEnabledCheckbox = document.getElementById('vat_enabled');
+    if (vatEnabledCheckbox) vatEnabledCheckbox.addEventListener('change', recalcTotals);
+
+    const generalVatRateInput = document.getElementById('general_vat_rate');
+    if (generalVatRateInput) generalVatRateInput.addEventListener('input', recalcTotals);
 
     window.katmoRecalcInvoiceTotals = recalcTotals;
     recalcTotals();

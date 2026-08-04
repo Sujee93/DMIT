@@ -135,6 +135,10 @@ class InvoiceController extends Controller
             ? ! $existing->isTaxInvoice()
             : $request->input('invoice_choice') === 'general';
 
+        // General invoices can optionally turn VAT on — off by default. The rate
+        // field only needs to be present when that box is actually checked.
+        $generalVatEnabled = $isGeneral && $request->boolean('vat_enabled');
+
         $rules = [
             'date_of_invoice' => ['required', 'date'],
             'mode_of_payment' => ['nullable', 'string', 'max:255'],
@@ -155,6 +159,8 @@ class InvoiceController extends Controller
             'customer_address' => ['nullable', 'string', 'max:1000'],
             'customer_telephone' => ['nullable', 'string', 'max:50'],
             'advance' => ['nullable', 'numeric', 'min:0'],
+            'vat_enabled' => ['nullable', 'boolean'],
+            'general_vat_rate' => [Rule::requiredIf($generalVatEnabled), 'nullable', 'numeric', 'min:0', 'max:100'],
         ];
 
         if (! $existing) {
@@ -163,6 +169,7 @@ class InvoiceController extends Controller
 
         $validated = $request->validate($rules);
         $validated['invoice_choice'] = $request->string('invoice_choice')->toString();
+        $validated['vat_enabled'] = $request->boolean('vat_enabled');
 
         return $validated;
     }
@@ -217,6 +224,7 @@ class InvoiceController extends Controller
             $invoice->customer_address = $data['customer_address'] ?? null;
             $invoice->customer_telephone = $data['customer_telephone'] ?? null;
             $invoice->advance = $data['advance'] ?? 0;
+            $invoice->vat_rate = ! empty($data['vat_enabled']) ? ($data['general_vat_rate'] ?? 18) : null;
         }
 
         $subtotal = 0;
@@ -245,10 +253,14 @@ class InvoiceController extends Controller
             $invoice->advance = null;
             $invoice->balance = null;
         } else {
-            $invoice->vat_rate = null;
-            $invoice->vat_amount = null;
-            $invoice->total_amount = $subtotal;
-            $invoice->balance = $subtotal - (float) $invoice->advance;
+            if ($invoice->vat_rate !== null) {
+                $invoice->vat_amount = round($subtotal * ((float) $invoice->vat_rate) / 100, 2);
+                $invoice->total_amount = $subtotal + $invoice->vat_amount;
+            } else {
+                $invoice->vat_amount = null;
+                $invoice->total_amount = $subtotal;
+            }
+            $invoice->balance = $invoice->total_amount - (float) $invoice->advance;
         }
 
         $invoice->amount_in_words = NumberToWords::rupees((float) $invoice->total_amount);

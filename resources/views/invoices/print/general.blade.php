@@ -97,6 +97,10 @@
         </table>
 
         <table class="totals">
+            @if ($invoice->vat_amount !== null)
+                <tr><td class="label">Subtotal</td><td class="num">{{ number_format($invoice->subtotal, 2) }}</td></tr>
+                <tr><td class="label">VAT ({{ rtrim(rtrim(number_format($invoice->vat_rate, 2), '0'), '.') }}%)</td><td class="num">{{ number_format($invoice->vat_amount, 2) }}</td></tr>
+            @endif
             <tr><td class="label">Total</td><td class="num"><strong>{{ number_format($invoice->total_amount, 2) }}</strong></td></tr>
             <tr><td class="label">Advance</td><td class="num">{{ number_format($invoice->advance, 2) }}</td></tr>
             <tr><td class="label">Balance</td><td class="num">{{ number_format($invoice->balance, 2) }}</td></tr>
