@@ -143,6 +143,16 @@
                 <td class="label">Total Amount / consideration including VAT:</td>
                 <td class="num"><strong>{{ number_format($invoice->total_amount, 2) }}</strong></td>
             </tr>
+            @if ($invoice->advance > 0)
+                <tr>
+                    <td class="label">Advance:</td>
+                    <td class="num">{{ number_format($invoice->advance, 2) }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Balance:</td>
+                    <td class="num"><strong>{{ number_format($invoice->balance, 2) }}</strong></td>
+                </tr>
+            @endif
         </table>
 
         <table class="box" style="margin-top:4px;">

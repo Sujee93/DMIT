@@ -66,12 +66,12 @@
             <span>Rs. <span id="total-display">0.00</span></span>
         </div>
 
-        <div data-mode="general" class="flex justify-between items-center">
+        <div class="flex justify-between items-center">
             <span class="text-gray-500">Advance</span>
-            <input type="number" id="advance" name="advance" step="0.01" min="0" value="{{ old('advance', $invoice->advance ?? 0) }}" class="w-24 text-sm border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 py-0.5">
+            <input type="number" id="advance" name="advance" step="0.01" min="0" value="{{ old('advance', optional($invoice)->advance ?? 0) }}" class="w-24 text-sm border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 py-0.5">
         </div>
 
-        <div data-mode="general" class="flex justify-between font-semibold text-gray-800 border-t pt-2">
+        <div class="flex justify-between font-semibold text-gray-800 border-t pt-2">
             <span>Balance</span>
             <span>Rs. <span id="balance-display">0.00</span></span>
         </div>

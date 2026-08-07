@@ -212,6 +212,7 @@ class InvoiceController extends Controller
         $invoice->mode_of_payment = $data['mode_of_payment'] ?? null;
         $invoice->vehicle_no = $data['vehicle_no'] ?? null;
         $invoice->sup_no = $data['sup_no'] ?? null;
+        $invoice->advance = $data['advance'] ?? 0;
         $invoice->prepared_by = $invoice->prepared_by ?? request()->user()->id;
         $invoice->status = 'finalized';
 
@@ -223,7 +224,6 @@ class InvoiceController extends Controller
             $invoice->customer_name = $data['customer_name'];
             $invoice->customer_address = $data['customer_address'] ?? null;
             $invoice->customer_telephone = $data['customer_telephone'] ?? null;
-            $invoice->advance = $data['advance'] ?? 0;
             $invoice->vat_rate = ! empty($data['vat_enabled']) ? ($data['general_vat_rate'] ?? 18) : null;
         }
 
@@ -250,18 +250,15 @@ class InvoiceController extends Controller
         if ($isTax) {
             $invoice->vat_amount = round($subtotal * ((float) $invoice->vat_rate) / 100, 2);
             $invoice->total_amount = $subtotal + $invoice->vat_amount;
-            $invoice->advance = null;
-            $invoice->balance = null;
+        } elseif ($invoice->vat_rate !== null) {
+            $invoice->vat_amount = round($subtotal * ((float) $invoice->vat_rate) / 100, 2);
+            $invoice->total_amount = $subtotal + $invoice->vat_amount;
         } else {
-            if ($invoice->vat_rate !== null) {
-                $invoice->vat_amount = round($subtotal * ((float) $invoice->vat_rate) / 100, 2);
-                $invoice->total_amount = $subtotal + $invoice->vat_amount;
-            } else {
-                $invoice->vat_amount = null;
-                $invoice->total_amount = $subtotal;
-            }
-            $invoice->balance = $invoice->total_amount - (float) $invoice->advance;
+            $invoice->vat_amount = null;
+            $invoice->total_amount = $subtotal;
         }
+
+        $invoice->balance = $invoice->total_amount - (float) $invoice->advance;
 
         $invoice->amount_in_words = NumberToWords::rupees((float) $invoice->total_amount);
 
