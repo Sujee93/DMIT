@@ -30,6 +30,7 @@
                             <option value="">Choose…</option>
                             <option value="tax:singer" {{ old('invoice_choice') === 'tax:singer' ? 'selected' : '' }}>Tax Invoice — Singer Sri Lanka PLC</option>
                             <option value="tax:arpico" {{ old('invoice_choice') === 'tax:arpico' ? 'selected' : '' }}>Tax Invoice — Richard Peiris Distributors Ltd (Arpico)</option>
+                            <option value="tax:ramadia" {{ old('invoice_choice') === 'tax:ramadia' ? 'selected' : '' }}>Tax Invoice — Ramadia Ranmal Holiday Resort</option>
                             <option value="general" {{ old('invoice_choice') === 'general' ? 'selected' : '' }}>General Invoice — Any Customer</option>
                         </select>
                         <x-input-error :messages="$errors->get('invoice_choice')" class="mt-2" />

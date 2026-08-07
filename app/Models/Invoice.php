@@ -75,7 +75,7 @@ class Invoice extends Model
      */
     public static function referenceNumberFor(string $customerKey, string $invoiceNumber): ?string
     {
-        $codes = ['singer' => 'SIN', 'arpico' => 'ARP'];
+        $codes = ['singer' => 'SIN', 'arpico' => 'ARP', 'ramadia' => 'RAM'];
 
         if (! isset($codes[$customerKey])) {
             return null;

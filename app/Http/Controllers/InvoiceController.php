@@ -17,7 +17,7 @@ use Throwable;
 
 class InvoiceController extends Controller
 {
-    private const CUSTOMER_KEYS = ['singer', 'arpico'];
+    private const CUSTOMER_KEYS = ['singer', 'arpico', 'ramadia'];
 
     public function index(Request $request): View
     {
@@ -164,7 +164,7 @@ class InvoiceController extends Controller
         ];
 
         if (! $existing) {
-            $rules['invoice_choice'] = ['required', Rule::in(['tax:singer', 'tax:arpico', 'general'])];
+            $rules['invoice_choice'] = ['required', Rule::in(['tax:singer', 'tax:arpico', 'tax:ramadia', 'general'])];
         }
 
         $validated = $request->validate($rules);
