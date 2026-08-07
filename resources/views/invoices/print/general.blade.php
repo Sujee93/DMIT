@@ -38,14 +38,13 @@
 
         .totals { width: 62%; margin-left: auto; margin-top: 3px; border: 1px solid #000; }
         .totals-row { display: flex; justify-content: space-between; padding: 1.5px 5px; }
-        .totals-row + .totals-row { border-top: 1px solid #000; }
         .totals-row.strong { font-weight: 700; }
 
         .footer-box { border: 1px solid #000; margin-top: 3px; padding: 2px 5px; }
         .footer-box div { padding: 0.5px 0; }
         .footer-box .lbl { font-weight: 600; }
 
-        .signatures { display: flex; justify-content: space-between; margin-top: 20px; }
+        .signatures { display: flex; justify-content: space-between; margin-top: 36px; }
         .signatures div { width: 30%; text-align: center; border-top: 1px solid #000; padding-top: 2px; font-size: 8.5px; }
 
         /* If an invoice has enough items to spill past one 13cm sheet, it should
