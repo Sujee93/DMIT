@@ -4,33 +4,56 @@
     <meta charset="utf-8">
     <title>Tax Invoice {{ $invoice->reference_number ?? $invoice->invoice_number }}</title>
     <style>
-        @page { size: A5 landscape; margin: 8mm; }
+        /* Continuous dot-matrix stationery: 24cm physical width (9.5"), 20mm sprocket-hole
+           margin each side leaves ~20cm printable, 13cm sheet height. */
+        @page { size: 240mm 130mm; margin: 4mm 20mm; }
         * { box-sizing: border-box; }
-        body { font-family: Arial, Helvetica, sans-serif; color: #000; font-size: 10.5px; margin: 0; padding: 0; background: #e5e7eb; }
+        body { font-family: Arial, Helvetica, sans-serif; color: #000; font-size: 9.5px; margin: 0; padding: 0; background: #e5e7eb; }
         .toolbar { background: #f3f4f6; padding: 10px 16px; display: flex; justify-content: flex-end; gap: 8px; }
         .toolbar a, .toolbar button { font-family: inherit; font-size: 13px; padding: 6px 14px; border-radius: 6px; border: 1px solid #d1d5db; background: #fff; color: #111827; text-decoration: none; cursor: pointer; }
         .toolbar .primary { background: #059669; color: #fff; border-color: #059669; }
-        .sheet { width: 210mm; min-height: 148mm; margin: 10px auto; padding: 8mm; background: #fff; border: 1px solid #000; }
-        .header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
-        .header .logo-mark { width: 46px; height: auto; flex-shrink: 0; }
-        .header .header-text { flex: 1; text-align: center; }
-        .header .company { font-size: 17px; font-weight: 700; letter-spacing: 0.5px; }
-        .header .tagline { font-size: 9px; margin-top: 2px; line-height: 1.3; }
-        .header .address { font-size: 9px; }
-        .title { text-align: center; font-weight: 700; text-decoration: underline; margin: 6px 0; font-size: 12px; }
-        table.box { width: 100%; border-collapse: collapse; margin-bottom: 4px; }
-        table.box td { border: 1px solid #000; padding: 3px 5px; vertical-align: top; font-size: 10px; }
-        table.box td.label { font-weight: 600; width: 26%; }
-        table.items { width: 100%; border-collapse: collapse; margin-top: 4px; }
-        table.items th, table.items td { border: 1px solid #000; padding: 3px 5px; font-size: 9.5px; }
-        table.items th { font-weight: 600; text-align: left; }
+        .sheet { width: 200mm; min-height: 122mm; margin: 10px auto; padding: 3mm 4mm; background: #fff; border: 1px solid #000; }
+
+        .header { display: flex; align-items: center; gap: 8px; }
+        .header .logo-mark { width: 30px; height: auto; flex-shrink: 0; }
+        .header .header-text { flex: 1; text-align: center; line-height: 1.25; }
+        .header .company { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+        .header .tagline { font-size: 7.5px; }
+        .header .address { font-size: 8px; }
+        .header .title { flex-shrink: 0; text-align: right; font-weight: 700; text-decoration: underline; font-size: 11px; }
+
+        /* One bordered box for supplier/purchaser + invoice meta — a vertical divider
+           between the two columns, no line between individual fields. */
+        .meta { display: flex; border: 1px solid #000; margin-top: 3px; }
+        .meta-col { flex: 1; padding: 2px 5px; }
+        .meta-col + .meta-col { border-left: 1px solid #000; }
+        .meta-col div { padding: 0.5px 0; }
+        .meta .lbl { font-weight: 600; }
+
+        table.items { width: 100%; border-collapse: collapse; margin-top: 3px; border: 1px solid #000; }
+        table.items th { border-bottom: 1px solid #000; padding: 2px 4px; font-size: 9px; font-weight: 600; text-align: left; }
+        table.items td { padding: 1.5px 4px; font-size: 9px; }
+        table.items th + th, table.items td + td { border-left: 1px solid #000; }
         table.items td.num, table.items th.num { text-align: right; }
-        table.totals { width: 100%; border-collapse: collapse; margin-top: 4px; }
-        table.totals td { border: 1px solid #000; padding: 3px 5px; font-size: 10px; }
-        table.totals td.label { font-weight: 600; }
-        table.totals td.num { text-align: right; }
-        .signatures { display: flex; justify-content: space-between; margin-top: 60px; }
-        .signatures div { width: 30%; text-align: center; border-top: 1px solid #000; padding-top: 2px; font-size: 9px; }
+
+        .totals { width: 62%; margin-left: auto; margin-top: 3px; border: 1px solid #000; }
+        .totals-row { display: flex; justify-content: space-between; padding: 1.5px 5px; }
+        .totals-row + .totals-row { border-top: 1px solid #000; }
+        .totals-row.strong { font-weight: 700; }
+
+        .footer-box { border: 1px solid #000; margin-top: 3px; padding: 2px 5px; }
+        .footer-box div { padding: 0.5px 0; }
+        .footer-box .lbl { font-weight: 600; }
+
+        .signatures { display: flex; justify-content: space-between; margin-top: 20px; }
+        .signatures div { width: 30%; text-align: center; border-top: 1px solid #000; padding-top: 2px; font-size: 8.5px; }
+
+        /* If an invoice has enough items to spill past one 13cm sheet, it should
+           continue cleanly onto the next sheet of continuous stationery — repeat the
+           column headers, and never slice a row or box in half at the tear line. */
+        table.items thead { display: table-header-group; }
+        table.items tr { page-break-inside: avoid; break-inside: avoid; }
+        .meta, .totals, .footer-box, .signatures { page-break-inside: avoid; break-inside: avoid; }
 
         @media print {
             .no-print { display: none !important; }
@@ -51,67 +74,39 @@
             <img src="{{ asset('images/logo-mark.png') }}" alt="Katmo Interiors" class="logo-mark">
             <div class="header-text">
                 <div class="company">KATMO INTERIORS (PVT) LTD</div>
-                <div class="tagline">All kind of solid timber / MDF carpentry work /<br>Pantry units / Doors/ Furnitures</div>
-                <div class="address">No. 163, Diggala Road, Keselwatta, Panadura.</div>
-                <div class="address">Reg.No: PV114382</div>
+                <div class="tagline">All kind of solid timber / MDF carpentry work / Pantry units / Doors/ Furnitures</div>
+                <div class="address">No. 163, Diggala Road, Keselwatta, Panadura. &middot; Reg.No: PV114382</div>
             </div>
+            <div class="title">TAX INVOICE</div>
         </div>
 
-        <div class="title">TAX INVOICE</div>
-
-        <table class="box">
-            <tr>
-                <td class="label">Date of Invoice:</td>
-                <td>{{ $invoice->date_of_invoice->format('Y/m/d') }}</td>
-                <td class="label">Tax Invoice No.</td>
-                <td>{{ $invoice->reference_number }}</td>
-            </tr>
-            <tr>
-                <td class="label">Supplier's TIN:</td>
-                <td>100909430-7000</td>
-                <td class="label">Purchaser's TIN:</td>
-                <td>{{ $invoice->customer_tin }}</td>
-            </tr>
-            <tr>
-                <td class="label">Supplier's Name:</td>
-                <td>Katmo Interiors (Pvt) Ltd</td>
-                <td class="label">Purchaser's Name:</td>
-                <td>{{ $invoice->customer_name }}</td>
-            </tr>
-            <tr>
-                <td class="label">Address:</td>
-                <td>No. 163, Diggala Road,<br>Keselwatta, Panadura.</td>
-                <td class="label">Address:</td>
-                <td>{!! nl2br(e($invoice->customer_address)) !!}</td>
-            </tr>
-            <tr>
-                <td class="label">Telephone No:</td>
-                <td>0777-596836 / 0777-593515</td>
-                <td class="label">Telephone No:</td>
-                <td>{{ $invoice->customer_telephone }}</td>
-            </tr>
-            <tr>
-                <td class="label">Date of Supply</td>
-                <td>{{ optional($invoice->date_of_supply)->format('Y/m/d') }}</td>
-                <td class="label">Place of Supply:</td>
-                <td>{{ $invoice->place_of_supply }}</td>
-            </tr>
-            <tr>
-                <td class="label">Vehicle No:</td>
-                <td>{{ $invoice->vehicle_no }}</td>
-                <td class="label">Sup. No:</td>
-                <td>{{ $invoice->sup_no }}</td>
-            </tr>
-        </table>
+        <div class="meta">
+            <div class="meta-col">
+                <div><span class="lbl">Date of Invoice:</span> {{ $invoice->date_of_invoice->format('Y/m/d') }}</div>
+                <div><span class="lbl">Supplier's TIN:</span> 100909430-7000</div>
+                <div><span class="lbl">Supplier's Name:</span> Katmo Interiors (Pvt) Ltd</div>
+                <div><span class="lbl">Address:</span> No. 163, Diggala Road, Keselwatta, Panadura.</div>
+                <div><span class="lbl">Tel:</span> 0777-596836 / 0777-593515</div>
+                <div><span class="lbl">Date of Supply:</span> {{ optional($invoice->date_of_supply)->format('Y/m/d') }} &nbsp; <span class="lbl">Place of Supply:</span> {{ $invoice->place_of_supply }}</div>
+            </div>
+            <div class="meta-col">
+                <div><span class="lbl">Tax Invoice No:</span> {{ $invoice->reference_number }}</div>
+                <div><span class="lbl">Purchaser's TIN:</span> {{ $invoice->customer_tin }}</div>
+                <div><span class="lbl">Purchaser's Name:</span> {{ $invoice->customer_name }}</div>
+                <div><span class="lbl">Address:</span> {!! nl2br(e($invoice->customer_address)) !!}</div>
+                <div><span class="lbl">Tel:</span> {{ $invoice->customer_telephone }}</div>
+                <div><span class="lbl">Vehicle No:</span> {{ $invoice->vehicle_no }} &nbsp; <span class="lbl">Sup. No:</span> {{ $invoice->sup_no }}</div>
+            </div>
+        </div>
 
         <table class="items">
             <thead>
                 <tr>
-                    <th style="width:12%">Reference</th>
+                    <th style="width:10%">Reference</th>
                     <th>Description of Goods or Services</th>
-                    <th class="num" style="width:10%">Quantity</th>
-                    <th class="num" style="width:15%">Unit Price</th>
-                    <th class="num" style="width:18%">Amount Excl. VAT (Rs.)</th>
+                    <th class="num" style="width:8%">Qty</th>
+                    <th class="num" style="width:14%">Unit Price</th>
+                    <th class="num" style="width:16%">Amount Excl. VAT (Rs.)</th>
                 </tr>
             </thead>
             <tbody>
@@ -124,41 +119,38 @@
                         <td class="num">{{ number_format($item->amount, 2) }}</td>
                     </tr>
                 @endforeach
-                @for ($i = count($invoice->items); $i < 4; $i++)
-                    <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
-                @endfor
             </tbody>
         </table>
 
-        <table class="totals">
-            <tr>
-                <td class="label">Total Value of Supply:</td>
-                <td class="num">{{ number_format($invoice->subtotal, 2) }}</td>
-            </tr>
-            <tr>
-                <td class="label">VAT Amount (Total Value of Supply @ {{ rtrim(rtrim(number_format($invoice->vat_rate, 2), '0'), '.') }}%)</td>
-                <td class="num">{{ number_format($invoice->vat_amount, 2) }}</td>
-            </tr>
-            <tr>
-                <td class="label">Total Amount / consideration including VAT:</td>
-                <td class="num"><strong>{{ number_format($invoice->total_amount, 2) }}</strong></td>
-            </tr>
+        <div class="totals">
+            <div class="totals-row">
+                <span>Total Value of Supply</span>
+                <span>{{ number_format($invoice->subtotal, 2) }}</span>
+            </div>
+            <div class="totals-row">
+                <span>VAT ({{ rtrim(rtrim(number_format($invoice->vat_rate, 2), '0'), '.') }}%)</span>
+                <span>{{ number_format($invoice->vat_amount, 2) }}</span>
+            </div>
+            <div class="totals-row strong">
+                <span>Total Amount incl. VAT</span>
+                <span>{{ number_format($invoice->total_amount, 2) }}</span>
+            </div>
             @if ($invoice->advance > 0)
-                <tr>
-                    <td class="label">Advance:</td>
-                    <td class="num">{{ number_format($invoice->advance, 2) }}</td>
-                </tr>
-                <tr>
-                    <td class="label">Balance:</td>
-                    <td class="num"><strong>{{ number_format($invoice->balance, 2) }}</strong></td>
-                </tr>
+                <div class="totals-row">
+                    <span>Advance</span>
+                    <span>{{ number_format($invoice->advance, 2) }}</span>
+                </div>
+                <div class="totals-row strong">
+                    <span>Balance</span>
+                    <span>{{ number_format($invoice->balance, 2) }}</span>
+                </div>
             @endif
-        </table>
+        </div>
 
-        <table class="box" style="margin-top:4px;">
-            <tr><td class="label">Total Amount in words:</td><td>{{ $invoice->amount_in_words }}</td></tr>
-            <tr><td class="label">Mode of Payment:</td><td>{{ $invoice->mode_of_payment }}</td></tr>
-        </table>
+        <div class="footer-box">
+            <div><span class="lbl">Total Amount in words:</span> {{ $invoice->amount_in_words }}</div>
+            <div><span class="lbl">Mode of Payment:</span> {{ $invoice->mode_of_payment }}</div>
+        </div>
 
         <div class="signatures">
             <div>Prepared by</div>
