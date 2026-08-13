@@ -17,7 +17,7 @@ class CustomerSeeder extends Seeder
             [
                 'name' => 'Singer Sri Lanka PLC',
                 'address' => "No. 80, Nawam Mawatha,\nColombo 02.",
-                'tin_number' => '124008026-7000',
+                'tin_number' => '124008026',
                 'is_fixed' => true,
             ]
         );
@@ -27,7 +27,7 @@ class CustomerSeeder extends Seeder
             [
                 'name' => 'Richard Peiris Distributors Ltd.',
                 'address' => "No. 310, High Level Road,\nNavinna, Maharagama.",
-                'tin_number' => '124009065-7000',
+                'tin_number' => '124009065',
                 'is_fixed' => true,
             ]
         );
@@ -37,7 +37,7 @@ class CustomerSeeder extends Seeder
             [
                 'name' => 'Ramadia Ranmal Holiday Resort',
                 'address' => '346, 5 Old Galle Rd, Moratuwa',
-                'tin_number' => '1141338417000',
+                'tin_number' => '114133841',
                 'telephone' => '0382 298 921',
                 'is_fixed' => true,
             ]

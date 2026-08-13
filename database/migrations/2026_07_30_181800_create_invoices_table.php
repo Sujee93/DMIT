@@ -18,7 +18,7 @@ return new class extends Migration
             // 'general' = plain invoice template with editable customer details, for any customer
             $table->enum('invoice_type', ['tax', 'general']);
             $table->string('invoice_number');
-            $table->string('reference_number')->nullable()->comment('e.g. KATMO-ARP-008, printed as Tax Invoice No.');
+            $table->string('reference_number')->nullable()->comment('e.g. 2026_08_KATMO_ARP_008, printed as Tax Invoice No.');
 
             $table->foreignId('customer_id')->nullable()->constrained()->nullOnDelete();
             $table->string('customer_name');

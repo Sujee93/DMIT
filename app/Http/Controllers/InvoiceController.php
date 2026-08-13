@@ -202,7 +202,7 @@ class InvoiceController extends Controller
                 $invoice->customer_telephone = $customer->telephone;
                 // Each fixed customer (Singer, Arpico) gets its own 1, 2, 3… sequence.
                 $invoice->invoice_number = Invoice::nextInvoiceNumber('tax', $customer->id);
-                $invoice->reference_number = Invoice::referenceNumberFor($customerKey, $invoice->invoice_number);
+                $invoice->reference_number = Invoice::referenceNumberFor($customerKey, $invoice->invoice_number, $data['date_of_invoice']);
             } else {
                 $invoice->invoice_number = Invoice::nextInvoiceNumber('general');
             }

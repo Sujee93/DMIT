@@ -45,7 +45,7 @@
         .footer-box .lbl { font-weight: 600; }
 
         .signatures { display: flex; justify-content: space-between; margin-top: 36px; }
-        .signatures div { width: 30%; text-align: center; border-top: 1px solid #000; padding-top: 2px; font-size: 8.5px; }
+        .signatures div { width: 23%; text-align: center; border-top: 1px solid #000; padding-top: 2px; font-size: 8.5px; }
 
         /* If an invoice has enough items to spill past one 13cm sheet, it should
            continue cleanly onto the next sheet of continuous stationery — repeat the
@@ -147,6 +147,7 @@
 
         <div class="signatures">
             <div>Prepared by</div>
+            <div>Authorized by</div>
             <div>Checked by</div>
             <div>Customer's Name &amp; Signature</div>
         </div>
