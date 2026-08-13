@@ -29,10 +29,7 @@
                             General Invoice
                         @endif
                     </strong>
-                    &middot; No. {{ $invoice->invoice_number }}
-                    @if ($invoice->reference_number)
-                        &middot; {{ $invoice->reference_number }}
-                    @endif
+                    &middot; No. {{ $invoice->reference_number ?? $invoice->invoice_number }}
                     <span class="text-gray-400">(type cannot be changed after creation)</span>
                 </div>
 

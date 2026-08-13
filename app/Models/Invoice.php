@@ -71,20 +71,24 @@ class Invoice extends Model
     }
 
     /**
-     * Reference number printed as "Tax Invoice No." e.g. 2026_08_KATMO_SIN_001 / 2026_08_KATMO_ARP_008.
+     * Reference number printed as "Tax Invoice No." / "Invoice No." e.g.
+     * 2026_AUG_KATMO_SIN_001 for a fixed tax customer, or 2026_AUG_KATMO_001
+     * for a general invoice ($customerKey left null — no customer code segment).
      */
-    public static function referenceNumberFor(string $customerKey, string $invoiceNumber, $invoiceDate = null): ?string
+    public static function referenceNumberFor(?string $customerKey, string $invoiceNumber, $invoiceDate = null): string
     {
         $codes = ['singer' => 'SIN', 'arpico' => 'ARP', 'ramadia' => 'RAM'];
-
-        if (! isset($codes[$customerKey])) {
-            return null;
-        }
 
         $date = $invoiceDate instanceof \Carbon\Carbon
             ? $invoiceDate
             : \Carbon\Carbon::parse($invoiceDate ?? now());
 
-        return $date->format('Y').'_'.$date->format('m').'_KATMO_'.$codes[$customerKey].'_'.$invoiceNumber;
+        $prefix = $date->format('Y').'_'.strtoupper($date->format('M')).'_KATMO';
+
+        if ($customerKey !== null && isset($codes[$customerKey])) {
+            $prefix .= '_'.$codes[$customerKey];
+        }
+
+        return $prefix.'_'.$invoiceNumber;
     }
 }

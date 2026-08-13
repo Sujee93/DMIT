@@ -205,6 +205,7 @@ class InvoiceController extends Controller
                 $invoice->reference_number = Invoice::referenceNumberFor($customerKey, $invoice->invoice_number, $data['date_of_invoice']);
             } else {
                 $invoice->invoice_number = Invoice::nextInvoiceNumber('general');
+                $invoice->reference_number = Invoice::referenceNumberFor(null, $invoice->invoice_number, $data['date_of_invoice']);
             }
         }
 

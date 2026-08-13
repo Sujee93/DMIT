@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Invoice {{ $invoice->invoice_number }}</title>
+    <title>Invoice {{ $invoice->reference_number ?? $invoice->invoice_number }}</title>
     <style>
         /* Continuous dot-matrix stationery: 24cm physical width (9.5"), 20mm sprocket-hole
            margin each side leaves ~20cm printable, 13cm sheet height. */
@@ -76,7 +76,7 @@
                 <div class="tagline">All kind of solid timber / MDF carpentry work / Pantry units / Bedroom Set / Dining Set / Office Furniture / Doors / Windows &amp; Roofing</div>
                 <div class="address">No. 39/1C, Sangabo Mawatha, Keselwatta, Panadura. &middot; Mobile: 0777-593515, Fax: 038 2297333</div>
             </div>
-            <div class="title">INVOICE No. {{ $invoice->invoice_number }}</div>
+            <div class="title">INVOICE No. {{ $invoice->reference_number ?? $invoice->invoice_number }}</div>
         </div>
 
         <div class="meta">
