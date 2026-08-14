@@ -120,10 +120,10 @@
                 <span>Subtotal</span>
                 <span>{{ number_format($invoice->subtotal, 2) }}</span>
             </div>
-            @if ($invoice->discount > 0)
+            @if ($invoice->discount_rate > 0)
                 <div class="totals-row">
-                    <span>Discount</span>
-                    <span>-{{ number_format($invoice->discount, 2) }}</span>
+                    <span>Discount ({{ rtrim(rtrim(number_format($invoice->discount_rate, 2), '0'), '.') }}%)</span>
+                    <span>-{{ number_format($invoice->discount_amount, 2) }}</span>
                 </div>
             @endif
             @if ($invoice->vat_amount !== null)

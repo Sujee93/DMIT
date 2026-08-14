@@ -42,10 +42,10 @@
         </div>
 
         <div class="flex justify-between items-center">
-            <span class="text-gray-500">Discount</span>
-            <input type="number" id="discount" name="discount" step="0.01" min="0" value="{{ old('discount', optional($invoice)->discount ?? 0) }}" class="w-24 text-sm border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 py-0.5">
+            <span class="text-gray-500">Discount (<input type="number" id="discount_rate" name="discount_rate" step="0.01" min="0" max="100" value="{{ old('discount_rate', optional($invoice)->discount_rate ?? 0) }}" class="w-14 text-sm border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 py-0.5">%)</span>
+            <span>Rs. <span id="discount-display">0.00</span></span>
         </div>
-        <x-input-error :messages="$errors->get('discount')" class="-mt-1" />
+        <x-input-error :messages="$errors->get('discount_rate')" class="-mt-1" />
 
         <div data-mode="tax" class="flex justify-between items-center">
             <span class="text-gray-500">VAT (<input type="number" id="vat_rate" name="vat_rate" step="0.01" min="0" max="100" value="{{ old('vat_rate', optional($invoice)->vat_rate ?? 18) }}" class="w-14 text-sm border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 py-0.5">%)</span>
@@ -101,9 +101,12 @@
 
         document.getElementById('subtotal-display').textContent = subtotal.toFixed(2);
 
-        const discountInput = document.getElementById('discount');
-        const discount = discountInput ? (parseFloat(discountInput.value) || 0) : 0;
-        const taxable = Math.max(subtotal - discount, 0);
+        const discountRateInput = document.getElementById('discount_rate');
+        const discountDisplay = document.getElementById('discount-display');
+        const discountRate = discountRateInput ? (parseFloat(discountRateInput.value) || 0) : 0;
+        const discountAmount = subtotal * discountRate / 100;
+        if (discountDisplay) discountDisplay.textContent = discountAmount.toFixed(2);
+        const taxable = Math.max(subtotal - discountAmount, 0);
 
         const vatRateInput = document.getElementById('vat_rate');
         const vatDisplay = document.getElementById('vat-display');
@@ -192,8 +195,8 @@
     const advanceInput = document.getElementById('advance');
     if (advanceInput) advanceInput.addEventListener('input', recalcTotals);
 
-    const discountInput = document.getElementById('discount');
-    if (discountInput) discountInput.addEventListener('input', recalcTotals);
+    const discountRateInputEl = document.getElementById('discount_rate');
+    if (discountRateInputEl) discountRateInputEl.addEventListener('input', recalcTotals);
 
     const vatEnabledCheckbox = document.getElementById('vat_enabled');
     if (vatEnabledCheckbox) vatEnabledCheckbox.addEventListener('change', recalcTotals);

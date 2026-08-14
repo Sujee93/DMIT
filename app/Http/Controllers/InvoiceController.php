@@ -158,7 +158,7 @@ class InvoiceController extends Controller
             'customer_name' => [Rule::requiredIf($isGeneral), 'nullable', 'string', 'max:255'],
             'customer_address' => ['nullable', 'string', 'max:1000'],
             'customer_telephone' => ['nullable', 'string', 'max:50'],
-            'discount' => ['nullable', 'numeric', 'min:0'],
+            'discount_rate' => ['nullable', 'numeric', 'min:0', 'max:100'],
             'advance' => ['nullable', 'numeric', 'min:0'],
             'vat_enabled' => ['nullable', 'boolean'],
             'general_vat_rate' => [Rule::requiredIf($generalVatEnabled), 'nullable', 'numeric', 'min:0', 'max:100'],
@@ -249,12 +249,11 @@ class InvoiceController extends Controller
 
         $invoice->subtotal = $subtotal;
 
-        $discount = (float) ($data['discount'] ?? 0);
-        if ($discount > $subtotal) {
-            throw ValidationException::withMessages(['discount' => 'Discount cannot be more than the subtotal.']);
-        }
-        $invoice->discount = $discount;
-        $taxable = $subtotal - $discount;
+        $discountRate = (float) ($data['discount_rate'] ?? 0);
+        $discountAmount = round($subtotal * $discountRate / 100, 2);
+        $invoice->discount_rate = $discountRate;
+        $invoice->discount_amount = $discountAmount;
+        $taxable = $subtotal - $discountAmount;
 
         if ($isTax) {
             $invoice->vat_amount = round($taxable * ((float) $invoice->vat_rate) / 100, 2);

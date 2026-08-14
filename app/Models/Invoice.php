@@ -13,7 +13,7 @@ class Invoice extends Model
         'customer_id', 'customer_name', 'customer_address', 'customer_tin', 'customer_telephone',
         'date_of_invoice', 'date_of_supply', 'place_of_supply',
         'vehicle_no', 'sup_no',
-        'subtotal', 'discount', 'vat_rate', 'vat_amount', 'total_amount', 'advance', 'balance',
+        'subtotal', 'discount_rate', 'discount_amount', 'vat_rate', 'vat_amount', 'total_amount', 'advance', 'balance',
         'amount_in_words', 'mode_of_payment',
         'prepared_by', 'checked_by', 'status',
     ];
@@ -22,7 +22,8 @@ class Invoice extends Model
         'date_of_invoice' => 'date',
         'date_of_supply' => 'date',
         'subtotal' => 'decimal:2',
-        'discount' => 'decimal:2',
+        'discount_rate' => 'decimal:2',
+        'discount_amount' => 'decimal:2',
         'vat_rate' => 'decimal:2',
         'vat_amount' => 'decimal:2',
         'total_amount' => 'decimal:2',
