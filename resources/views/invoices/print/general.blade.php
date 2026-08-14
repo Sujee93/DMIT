@@ -116,11 +116,17 @@
         </table>
 
         <div class="totals">
-            @if ($invoice->vat_amount !== null)
+            <div class="totals-row">
+                <span>Subtotal</span>
+                <span>{{ number_format($invoice->subtotal, 2) }}</span>
+            </div>
+            @if ($invoice->discount > 0)
                 <div class="totals-row">
-                    <span>Subtotal</span>
-                    <span>{{ number_format($invoice->subtotal, 2) }}</span>
+                    <span>Discount</span>
+                    <span>-{{ number_format($invoice->discount, 2) }}</span>
                 </div>
+            @endif
+            @if ($invoice->vat_amount !== null)
                 <div class="totals-row">
                     <span>VAT ({{ rtrim(rtrim(number_format($invoice->vat_rate, 2), '0'), '.') }}%)</span>
                     <span>{{ number_format($invoice->vat_amount, 2) }}</span>

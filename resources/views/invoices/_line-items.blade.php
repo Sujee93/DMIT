@@ -41,6 +41,12 @@
             <span>Rs. <span id="subtotal-display">0.00</span></span>
         </div>
 
+        <div class="flex justify-between items-center">
+            <span class="text-gray-500">Discount</span>
+            <input type="number" id="discount" name="discount" step="0.01" min="0" value="{{ old('discount', optional($invoice)->discount ?? 0) }}" class="w-24 text-sm border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 py-0.5">
+        </div>
+        <x-input-error :messages="$errors->get('discount')" class="-mt-1" />
+
         <div data-mode="tax" class="flex justify-between items-center">
             <span class="text-gray-500">VAT (<input type="number" id="vat_rate" name="vat_rate" step="0.01" min="0" max="100" value="{{ old('vat_rate', optional($invoice)->vat_rate ?? 18) }}" class="w-14 text-sm border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 py-0.5">%)</span>
             <span>Rs. <span id="vat-display">0.00</span></span>
@@ -95,6 +101,10 @@
 
         document.getElementById('subtotal-display').textContent = subtotal.toFixed(2);
 
+        const discountInput = document.getElementById('discount');
+        const discount = discountInput ? (parseFloat(discountInput.value) || 0) : 0;
+        const taxable = Math.max(subtotal - discount, 0);
+
         const vatRateInput = document.getElementById('vat_rate');
         const vatDisplay = document.getElementById('vat-display');
         const totalDisplay = document.getElementById('total-display');
@@ -105,23 +115,23 @@
         const generalVatRow = document.getElementById('general-vat-amount-row');
         const generalVatDisplay = document.getElementById('general-vat-display');
 
-        let total = subtotal;
+        let total = taxable;
 
         if (vatRateInput && window.katmoInvoiceMode === 'tax') {
             const rate = parseFloat(vatRateInput.value) || 0;
-            const vat = subtotal * rate / 100;
+            const vat = taxable * rate / 100;
             vatDisplay.textContent = vat.toFixed(2);
-            total = subtotal + vat;
+            total = taxable + vat;
         } else if (window.katmoInvoiceMode === 'general' && vatEnabledCheckbox) {
             const enabled = vatEnabledCheckbox.checked;
             if (generalVatRateInput) generalVatRateInput.disabled = ! enabled;
 
             if (enabled) {
                 const rate = parseFloat(generalVatRateInput.value) || 0;
-                const vat = subtotal * rate / 100;
+                const vat = taxable * rate / 100;
                 if (generalVatDisplay) generalVatDisplay.textContent = vat.toFixed(2);
                 if (generalVatRow) generalVatRow.classList.remove('hidden');
-                total = subtotal + vat;
+                total = taxable + vat;
             } else if (generalVatRow) {
                 generalVatRow.classList.add('hidden');
             }
@@ -181,6 +191,9 @@
 
     const advanceInput = document.getElementById('advance');
     if (advanceInput) advanceInput.addEventListener('input', recalcTotals);
+
+    const discountInput = document.getElementById('discount');
+    if (discountInput) discountInput.addEventListener('input', recalcTotals);
 
     const vatEnabledCheckbox = document.getElementById('vat_enabled');
     if (vatEnabledCheckbox) vatEnabledCheckbox.addEventListener('change', recalcTotals);
