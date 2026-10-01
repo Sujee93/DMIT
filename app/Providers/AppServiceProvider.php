@@ -27,8 +27,16 @@ class AppServiceProvider extends ServiceProvider
 
         Password::defaults(fn () => Password::min(8)->letters()->numbers());
 
-        if ($this->app->isProduction() && str_starts_with((string) config('app.url'), 'https://')) {
+        // Only force https:// links when explicitly enabled (e.g. behind a proxy that
+        // terminates SSL). Forcing it on a plain-http site breaks every CSS/JS/image link.
+        if (config('app.force_https')) {
             URL::forceScheme('https');
+        }
+
+        // Secure-only session cookie whenever the site is actually served over HTTPS,
+        // unless SESSION_SECURE_COOKIE is set explicitly.
+        if (config('session.secure') === null && ! $this->app->runningInConsole()) {
+            config(['session.secure' => request()->isSecure()]);
         }
 
         View::composer('*', LayoutComposer::class);

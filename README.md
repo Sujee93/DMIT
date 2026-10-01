@@ -90,6 +90,21 @@ strong DB password, run `composer audit` regularly.
 > temporary signed URLs (not used) and the default `email` rule (this app uses `email:filter`, which rejects
 > line breaks). When the server moves to PHP 8.2+, upgrade to a supported Laravel release.
 
+## Troubleshooting
+
+**Page shows but has no styles / images are broken**
+The CSS, JS and images are plain files in `public/` — **Node/npm is not needed**. If they don't load,
+the links are pointing to the wrong address. Open the page source and check the `app.css` link:
+
+- It starts with `https://` but the site is `http://` → set `FORCE_HTTPS=false` (default).
+- The folder is missing (e.g. site is at `http://localhost/DMIT/` but links go to `http://localhost/css/...`)
+  → point the web server / virtual host at `public/`, or run `php artisan serve` and open
+  `http://localhost:8000`, or set `ASSET_URL=http://localhost/DMIT/public`.
+- After changing `.env` on a server where you ran `config:cache`, run `php artisan config:clear`.
+
+**"Page expired" (419) when logging in** — the address in the browser must match `APP_URL`, and leave
+`SESSION_SECURE_COOKIE` empty unless you need to force it.
+
 ## Development
 
 ```bash
