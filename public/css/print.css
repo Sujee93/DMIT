@@ -1,81 +1,69 @@
-/* A4 portrait invoice sheet. 210mm x 297mm with 12mm margins. */
-@page { size: A4 portrait; margin: 12mm; }
-
-:root { --brand: #1d4ed8; --brand-soft: #eff6ff; --ink: #111827; --muted: #6b7280; --line: #e5e7eb; }
+/* A4 portrait sales invoice - plain, ink-friendly layout. */
+@page {
+    size: A4 portrait;
+    margin: 10mm 10mm 10mm 10mm;
+    @top-right { content: "Page " counter(page) " of " counter(pages); font: 700 9pt Arial, Helvetica, sans-serif; }
+}
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-body { background: #e9edf5; font-family: 'Nunito', system-ui, sans-serif; color: var(--ink); font-size: 12.5px; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { background: #e9edf5; color: #000; font-family: Arial, Helvetica, sans-serif; font-size: 10.5pt; line-height: 1.35; }
 
-.toolbar { position: sticky; top: 0; z-index: 10; display: flex; justify-content: center; gap: .75rem; padding: .75rem; background: rgba(255,255,255,.92); border-bottom: 1px solid var(--line); }
-.tb-btn { font: inherit; font-weight: 700; padding: .55rem 1.1rem; border-radius: 9px; border: 1px solid #d1d5db; background: #fff; color: var(--ink); cursor: pointer; text-decoration: none; }
+.toolbar { position: sticky; top: 0; z-index: 10; display: flex; justify-content: center; gap: .75rem; padding: .75rem; background: rgba(255,255,255,.95); border-bottom: 1px solid #e5e7eb; }
+.tb-btn { font: 700 14px/1.2 Arial, sans-serif; padding: .6rem 1.1rem; border-radius: 9px; border: 1px solid #d1d5db; background: #fff; color: #111; cursor: pointer; text-decoration: none; }
 .tb-btn--primary { background: linear-gradient(90deg, #1d4ed8, #3b82f6); border-color: transparent; color: #fff; }
 
-.sheet { width: 210mm; min-height: 297mm; margin: 1.5rem auto; padding: 14mm 14mm 12mm; background: #fff; box-shadow: 0 10px 40px rgba(17, 38, 99, .15); display: flex; flex-direction: column; }
+.sheet { width: 210mm; min-height: 297mm; margin: 1.5rem auto; padding: 10mm; background: #fff; box-shadow: 0 10px 40px rgba(17, 38, 99, .15); display: flex; flex-direction: column; }
 
-.inv-header { display: flex; justify-content: space-between; gap: 1.5rem; padding-bottom: 6mm; border-bottom: 3px solid var(--brand); }
-.biz { display: flex; gap: 1rem; align-items: flex-start; max-width: 60%; }
-.biz__logo { max-height: 70px; max-width: 120px; object-fit: contain; }
-.biz__name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 20px; color: #0f1d4a; line-height: 1.2; }
-.biz__tagline { color: var(--brand); font-weight: 700; font-size: 11.5px; }
-.biz__meta { color: var(--muted); font-size: 11.5px; margin-top: .3rem; }
+/* Business header, centred */
+.biz { text-align: center; }
+.biz__logo { display: block; margin: 0 auto 2mm; max-height: 18mm; max-width: 60mm; object-fit: contain; }
+.biz__name { font-size: 20pt; font-weight: 700; line-height: 1.15; margin-bottom: 1mm; }
 
-.inv-title { text-align: right; }
-.inv-title h1 { margin: 0 0 .4rem; font-family: 'Poppins', sans-serif; font-size: 30px; letter-spacing: .12em; color: var(--brand); }
-.meta { margin-left: auto; border-collapse: collapse; }
-.meta th { text-align: left; color: var(--muted); font-weight: 600; padding: 1px 12px 1px 0; }
-.meta td { text-align: right; font-weight: 800; padding: 1px 0; }
+.doc-title { font-size: 17pt; font-weight: 700; margin: 6mm 0 5mm; letter-spacing: .01em; }
 
-.parties { display: flex; justify-content: space-between; gap: 1.5rem; margin: 6mm 0; }
-.party { flex: 1; }
-.party__label { text-transform: uppercase; letter-spacing: .08em; font-size: 10.5px; font-weight: 800; color: var(--brand); margin-bottom: .25rem; }
-.party__name { font-weight: 800; font-size: 15px; }
-.party--status { flex: none; min-width: 55mm; text-align: right; background: var(--brand-soft); border-radius: 8px; padding: .75rem 1rem; }
-.party__amount { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 20px; color: #0f1d4a; }
-.status { display: inline-block; margin-top: .2rem; font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; padding: 2px 8px; border-radius: 999px; }
-.status--paid { background: #dcfce7; color: #166534; }
-.status--partial { background: #fef3c7; color: #92400e; }
-.status--unpaid { background: #fee2e2; color: #991b1b; }
+/* Customer (left) and invoice details (right) */
+.parties { display: flex; justify-content: space-between; align-items: flex-start; gap: 10mm; margin-bottom: 5mm; }
+.customer .label { font-weight: 700; }
+.meta { border-collapse: collapse; margin-top: 4mm; }
+.meta th { text-align: right; font-weight: 400; padding: 1px 6mm 1px 0; white-space: nowrap; }
+.meta td { text-align: right; padding: 1px 0; white-space: nowrap; }
+.meta .strong { font-weight: 700; }
 
+/* Item table with dashed rules */
 .items { width: 100%; border-collapse: collapse; }
-.items thead th { background: var(--brand); color: #fff; font-weight: 700; text-align: left; padding: 7px 8px; font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; }
-.items tbody td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
-.items tbody tr:nth-child(even) td { background: #f8fafc; }
+.items thead th { text-align: left; font-weight: 700; padding: 1.6mm 1mm; border-top: 1px dashed #000; border-bottom: 1px dashed #000; }
+.items tbody td { padding: .9mm 1mm; vertical-align: top; }
+.items tbody tr:last-child td { padding-bottom: 1.6mm; }
+.items { border-bottom: 1px dashed #000; }
 .items tr { break-inside: avoid; }
 .items thead { display: table-header-group; }
-.c-no { width: 8mm; color: var(--muted); }
-.c-code { width: 26mm; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; }
-.c-num { text-align: right !important; white-space: nowrap; width: 24mm; font-variant-numeric: tabular-nums; }
-.desc { color: var(--muted); font-size: 11px; }
+.c-code { width: 24mm; white-space: nowrap; }
+.c-num { text-align: right !important; white-space: nowrap; width: 22mm; font-variant-numeric: tabular-nums; }
+.desc { color: #444; }
 
-.bottom { display: flex; justify-content: space-between; gap: 1.5rem; margin-top: 5mm; break-inside: avoid; }
-.notes { flex: 1; }
-.notes h4 { margin: 0 0 .2rem; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--brand); }
-.notes p { margin: 0 0 .7rem; }
-.notes .small { font-size: 10.5px; color: var(--muted); }
-.totals { width: 72mm; border-collapse: collapse; align-self: flex-start; }
-.totals th { text-align: left; font-weight: 600; color: var(--muted); padding: 4px 0; }
-.totals td { text-align: right; font-weight: 800; padding: 4px 0; font-variant-numeric: tabular-nums; }
-.totals .grand th, .totals .grand td { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); color: var(--ink); font-size: 14px; padding: 6px 0; }
-.totals .due th, .totals .due td { color: #b91c1c; }
+.totals { margin: 3mm 0 0 auto; border-collapse: collapse; }
+.totals th { text-align: right; font-weight: 400; padding: .8mm 12mm .8mm 0; }
+.totals td { text-align: right; padding: .8mm 1mm; min-width: 28mm; font-variant-numeric: tabular-nums; }
+.totals .net th, .totals .net td { font-weight: 700; }
 
-.signatures { display: flex; justify-content: space-between; gap: 1.5rem; margin-top: auto; padding-top: 18mm; break-inside: avoid; }
-.signatures div { flex: 1; text-align: center; color: var(--muted); font-size: 11px; }
-.signatures span { display: block; border-top: 1px dashed #9ca3af; margin-bottom: .3rem; }
-
-.sheet-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 6mm; padding-top: 3mm; border-top: 1px solid var(--line); color: var(--muted); font-size: 10.5px; }
-.credit { font-size: 9.5px; color: #9ca3af; }
+/* Packaging + signatures, pushed to the bottom of the page */
+.sheet-footer { margin-top: auto; padding-top: 14mm; break-inside: avoid; }
+.packages, .signatures { display: flex; gap: 8mm; align-items: flex-end; }
+.signatures { justify-content: space-between; margin-top: 8mm; padding-bottom: 3mm; border-bottom: 1px solid #999; }
+.packages .push { margin-left: auto; }
+.blank { display: inline-block; width: 13mm; border-bottom: 1px solid #000; margin-left: 1mm; }
+.blank--wide { width: 18mm; }
+.dots { display: inline-block; width: 30mm; border-bottom: 1px dotted #000; margin-left: 1mm; }
+.powered { text-align: center; color: #555; font-size: 8.5pt; margin-top: 2mm; }
 
 @media print {
     body { background: #fff; }
     .no-print { display: none !important; }
-    .sheet { width: auto; min-height: calc(297mm - 24mm); margin: 0; padding: 0; box-shadow: none; }
+    .sheet { width: auto; min-height: calc(297mm - 20mm); margin: 0; padding: 0; box-shadow: none; }
 }
 @media screen and (max-width: 820px) {
-    .sheet { width: 100%; min-height: auto; margin: 0; padding: 1.25rem; }
-    .inv-header, .parties, .bottom { flex-direction: column; }
-    .biz { max-width: none; }
-    .inv-title { text-align: left; }
-    .meta { margin-left: 0; }
-    .totals { width: 100%; }
+    .sheet { width: 100%; min-height: auto; margin: 0; padding: 1rem; }
+    .parties { flex-direction: column; gap: 2mm; }
+    .meta th { text-align: left; }
 }

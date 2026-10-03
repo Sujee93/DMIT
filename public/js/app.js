@@ -147,6 +147,7 @@
             field(row, 'quantity').value = 1;
             field(row, 'unit_cost').value = product.cost;
             field(row, 'unit_price').value = product.price;
+            field(row, 'discount_percent').value = 0;
             tbody.appendChild(fragment);
             field(row, 'quantity').select();
             recalc();
@@ -160,9 +161,12 @@
                 const qty = parseInt(field(row, 'quantity').value, 10) || 0;
                 const price = toCents(field(row, 'unit_price').value);
                 const unitCost = toCents(field(row, 'unit_cost').value);
-                subtotal += qty * price;
+                const discount = Math.min(Math.max(parseFloat(field(row, 'discount_percent').value) || 0, 0), 100);
+                // Same rounding as the server: whole cents after the line discount.
+                const lineTotal = Math.round(qty * price * (100 - discount) / 100);
+                subtotal += lineTotal;
                 cost += qty * unitCost;
-                field(row, 'line_total').textContent = format(qty * price);
+                field(row, 'line_total').textContent = format(lineTotal);
 
                 const defaultPrice = row.dataset.defaultPrice;
                 const changed = defaultPrice !== '' && defaultPrice !== undefined && toCents(defaultPrice) !== price;

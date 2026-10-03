@@ -60,6 +60,25 @@ class InvoiceTest extends TestCase
         $this->assertSame('1450.00', $invoice->items[0]->unit_price);
     }
 
+    public function test_line_discount_percent_is_applied(): void
+    {
+        $this->actingAs($this->staff());
+        $p = Product::factory()->create(['cost' => '1000', 'price' => '1450']);
+
+        $this->post('/invoices', $this->payload([
+            ['product_id' => $p->id, 'quantity' => 6, 'unit_price' => '1450', 'discount_percent' => '10'],
+        ]))->assertSessionHasNoErrors();
+
+        $invoice = Invoice::with('items')->firstOrFail();
+        $this->assertSame('10.00', $invoice->items[0]->discount_percent);
+        $this->assertSame('7830.00', $invoice->items[0]->line_total);
+        $this->assertSame('7830.00', $invoice->total);
+
+        $this->post('/invoices', $this->payload([
+            ['product_id' => $p->id, 'quantity' => 1, 'unit_price' => '10', 'discount_percent' => '101'],
+        ]))->assertSessionHasErrors('items.0.discount_percent');
+    }
+
     public function test_invoice_numbers_are_sequential(): void
     {
         $this->actingAs($this->staff());
@@ -119,7 +138,11 @@ class InvoiceTest extends TestCase
 
         $this->get("/invoices/{$invoice->id}/print")
             ->assertOk()
-            ->assertSee('INVOICE')
+            ->assertSee('SALES INVOICE')
+            ->assertSee('Net Invoice Value')
+            ->assertSee('Total Package')
+            ->assertDontSee('Roll')
+            ->assertDontSee('Sales Rep')
             ->assertSee('999.00')
             ->assertDontSee('777.00')
             ->assertDontSee($this->supplier->name);

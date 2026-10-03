@@ -26,7 +26,7 @@
             @if ($type)<input type="hidden" name="type" value="{{ $type->value }}">@endif
             <div class="search-input">
                 <x-icon name="search" />
-                <input type="search" name="q" value="{{ $search }}" class="input" placeholder="Search name, company, phone" maxlength="100">
+                <input type="search" name="q" value="{{ $search }}" class="input" placeholder="Search name, code, company, phone" maxlength="100">
             </div>
         </form>
     </div>
@@ -42,6 +42,7 @@
                     <tr>
                         <td>
                             <a href="{{ route('contacts.show', $contact) }}" class="cell-title">{{ $contact->name }}</a>
+                            @if ($contact->code)<span class="badge badge-muted mono">{{ $contact->code }}</span>@endif
                             @if ($contact->company && $contact->company !== $contact->name)<div class="cell-sub">{{ $contact->company }}</div>@endif
                         </td>
                         <td><x-badge :tone="$contact->isCustomer() ? 'info' : 'warning'">{{ $contact->type->label() }}</x-badge></td>

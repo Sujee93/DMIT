@@ -15,6 +15,7 @@ class InvoiceItem extends Model
         'quantity',
         'unit_cost',
         'unit_price',
+        'discount_percent',
         'line_cost',
         'line_total',
         'sort_order',
@@ -24,6 +25,7 @@ class InvoiceItem extends Model
         'quantity' => 'integer',
         'unit_cost' => 'decimal:2',
         'unit_price' => 'decimal:2',
+        'discount_percent' => 'decimal:2',
         'line_cost' => 'decimal:2',
         'line_total' => 'decimal:2',
     ];

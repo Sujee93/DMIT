@@ -31,9 +31,6 @@
                     <x-form.input name="invoice_prefix" label="Invoice number prefix" :value="$settings->invoice_prefix" required maxlength="20"
                                   :hint="'Next invoice: '.$settings->invoice_prefix.str_pad((string) max(1, (int) $settings->invoice_next_number), 5, '0', STR_PAD_LEFT)" />
                     <x-form.input name="default_due_days" label="Default credit days" type="number" min="0" max="365" :value="$settings->default_due_days" required />
-                    <x-form.textarea name="bank_details" label="Bank details (printed on invoice)" :value="$settings->bank_details" maxlength="1000" rows="3" wrapper-class="span-3" />
-                    <x-form.textarea name="invoice_terms" label="Terms & conditions" :value="$settings->invoice_terms" maxlength="2000" rows="3" wrapper-class="span-3" />
-                    <x-form.input name="invoice_footer" label="Invoice footer message" :value="$settings->invoice_footer" maxlength="500" placeholder="Thank you for your business!" wrapper-class="span-3" />
                 </div>
             </x-card>
         </div>

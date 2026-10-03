@@ -17,6 +17,7 @@ class Contact extends Model
 
     protected $fillable = [
         'type',
+        'code',
         'name',
         'company',
         'phone',
@@ -76,6 +77,7 @@ class Contact extends Model
 
         return $query->where(function (Builder $q) use ($like) {
             $q->where('name', 'like', $like)
+                ->orWhere('code', 'like', $like)
                 ->orWhere('company', 'like', $like)
                 ->orWhere('phone', 'like', $like)
                 ->orWhere('email', 'like', $like);

@@ -1,5 +1,6 @@
 <div class="form-grid">
     <x-form.select name="type" label="Type" :options="['customer' => 'Customer', 'supplier' => 'Supplier']" :value="$contact->type" required />
+    <x-form.input name="code" label="Code" :value="$contact->code" maxlength="50" placeholder="Optional, e.g. WP HOR 267" hint="Printed on invoices as Customer Code." />
     <x-form.input name="name" label="Contact name" :value="$contact->name" required maxlength="255" autofocus />
     <x-form.input name="company" label="Company / Shop name" :value="$contact->company" maxlength="255" />
     <x-form.input name="phone" label="Phone" type="tel" :value="$contact->phone" maxlength="50" />

@@ -19,10 +19,10 @@
             </div>
             <h1>Login to {{ $business->name }}</h1>
 
-            @if ($errors->any())
+            @if ($errors->any() || session('error'))
                 <div class="alert alert-error" role="alert">
                     <x-icon name="alert" />
-                    <div>{{ $errors->first() }}</div>
+                    <div>{{ $errors->first() ?: session('error') }}</div>
                 </div>
             @endif
 

@@ -14,10 +14,10 @@ payment tracking and reports.
 | Module | What it does |
 | --- | --- |
 | **Login** | Email + password, "Remember me", brute-force throttling, inactive accounts blocked |
-| **Business settings** | Name, logo, tagline, address, phones, email, website, registration & tax numbers, currency, invoice prefix, default credit days, bank details, terms, invoice footer *(admin)* |
+| **Business settings** | Name, logo, tagline, address, phones, email, website, registration & tax numbers, currency, invoice prefix, default credit days *(admin)* |
 | **Products** | Code, name, description, colour & size (optional), cost, price, active flag. Search & filter. No stock tracking yet |
-| **Customers & Suppliers** | One page with tabs (All / Customers / Suppliers), search, profile page with balance, invoices and payment history |
-| **Wholesale invoicing** | Pick a customer and (optionally) the supplier fulfilling the goods, add products by code/name, **override the price per line**, discount, notes. A4 portrait print / PDF |
+| **Customers & Suppliers** | Optional code (printed as Customer Code). One page with tabs (All / Customers / Suppliers), search, profile page with balance, invoices and payment history |
+| **Wholesale invoicing** | Pick a customer and (optionally) the supplier fulfilling the goods, add products by code/name, **override the price per line**, per-line discount %, extra discount, internal notes. A4 portrait "Sales Invoice" print / PDF with item code, qty, unit price, discount, total, package and signature lines |
 | **Payments – customers** | On an invoice: enter amount, method (cash / card / cheque / bank transfer) with reference, bank & cheque date. Partial payments supported; full payment marks the invoice **Paid** |
 | **Payments – suppliers** | "Supplier Payments" tab and a **Pay** button on every supplier. Reduces what you owe |
 | **Reports** | Sales (date range, profit, top products), Receivables, Payables, Dues (overdue ageing 1-30 / 31-60 / 61-90 / 90+) — all printable |
@@ -91,6 +91,18 @@ strong DB password, run `composer audit` regularly.
 > line breaks). When the server moves to PHP 8.2+, upgrade to a supported Laravel release.
 
 ## Troubleshooting
+
+**First step for any problem on the server:** run
+
+```bash
+php artisan app:check
+```
+
+It checks the PHP version & extensions, `.env`, the database connection, missing tables/migrations,
+folder permissions, the storage link and the cache, and tells you how to fix each failed item.
+
+**"Something went wrong… error code XXXXXXXX"** — the full technical details are written to
+`storage/logs/laravel-YYYY-MM-DD.log`. Search that file for the code.
 
 **Page shows but has no styles / images are broken**
 The CSS, JS and images are plain files in `public/` — **Node/npm is not needed**. If they don't load,

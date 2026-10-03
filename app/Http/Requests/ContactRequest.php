@@ -25,6 +25,7 @@ class ContactRequest extends FormRequest
     {
         return [
             'type' => ['required', new Enum(ContactType::class)],
+            'code' => ['nullable', 'string', 'max:50'],
             'name' => ['required', 'string', 'max:255'],
             'company' => ['nullable', 'string', 'max:255'],
             'phone' => ['nullable', 'string', 'max:50'],

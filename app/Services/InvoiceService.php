@@ -130,8 +130,9 @@ class InvoiceService
             $quantity = (int) $line['quantity'];
             $unitPrice = Money::toCents($line['unit_price']);
             $unitCost = Money::toCents($line['unit_cost'] ?? $product->cost);
+            $discountPercent = round((float) ($line['discount_percent'] ?? 0), 2);
 
-            $lineTotal = $quantity * $unitPrice;
+            $lineTotal = (int) round($quantity * $unitPrice * (100 - $discountPercent) / 100);
             $lineCost = $quantity * $unitCost;
             $subtotal += $lineTotal;
             $totalCost += $lineCost;
@@ -144,6 +145,7 @@ class InvoiceService
                 'quantity' => $quantity,
                 'unit_cost' => Money::fromCents($unitCost),
                 'unit_price' => Money::fromCents($unitPrice),
+                'discount_percent' => number_format($discountPercent, 2, '.', ''),
                 'line_cost' => Money::fromCents($lineCost),
                 'line_total' => Money::fromCents($lineTotal),
                 'sort_order' => $index,

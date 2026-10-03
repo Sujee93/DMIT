@@ -12,6 +12,7 @@
                 'quantity' => $item['quantity'] ?? 1,
                 'unit_cost' => $item['unit_cost'] ?? '',
                 'unit_price' => $item['unit_price'] ?? '',
+                'discount_percent' => $item['discount_percent'] ?? 0,
                 'default_price' => $p['price'] ?? '',
             ];
         })->all();
@@ -23,6 +24,7 @@
             'quantity' => $item->quantity,
             'unit_cost' => $item->unit_cost,
             'unit_price' => $item->unit_price,
+            'discount_percent' => (float) $item->discount_percent,
             'default_price' => $productIndex->get($item->product_id)['price'] ?? '',
         ])->all() : [];
     }
@@ -61,7 +63,7 @@
             <table class="table items-table">
                 <thead>
                 <tr>
-                    <th>Product</th><th class="col-qty">Qty</th><th class="col-money">Unit cost</th><th class="col-money">Unit price</th><th class="num col-total">Line total</th><th class="col-remove"></th>
+                    <th>Product</th><th class="col-qty">Qty</th><th class="col-money">Unit cost</th><th class="col-money">Unit price</th><th class="col-disc">Disc %</th><th class="num col-total">Line total</th><th class="col-remove"></th>
                 </tr>
                 </thead>
                 <tbody data-items data-next-index="{{ count($rows) }}">
@@ -83,14 +85,14 @@
 
         <x-slot:footer>
             <div class="grid grid-2">
-                <x-form.textarea name="notes" label="Notes (printed on invoice)" :value="$invoice->notes" maxlength="2000" rows="3" />
+                 <x-form.textarea name="notes" label="Internal notes (not printed)" :value="$invoice->notes" maxlength="2000" rows="3" />
                 <dl class="summary-list totals-panel">
                     <div><dt>Subtotal</dt><dd data-subtotal>0.00</dd></div>
                     <div>
-                        <dt><label for="f_discount">Discount</label></dt>
+                        <dt><label for="f_discount">Extra discount (amount)</label></dt>
                         <dd><input id="f_discount" type="number" name="discount" min="0" step="0.01" inputmode="decimal" value="{{ old('discount', $invoice->discount ?? 0) }}" class="input input-sm" data-discount></dd>
                     </div>
-                    <div class="is-total"><dt>Total</dt><dd>{{ $business->currency_symbol ?? '' }} <span data-total>0.00</span></dd></div>
+                    <div class="is-total"><dt>Net invoice value</dt><dd>{{ $business->currency_symbol ?? '' }} <span data-total>0.00</span></dd></div>
                     <div><dt class="text-soft">Cost of goods</dt><dd class="text-soft" data-cost>0.00</dd></div>
                     <div><dt class="text-soft">Gross profit</dt><dd class="text-soft" data-profit>0.00</dd></div>
                 </dl>

@@ -92,6 +92,7 @@
                 <div class="balance-box__value">{{ money($balance) }}</div>
             </div>
             <dl class="details mt-2">
+                @if ($contact->code)<dt>Code</dt><dd class="mono">{{ $contact->code }}</dd>@endif
                 <dt>Type</dt><dd><x-badge :tone="$contact->isCustomer() ? 'info' : 'warning'">{{ $contact->type->label() }}</x-badge></dd>
                 <dt>Status</dt><dd>{{ $contact->is_active ? 'Active' : 'Inactive' }}</dd>
                 <dt>Phone</dt><dd>{{ $contact->phone ?: '—' }}</dd>

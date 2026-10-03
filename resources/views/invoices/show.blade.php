@@ -27,6 +27,7 @@
                     @if ($invoice->customer->company && $invoice->customer->company !== $invoice->customer->name)<div>{{ $invoice->customer->company }}</div>@endif
                     @if ($invoice->customer->address)<div class="text-muted">{{ $invoice->customer->address }}</div>@endif
                     @if ($invoice->customer->phone)<div class="text-muted">{{ $invoice->customer->phone }}</div>@endif
+                    @if ($invoice->customer->code)<div class="text-muted">Customer code: <span class="mono">{{ $invoice->customer->code }}</span></div>@endif
                 </div>
                 <dl class="details">
                     <dt>Status</dt><dd><x-invoice-status :invoice="$invoice" /></dd>
@@ -45,7 +46,7 @@
         <x-card title="Items" :flush="true">
             <div class="table-wrap">
                 <table class="table">
-                    <thead><tr><th>#</th><th>Product</th><th class="num">Qty</th><th class="num">Unit price</th><th class="num">Total</th></tr></thead>
+                    <thead><tr><th>#</th><th>Product</th><th class="num">Qty</th><th class="num">Unit price</th><th class="num">Disc %</th><th class="num">Total</th></tr></thead>
                     <tbody>
                     @foreach ($invoice->items as $item)
                         <tr>
@@ -56,16 +57,17 @@
                             </td>
                             <td class="num">{{ number_format($item->quantity) }}</td>
                             <td class="num">{{ money($item->unit_price) }}</td>
+                            <td class="num">{{ (float) $item->discount_percent > 0 ? rtrim(rtrim($item->discount_percent, '0'), '.').'%' : '—' }}</td>
                             <td class="num fw-bold">{{ money($item->line_total) }}</td>
                         </tr>
                     @endforeach
                     </tbody>
                     <tfoot>
-                    <tr><td colspan="4" class="num">Subtotal</td><td class="num">{{ money($invoice->subtotal) }}</td></tr>
+                    <tr><td colspan="5" class="num">Subtotal</td><td class="num">{{ money($invoice->subtotal) }}</td></tr>
                     @if ((float) $invoice->discount > 0)
-                        <tr><td colspan="4" class="num">Discount</td><td class="num">- {{ money($invoice->discount) }}</td></tr>
+                        <tr><td colspan="5" class="num">Discount</td><td class="num">- {{ money($invoice->discount) }}</td></tr>
                     @endif
-                    <tr><td colspan="4" class="num">Total</td><td class="num">{{ money($invoice->total) }}</td></tr>
+                    <tr><td colspan="5" class="num">Net invoice value</td><td class="num">{{ money($invoice->total) }}</td></tr>
                     </tfoot>
                 </table>
             </div>
@@ -118,6 +120,10 @@
                 <div><dt>Gross profit</dt><dd>{{ money($invoice->profit()) }}</dd></div>
                 <div><dt>Created by</dt><dd>{{ $invoice->creator?->name ?? '—' }}</dd></div>
             </dl>
+            @if ($invoice->notes)
+                <div class="label text-muted mt-2">Internal notes</div>
+                <p class="mb-0">{!! nl2br(e($invoice->notes)) !!}</p>
+            @endif
         </x-card>
 
         @if ($balance > 0)
