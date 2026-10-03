@@ -74,6 +74,17 @@ class InvoiceTest extends TestCase
         $this->assertSame('7830.00', $invoice->items[0]->line_total);
         $this->assertSame('7830.00', $invoice->total);
 
+        // Print shows gross, combined discount (line + extra) and net.
+        $p2 = Product::factory()->create(['price' => '100']);
+        $this->post('/invoices', $this->payload([
+            ['product_id' => $p->id, 'quantity' => 6, 'unit_price' => '1450', 'discount' => '870'],
+            ['product_id' => $p2->id, 'quantity' => 3, 'unit_price' => '100', 'discount' => '30'],
+        ], ['discount' => '100']))->assertSessionHasNoErrors();
+        $second = Invoice::latest('id')->firstOrFail();
+        $this->assertSame('8000.00', $second->total); // 9000 - 900 - 100
+        $this->get("/invoices/{$second->id}/print")
+            ->assertSeeInOrder(['Gross Value:', '9,000.00', 'Total Discount:', '1,000.00', 'Net Invoice Value:', '8,000.00']);
+
         $this->post('/invoices', $this->payload([
             ['product_id' => $p->id, 'quantity' => 2, 'unit_price' => '10', 'discount' => '20.01'],
         ]))->assertSessionHasErrors('items.0.discount');

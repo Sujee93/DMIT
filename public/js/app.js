@@ -155,6 +155,8 @@
 
         function recalc() {
             let subtotal = 0;
+            let grossTotal = 0;
+            let lineDiscounts = 0;
             let cost = 0;
             const rows = $$('[data-item-row]', tbody);
             rows.forEach((row) => {
@@ -165,6 +167,8 @@
                 const lineDiscount = Math.min(Math.max(toCents(field(row, 'discount').value), 0), gross);
                 const lineTotal = gross - lineDiscount;
                 subtotal += lineTotal;
+                grossTotal += gross;
+                lineDiscounts += lineDiscount;
                 cost += qty * unitCost;
                 field(row, 'line_total').textContent = format(lineTotal);
 
@@ -176,7 +180,9 @@
 
             const discount = Math.min(toCents(discountInput.value), subtotal);
             const total = subtotal - discount;
-            $('[data-subtotal]', root).textContent = format(subtotal);
+            $('[data-gross]', root).textContent = format(grossTotal);
+            $('[data-line-discounts]', root).textContent = format(lineDiscounts);
+            $('[data-total-discount]', root).textContent = format(lineDiscounts + discount);
             $('[data-total]', root).textContent = format(total);
             $('[data-cost]', root).textContent = format(cost);
             $('[data-profit]', root).textContent = format(total - cost);

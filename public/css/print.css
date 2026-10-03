@@ -49,9 +49,7 @@ body { background: #e9edf5; color: #111827; font-family: Arial, Helvetica, sans-
 .totals { margin: 3mm 0 0 auto; border-collapse: collapse; }
 .totals th { text-align: right; font-weight: 400; padding: .8mm 12mm .8mm 3mm; color: var(--muted); }
 .totals td { text-align: right; padding: .8mm 1mm; min-width: 28mm; font-variant-numeric: tabular-nums; }
-.totals .net th, .totals .net td { font-weight: 700; font-size: 11.5pt; color: #fff; background: var(--blue); padding: 2mm 3mm; }
-.totals .net th { border-radius: 1.5mm 0 0 1.5mm; padding-right: 12mm; }
-.totals .net td { border-radius: 0 1.5mm 1.5mm 0; }
+.totals .net th, .totals .net td { font-weight: 700; font-size: 11.5pt; color: var(--navy); padding-top: 1.5mm; padding-bottom: 1.5mm; border-top: 1px solid var(--navy); border-bottom: 3px double var(--navy); }
 
 /* Packaging + signatures, pushed to the bottom of the page */
 .sheet-footer { margin-top: auto; padding-top: 10mm; break-inside: avoid; }

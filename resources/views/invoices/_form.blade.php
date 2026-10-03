@@ -87,11 +87,13 @@
             <div class="grid grid-2">
                  <x-form.textarea name="notes" label="Internal notes (not printed)" :value="$invoice->notes" maxlength="2000" rows="3" />
                 <dl class="summary-list totals-panel">
-                    <div><dt>Subtotal</dt><dd data-subtotal>0.00</dd></div>
+                    <div><dt>Gross value</dt><dd data-gross>0.00</dd></div>
+                    <div><dt>Line discounts</dt><dd data-line-discounts>0.00</dd></div>
                     <div>
                         <dt><label for="f_discount">Extra discount (amount)</label></dt>
                         <dd><input id="f_discount" type="number" name="discount" min="0" step="0.01" inputmode="decimal" value="{{ old('discount', $invoice->discount ?? 0) }}" class="input input-sm" data-discount></dd>
                     </div>
+                    <div><dt>Total discount</dt><dd data-total-discount>0.00</dd></div>
                     <div class="is-total"><dt>Net invoice value</dt><dd>{{ $business->currency_symbol ?? '' }} <span data-total>0.00</span></dd></div>
                     <div><dt class="text-soft">Cost of goods</dt><dd class="text-soft" data-cost>0.00</dd></div>
                     <div><dt class="text-soft">Gross profit</dt><dd class="text-soft" data-profit>0.00</dd></div>

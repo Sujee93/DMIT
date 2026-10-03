@@ -78,9 +78,9 @@
     </table>
 
     <table class="totals">
-        @if ((float) $invoice->discount > 0)
-            <tr><th>Gross Value:</th><td>{{ number_format((float) $invoice->subtotal, 2) }}</td></tr>
-            <tr><th>Less Discount:</th><td>{{ number_format((float) $invoice->discount, 2) }}</td></tr>
+        @if ((float) $invoice->totalDiscount() > 0)
+            <tr><th>Gross Value:</th><td>{{ number_format((float) $invoice->grossValue(), 2) }}</td></tr>
+            <tr><th>Total Discount:</th><td>{{ number_format((float) $invoice->totalDiscount(), 2) }}</td></tr>
         @endif
         <tr class="net"><th>Net Invoice Value:</th><td>{{ number_format((float) $invoice->total, 2) }}</td></tr>
     </table>

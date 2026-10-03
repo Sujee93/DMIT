@@ -63,9 +63,9 @@
                     @endforeach
                     </tbody>
                     <tfoot>
-                    <tr><td colspan="5" class="num">Subtotal</td><td class="num">{{ money($invoice->subtotal) }}</td></tr>
-                    @if ((float) $invoice->discount > 0)
-                        <tr><td colspan="5" class="num">Discount</td><td class="num">- {{ money($invoice->discount) }}</td></tr>
+                    @if ((float) $invoice->totalDiscount() > 0)
+                        <tr><td colspan="5" class="num">Gross value</td><td class="num">{{ money($invoice->grossValue()) }}</td></tr>
+                        <tr><td colspan="5" class="num">Total discount</td><td class="num">- {{ money($invoice->totalDiscount()) }}</td></tr>
                     @endif
                     <tr><td colspan="5" class="num">Net invoice value</td><td class="num">{{ money($invoice->total) }}</td></tr>
                     </tfoot>

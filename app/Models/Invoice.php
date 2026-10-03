@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\InvoiceStatus;
+use App\Support\Money;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -76,6 +77,27 @@ class Invoice extends Model
     public function balance(): string
     {
         return number_format((float) $this->total - (float) $this->amount_paid, 2, '.', '');
+    }
+
+    /**
+     * Value of all lines before any discount (qty x unit price).
+     */
+    public function grossValue(): string
+    {
+        return Money::fromCents(Money::toCents($this->subtotal) + $this->lineDiscountCents());
+    }
+
+    /**
+     * Line discounts plus the extra invoice discount.
+     */
+    public function totalDiscount(): string
+    {
+        return Money::fromCents($this->lineDiscountCents() + Money::toCents($this->discount));
+    }
+
+    private function lineDiscountCents(): int
+    {
+        return $this->items->sum(fn (InvoiceItem $item) => Money::toCents($item->discount));
     }
 
     public function profit(): string
