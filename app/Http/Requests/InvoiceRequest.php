@@ -34,7 +34,7 @@ class InvoiceRequest extends FormRequest
             'items.*.quantity' => ['required', 'integer', 'min:1', 'max:1000000'],
             'items.*.unit_price' => ['required', ...$money],
             'items.*.unit_cost' => ['nullable', ...$money],
-            'items.*.discount_percent' => ['nullable', 'numeric', 'min:0', 'max:100', 'decimal:0,2'],
+            'items.*.discount' => ['nullable', ...$money],
         ];
     }
 
@@ -60,7 +60,7 @@ class InvoiceRequest extends FormRequest
             'items.*.quantity' => 'quantity',
             'items.*.unit_price' => 'unit price',
             'items.*.unit_cost' => 'unit cost',
-            'items.*.discount_percent' => 'discount %',
+            'items.*.discount' => 'line discount',
         ];
     }
 }

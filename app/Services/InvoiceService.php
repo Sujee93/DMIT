@@ -130,9 +130,16 @@ class InvoiceService
             $quantity = (int) $line['quantity'];
             $unitPrice = Money::toCents($line['unit_price']);
             $unitCost = Money::toCents($line['unit_cost'] ?? $product->cost);
-            $discountPercent = round((float) ($line['discount_percent'] ?? 0), 2);
+            $gross = $quantity * $unitPrice;
+            $lineDiscount = Money::toCents($line['discount'] ?? 0);
 
-            $lineTotal = (int) round($quantity * $unitPrice * (100 - $discountPercent) / 100);
+            if ($lineDiscount > $gross) {
+                throw ValidationException::withMessages([
+                    "items.{$index}.discount" => "The discount on {$product->code} cannot be more than the line value (".Money::format(Money::fromCents($gross)).').',
+                ]);
+            }
+
+            $lineTotal = $gross - $lineDiscount;
             $lineCost = $quantity * $unitCost;
             $subtotal += $lineTotal;
             $totalCost += $lineCost;
@@ -145,7 +152,7 @@ class InvoiceService
                 'quantity' => $quantity,
                 'unit_cost' => Money::fromCents($unitCost),
                 'unit_price' => Money::fromCents($unitPrice),
-                'discount_percent' => number_format($discountPercent, 2, '.', ''),
+                'discount' => Money::fromCents($lineDiscount),
                 'line_cost' => Money::fromCents($lineCost),
                 'line_total' => Money::fromCents($lineTotal),
                 'sort_order' => $index,

@@ -17,7 +17,7 @@ payment tracking and reports.
 | **Business settings** | Name, logo, tagline, address, phones, email, website, registration & tax numbers, currency, invoice prefix, default credit days *(admin)* |
 | **Products** | Code, name, description, colour & size (optional), cost, price, active flag. Search & filter. No stock tracking yet |
 | **Customers & Suppliers** | Optional code (printed as Customer Code). One page with tabs (All / Customers / Suppliers), search, profile page with balance, invoices and payment history |
-| **Wholesale invoicing** | Pick a customer and (optionally) the supplier fulfilling the goods, add products by code/name, **override the price per line**, per-line discount %, extra discount, internal notes. A4 portrait "Sales Invoice" print / PDF with item code, qty, unit price, discount, total, package and signature lines |
+| **Wholesale invoicing** | Pick a customer and (optionally) the supplier fulfilling the goods, add products by code/name, **override the price per line**, per-line discount (Rs.), extra discount, internal notes. A4 portrait "Sales Invoice" print / PDF with item code, qty, unit price, discount, total, package and signature lines |
 | **Payments – customers** | On an invoice: enter amount, method (cash / card / cheque / bank transfer) with reference, bank & cheque date. Partial payments supported; full payment marks the invoice **Paid** |
 | **Payments – suppliers** | "Supplier Payments" tab and a **Pay** button on every supplier. Reduces what you owe |
 | **Reports** | Sales (date range, profit, top products), Receivables, Payables, Dues (overdue ageing 1-30 / 31-60 / 61-90 / 90+) — all printable |

@@ -12,7 +12,7 @@
                 'quantity' => $item['quantity'] ?? 1,
                 'unit_cost' => $item['unit_cost'] ?? '',
                 'unit_price' => $item['unit_price'] ?? '',
-                'discount_percent' => $item['discount_percent'] ?? 0,
+                'discount' => $item['discount'] ?? '0.00',
                 'default_price' => $p['price'] ?? '',
             ];
         })->all();
@@ -24,7 +24,7 @@
             'quantity' => $item->quantity,
             'unit_cost' => $item->unit_cost,
             'unit_price' => $item->unit_price,
-            'discount_percent' => (float) $item->discount_percent,
+            'discount' => $item->discount,
             'default_price' => $productIndex->get($item->product_id)['price'] ?? '',
         ])->all() : [];
     }
@@ -63,7 +63,7 @@
             <table class="table items-table">
                 <thead>
                 <tr>
-                    <th>Product</th><th class="col-qty">Qty</th><th class="col-money">Unit cost</th><th class="col-money">Unit price</th><th class="col-disc">Disc %</th><th class="num col-total">Line total</th><th class="col-remove"></th>
+                    <th>Product</th><th class="col-qty">Qty</th><th class="col-money">Unit cost</th><th class="col-money">Unit price</th><th class="col-money">Discount ({{ $business->currency_symbol }})</th><th class="num col-total">Line total</th><th class="col-remove"></th>
                 </tr>
                 </thead>
                 <tbody data-items data-next-index="{{ count($rows) }}">

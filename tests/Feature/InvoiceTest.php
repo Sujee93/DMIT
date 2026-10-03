@@ -60,23 +60,27 @@ class InvoiceTest extends TestCase
         $this->assertSame('1450.00', $invoice->items[0]->unit_price);
     }
 
-    public function test_line_discount_percent_is_applied(): void
+    public function test_line_discount_amount_is_applied(): void
     {
         $this->actingAs($this->staff());
         $p = Product::factory()->create(['cost' => '1000', 'price' => '1450']);
 
         $this->post('/invoices', $this->payload([
-            ['product_id' => $p->id, 'quantity' => 6, 'unit_price' => '1450', 'discount_percent' => '10'],
+            ['product_id' => $p->id, 'quantity' => 6, 'unit_price' => '1450', 'discount' => '870'],
         ]))->assertSessionHasNoErrors();
 
         $invoice = Invoice::with('items')->firstOrFail();
-        $this->assertSame('10.00', $invoice->items[0]->discount_percent);
+        $this->assertSame('870.00', $invoice->items[0]->discount);
         $this->assertSame('7830.00', $invoice->items[0]->line_total);
         $this->assertSame('7830.00', $invoice->total);
 
         $this->post('/invoices', $this->payload([
-            ['product_id' => $p->id, 'quantity' => 1, 'unit_price' => '10', 'discount_percent' => '101'],
-        ]))->assertSessionHasErrors('items.0.discount_percent');
+            ['product_id' => $p->id, 'quantity' => 2, 'unit_price' => '10', 'discount' => '20.01'],
+        ]))->assertSessionHasErrors('items.0.discount');
+
+        $this->post('/invoices', $this->payload([
+            ['product_id' => $p->id, 'quantity' => 1, 'unit_price' => '10', 'discount' => '-1'],
+        ]))->assertSessionHasErrors('items.0.discount');
     }
 
     public function test_invoice_numbers_are_sequential(): void

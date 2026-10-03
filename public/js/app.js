@@ -147,7 +147,7 @@
             field(row, 'quantity').value = 1;
             field(row, 'unit_cost').value = product.cost;
             field(row, 'unit_price').value = product.price;
-            field(row, 'discount_percent').value = 0;
+            field(row, 'discount').value = '0.00';
             tbody.appendChild(fragment);
             field(row, 'quantity').select();
             recalc();
@@ -161,9 +161,9 @@
                 const qty = parseInt(field(row, 'quantity').value, 10) || 0;
                 const price = toCents(field(row, 'unit_price').value);
                 const unitCost = toCents(field(row, 'unit_cost').value);
-                const discount = Math.min(Math.max(parseFloat(field(row, 'discount_percent').value) || 0, 0), 100);
-                // Same rounding as the server: whole cents after the line discount.
-                const lineTotal = Math.round(qty * price * (100 - discount) / 100);
+                const gross = qty * price;
+                const lineDiscount = Math.min(Math.max(toCents(field(row, 'discount').value), 0), gross);
+                const lineTotal = gross - lineDiscount;
                 subtotal += lineTotal;
                 cost += qty * unitCost;
                 field(row, 'line_total').textContent = format(lineTotal);

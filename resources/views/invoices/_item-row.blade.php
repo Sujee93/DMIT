@@ -23,9 +23,9 @@
         <input type="number" name="{{ $prefix }}[unit_price]" value="{{ $row['unit_price'] ?? '' }}" min="0" step="0.01" required inputmode="decimal"
                @class(['input', 'input-sm', 'is-invalid' => $errors->has("{$errKey}.unit_price")]) data-field="unit_price" aria-label="Unit price">
     </td>
-    <td class="col-disc">
-        <input type="number" name="{{ $prefix }}[discount_percent]" value="{{ $row['discount_percent'] ?? 0 }}" min="0" max="100" step="0.01" inputmode="decimal"
-               @class(['input', 'input-sm', 'is-invalid' => $errors->has("{$errKey}.discount_percent")]) data-field="discount_percent" aria-label="Discount %">
+    <td class="col-money">
+        <input type="number" name="{{ $prefix }}[discount]" value="{{ $row['discount'] ?? '0.00' }}" min="0" step="0.01" inputmode="decimal"
+               @class(['input', 'input-sm', 'is-invalid' => $errors->has("{$errKey}.discount")]) data-field="discount" aria-label="Line discount (Rs.)">
     </td>
     <td class="num col-total fw-bold" data-field="line_total">0.00</td>
     <td class="col-remove">

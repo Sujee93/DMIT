@@ -370,7 +370,7 @@ small, .text-muted { color: var(--text-muted); }
 .items-table td { vertical-align: top; }
 .items-table .col-qty { width: 100px; }
 .items-table .col-money { width: 140px; }
-.items-table .col-disc { width: 96px; }
+
 .items-table .col-total { width: 140px; padding-top: 1.35rem; }
 .items-table .col-remove { width: 52px; }
 .price-changed { border-color: #f59e0b !important; background: #fffbeb !important; }

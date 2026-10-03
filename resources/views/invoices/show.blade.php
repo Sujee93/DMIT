@@ -46,7 +46,7 @@
         <x-card title="Items" :flush="true">
             <div class="table-wrap">
                 <table class="table">
-                    <thead><tr><th>#</th><th>Product</th><th class="num">Qty</th><th class="num">Unit price</th><th class="num">Disc %</th><th class="num">Total</th></tr></thead>
+                    <thead><tr><th>#</th><th>Product</th><th class="num">Qty</th><th class="num">Unit price</th><th class="num">Discount</th><th class="num">Total</th></tr></thead>
                     <tbody>
                     @foreach ($invoice->items as $item)
                         <tr>
@@ -57,7 +57,7 @@
                             </td>
                             <td class="num">{{ number_format($item->quantity) }}</td>
                             <td class="num">{{ money($item->unit_price) }}</td>
-                            <td class="num">{{ (float) $item->discount_percent > 0 ? rtrim(rtrim($item->discount_percent, '0'), '.').'%' : '—' }}</td>
+                            <td class="num">{{ (float) $item->discount > 0 ? money($item->discount) : '—' }}</td>
                             <td class="num fw-bold">{{ money($item->line_total) }}</td>
                         </tr>
                     @endforeach

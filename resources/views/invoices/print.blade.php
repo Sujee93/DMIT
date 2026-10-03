@@ -12,7 +12,6 @@
 @php
     $customer = $invoice->customer;
     $phones = implode(' / ', array_filter([$business->phone, $business->mobile]));
-    $pct = fn ($v) => number_format((float) $v, 1);
 @endphp
 <div class="toolbar no-print">
     <a href="{{ route('invoices.show', $invoice) }}" class="tb-btn">&larr; Back to invoice</a>
@@ -71,7 +70,7 @@
                 </td>
                 <td class="c-num">{{ number_format($item->quantity) }}</td>
                 <td class="c-num">{{ number_format((float) $item->unit_price, 2) }}</td>
-                <td class="c-num">{{ $pct($item->discount_percent) }}</td>
+                <td class="c-num">{{ number_format((float) $item->discount, 2) }}</td>
                 <td class="c-num">{{ number_format((float) $item->line_total, 2) }}</td>
             </tr>
         @endforeach
