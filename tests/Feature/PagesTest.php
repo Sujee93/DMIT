@@ -31,7 +31,12 @@ class PagesTest extends TestCase
         $invoice->assertRedirect();
         $invoiceUrl = $invoice->headers->get('Location');
 
+        $grn = $this->receive($supplier, [[$product, 5, '450']]);
+
         $urls = [
+            '/grns', '/grns/create', "/grns/{$grn->id}", "/grns/{$grn->id}/edit", "/grns/create?supplier_id={$supplier->id}",
+            '/stock', '/stock?filter=low', "/stock/{$product->id}", '/stock/adjust', '/cheques', '/cheques?status=all',
+            '/reports/purchases', '/reports/stock', '/supplier-payments/create?method=customer_cheque',
             '/dashboard', '/products', '/products/create', "/products/{$product->id}/edit",
             '/contacts', '/contacts?type=customer', '/contacts/create?type=supplier', "/contacts/{$customer->id}",
             "/contacts/{$supplier->id}", "/contacts/{$customer->id}/edit",

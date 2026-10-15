@@ -33,12 +33,10 @@
                     <dt>Status</dt><dd><x-invoice-status :invoice="$invoice" /></dd>
                     <dt>Invoice date</dt><dd>{{ $invoice->invoice_date->format('d M Y') }}</dd>
                     <dt>Due date</dt><dd>{{ $invoice->due_date?->format('d M Y') ?? 'On receipt' }}</dd>
-                    <dt>Supplier</dt>
-                    <dd>
-                        @if ($invoice->supplier)
-                            <a href="{{ route('contacts.show', $invoice->supplier) }}">{{ $invoice->supplier->displayName() }}</a>
-                        @else — @endif
-                    </dd>
+                    @if ($invoice->supplier)
+                        <dt>Supplier</dt>
+                        <dd><a href="{{ route('contacts.show', $invoice->supplier) }}">{{ $invoice->supplier->displayName() }}</a></dd>
+                    @endif
                 </dl>
             </div>
         </x-card>
@@ -84,7 +82,12 @@
                         @foreach ($invoice->payments as $payment)
                             <tr>
                                 <td class="nowrap">{{ $payment->payment_date->format('d M Y') }}</td>
-                                <td><x-badge tone="info">{{ $payment->method->label() }}</x-badge></td>
+                                <td>
+                                    <x-badge tone="info">{{ $payment->method->label() }}</x-badge>
+                                    @if ($payment->cheque)
+                                        <div class="mt-1"><x-badge :tone="$payment->cheque->statusTone()">{{ $payment->cheque->statusLabel() }}</x-badge></div>
+                                    @endif
+                                </td>
                                 <td>
                                     {{ $payment->reference ?: '—' }}
                                     @if ($payment->bank || $payment->cheque_date)

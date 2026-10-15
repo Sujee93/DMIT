@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Enums\InvoiceStatus;
 use App\Models\Invoice;
 use App\Models\Product;
+use App\Models\StockMovement;
 use App\Models\User;
 use App\Support\Money;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,10 @@ use Illuminate\Validation\ValidationException;
  */
 class InvoiceService
 {
-    public function __construct(private readonly InvoiceNumberGenerator $numbers) {}
+    public function __construct(
+        private readonly InvoiceNumberGenerator $numbers,
+        private readonly StockService $stock,
+    ) {}
 
     /**
      * @param  array<string, mixed>  $data  validated InvoiceRequest data
@@ -30,6 +34,7 @@ class InvoiceService
             $invoice->amount_paid = '0.00';
 
             $this->fillItemsAndTotals($invoice, $data);
+            $this->takeStock($invoice, $data, $user);
 
             return $invoice;
         });
@@ -38,9 +43,9 @@ class InvoiceService
     /**
      * @param  array<string, mixed>  $data  validated InvoiceRequest data
      */
-    public function update(Invoice $invoice, array $data): Invoice
+    public function update(Invoice $invoice, array $data, ?User $user = null): Invoice
     {
-        return DB::transaction(function () use ($invoice, $data) {
+        return DB::transaction(function () use ($invoice, $data, $user) {
             $invoice = Invoice::query()->lockForUpdate()->findOrFail($invoice->id);
 
             if ($invoice->hasPayments()) {
@@ -52,6 +57,7 @@ class InvoiceService
             $invoice->fill($this->headerAttributes($data));
             $invoice->items()->delete();
             $this->fillItemsAndTotals($invoice, $data);
+            $this->takeStock($invoice, $data, $user);
 
             return $invoice;
         });
@@ -68,6 +74,8 @@ class InvoiceService
                 ]);
             }
 
+            // Put the goods back into stock.
+            $this->stock->sync(StockMovement::SOURCE_INVOICE, $invoice->id, $invoice->invoice_no, $invoice->invoice_date, []);
             $invoice->items()->delete();
             $invoice->delete();
         });
@@ -102,7 +110,6 @@ class InvoiceService
     {
         return [
             'customer_id' => $data['customer_id'],
-            'supplier_id' => $data['supplier_id'] ?? null,
             'invoice_date' => $data['invoice_date'],
             'due_date' => $data['due_date'] ?? null,
             'notes' => $data['notes'] ?? null,
@@ -173,6 +180,40 @@ class InvoiceService
         $invoice->save();
 
         $invoice->items()->createMany($rows);
+    }
+
+    /**
+     * Take the invoiced quantities out of stock, refusing if there is not enough.
+     *
+     * @param  array<string, mixed>  $data
+     */
+    private function takeStock(Invoice $invoice, array $data, ?User $user): void
+    {
+        $lines = array_values($data['items']);
+        $quantities = [];
+        foreach ($lines as $line) {
+            $quantities[(int) $line['product_id']] = -(int) $line['quantity'];
+        }
+
+        $shortages = $this->stock->sync(
+            StockMovement::SOURCE_INVOICE, $invoice->id, $invoice->invoice_no, $invoice->invoice_date, $quantities, $user
+        );
+
+        if ($shortages === []) {
+            return;
+        }
+
+        $codes = Product::query()->whereIn('id', array_keys($shortages))->pluck('code', 'id');
+        $messages = [];
+        foreach ($lines as $index => $line) {
+            $id = (int) $line['product_id'];
+            if (isset($shortages[$id])) {
+                $available = (int) $line['quantity'] - $shortages[$id];
+                $messages["items.{$index}.quantity"] = "Not enough stock for {$codes[$id]}: only {$available} available.";
+            }
+        }
+
+        throw ValidationException::withMessages($messages);
     }
 
     private function defaultDescription(Product $product): ?string

@@ -35,6 +35,7 @@ class BusinessSetting extends Model
     protected $casts = [
         'default_due_days' => 'integer',
         'invoice_next_number' => 'integer',
+        'grn_next_number' => 'integer',
     ];
 
     protected static function booted(): void

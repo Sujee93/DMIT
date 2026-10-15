@@ -16,7 +16,8 @@
                                :options="$suppliers->mapWithKeys(fn ($s) => [$s->id => $s->displayName()])->all()" :value="$selected?->id"
                                data-navigate-param="supplier_id" />
             </div>
-            <x-form.payment-fields :methods="$paymentMethods" :default-amount="$balance !== null && (float) $balance > 0 ? $balance : null" />
+            <x-form.payment-fields :methods="$paymentMethods" :cheques="$availableCheques" :default-method="$defaultMethod"
+                                   :default-amount="$balance !== null && (float) $balance > 0 ? $balance : null" />
             <x-slot:footer>
                 <div class="form-actions">
                     <a href="{{ $selected ? route('contacts.show', $selected) : route('supplier-payments.index') }}" class="btn btn-secondary">Cancel</a>
@@ -33,7 +34,7 @@
                     <div class="balance-box__label">Currently owed</div>
                     <div class="balance-box__value">{{ money($balance) }}</div>
                 </div>
-                <p class="text-muted mt-2 mb-0">Payable = cost of goods on invoices supplied by this supplier, minus payments already made.</p>
+                <p class="text-muted mt-2 mb-0">Owed = total of this supplier's GRN bills, minus payments already made.</p>
             </x-card>
         @else
             <x-card>

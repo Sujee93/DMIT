@@ -42,6 +42,16 @@ class Contact extends Model
         return $this->hasMany(Invoice::class, 'supplier_id');
     }
 
+    public function grns(): HasMany
+    {
+        return $this->hasMany(Grn::class, 'supplier_id');
+    }
+
+    public function cheques(): HasMany
+    {
+        return $this->hasMany(Cheque::class, 'customer_id');
+    }
+
     public function customerPayments(): HasMany
     {
         return $this->hasMany(CustomerPayment::class, 'customer_id');
@@ -110,7 +120,7 @@ class Contact extends Model
             $invoiced = (float) $this->salesInvoices()->sum('total');
             $paid = (float) $this->salesInvoices()->sum('amount_paid');
         } else {
-            $invoiced = (float) $this->purchaseInvoices()->sum('total_cost');
+            $invoiced = (float) $this->grns()->sum('total');
             $paid = (float) $this->supplierPayments()->sum('amount');
         }
 

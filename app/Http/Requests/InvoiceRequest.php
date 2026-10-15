@@ -22,7 +22,6 @@ class InvoiceRequest extends FormRequest
 
         return [
             'customer_id' => ['required', 'integer', Rule::exists('contacts', 'id')->where('type', ContactType::Customer->value)],
-            'supplier_id' => ['nullable', 'integer', Rule::exists('contacts', 'id')->where('type', ContactType::Supplier->value)],
             'invoice_date' => ['required', 'date'],
             'due_date' => ['nullable', 'date', 'after_or_equal:invoice_date'],
             'discount' => ['nullable', ...$money],
@@ -56,7 +55,6 @@ class InvoiceRequest extends FormRequest
     {
         return [
             'customer_id' => 'customer',
-            'supplier_id' => 'supplier',
             'items.*.quantity' => 'quantity',
             'items.*.unit_price' => 'unit price',
             'items.*.unit_cost' => 'unit cost',

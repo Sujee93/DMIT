@@ -17,6 +17,7 @@ class ProductRequest extends FormRequest
         $this->merge([
             'code' => is_string($this->code) ? strtoupper(trim($this->code)) : $this->code,
             'is_active' => $this->boolean('is_active'),
+            'reorder_level' => $this->filled('reorder_level') ? $this->input('reorder_level') : 0,
         ]);
     }
 
@@ -35,6 +36,7 @@ class ProductRequest extends FormRequest
             'size' => ['nullable', 'string', 'max:50'],
             'cost' => ['required', 'numeric', 'min:0', 'max:999999999.99', 'decimal:0,2'],
             'price' => ['required', 'numeric', 'min:0', 'max:999999999.99', 'decimal:0,2'],
+            'reorder_level' => ['nullable', 'integer', 'min:0', 'max:1000000'],
             'is_active' => ['boolean'],
         ];
     }

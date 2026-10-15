@@ -5,7 +5,7 @@
 @section('content')
 <x-page-header title="Welcome back, {{ auth()->user()->name }}" subtitle="Here's how the business is doing this month.">
     <x-slot:actions>
-        <a href="{{ route('products.create') }}" class="btn btn-secondary"><x-icon name="cube" /> Add product</a>
+        <a href="{{ route('grns.create') }}" class="btn btn-secondary"><x-icon name="arrow-down" /> New GRN</a>
         <a href="{{ route('invoices.create') }}" class="btn btn-primary"><x-icon name="plus" /> New invoice</a>
     </x-slot:actions>
 </x-page-header>
@@ -16,6 +16,13 @@
     <x-stat label="Gross profit (month)" :value="money($summary['profit_month'])" icon="chart" tone="green" :href="route('reports.sales')" />
     <x-stat label="Receivables" :value="money($summary['receivable'])" icon="arrow-down" tone="sky" hint="Owed by customers" :href="route('reports.receivables')" />
     <x-stat label="Payables" :value="money($summary['payable'])" icon="arrow-up" tone="amber" hint="Owed to suppliers" :href="route('reports.payables')" />
+</div>
+
+<div class="grid grid-4 mt-3">
+    <x-stat label="Stock value" :value="money($summary['stock_value'])" icon="cube" tone="green" hint="At cost price" :href="route('stock.index')" />
+    <x-stat label="Low / out of stock" :value="$summary['low_stock_count']" icon="alert" tone="red" hint="Active products" :href="route('stock.index', ['filter' => 'low'])" />
+    <x-stat label="Cheques in hand" :value="money($summary['cheques_in_hand'])" icon="receipt" tone="blue" :hint="$summary['cheques_in_hand_count'].' usable cheques'" :href="route('cheques.index')" />
+    <x-stat label="Purchases this month" :value="money($summary['purchases_month'])" icon="truck" tone="amber" hint="GRN bill value" :href="route('reports.purchases')" />
 </div>
 
 <div class="grid grid-main-side mt-3">

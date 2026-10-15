@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\PaymentMethod;
 use App\Http\Requests\PaymentRequest;
+use App\Models\Cheque;
 use App\Models\Contact;
 use App\Models\SupplierPayment;
 use App\Services\PaymentService;
@@ -23,7 +24,7 @@ class SupplierPaymentController extends Controller
         $supplierId = $request->integer('supplier_id') ?: null;
 
         $payments = SupplierPayment::query()
-            ->with(['supplier:id,name,company', 'creator:id,name'])
+            ->with(['supplier:id,name,company', 'creator:id,name', 'cheques:id,supplier_payment_id,cheque_no,bank,cheque_date,amount,customer_id', 'cheques.customer:id,name,company'])
             ->when($supplierId, fn ($q) => $q->where('supplier_id', $supplierId))
             ->latest('payment_date')
             ->latest('id')
@@ -47,7 +48,16 @@ class SupplierPaymentController extends Controller
             'suppliers' => Contact::query()->suppliers()->active()->orderBy('name')->get(['id', 'name', 'company']),
             'selected' => $supplier,
             'balance' => $supplier?->balance(),
-            'paymentMethods' => PaymentMethod::options(),
+            'paymentMethods' => PaymentMethod::supplierOptions(),
+            'defaultMethod' => array_key_exists((string) $request->query('method'), PaymentMethod::supplierOptions())
+                ? (string) $request->query('method')
+                : PaymentMethod::Cash->value,
+            // Customer cheques that are still with us and still valid.
+            'availableCheques' => Cheque::query()
+                ->available()
+                ->with('customer:id,name,company')
+                ->orderBy('cheque_date')
+                ->get(),
         ]);
     }
 
@@ -67,8 +77,8 @@ class SupplierPaymentController extends Controller
     {
         $this->authorize('admin');
 
-        $supplierPayment->delete();
+        $this->payments->removeSupplierPayment($supplierPayment);
 
-        return back()->with('success', 'Supplier payment removed.');
+        return back()->with('success', 'Supplier payment removed. Any customer cheques it used are back in hand.');
     }
 }

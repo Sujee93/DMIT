@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\PaymentMethod;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class CustomerPayment extends Model
 {
@@ -33,6 +34,11 @@ class CustomerPayment extends Model
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Contact::class, 'customer_id');
+    }
+
+    public function cheque(): HasOne
+    {
+        return $this->hasOne(Cheque::class);
     }
 
     public function creator(): BelongsTo

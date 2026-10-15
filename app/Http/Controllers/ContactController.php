@@ -21,6 +21,11 @@ class ContactController extends Controller
 
         $contacts = Contact::query()
             ->when($type, fn ($q) => $q->where('type', $type))
+            // Totals for the balance column: customer owes us / we owe supplier.
+            ->withSum('salesInvoices as invoiced_total', 'total')
+            ->withSum('salesInvoices as received_total', 'amount_paid')
+            ->withSum('grns as grn_total', 'total')
+            ->withSum('supplierPayments as paid_total', 'amount')
             ->search($search)
             ->orderBy('name')
             ->paginate(25)
@@ -53,17 +58,21 @@ class ContactController extends Controller
     public function show(Contact $contact): View
     {
         if ($contact->isCustomer()) {
-            $invoices = $contact->salesInvoices()->latest('invoice_date')->latest('id')->paginate(15);
+            $documents = $contact->salesInvoices()->latest('invoice_date')->latest('id')->paginate(15);
             $payments = $contact->customerPayments()->with('invoice:id,invoice_no')->latest('payment_date')->limit(15)->get();
+            $cheques = $contact->cheques()->whereIn('status', ['in_hand', 'endorsed', 'returned'])->latest('cheque_date')->limit(15)->get();
         } else {
-            $invoices = $contact->purchaseInvoices()->with('customer:id,name,company')->latest('invoice_date')->latest('id')->paginate(15);
-            $payments = $contact->supplierPayments()->latest('payment_date')->latest('id')->limit(15)->get();
+            // Suppliers: goods received (GRNs) and payments made.
+            $documents = $contact->grns()->withSum('items as total_quantity', 'quantity')->latest('grn_date')->latest('id')->paginate(15);
+            $payments = $contact->supplierPayments()->with('cheques:id,supplier_payment_id,cheque_no')->latest('payment_date')->latest('id')->limit(15)->get();
+            $cheques = collect();
         }
 
         return view('contacts.show', [
             'contact' => $contact,
-            'invoices' => $invoices,
+            'documents' => $documents,
             'payments' => $payments,
+            'cheques' => $cheques,
             'balance' => $contact->balance(),
         ]);
     }
@@ -106,6 +115,8 @@ class ContactController extends Controller
         return $contact->salesInvoices()->exists()
             || $contact->purchaseInvoices()->exists()
             || $contact->customerPayments()->exists()
-            || $contact->supplierPayments()->exists();
+            || $contact->supplierPayments()->exists()
+            || $contact->grns()->exists()
+            || $contact->cheques()->exists();
     }
 }

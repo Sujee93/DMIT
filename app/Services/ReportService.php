@@ -2,9 +2,12 @@
 
 namespace App\Services;
 
+use App\Models\Cheque;
 use App\Models\Contact;
+use App\Models\Grn;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
+use App\Models\Product;
 use App\Models\SupplierPayment;
 use Carbon\CarbonInterface;
 use Illuminate\Support\Collection;
@@ -103,10 +106,10 @@ class ReportService
      */
     public function payables(bool $onlyOutstanding = true): Collection
     {
-        $purchases = Invoice::query()
-            ->whereNotNull('supplier_id')
+        // What we owe = supplier bills entered as GRNs - payments made.
+        $purchases = Grn::query()
             ->groupBy('supplier_id')
-            ->select(['supplier_id', DB::raw('SUM(total_cost) as purchased'), DB::raw('COUNT(*) as invoice_count')])
+            ->select(['supplier_id', DB::raw('SUM(total) as purchased'), DB::raw('COUNT(*) as grn_count')])
             ->get()
             ->keyBy('supplier_id');
 
@@ -126,7 +129,7 @@ class ReportService
 
                 return (object) [
                     'contact' => $contacts->get($id),
-                    'invoice_count' => (int) ($purchases->get($id)->invoice_count ?? 0),
+                    'grn_count' => (int) ($purchases->get($id)->grn_count ?? 0),
                     'purchased' => $purchased,
                     'paid' => $paid,
                     'balance' => round($purchased - $paid, 2),
@@ -194,6 +197,70 @@ class ReportService
             'payable' => (float) $payables->where('balance', '>', 0)->sum('balance'),
             'overdue' => (float) Invoice::query()->overdue()->sum(DB::raw('total - amount_paid')),
             'overdue_count' => Invoice::query()->overdue()->count(),
+            'purchases_month' => (float) Grn::query()->whereDate('grn_date', '>=', $monthStart)->sum('total'),
+            'stock_value' => (float) Product::query()->where('stock', '>', 0)->sum(DB::raw('stock * cost')),
+            'low_stock_count' => Product::query()->active()->where(fn ($q) => $q
+                ->where('stock', '<=', 0)
+                ->orWhere(fn ($q) => $q->where('reorder_level', '>', 0)->whereColumn('stock', '<=', 'reorder_level')))->count(),
+            'cheques_in_hand' => (float) Cheque::query()->available()->sum('amount'),
+            'cheques_in_hand_count' => Cheque::query()->available()->count(),
+        ];
+    }
+
+    /**
+     * Goods received (supplier bills) in a period.
+     *
+     * @return array<string, mixed>
+     */
+    public function purchases(CarbonInterface $from, CarbonInterface $to, ?int $supplierId = null): array
+    {
+        $grns = Grn::query()
+            ->with('supplier:id,name,company')
+            ->withSum('items as total_quantity', 'quantity')
+            ->whereDate('grn_date', '>=', $from->toDateString())
+            ->whereDate('grn_date', '<=', $to->toDateString())
+            ->when($supplierId, fn ($q) => $q->where('supplier_id', $supplierId))
+            ->orderBy('grn_date')
+            ->orderBy('id')
+            ->get();
+
+        $bySupplier = $grns->groupBy('supplier_id')->map(fn ($rows) => (object) [
+            'supplier' => $rows->first()->supplier,
+            'count' => $rows->count(),
+            'quantity' => (int) $rows->sum('total_quantity'),
+            'total' => $rows->sum(fn ($g) => (float) $g->total),
+        ])->sortByDesc('total')->values();
+
+        return [
+            'grns' => $grns,
+            'bySupplier' => $bySupplier,
+            'totals' => [
+                'count' => $grns->count(),
+                'quantity' => (int) $grns->sum('total_quantity'),
+                'subtotal' => $grns->sum(fn ($g) => (float) $g->subtotal),
+                'discount' => $grns->sum(fn ($g) => (float) $g->discount),
+                'total' => $grns->sum(fn ($g) => (float) $g->total),
+            ],
+        ];
+    }
+
+    /**
+     * Stock on hand per product with value at cost.
+     *
+     * @return array<string, mixed>
+     */
+    public function stock(): array
+    {
+        $products = Product::query()->orderBy('code')->get();
+
+        return [
+            'products' => $products,
+            'totals' => [
+                'units' => (int) $products->sum(fn (Product $p) => max(0, $p->stock)),
+                'value' => $products->sum(fn (Product $p) => $p->stockValue()),
+                'out' => $products->filter(fn (Product $p) => $p->isOutOfStock())->count(),
+                'low' => $products->filter(fn (Product $p) => $p->isLowStock())->count(),
+            ],
         ];
     }
 }

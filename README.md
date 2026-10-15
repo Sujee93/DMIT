@@ -15,18 +15,23 @@ payment tracking and reports.
 | --- | --- |
 | **Login** | Email + password, "Remember me", brute-force throttling, inactive accounts blocked |
 | **Business settings** | Name, logo, tagline, address, phones, email, website, registration & tax numbers, currency, invoice prefix, default credit days *(admin)* |
-| **Products** | Code, name, description, colour & size (optional), cost, price, active flag. Search & filter. No stock tracking yet |
+| **Products** | Code, name, description, colour & size (optional), cost (follows the latest GRN), price, reorder level, active flag |
+| **Stock** | Stock on hand per product, value at cost, low / out-of-stock filters, full movement history, admin adjustments for opening stock and corrections. **An invoice cannot take more than the stock available** |
+| **Suppliers & GRN** | Supplier pages with GRNs, payments and balance. GRN (goods received note) records the supplier's bill no., items, quantities, costs and discount; saving it adds stock and the bill to what you owe |
 | **Customers & Suppliers** | Optional code (printed as Customer Code). One page with tabs (All / Customers / Suppliers), search, profile page with balance, invoices and payment history |
-| **Wholesale invoicing** | Pick a customer and (optionally) the supplier fulfilling the goods, add products by code/name, **override the price per line**, per-line discount (Rs.), extra discount, internal notes. A4 portrait "Sales Invoice" print / PDF with item code, qty, unit price, discount, total, package and signature lines |
-| **Payments – customers** | On an invoice: enter amount, method (cash / card / cheque / bank transfer) with reference, bank & cheque date. Partial payments supported; full payment marks the invoice **Paid** |
-| **Payments – suppliers** | "Supplier Payments" tab and a **Pay** button on every supplier. Reduces what you owe |
-| **Reports** | Sales (date range, profit, top products), Receivables, Payables, Dues (overdue ageing 1-30 / 31-60 / 61-90 / 90+) — all printable |
+| **Wholesale invoicing** | Pick a customer, add products (stock available is shown on every line) by code/name, **override the price per line**, per-line discount (Rs.), extra discount, internal notes. A4 portrait "Sales Invoice" print / PDF with item code, qty, unit price, discount, total, package and signature lines |
+| **Payments – customers** | On an invoice: enter amount, method (cash / card / cheque / bank transfer) with reference, bank & cheque date. Partial payments supported; full payment marks the invoice **Paid**. Cheques go into the cheque register |
+| **Cheque register** | Every customer cheque with its status: in hand, given to a supplier (and which one), deposited, returned (bounced - reverses the customer's payment) or expired (older than 6 months) |
+| **Payments – suppliers** | Cash, bank transfer, own cheque, or **customer cheques**: tick unused, still-valid customer cheques and their total becomes the payment. Deleting the payment puts the cheques back in hand |
+| **Reports** | Sales (date range, profit, top products), Purchases (GRN), Stock, Receivables, Payables, Dues (overdue ageing 1-30 / 31-60 / 61-90 / 90+), Cheque register — all printable |
 | **System users** | Admin / Staff roles, activate/deactivate *(admin)* |
 
 ### How the money flows
 
 - **Receivable** (customer owes you) = invoice total − payments received on that invoice.
-- **Payable** (you owe supplier) = cost of goods on invoices that name the supplier − supplier payments.
+- **Payable** (you owe supplier) = supplier bills entered as GRNs − supplier payments.
+- **Stock** goes up with GRNs and stock adjustments, down with invoices. Editing/deleting a GRN or invoice corrects stock; a GRN cannot be reduced below what has already been sold.
+- A **customer cheque** is usable for supplier payments while it is in hand and within 6 months of its date (`CHEQUE_VALID_MONTHS` in `.env`).
 - Invoice status is calculated automatically: Unpaid → Partially Paid → Paid. **Overdue** = unpaid past due date.
 - Invoices can be edited/deleted only until the first payment is recorded (protects your books).
 

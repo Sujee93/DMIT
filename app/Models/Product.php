@@ -19,6 +19,7 @@ class Product extends Model
         'size',
         'cost',
         'price',
+        'reorder_level',
         'is_active',
     ];
 
@@ -26,11 +27,38 @@ class Product extends Model
         'cost' => 'decimal:2',
         'price' => 'decimal:2',
         'is_active' => 'boolean',
+        'stock' => 'integer',
+        'reorder_level' => 'integer',
     ];
 
     public function invoiceItems(): HasMany
     {
         return $this->hasMany(InvoiceItem::class);
+    }
+
+    public function stockMovements(): HasMany
+    {
+        return $this->hasMany(StockMovement::class);
+    }
+
+    public function grnItems(): HasMany
+    {
+        return $this->hasMany(GrnItem::class);
+    }
+
+    public function isOutOfStock(): bool
+    {
+        return $this->stock <= 0;
+    }
+
+    public function isLowStock(): bool
+    {
+        return $this->stock > 0 && $this->reorder_level > 0 && $this->stock <= $this->reorder_level;
+    }
+
+    public function stockValue(): float
+    {
+        return max(0, $this->stock) * (float) $this->cost;
     }
 
     public function scopeActive(Builder $query): Builder

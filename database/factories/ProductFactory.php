@@ -22,7 +22,14 @@ class ProductFactory extends Factory
             'size' => (string) fake()->numberBetween(35, 45),
             'cost' => $cost,
             'price' => $cost + 1000,
+            // Plenty of stock by default so tests that are not about stock can invoice freely.
+            'stock' => 1000,
             'is_active' => true,
         ];
+    }
+
+    public function stock(int $units): static
+    {
+        return $this->state(fn () => ['stock' => $units]);
     }
 }

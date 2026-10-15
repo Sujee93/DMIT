@@ -105,6 +105,9 @@ class PaymentTest extends TestCase
 
     public function test_supplier_payment_reduces_payable(): void
     {
+        // What we owe comes from the supplier's GRN bills.
+        $this->assertSame('0.00', $this->supplier->balance());
+        $this->receive($this->supplier, [[Product::factory()->create(), 1, '600']]);
         $this->assertSame('600.00', $this->supplier->balance());
 
         $this->post('/supplier-payments', [

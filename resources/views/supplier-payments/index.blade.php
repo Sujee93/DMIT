@@ -34,7 +34,13 @@
                         <td><a href="{{ route('contacts.show', $payment->supplier_id) }}" class="cell-title">{{ $payment->supplier->displayName() }}</a></td>
                         <td><x-badge tone="info">{{ $payment->method->label() }}</x-badge></td>
                         <td>
-                            {{ $payment->reference ?: '—' }}
+                            @if ($payment->cheques->isNotEmpty())
+                                @foreach ($payment->cheques as $cheque)
+                                    <div><span class="mono fw-bold">{{ $cheque->cheque_no }}</span> <span class="cell-sub">{{ $cheque->bank }} · from {{ $cheque->customer->name }} · {{ money($cheque->amount) }}</span></div>
+                                @endforeach
+                            @else
+                                {{ $payment->reference ?: '—' }}
+                            @endif
                             @if ($payment->bank || $payment->cheque_date)
                                 <div class="cell-sub">{{ $payment->bank }} @if ($payment->cheque_date) · Cheque date {{ $payment->cheque_date->format('d M Y') }} @endif</div>
                             @endif
@@ -44,7 +50,7 @@
                         <td class="num fw-bold">{{ money($payment->amount) }}</td>
                         @can('admin')
                             <td><x-delete-button :action="route('supplier-payments.destroy', $payment)" :icon-only="true" label="Remove payment"
-                                    confirm="Remove this payment of {{ money($payment->amount) }}?" /></td>
+                                    confirm="Remove this payment of {{ money($payment->amount) }}?{{ $payment->cheques->isNotEmpty() ? ' Its customer cheques will go back to in hand.' : '' }}" /></td>
                         @endcan
                     </tr>
                 @endforeach

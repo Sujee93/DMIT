@@ -34,7 +34,7 @@
                 <thead>
                 <tr>
                     <th>Code</th><th>Product</th><th>Colour / Size</th>
-                    <th class="num">Cost</th><th class="num">Price</th><th class="num">Margin</th><th>Status</th><th></th>
+                    <th class="num">Cost</th><th class="num">Price</th><th class="num">Margin</th><th class="num">Stock</th><th>Status</th><th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,6 +50,9 @@
                         <td class="num">{{ money($product->cost) }}</td>
                         <td class="num fw-bold">{{ money($product->price) }}</td>
                         <td class="num {{ $margin < 0 ? 'text-danger' : 'text-success' }}">{{ money($margin, false) }}</td>
+                        <td class="num">
+                            <a href="{{ route('stock.show', $product) }}" @class(['fw-bold', 'text-danger' => $product->isOutOfStock(), 'text-warning' => $product->isLowStock()])>{{ number_format($product->stock) }}</a>
+                        </td>
                         <td>
                             @if ($product->is_active)<x-badge tone="success">Active</x-badge>@else<x-badge>Inactive</x-badge>@endif
                         </td>

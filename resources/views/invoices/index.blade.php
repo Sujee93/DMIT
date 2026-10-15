@@ -36,14 +36,13 @@
         <div class="table-wrap">
             <table class="table">
                 <thead>
-                <tr><th>Invoice</th><th>Customer</th><th>Supplier</th><th>Date</th><th>Due</th><th class="num">Total</th><th class="num">Balance</th><th>Status</th><th></th></tr>
+                <tr><th>Invoice</th><th>Customer</th><th>Date</th><th>Due</th><th class="num">Total</th><th class="num">Balance</th><th>Status</th><th></th></tr>
                 </thead>
                 <tbody>
                 @foreach ($invoices as $invoice)
                     <tr>
                         <td><a href="{{ route('invoices.show', $invoice) }}" class="cell-title nowrap">{{ $invoice->invoice_no }}</a></td>
                         <td>{{ $invoice->customer->displayName() }}</td>
-                        <td class="text-muted">{{ $invoice->supplier?->name ?? '—' }}</td>
                         <td class="nowrap">{{ $invoice->invoice_date->format('d M Y') }}</td>
                         <td class="nowrap">{{ $invoice->due_date?->format('d M Y') ?? '—' }}</td>
                         <td class="num">{{ money($invoice->total) }}</td>

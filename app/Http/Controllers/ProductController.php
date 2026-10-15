@@ -54,6 +54,10 @@ class ProductController extends Controller
     {
         $this->authorize('admin');
 
+        if ($product->stockMovements()->exists() || $product->grnItems()->exists()) {
+            return back()->with('error', "{$product->code} has stock history (GRNs, invoices or adjustments). Mark it inactive instead of deleting it.");
+        }
+
         // Invoice lines keep a copy of the product details, so history is preserved.
         $product->delete();
 

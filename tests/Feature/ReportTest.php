@@ -38,6 +38,7 @@ class ReportTest extends TestCase
         $receivables = $this->get('/reports/receivables')->assertSee('Galle Shoes');
         $this->assertSame(4000.0, $receivables->viewData('total'));
 
+        $this->receive($supplier, [[$product, 4, '600']]);
         $payables = $this->get('/reports/payables')->assertSee('Lanka Mfg');
         $this->assertSame(2400.0, $payables->viewData('total'));
 

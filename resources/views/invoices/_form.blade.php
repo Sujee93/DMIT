@@ -14,6 +14,7 @@
                 'unit_price' => $item['unit_price'] ?? '',
                 'discount' => $item['discount'] ?? '0.00',
                 'default_price' => $p['price'] ?? '',
+                'available' => $p['available'] ?? 0,
             ];
         })->all();
     } else {
@@ -26,21 +27,19 @@
             'unit_price' => $item->unit_price,
             'discount' => $item->discount,
             'default_price' => $productIndex->get($item->product_id)['price'] ?? '',
+            'available' => $productIndex->get($item->product_id)['available'] ?? 0,
         ])->all() : [];
     }
     $customerOptions = $customers->mapWithKeys(fn ($c) => [$c->id => $c->displayName()])->all();
-    $supplierOptions = $suppliers->mapWithKeys(fn ($c) => [$c->id => $c->displayName()])->all();
 @endphp
 
 <div data-invoice-form>
     <script type="application/json" data-products>@json($productOptions)</script>
 
-    <x-card title="Invoice details" subtitle="Choose who you are selling to and which supplier is fulfilling the goods.">
+    <x-card title="Invoice details" subtitle="Choose the customer. Goods are taken from stock when you save.">
         <div class="form-grid">
             <x-form.select name="customer_id" label="Customer" :options="$customerOptions" :value="$invoice->customer_id" placeholder="Select customer…" required
-                           hint="Need a new customer? Add it under Customers & Suppliers." />
-            <x-form.select name="supplier_id" label="Supplier" :options="$supplierOptions" :value="$invoice->supplier_id" placeholder="Select supplier (optional)…"
-                           hint="The cost of these goods is added to this supplier's payable." />
+                           hint="Need a new customer? Add it under Customers." />
             <x-form.input name="invoice_date" label="Invoice date" type="date" :value="$invoice->invoice_date?->toDateString()" required />
             <x-form.input name="due_date" label="Due date" type="date" :value="$invoice->due_date?->toDateString()" hint="Leave empty for cash / on-delivery invoices." />
         </div>
@@ -52,7 +51,7 @@
             <input id="product-search" type="text" class="input" list="product-list" placeholder="Search by product code or name, then press Enter…" autocomplete="off" data-product-search>
             <datalist id="product-list">
                 @foreach ($productOptions as $p)
-                    <option value="{{ $p['code'] }} — {{ $p['name'] }}">{{ $p['description'] }}</option>
+                    <option value="{{ $p['code'] }} — {{ $p['name'] }}">{{ $p['available'] > 0 ? $p['available'].' in stock' : 'OUT OF STOCK' }}{{ $p['description'] ? ' · '.$p['description'] : '' }}</option>
                 @endforeach
             </datalist>
             <button type="button" class="btn btn-primary" data-add-product><x-icon name="plus" /> Add</button>

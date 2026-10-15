@@ -9,14 +9,19 @@ use App\Models\BusinessSetting;
 use App\Models\Contact;
 use App\Models\Invoice;
 use App\Models\Product;
+use App\Models\StockMovement;
 use App\Services\InvoiceService;
+use App\Services\StockService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class InvoiceController extends Controller
 {
-    public function __construct(private readonly InvoiceService $invoices) {}
+    public function __construct(
+        private readonly InvoiceService $invoices,
+        private readonly StockService $stock,
+    ) {}
 
     public function index(Request $request): View
     {
@@ -26,7 +31,7 @@ class InvoiceController extends Controller
         $to = $this->validDate($request->query('to'));
 
         $invoices = Invoice::query()
-            ->with(['customer:id,name,company', 'supplier:id,name,company'])
+            ->with('customer:id,name,company')
             ->when($search !== '', function ($q) use ($search) {
                 $like = '%'.addcslashes($search, '%_\\').'%';
                 $q->where(function ($q) use ($like) {
@@ -52,7 +57,6 @@ class InvoiceController extends Controller
             'invoice_date' => today(),
             'due_date' => today()->addDays(BusinessSetting::current()->default_due_days),
             'customer_id' => $request->integer('customer_id') ?: null,
-            'supplier_id' => $request->integer('supplier_id') ?: null,
         ]);
 
         return view('invoices.create', $this->formData($invoice));
@@ -67,11 +71,11 @@ class InvoiceController extends Controller
 
     public function show(Invoice $invoice): View
     {
-        $invoice->load(['customer', 'supplier', 'items', 'payments.creator:id,name', 'creator:id,name']);
+        $invoice->load(['customer', 'supplier', 'items', 'payments.creator:id,name', 'payments.cheque', 'creator:id,name']);
 
         return view('invoices.show', [
             'invoice' => $invoice,
-            'paymentMethods' => PaymentMethod::options(),
+            'paymentMethods' => PaymentMethod::customerOptions(),
         ]);
     }
 
@@ -96,7 +100,7 @@ class InvoiceController extends Controller
 
     public function update(InvoiceRequest $request, Invoice $invoice): RedirectResponse
     {
-        $invoice = $this->invoices->update($invoice, $request->validated());
+        $invoice = $this->invoices->update($invoice, $request->validated(), $request->user());
 
         return redirect()->route('invoices.show', $invoice)->with('success', "Invoice {$invoice->invoice_no} updated.");
     }
@@ -115,17 +119,18 @@ class InvoiceController extends Controller
      */
     private function formData(Invoice $invoice): array
     {
-        $products = Product::query()
-            ->active()
-            ->orderBy('code')
-            ->get(['id', 'code', 'name', 'description', 'color', 'size', 'cost', 'price']);
+        $columns = ['id', 'code', 'name', 'description', 'color', 'size', 'cost', 'price', 'stock'];
+        $products = Product::query()->active()->orderBy('code')->get($columns);
+
+        // While editing, units already on this invoice count as available.
+        $taken = $invoice->exists ? $this->stock->takenBy(StockMovement::SOURCE_INVOICE, $invoice->id) : [];
 
         // Products already on the invoice stay selectable even if since deactivated.
         if ($invoice->exists) {
             $missing = $invoice->items->pluck('product_id')->filter()->diff($products->pluck('id'));
             if ($missing->isNotEmpty()) {
                 $products = $products->concat(
-                    Product::query()->whereIn('id', $missing)->get(['id', 'code', 'name', 'description', 'color', 'size', 'cost', 'price'])
+                    Product::query()->whereIn('id', $missing)->get($columns)
                 );
             }
         }
@@ -133,7 +138,6 @@ class InvoiceController extends Controller
         return [
             'invoice' => $invoice,
             'customers' => Contact::query()->customers()->active()->orderBy('name')->get(['id', 'name', 'company']),
-            'suppliers' => Contact::query()->suppliers()->active()->orderBy('name')->get(['id', 'name', 'company']),
             'productOptions' => $products->map(fn (Product $p) => [
                 'id' => $p->id,
                 'code' => $p->code,
@@ -141,6 +145,7 @@ class InvoiceController extends Controller
                 'description' => trim(implode(' - ', array_filter([$p->description, $p->variant()]))),
                 'cost' => $p->cost,
                 'price' => $p->price,
+                'available' => max(0, $p->stock + ($taken[$p->id] ?? 0)),
             ])->values(),
         ];
     }

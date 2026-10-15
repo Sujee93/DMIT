@@ -10,6 +10,9 @@
     <x-stat label="Receivables" :value="money($summary['receivable'])" icon="arrow-down" tone="sky" />
     <x-stat label="Payables" :value="money($summary['payable'])" icon="arrow-up" tone="amber" />
     <x-stat label="Overdue" :value="money($summary['overdue'])" icon="clock" tone="red" :hint="$summary['overdue_count'].' invoices'" />
+    <x-stat label="Purchases this month" :value="money($summary['purchases_month'])" icon="truck" tone="amber" />
+    <x-stat label="Stock value" :value="money($summary['stock_value'])" icon="cube" tone="green" :hint="$summary['low_stock_count'].' low / out of stock'" />
+    <x-stat label="Cheques in hand" :value="money($summary['cheques_in_hand'])" icon="receipt" tone="blue" :hint="$summary['cheques_in_hand_count'].' cheques'" />
 </div>
 
 <div class="report-links mt-3">
@@ -18,6 +21,9 @@
         ['reports.receivables', 'arrow-down', 'sky', 'Receivables', 'Outstanding balance for each customer - money you are waiting to collect.'],
         ['reports.payables', 'arrow-up', 'amber', 'Payables', 'What you owe each supplier after the payments you have made.'],
         ['reports.dues', 'clock', 'red', 'Dues & overdue', 'Invoices past their due date, grouped by how late they are.'],
+        ['reports.purchases', 'truck', 'amber', 'Purchases (GRN)', 'Goods received from suppliers for any date range, by supplier.'],
+        ['reports.stock', 'cube', 'green', 'Stock report', 'Stock on hand, value at cost, low and out-of-stock items.'],
+        ['cheques.index', 'receipt', 'blue', 'Cheque register', 'Customer cheques in hand, given to suppliers, deposited, returned or expiring.'],
     ] as [$route, $icon, $tone, $title, $text])
         <a href="{{ route($route) }}" class="card report-link">
             <div class="stat__icon tone-{{ $tone }}"><x-icon :name="$icon" /></div>

@@ -38,6 +38,32 @@ class ReportController extends Controller
         ]);
     }
 
+    public function purchases(Request $request): View
+    {
+        $validated = $request->validate([
+            'from' => ['nullable', 'date_format:Y-m-d'],
+            'to' => ['nullable', 'date_format:Y-m-d', 'after_or_equal:from'],
+            'supplier_id' => ['nullable', 'integer'],
+        ]);
+
+        $from = isset($validated['from']) ? Carbon::parse($validated['from']) : today()->startOfMonth();
+        $to = isset($validated['to']) ? Carbon::parse($validated['to']) : today();
+        $supplierId = $validated['supplier_id'] ?? null;
+
+        return view('reports.purchases', [
+            ...$this->reports->purchases($from, $to, $supplierId),
+            'from' => $from,
+            'to' => $to,
+            'supplierId' => $supplierId,
+            'suppliers' => Contact::query()->suppliers()->orderBy('name')->get(['id', 'name', 'company']),
+        ]);
+    }
+
+    public function stock(): View
+    {
+        return view('reports.stock', $this->reports->stock());
+    }
+
     public function receivables(): View
     {
         $rows = $this->reports->receivables();

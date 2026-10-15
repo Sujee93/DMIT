@@ -17,12 +17,12 @@
     @else
         <div class="table-wrap">
             <table class="table">
-                <thead><tr><th>Supplier</th><th class="num">Invoices</th><th class="num">Goods (cost)</th><th class="num">Paid</th><th class="num">Balance</th><th>Last payment</th><th class="no-print"></th></tr></thead>
+                <thead><tr><th>Supplier</th><th class="num">GRNs</th><th class="num">Bills (GRN)</th><th class="num">Paid</th><th class="num">Balance</th><th>Last payment</th><th class="no-print"></th></tr></thead>
                 <tbody>
                 @foreach ($rows as $row)
                     <tr>
                         <td><a href="{{ route('contacts.show', $row->contact) }}" class="cell-title">{{ $row->contact->displayName() }}</a></td>
-                        <td class="num">{{ $row->invoice_count }}</td>
+                        <td class="num">{{ $row->grn_count }}</td>
                         <td class="num">{{ money($row->purchased, false) }}</td>
                         <td class="num">{{ money($row->paid, false) }}</td>
                         <td @class(['num fw-bold', 'text-success' => $row->balance < 0])>

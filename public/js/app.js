@@ -79,23 +79,53 @@
         $$('[data-payment-form]').forEach((form) => {
             const method = $('[data-method]', form);
             const reference = $('[data-reference]', form);
+            const amount = $('[data-amount]', form);
+            const picker = $('[data-cheque-picker]', form);
+            const chequeBoxes = picker ? $$('input[type="checkbox"]', picker) : [];
+
+            const chequeTotal = () => {
+                const cents = chequeBoxes.filter((box) => box.checked).reduce((sum, box) => sum + toCents(box.dataset.chequeAmount), 0);
+                $('[data-cheque-total]', form).textContent = formatCents(cents);
+            };
+
             const update = () => {
                 const isCheque = method.value === 'cheque';
+                const usesCustomerCheques = method.value === 'customer_cheque';
+
                 $$('.cheque-only', form).forEach((el) => el.classList.toggle('hidden', !isCheque));
+                $$('.customer-cheque-only', form).forEach((el) => el.classList.toggle('hidden', !usesCustomerCheques));
+                $$('.not-customer-cheque', form).forEach((el) => el.classList.toggle('hidden', usesCustomerCheques));
+
+                // Hidden inputs must not be submitted or block the browser's validation.
+                if (amount) {
+                    amount.disabled = usesCustomerCheques;
+                    amount.required = !usesCustomerCheques;
+                }
                 if (reference) {
+                    reference.disabled = usesCustomerCheques;
                     reference.placeholder = isCheque ? 'Cheque number' : (method.value === 'card' ? 'Card slip / approval no.' : 'Optional');
                 }
+                chequeBoxes.forEach((box) => { box.disabled = !usesCustomerCheques; });
             };
+
             method?.addEventListener('change', update);
+            chequeBoxes.forEach((box) => box.addEventListener('change', chequeTotal));
             update();
+            if (picker) chequeTotal();
         });
     }
 
-    /* ---------- Invoice builder ---------- */
-    function initInvoiceForm() {
-        const root = $('[data-invoice-form]');
-        if (!root) return;
+    /* ---------- Line builders (invoice & GRN) ---------- */
+    const toCents = (value) => Math.round((parseFloat(value) || 0) * 100);
+    const formatCents = (cents) => (cents / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const field = (row, name) => row.querySelector(`[data-field="${name}"]`);
 
+    /**
+     * Shared behaviour for forms that build a list of product lines:
+     * search box + datalist, add / bump quantity, remove, and recalculation.
+     * fillRow(row, product) fills a freshly added row; recalc() updates totals.
+     */
+    function lineBuilder(root, fillRow, recalc) {
         const products = JSON.parse($('[data-products]', root).textContent || '[]');
         const byLabel = new Map(products.map((p) => [`${p.code} — ${p.name}`, p]));
         const byCode = new Map(products.map((p) => [String(p.code).toUpperCase(), p]));
@@ -103,12 +133,7 @@
         const tbody = $('[data-items]', root);
         const template = $('[data-row-template]', root);
         const search = $('[data-product-search]', root);
-        const emptyState = $('[data-items-empty]', root);
-        const discountInput = $('[data-discount]', root);
         let nextIndex = parseInt(tbody.dataset.nextIndex, 10) || 0;
-
-        const toCents = (value) => Math.round((parseFloat(value) || 0) * 100);
-        const format = (cents) => (cents / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
         function findProduct(text) {
             const value = text.trim();
@@ -117,10 +142,6 @@
             if (byCode.has(value.toUpperCase())) return byCode.get(value.toUpperCase());
             const matches = products.filter((p) => `${p.code} ${p.name}`.toLowerCase().includes(value.toLowerCase()));
             return matches.length === 1 ? matches[0] : null;
-        }
-
-        function field(row, name) {
-            return row.querySelector(`[data-field="${name}"]`);
         }
 
         function addProduct(product) {
@@ -140,53 +161,13 @@
             row.querySelectorAll('[name]').forEach((input) => {
                 input.name = input.name.replace('__INDEX__', index);
             });
-            row.dataset.defaultPrice = product.price;
             field(row, 'product_id').value = product.id;
             field(row, 'label').textContent = `${product.code} — ${product.name}`;
-            field(row, 'description').value = product.description || '';
             field(row, 'quantity').value = 1;
-            field(row, 'unit_cost').value = product.cost;
-            field(row, 'unit_price').value = product.price;
-            field(row, 'discount').value = '0.00';
+            fillRow(row, product);
             tbody.appendChild(fragment);
             field(row, 'quantity').select();
             recalc();
-        }
-
-        function recalc() {
-            let subtotal = 0;
-            let grossTotal = 0;
-            let lineDiscounts = 0;
-            let cost = 0;
-            const rows = $$('[data-item-row]', tbody);
-            rows.forEach((row) => {
-                const qty = parseInt(field(row, 'quantity').value, 10) || 0;
-                const price = toCents(field(row, 'unit_price').value);
-                const unitCost = toCents(field(row, 'unit_cost').value);
-                const gross = qty * price;
-                const lineDiscount = Math.min(Math.max(toCents(field(row, 'discount').value), 0), gross);
-                const lineTotal = gross - lineDiscount;
-                subtotal += lineTotal;
-                grossTotal += gross;
-                lineDiscounts += lineDiscount;
-                cost += qty * unitCost;
-                field(row, 'line_total').textContent = format(lineTotal);
-
-                const defaultPrice = row.dataset.defaultPrice;
-                const changed = defaultPrice !== '' && defaultPrice !== undefined && toCents(defaultPrice) !== price;
-                field(row, 'unit_price').classList.toggle('price-changed', changed);
-                field(row, 'unit_price').title = changed ? `Default price: ${format(toCents(defaultPrice))}` : '';
-            });
-
-            const discount = Math.min(toCents(discountInput.value), subtotal);
-            const total = subtotal - discount;
-            $('[data-gross]', root).textContent = format(grossTotal);
-            $('[data-line-discounts]', root).textContent = format(lineDiscounts);
-            $('[data-total-discount]', root).textContent = format(lineDiscounts + discount);
-            $('[data-total]', root).textContent = format(total);
-            $('[data-cost]', root).textContent = format(cost);
-            $('[data-profit]', root).textContent = format(total - cost);
-            emptyState.classList.toggle('hidden', rows.length > 0);
         }
 
         function addFromSearch() {
@@ -221,15 +202,118 @@
                 recalc();
             }
         });
-        discountInput.addEventListener('input', recalc);
+        $('[data-discount]', root)?.addEventListener('input', recalc);
 
-        // Stop Enter in item inputs from submitting the whole invoice.
+        // Stop Enter in line inputs from submitting the whole form.
         root.addEventListener('keydown', (event) => {
             if (event.key === 'Enter' && event.target.matches('input:not([type="submit"])')) {
                 event.preventDefault();
             }
         });
 
+        recalc();
+
+        return { rows: () => $$('[data-item-row]', tbody) };
+    }
+
+    function initInvoiceForm() {
+        const root = $('[data-invoice-form]');
+        if (!root) return;
+
+        const emptyState = $('[data-items-empty]', root);
+        const discountInput = $('[data-discount]', root);
+        let builder;
+
+        function recalc() {
+            if (!builder) return;
+            let subtotal = 0;
+            let grossTotal = 0;
+            let lineDiscounts = 0;
+            let cost = 0;
+            const rows = builder.rows();
+            rows.forEach((row) => {
+                const qty = parseInt(field(row, 'quantity').value, 10) || 0;
+                const price = toCents(field(row, 'unit_price').value);
+                const unitCost = toCents(field(row, 'unit_cost').value);
+                const gross = qty * price;
+                const lineDiscount = Math.min(Math.max(toCents(field(row, 'discount').value), 0), gross);
+                const lineTotal = gross - lineDiscount;
+                subtotal += lineTotal;
+                grossTotal += gross;
+                lineDiscounts += lineDiscount;
+                cost += qty * unitCost;
+                field(row, 'line_total').textContent = formatCents(lineTotal);
+
+                const defaultPrice = row.dataset.defaultPrice;
+                const changed = defaultPrice !== '' && defaultPrice !== undefined && toCents(defaultPrice) !== price;
+                field(row, 'unit_price').classList.toggle('price-changed', changed);
+                field(row, 'unit_price').title = changed ? `Default price: ${formatCents(toCents(defaultPrice))}` : '';
+
+                // Stock check (the server enforces it too).
+                const available = row.dataset.available;
+                if (available !== '' && available !== undefined) {
+                    const short = qty > parseInt(available, 10);
+                    const hint = field(row, 'stock');
+                    hint.textContent = short ? `Only ${available} in stock` : `${available} available`;
+                    hint.classList.toggle('is-short', short);
+                    field(row, 'quantity').classList.toggle('is-invalid', short);
+                }
+            });
+
+            const discount = Math.min(toCents(discountInput.value), subtotal);
+            const total = subtotal - discount;
+            $('[data-gross]', root).textContent = formatCents(grossTotal);
+            $('[data-line-discounts]', root).textContent = formatCents(lineDiscounts);
+            $('[data-total-discount]', root).textContent = formatCents(lineDiscounts + discount);
+            $('[data-total]', root).textContent = formatCents(total);
+            $('[data-cost]', root).textContent = formatCents(cost);
+            $('[data-profit]', root).textContent = formatCents(total - cost);
+            emptyState.classList.toggle('hidden', rows.length > 0);
+        }
+
+        builder = lineBuilder(root, (row, product) => {
+            row.dataset.defaultPrice = product.price;
+            row.dataset.available = product.available;
+            field(row, 'description').value = product.description || '';
+            field(row, 'unit_cost').value = product.cost;
+            field(row, 'unit_price').value = product.price;
+            field(row, 'discount').value = '0.00';
+        }, recalc);
+        recalc();
+    }
+
+    function initGrnForm() {
+        const root = $('[data-grn-form]');
+        if (!root) return;
+
+        const emptyState = $('[data-items-empty]', root);
+        const discountInput = $('[data-discount]', root);
+        let builder;
+
+        function recalc() {
+            if (!builder) return;
+            let subtotal = 0;
+            let units = 0;
+            const rows = builder.rows();
+            rows.forEach((row) => {
+                const qty = parseInt(field(row, 'quantity').value, 10) || 0;
+                const lineTotal = qty * toCents(field(row, 'unit_cost').value);
+                units += qty;
+                subtotal += lineTotal;
+                field(row, 'line_total').textContent = formatCents(lineTotal);
+            });
+
+            const discount = Math.min(toCents(discountInput.value), subtotal);
+            $('[data-units]', root).textContent = units.toLocaleString();
+            $('[data-subtotal]', root).textContent = formatCents(subtotal);
+            $('[data-total]', root).textContent = formatCents(subtotal - discount);
+            emptyState.classList.toggle('hidden', rows.length > 0);
+        }
+
+        builder = lineBuilder(root, (row, product) => {
+            field(row, 'unit_cost').value = product.cost;
+            field(row, 'stock').textContent = `In stock now: ${product.stock}`;
+        }, recalc);
         recalc();
     }
 
@@ -238,5 +322,6 @@
         initForms();
         initPaymentForms();
         initInvoiceForm();
+        initGrnForm();
     });
 })();

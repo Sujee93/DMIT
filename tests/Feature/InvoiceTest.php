@@ -113,7 +113,7 @@ class InvoiceTest extends TestCase
         $this->post('/invoices', $this->payload(
             [['product_id' => 999, 'quantity' => 0, 'unit_price' => '-1']],
             ['customer_id' => $this->supplier->id, 'supplier_id' => $this->customer->id]
-        ))->assertSessionHasErrors(['customer_id', 'supplier_id', 'items.0.product_id', 'items.0.quantity', 'items.0.unit_price']);
+        ))->assertSessionHasErrors(['customer_id', 'items.0.product_id', 'items.0.quantity', 'items.0.unit_price']);
 
         $this->post('/invoices', $this->payload([]))->assertSessionHasErrors('items');
 

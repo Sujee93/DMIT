@@ -49,7 +49,7 @@ class CheckInstallation extends Command
             $version = DB::selectOne('select version() as v')->v ?? '?';
             $this->line("  Server version: {$version}");
 
-            foreach (['users', 'sessions', 'business_settings', 'products', 'contacts', 'invoices', 'invoice_items', 'customer_payments', 'supplier_payments'] as $table) {
+            foreach (['users', 'sessions', 'business_settings', 'products', 'contacts', 'invoices', 'invoice_items', 'customer_payments', 'supplier_payments', 'grns', 'grn_items', 'stock_movements', 'cheques'] as $table) {
                 $this->check("Table {$table}", Schema::hasTable($table), 'Run: php artisan migrate --force');
             }
 

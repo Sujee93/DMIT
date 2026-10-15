@@ -3,13 +3,15 @@
     $prefix = "items[{$index}]";
     $errKey = "items.{$index}";
 @endphp
-<tr data-item-row data-default-price="{{ $row['default_price'] ?? '' }}">
+<tr data-item-row data-default-price="{{ $row['default_price'] ?? '' }}" data-available="{{ $row['available'] ?? '' }}">
     <td>
         <input type="hidden" name="{{ $prefix }}[product_id]" value="{{ $row['product_id'] ?? '' }}" data-field="product_id">
         <div class="cell-title" data-field="label">{{ $row['label'] ?? '' }}</div>
+        <div class="stock-hint" data-field="stock">{{ isset($row['available']) ? $row['available'].' available' : '' }}</div>
         <input type="text" name="{{ $prefix }}[description]" value="{{ $row['description'] ?? '' }}" maxlength="500"
                class="input input-sm mt-1" placeholder="Description / colour / size" data-field="description" aria-label="Description">
         @error("{$errKey}.product_id")<span class="field__error">{{ $message }}</span>@enderror
+        @error("{$errKey}.quantity")<span class="field__error">{{ $message }}</span>@enderror
     </td>
     <td class="col-qty">
         <input type="number" name="{{ $prefix }}[quantity]" value="{{ $row['quantity'] ?? 1 }}" min="1" max="1000000" step="1" required

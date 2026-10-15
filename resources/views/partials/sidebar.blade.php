@@ -1,24 +1,36 @@
 @php
+    // Which contact type the current page is about, so Customers / Suppliers highlight correctly.
+    $routeContact = request()->route('contact');
+    $contactType = request()->routeIs('contacts.*')
+        ? ($routeContact instanceof \App\Models\Contact ? $routeContact->type->value : request('type'))
+        : null;
+
     $nav = [
         ['label' => 'Overview', 'items' => [
-            ['route' => 'dashboard', 'match' => 'dashboard', 'icon' => 'home', 'text' => 'Dashboard'],
+            ['url' => route('dashboard'), 'active' => request()->routeIs('dashboard'), 'icon' => 'home', 'text' => 'Dashboard'],
         ]],
         ['label' => 'Sales', 'items' => [
-            ['route' => 'invoices.index', 'match' => 'invoices.*', 'icon' => 'document', 'text' => 'Invoices'],
-            ['route' => 'supplier-payments.index', 'match' => 'supplier-payments.*', 'icon' => 'cash', 'text' => 'Supplier Payments'],
+            ['url' => route('invoices.index'), 'active' => request()->routeIs('invoices.*'), 'icon' => 'document', 'text' => 'Invoices'],
+            ['url' => route('contacts.index', ['type' => 'customer']), 'active' => $contactType === 'customer', 'icon' => 'users', 'text' => 'Customers'],
+            ['url' => route('cheques.index'), 'active' => request()->routeIs('cheques.*'), 'icon' => 'receipt', 'text' => 'Cheques'],
         ]],
-        ['label' => 'Catalogue', 'items' => [
-            ['route' => 'products.index', 'match' => 'products.*', 'icon' => 'cube', 'text' => 'Products'],
-            ['route' => 'contacts.index', 'match' => 'contacts.*', 'icon' => 'users', 'text' => 'Customers & Suppliers'],
+        ['label' => 'Purchasing', 'items' => [
+            ['url' => route('contacts.index', ['type' => 'supplier']), 'active' => $contactType === 'supplier', 'icon' => 'truck', 'text' => 'Suppliers'],
+            ['url' => route('grns.index'), 'active' => request()->routeIs('grns.*'), 'icon' => 'arrow-down', 'text' => 'GRN'],
+            ['url' => route('supplier-payments.index'), 'active' => request()->routeIs('supplier-payments.*'), 'icon' => 'cash', 'text' => 'Supplier Payments'],
+        ]],
+        ['label' => 'Inventory', 'items' => [
+            ['url' => route('products.index'), 'active' => request()->routeIs('products.*'), 'icon' => 'cube', 'text' => 'Products'],
+            ['url' => route('stock.index'), 'active' => request()->routeIs('stock.*'), 'icon' => 'store', 'text' => 'Stock'],
         ]],
         ['label' => 'Insights', 'items' => [
-            ['route' => 'reports.index', 'match' => 'reports.*', 'icon' => 'chart', 'text' => 'Reports'],
+            ['url' => route('reports.index'), 'active' => request()->routeIs('reports.*'), 'icon' => 'chart', 'text' => 'Reports'],
         ]],
     ];
     if (auth()->user()->can('admin')) {
         $nav[] = ['label' => 'Administration', 'items' => [
-            ['route' => 'settings.edit', 'match' => 'settings.*', 'icon' => 'cog', 'text' => 'Business Settings'],
-            ['route' => 'users.index', 'match' => 'users.*', 'icon' => 'shield', 'text' => 'System Users'],
+            ['url' => route('settings.edit'), 'active' => request()->routeIs('settings.*'), 'icon' => 'cog', 'text' => 'Business Settings'],
+            ['url' => route('users.index'), 'active' => request()->routeIs('users.*'), 'icon' => 'shield', 'text' => 'System Users'],
         ]];
     }
 @endphp
@@ -39,7 +51,7 @@
         @foreach ($nav as $group)
             <div class="nav__label">{{ $group['label'] }}</div>
             @foreach ($group['items'] as $item)
-                <a href="{{ route($item['route']) }}" @class(['nav__link', 'is-active' => request()->routeIs($item['match'])])>
+                <a href="{{ $item['url'] }}" @class(['nav__link', 'is-active' => $item['active']])>
                     <x-icon :name="$item['icon']" /> {{ $item['text'] }}
                 </a>
             @endforeach
