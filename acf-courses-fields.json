@@ -1,0 +1,570 @@
+[
+  {
+    "key": "group_dmit_course_65f1a2b3",
+    "title": "Course Details",
+    "fields": [
+      {
+        "key": "field_dmit_tab_basic_info",
+        "label": "Basic Info",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_dmit_course_subtitle",
+        "label": "Course Subtitle",
+        "name": "course_subtitle",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "e.g. Master Digital Marketing from Scratch",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_dmit_course_category",
+        "label": "Category",
+        "name": "course_category",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "digital_marketing": "Digital Marketing",
+          "seo_content": "SEO & Content",
+          "geo": "GEO – Generative Engine Optimization",
+          "web_development": "Web Design & Development",
+          "google_ads": "Google Ads",
+          "social_media": "Social Media",
+          "analytics": "Analytics",
+          "email_marketing": "Email Marketing"
+        },
+        "default_value": [],
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 1,
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_dmit_course_badge",
+        "label": "Badge Label",
+        "name": "course_badge",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "bestseller": "Bestseller",
+          "top_rated": "Top Rated",
+          "new": "New",
+          "popular": "Popular"
+        },
+        "default_value": [],
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 1,
+        "ui": 1,
+        "ajax": 0,
+        "placeholder": "None"
+      },
+      {
+        "key": "field_dmit_course_level",
+        "label": "Course Level",
+        "name": "course_level",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "beginner": "Beginner",
+          "intermediate": "Intermediate",
+          "advanced": "Advanced",
+          "beginner_advanced": "Beginner – Advanced"
+        },
+        "default_value": [],
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 1,
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_dmit_course_duration",
+        "label": "Duration",
+        "name": "course_duration",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "e.g. 12 Weeks or 48 Hours",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_dmit_course_price",
+        "label": "Price (LKR)",
+        "name": "course_price",
+        "type": "number",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "14990",
+        "prepend": "",
+        "append": "",
+        "min": 0,
+        "max": "",
+        "step": ""
+      },
+      {
+        "key": "field_dmit_course_students_count",
+        "label": "Students Enrolled",
+        "name": "course_students_count",
+        "type": "number",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "1240",
+        "prepend": "",
+        "append": "",
+        "min": 0,
+        "max": "",
+        "step": ""
+      },
+      {
+        "key": "field_dmit_course_rating",
+        "label": "Rating (out of 5)",
+        "name": "course_rating",
+        "type": "number",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "4.9",
+        "prepend": "",
+        "append": "",
+        "min": 0,
+        "max": 5,
+        "step": 0.1
+      },
+      {
+        "key": "field_dmit_tab_instructor",
+        "label": "Instructor",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_dmit_instructor_name",
+        "label": "Instructor Name",
+        "name": "instructor_name",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_dmit_instructor_title",
+        "label": "Instructor Title/Role",
+        "name": "instructor_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "e.g. Head of SEO, DMIT",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_dmit_instructor_image",
+        "label": "Instructor Photo",
+        "name": "instructor_image",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "preview_size": "thumbnail"
+      },
+      {
+        "key": "field_dmit_instructor_bio",
+        "label": "Instructor Bio",
+        "name": "instructor_bio",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "maxlength": "",
+        "rows": 4,
+        "new_lines": "wpautop"
+      },
+      {
+        "key": "field_dmit_tab_course_content",
+        "label": "Course Content",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_dmit_course_what_you_learn",
+        "label": "What You'll Learn",
+        "name": "course_what_you_learn",
+        "type": "repeater",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layout": "table",
+        "button_label": "Add Learning Point",
+        "min": 0,
+        "max": 0,
+        "collapsed": "",
+        "sub_fields": [
+          {
+            "key": "field_dmit_learn_item",
+            "label": "Learning Point",
+            "name": "learn_item",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "e.g. Build complete marketing campaigns",
+            "prepend": "",
+            "append": "",
+            "parent_repeater": "field_dmit_course_what_you_learn"
+          }
+        ]
+      },
+      {
+        "key": "field_dmit_course_curriculum",
+        "label": "Course Curriculum (Modules)",
+        "name": "course_curriculum",
+        "type": "repeater",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layout": "block",
+        "button_label": "Add Module",
+        "min": 0,
+        "max": 0,
+        "collapsed": "",
+        "sub_fields": [
+          {
+            "key": "field_dmit_module_title",
+            "label": "Module Title",
+            "name": "module_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "parent_repeater": "field_dmit_course_curriculum"
+          },
+          {
+            "key": "field_dmit_module_duration",
+            "label": "Duration",
+            "name": "module_duration",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "e.g. 5 lessons · 3 hours",
+            "prepend": "",
+            "append": "",
+            "parent_repeater": "field_dmit_course_curriculum"
+          },
+          {
+            "key": "field_dmit_module_lessons",
+            "label": "Lessons (one per line)",
+            "name": "module_lessons",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "br",
+            "parent_repeater": "field_dmit_course_curriculum"
+          }
+        ]
+      },
+      {
+        "key": "field_dmit_course_includes",
+        "label": "Course Includes",
+        "name": "course_includes",
+        "type": "repeater",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layout": "table",
+        "button_label": "Add Item",
+        "min": 0,
+        "max": 0,
+        "collapsed": "",
+        "sub_fields": [
+          {
+            "key": "field_dmit_include_icon",
+            "label": "Icon (emoji)",
+            "name": "include_icon",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "20",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "📹",
+            "prepend": "",
+            "append": "",
+            "parent_repeater": "field_dmit_course_includes"
+          },
+          {
+            "key": "field_dmit_include_text",
+            "label": "Description",
+            "name": "include_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "80",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "48 hours of HD video content",
+            "prepend": "",
+            "append": "",
+            "parent_repeater": "field_dmit_course_includes"
+          }
+        ]
+      },
+      {
+        "key": "field_dmit_tab_seo_meta",
+        "label": "SEO & Meta",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_dmit_course_meta_title",
+        "label": "Meta Title (SEO)",
+        "name": "course_meta_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_dmit_course_meta_description",
+        "label": "Meta Description (SEO)",
+        "name": "course_meta_description",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "maxlength": "",
+        "rows": 3,
+        "new_lines": "br"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "course"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acf_version": "6.2.9",
+    "modified": 1729036800
+  }
+]
