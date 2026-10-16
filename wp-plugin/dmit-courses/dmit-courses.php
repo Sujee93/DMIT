@@ -273,7 +273,151 @@ Content marketing & copywriting',
 }
 
 // ---------------------------------------------------------------------------
-// 3. Helper: parse a textarea field into a trimmed array of non-empty lines
+// 3. Shortcodes used in the course-details Elementor template
+//    These replace __dynamic__ tags which require ACF Pro.
+// ---------------------------------------------------------------------------
+
+add_shortcode( 'dmit_course_title', function() {
+	return '<h1 style="font-size:clamp(28px,5vw,52px);font-weight:700;color:#fff;font-family:Syne,sans-serif;line-height:1.15;margin:0;">'
+		. get_the_title() . '</h1>';
+} );
+
+add_shortcode( 'dmit_course_excerpt', function() {
+	$exc = get_the_excerpt();
+	if ( ! $exc ) return '';
+	return '<p style="font-size:17px;line-height:1.6;color:rgba(255,255,255,0.85);font-family:Outfit,sans-serif;margin:0;max-width:680px;">'
+		. esc_html( $exc ) . '</p>';
+} );
+
+add_shortcode( 'dmit_course_hero_badge', function() {
+	$pid   = get_the_ID();
+	$badge = get_field( 'course_badge', $pid );
+	$cat   = get_field( 'course_category', $pid );
+	if ( ! $badge && ! $cat ) return '';
+
+	$badge_map = [
+		'Bestseller' => 'background:linear-gradient(135deg,#2563EB,#7C3AED);',
+		'Top Rated'  => 'background:linear-gradient(135deg,#059669,#10B981);',
+		'New'        => 'background:linear-gradient(135deg,#F59E0B,#EF4444);',
+		'Sale'       => 'background:linear-gradient(135deg,#7C3AED,#EC4899);',
+	];
+
+	$out = '<div style="display:flex;flex-wrap:wrap;gap:10px;font-family:Outfit,sans-serif;">';
+	if ( $badge ) {
+		$bg   = $badge_map[ $badge ] ?? 'background:#2563EB;';
+		$out .= '<span style="display:inline-block;' . $bg . 'color:#fff;font-size:12px;font-weight:700;padding:6px 16px;border-radius:50px;">' . esc_html( $badge ) . '</span>';
+	}
+	if ( $cat ) {
+		$out .= '<span style="display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:12px;font-weight:600;padding:6px 16px;border-radius:50px;backdrop-filter:blur(4px);">' . esc_html( $cat ) . '</span>';
+	}
+	$out .= '</div>';
+	return $out;
+} );
+
+/**
+ * [dmit_course_layout] — full two-column content area for a single course.
+ * Left 62%: About, What You'll Learn, Curriculum, Instructor.
+ * Right 38%: Enroll card.
+ */
+add_shortcode( 'dmit_course_layout', 'dmit_course_layout_shortcode' );
+
+function dmit_course_layout_shortcode() {
+	ob_start(); ?>
+	<style>
+	.dmit-cd-wrap{display:grid;grid-template-columns:62fr 38fr;gap:32px;align-items:flex-start;font-family:Outfit,sans-serif;}
+	@media(max-width:900px){.dmit-cd-wrap{grid-template-columns:1fr;}}
+	.dmit-cd-box{background:#fff;border-radius:20px;border:1.5px solid #E5E7EB;padding:32px;margin-bottom:24px;}
+	.dmit-cd-box:last-child{margin-bottom:0;}
+	.dmit-cd-box h2{font-size:24px;font-weight:700;color:#0F172A;font-family:Syne,sans-serif;margin:0 0 20px;}
+	.dmit-learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+	@media(max-width:600px){.dmit-learn-grid{grid-template-columns:1fr;}}
+	.dmit-curriculum h3{font-size:15px;font-weight:700;color:#0F172A;margin:0;padding:14px 18px;background:#F9FAFB;border:1.5px solid #E5E7EB;border-radius:12px;}
+	.dmit-curriculum details{margin-bottom:10px;}
+	.dmit-curriculum details[open] summary{border-radius:12px 12px 0 0;}
+	.dmit-curriculum summary{padding:14px 18px;font-size:15px;font-weight:700;color:#0F172A;cursor:pointer;background:#F9FAFB;border:1.5px solid #E5E7EB;border-radius:12px;display:flex;justify-content:space-between;align-items:center;list-style:none;}
+	.dmit-curriculum .lesson-list{border:1.5px solid #E5E7EB;border-top:0;border-radius:0 0 12px 12px;padding:8px 18px 14px;display:flex;flex-direction:column;gap:8px;}
+	.dmit-curriculum .lesson-list li{display:flex;gap:10px;align-items:center;font-size:14px;color:#374151;padding-top:6px;}
+	.dmit-curriculum .lesson-list li::before{content:"▶";color:#2563EB;flex-shrink:0;}
+	.dmit-sticky{position:sticky;top:100px;}
+	</style>
+	<div class="dmit-cd-wrap">
+		<div class="dmit-cd-left">
+			<?php
+			$pid = get_the_ID();
+
+			// About
+			$content = get_the_content();
+			if ( $content ) : ?>
+				<div class="dmit-cd-box">
+					<h2>About This Course</h2>
+					<div style="font-size:16px;color:#4B5563;line-height:1.7;"><?php echo wp_kses_post( apply_filters( 'the_content', $content ) ); ?></div>
+				</div>
+			<?php endif;
+
+			// What You'll Learn
+			$raw_points = get_field( 'course_learn_points', $pid );
+			$points     = dmit_parse_lines( $raw_points );
+			if ( $points ) : ?>
+				<div class="dmit-cd-box">
+					<h2>What You Will Learn</h2>
+					<div class="dmit-learn-grid">
+						<?php foreach ( $points as $p ) : ?>
+							<div style="display:flex;gap:10px;align-items:flex-start;">
+								<span style="color:#7C3AED;font-size:18px;flex-shrink:0;line-height:1.4;">&#10003;</span>
+								<span style="font-size:15px;color:#374151;line-height:1.4;"><?php echo esc_html( $p ); ?></span>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			<?php endif;
+
+			// Curriculum
+			$curriculum = get_field( 'course_curriculum', $pid );
+			if ( $curriculum ) : ?>
+				<div class="dmit-cd-box">
+					<h2>Course Curriculum</h2>
+					<div class="dmit-curriculum"><?php echo wp_kses_post( $curriculum ); ?></div>
+				</div>
+			<?php endif;
+
+			// Instructor
+			$inst_name  = get_field( 'instructor_name', $pid );
+			$inst_title = get_field( 'instructor_title', $pid );
+			$inst_photo = get_field( 'instructor_photo', $pid );
+			$inst_bio   = get_field( 'instructor_bio', $pid );
+			if ( $inst_name ) : ?>
+				<div class="dmit-cd-box">
+					<h2>Your Instructor</h2>
+					<div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
+						<?php if ( $inst_photo ) : ?>
+							<img src="<?php echo esc_url( $inst_photo ); ?>" alt="<?php echo esc_attr( $inst_name ); ?>"
+								style="width:80px;height:80px;border-radius:50%;object-fit:cover;flex-shrink:0;" />
+						<?php endif; ?>
+						<div style="flex:1;min-width:180px;">
+							<div style="font-size:18px;font-weight:700;color:#0F172A;margin-bottom:4px;"><?php echo esc_html( $inst_name ); ?></div>
+							<?php if ( $inst_title ) : ?>
+								<div style="font-size:14px;color:#6B7280;margin-bottom:10px;"><?php echo esc_html( $inst_title ); ?></div>
+							<?php endif; ?>
+							<?php if ( $inst_bio ) : ?>
+								<div style="font-size:15px;color:#4B5563;line-height:1.6;"><?php echo esc_html( $inst_bio ); ?></div>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
+		</div>
+		<div class="dmit-cd-right">
+			<div class="dmit-sticky">
+				<?php echo dmit_course_enroll_card_shortcode(); ?>
+			</div>
+		</div>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+
+// ---------------------------------------------------------------------------
+// 4. Helper: parse a textarea field into a trimmed array of non-empty lines
 // ---------------------------------------------------------------------------
 
 function dmit_parse_lines( $text ) {
