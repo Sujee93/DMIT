@@ -322,6 +322,9 @@ add_shortcode( 'dmit_course_hero_badge', function() {
 add_shortcode( 'dmit_course_layout', 'dmit_course_layout_shortcode' );
 
 function dmit_course_layout_shortcode() {
+	static $running = false;
+	if ( $running ) return '';
+	$running = true;
 	ob_start(); ?>
 	<style>
 	.dmit-cd-wrap{display:grid;grid-template-columns:62fr 38fr;gap:32px;align-items:flex-start;font-family:Outfit,sans-serif;}
@@ -343,14 +346,13 @@ function dmit_course_layout_shortcode() {
 	<div class="dmit-cd-wrap">
 		<div class="dmit-cd-left">
 			<?php
-			$pid = get_the_ID();
-
-			// About
-			$content = get_the_content();
+			// About — use get_post_field to bypass Elementor's the_content filter
+			$pid     = get_the_ID();
+			$content = get_post_field( 'post_content', $pid );
 			if ( $content ) : ?>
 				<div class="dmit-cd-box">
 					<h2>About This Course</h2>
-					<div style="font-size:16px;color:#4B5563;line-height:1.7;"><?php echo wp_kses_post( apply_filters( 'the_content', $content ) ); ?></div>
+					<div style="font-size:16px;color:#4B5563;line-height:1.7;"><?php echo wp_kses_post( wpautop( $content ) ); ?></div>
 				</div>
 			<?php endif;
 
@@ -413,7 +415,9 @@ function dmit_course_layout_shortcode() {
 		</div>
 	</div>
 	<?php
-	return ob_get_clean();
+	$result  = ob_get_clean();
+	$running = false;
+	return $result;
 }
 
 // ---------------------------------------------------------------------------
